@@ -1,0 +1,17 @@
+{
+    "name": "sayenkodesign/bush",
+    "description": "WordPress theme",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Robert M. Parker",
+            "email": "rparker@yamiko.ninja"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Bush\\": "classes/"
+        }
+    },
+    "require": {}
+}
