@@ -9,9 +9,17 @@ var gulp         = require('gulp'),
     uglify       = require('gulp-uglify'),
     imagemin = require('gulp-imagemin'),
     watch = require('gulp-watch'),
-    livereload = require('gulp-livereload');
+    livereload = require('gulp-livereload'),
+    plumber = require('gulp-plumber'),
+    notify = require('gulp-notify');
 
-// task
+// custom error handler
+var plumberErrorHandler = { errorHandler: notify.onError({
+    title: 'Gulp',
+    message: 'Error: <%= error.message %>'
+})};
+
+// default task
 gulp.task('default', [
     'scripts',
     'images',
@@ -21,7 +29,7 @@ gulp.task('default', [
 
 // compass
 gulp.task('compass', function() {
-    gulp.src('./scss/**/*.scss')
+    gulp.src('./scss/**/*.scss').pipe(plumber(plumberErrorHandler))
         .pipe(compass({
             sass: 'scss',
             css: 'stylesheets',
@@ -43,7 +51,7 @@ gulp.task('compass', function() {
 
 // javascript
 gulp.task('scripts', function() {
-    gulp.src('js/app.js')
+    gulp.src('js/app.js').pipe(plumber(plumberErrorHandler))
         .pipe(rename({ suffix: '.min' }))
         .pipe(uglify())
         .pipe(gulp.dest('js'))
@@ -55,7 +63,7 @@ gulp.task('images', function() {
     gulp.src([
             '!images/**/*.min.{png,jpg,gif,svg}',
             'images/**/*.{png,jpg,gif,svg}'
-        ])
+        ]).pipe(plumber(plumberErrorHandler))
         .pipe(rename({ suffix: '.min' }))
         .pipe(imagemin({
             optimizationLevel: 7,
