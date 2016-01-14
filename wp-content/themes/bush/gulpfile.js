@@ -29,7 +29,7 @@ gulp.task('compass', function() {
             javascript: 'js',
             image: 'images',
             import_path: [
-                'bower_components/foundation/scss',
+                'bower_components/foundation-sites/scss',
             ],
             style: is_prod ? 'compressed' : 'nested',
             comments: !is_prod,
