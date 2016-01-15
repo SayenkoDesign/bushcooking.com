@@ -1,40 +1,32 @@
 @import "settings";
 @import "foundation";
+@include foundation-everything();
 
-// Or selectively include components
-// @import
-//   "foundation/components/accordion",
-//   "foundation/components/alert-boxes",
-//   "foundation/components/block-grid",
-//   "foundation/components/breadcrumbs",
-//   "foundation/components/button-groups",
-//   "foundation/components/buttons",
-//   "foundation/components/clearing",
-//   "foundation/components/dropdown",
-//   "foundation/components/dropdown-buttons",
-//   "foundation/components/flex-video",
-//   "foundation/components/forms",
-//   "foundation/components/grid",
-//   "foundation/components/inline-lists",
-//   "foundation/components/joyride",
-//   "foundation/components/keystrokes",
-//   "foundation/components/labels",
-//   "foundation/components/magellan",
-//   "foundation/components/orbit",
-//   "foundation/components/pagination",
-//   "foundation/components/panels",
-//   "foundation/components/pricing-tables",
-//   "foundation/components/progress-bars",
-//   "foundation/components/reveal",
-//   "foundation/components/side-nav",
-//   "foundation/components/split-buttons",
-//   "foundation/components/sub-nav",
-//   "foundation/components/switches",
-//   "foundation/components/tables",
-//   "foundation/components/tabs",
-//   "foundation/components/thumbs",
-//   "foundation/components/tooltips",
-//   "foundation/components/top-bar",
-//   "foundation/components/type",
-//   "foundation/components/offcanvas",
-//   "foundation/components/visibility";
+@import "typography";
+@import "navigation";
+
+.admin-bar .sticky.is-stuck.is-at-top {
+  margin-top: 32px !important;
+}
+
+.social-links {
+  .fa {
+    background-color: #000;
+    color: #FFF;
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    padding-top: 8px;
+    text-align: center;
+  }
+  .fa-instagram { background-color: #405f85; }
+  .fa-pinterest { background-color: #e55338; }
+  .fa-facebook { background-color: #9681a5; }
+  .fa-stumbleupon { background-color: #f68139; }
+  .fa-twitter { background-color: #a2bff2; }
+  .fa-google-plus { background-color: #ee7547; }
+  .fa.all-recipes {
+    background-image: url('../images/AllRecipes.png');
+    background-repeat: no-repeat;
+  }
+}

@@ -1,0 +1,95 @@
+#top-bar-container {
+  width: 100%;
+  .row.column {
+    position: relative;
+  }
+}
+
+#search-bar {
+  background-color: $secondary-1;
+  input { margin-right: 0; }
+  .menu {
+    background-color: transparent;
+  }
+}
+
+#primary-navigation {
+  text-align: center;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 4px solid $primary-1;
+  .top-bar-center {
+    display: inline-block;
+    position: relative;
+    left: calc(342px/2);// width of social menu / 2
+    .menu {
+      text-align: left;
+      .submenu {
+        border: none;
+        padding-top: 1rem;
+      }
+    }
+  }
+  .top-bar-right {
+    text-align: right;
+    a {
+      padding: 0 3px;
+      transition: opacity 0.3s linear;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    @include breakpoint(medium) {
+      text-align: left;
+    }
+  }
+  #primary-menu-toggle {
+    button {
+      top: -8px;
+      margin-left: 1rem;
+    }
+    button::after {
+      background-color: $primary-1;
+      box-shadow: 0 7px 0 $primary-1, 0 14px 0 $primary-1;
+    }
+  }
+  #primary-menu-toggle, .social-links {
+    display: inline-block;
+    @include breakpoint(medium) {
+      display: block;
+    }
+  }
+  @include breakpoint(medium) {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: none;
+  }
+}
+#primary-nav, #primary-mobile-nav {
+  a {
+    color: $primary-1;
+    &:hover {
+      color: $secondary-1;
+    }
+  }
+}
+#primary-mobile-nav {
+  background-color: $white;
+  text-align: center;
+  .menu.nested {
+    margin-left: 3rem;
+  }
+}
+
+#large-logo {
+  position: absolute;
+  top: -80px;
+  left: 16px;
+  > img {
+    max-width: 124px;
+  }
+  @include breakpoint(medium) {
+    top: -114px;
+    left: 0;
+  }
+}
