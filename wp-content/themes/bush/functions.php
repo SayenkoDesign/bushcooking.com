@@ -7,7 +7,8 @@ use Bush\WordPress\StyleSheet;
 use Bush\WordPress\Script;
 
 // stylesheets
-$stylesheet_app = new StyleSheet('bush_app_css', StyleSheet::getThemeURL() . '/stylesheets/app.css');
+$stylesheet_fontawesome = new StyleSheet('fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+$stylesheet_app = new StyleSheet('bush_app_css', StyleSheet::getThemeURL() . '/stylesheets/app.css', ['fontawesome']);
 
 // scripts
 add_action('wp_enqueue_scripts', function () {
