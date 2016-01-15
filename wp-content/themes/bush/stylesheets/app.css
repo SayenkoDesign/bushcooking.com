@@ -1926,7 +1926,7 @@ kbd {
   vertical-align: middle;
   border: 1px solid transparent;
   border-radius: 0;
-  padding: 0.85em 1em;
+  padding: 1rem;
   margin: 0 0 1rem 0;
   font-size: 0.9rem;
   background-color: #F15B24;
@@ -2061,7 +2061,7 @@ kbd {
     position: relative;
     top: 0.4em;
     float: right;
-    margin-left: 1em;
+    margin-left: 1rem;
     display: inline-block; }
   /* line 259, ../bower_components/foundation-sites/scss/components/_button.scss */
   .button.arrow-only::after {
@@ -4186,11 +4186,68 @@ h1, h2, h3, h4 {
       top: -114px;
       left: 0; } }
 
-/* line 8, ../scss/app.scss */
+/* line 1, ../scss/_signup.scss */
+#signup {
+  background-color: #FFF;
+  padding-top: 64px;
+  padding-bottom: 80px; }
+  /* line 5, ../scss/_signup.scss */
+  #signup h4 {
+    color: #787878;
+    margin-bottom: 1rem; }
+  /* line 9, ../scss/_signup.scss */
+  #signup .input-group {
+    max-width: 360px;
+    margin: 0 auto; }
+  /* line 13, ../scss/_signup.scss */
+  #signup input {
+    font-size: 12px; }
+
+/* line 1, ../scss/_footer-logo.scss */
+#footer-logo {
+  height: 50px;
+  background-color: #A9544D;
+  text-align: center;
+  position: relative; }
+  /* line 6, ../scss/_footer-logo.scss */
+  #footer-logo a {
+    position: absolute;
+    top: calc(100% - 100px);
+    right: calc(50% - 100px); }
+  /* line 11, ../scss/_footer-logo.scss */
+  #footer-logo img {
+    width: 200px; }
+
+/* line 1, ../scss/_footer.scss */
+#footer {
+  background-color: #3f3e2c;
+  padding-top: 2rem;
+  color: #729785; }
+  /* line 5, ../scss/_footer.scss */
+  #footer .medium-2 ul.menu {
+    margin-top: 128px; }
+  /* line 8, ../scss/_footer.scss */
+  #footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer h6 {
+    color: #787878; }
+  /* line 11, ../scss/_footer.scss */
+  #footer a {
+    color: #FFF; }
+    /* line 13, ../scss/_footer.scss */
+    #footer a:hover {
+      color: #f47c50; }
+  /* line 17, ../scss/_footer.scss */
+  #footer #footer-copyright {
+    padding: 1rem;
+    border-top: 2px dashed #729785; }
+    /* line 20, ../scss/_footer.scss */
+    #footer #footer-copyright p {
+      margin: 0; }
+
+/* line 11, ../scss/app.scss */
 .admin-bar .sticky.is-stuck.is-at-top {
   margin-top: 32px !important; }
 
-/* line 13, ../scss/app.scss */
+/* line 16, ../scss/app.scss */
 .social-links .fa {
   background-color: #000;
   color: #FFF;
@@ -4199,25 +4256,30 @@ h1, h2, h3, h4 {
   height: 30px;
   padding-top: 8px;
   text-align: center; }
-/* line 22, ../scss/app.scss */
+/* line 25, ../scss/app.scss */
 .social-links .fa-instagram {
   background-color: #405f85; }
-/* line 23, ../scss/app.scss */
+/* line 26, ../scss/app.scss */
 .social-links .fa-pinterest {
   background-color: #e55338; }
-/* line 24, ../scss/app.scss */
+/* line 27, ../scss/app.scss */
 .social-links .fa-facebook {
   background-color: #9681a5; }
-/* line 25, ../scss/app.scss */
+/* line 28, ../scss/app.scss */
 .social-links .fa-stumbleupon {
   background-color: #f68139; }
-/* line 26, ../scss/app.scss */
+/* line 29, ../scss/app.scss */
 .social-links .fa-twitter {
   background-color: #a2bff2; }
-/* line 27, ../scss/app.scss */
+/* line 30, ../scss/app.scss */
 .social-links .fa-google-plus {
   background-color: #ee7547; }
-/* line 28, ../scss/app.scss */
+/* line 31, ../scss/app.scss */
 .social-links .fa.all-recipes {
   background-image: url("../images/AllRecipes.png");
   background-repeat: no-repeat; }
+
+/* line 37, ../scss/app.scss */
+#content {
+  padding-top: 80px;
+  padding-bottom: 80px; }

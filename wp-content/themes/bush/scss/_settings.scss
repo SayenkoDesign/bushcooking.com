@@ -8,6 +8,8 @@ $secondary-3: #F8F3E7;
 $primary-color: $primary-3;
 $success-color: $primary-2;
 $secondary-color: $primary-1;
+$footer-color: #3f3e2c;
+$footer-font-color: #729785;
 $white: #FFF;
 
 // fonts
@@ -29,6 +31,7 @@ $anchor-color-hover: scale-color($anchor-color, $lightness: 20%);
 
 // global
 $body-background: $secondary-3;
+$button-padding: 1rem;
 
 // top bar
 $topbar-background: $white;

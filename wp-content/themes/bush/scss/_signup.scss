@@ -1,0 +1,16 @@
+#signup {
+  background-color: #FFF;
+  padding-top: 64px;
+  padding-bottom: 80px;
+  h4 {
+    color: $secondary-2;
+    margin-bottom: 1rem;
+  }
+  .input-group {
+    max-width:360px;
+    margin: 0 auto;
+  }
+  input {
+    font-size: 12px;
+  }
+}
