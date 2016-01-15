@@ -4,6 +4,9 @@
 
 @import "typography";
 @import "navigation";
+@import "signup";
+@import "footer-logo";
+@import "footer";
 
 .admin-bar .sticky.is-stuck.is-at-top {
   margin-top: 32px !important;
@@ -29,4 +32,9 @@
     background-image: url('../images/AllRecipes.png');
     background-repeat: no-repeat;
   }
+}
+
+#content {
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
