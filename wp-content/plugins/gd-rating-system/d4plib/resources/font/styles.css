@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: "dev4press";
+    src:url("fonts/dev4press.eot");
+    src:url("fonts/dev4press.eot?#iefix") format("embedded-opentype"),
+        url("fonts/dev4press.woff") format("woff"),
+        url("fonts/dev4press.ttf") format("truetype"),
+        url("fonts/dev4press.svg#dev4press") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.d4pi {
+  display: inline-block;
+  font: normal normal normal 14px/1 "dev4press";
+  font-size: inherit;
+  text-rendering: auto;
+  transform: translate(0, 0);
+  text-transform: none;
+  vertical-align: baseline;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.d4p-dev4press:before {
+  content: "d";
+}
+
+.d4p-dev4press-light:before {
+  content: "p";
+}
+
+.d4p-responsive:before {
+  content: "r";
+}
+
+.d4p-xscape2:before {
+  content: "x";
+}
+
+.d4p-jquery:before {
+  content: "j";
+}
+
+.d4p-bbpress:before {
+  content: "b";
+}
+
+.d4p-buddypress:before {
+  content: "c";
+}
+
+.d4pi-fw {
+    text-align: center;
+    width: 1.28571em;
+}
