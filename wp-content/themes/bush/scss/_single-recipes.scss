@@ -1,0 +1,59 @@
+.slick {
+  background-color: #FFF;
+  border: 1px solid #fcdedc;
+  padding: 6px;
+}
+.slick-next {
+  right: 5px;
+  &:before {
+    content: "\f105";
+  }
+}
+.slick-prev {
+  left: 6px;
+  &:before {
+    content: "\f104";
+  }
+}
+.slick-next, .slick-prev {
+  padding: 1rem;
+  z-index: 1;
+  background-color: #71a421 !important;
+  &:before {
+    font-family: 'FontAwesome';
+    line-height: 0;
+  }
+  &:hover {
+    background-color: $primary-2 !important;
+  }
+  &:active {
+    background-color: #71a421 !important;
+  }
+}
+
+.switch-text {
+  color: $primary-1;
+}
+
+#side {
+  background-color: #FFF;
+  padding: rem-calc(24);
+  border: 1px solid #fcdedc;
+  #details {
+    width: 100%;
+    border: 0 solid transparent;
+    tr, tbody, th, td { border: 0 solid transparent; }
+    tr {
+      background-color: transparent;
+    }
+    th {
+      font-weight:normal;
+      text-align: left;
+      padding-left: 0;
+    }
+    td {
+      text-align: right;
+      padding-right: 0;
+    }
+  }
+}

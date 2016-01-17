@@ -9,17 +9,20 @@ use Bush\WordPress\PostType;
 use Bush\WordPress\Taxonomy;
 
 // stylesheets
+$stylesheet_slick = new StyleSheet('slick', '//cdn.jsdelivr.net/g/jquery.slick@1.5.9(slick-theme.css+slick.css)');
 $stylesheet_fontawesome = new StyleSheet('fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
-$stylesheet_app = new StyleSheet('bush_app_css', StyleSheet::getThemeURL() . '/stylesheets/app.css', ['fontawesome']);
+$stylesheet_app = new StyleSheet('bush_app_css', StyleSheet::getThemeURL() . '/stylesheets/app.css', ['fontawesome', 'slick']);
 
 // scripts
 add_action('wp_enqueue_scripts', function () {
     wp_deregister_script('jquery');
 });
 $script_jquery = new Script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js');
+$script_slickjs = new Script('slick', '//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js', ['jquery']);
 $script_foundation = new Script('foundation', Script::getThemeURL() . '/bower_components/foundation-sites/dist/foundation.min.js');
 $script_app = new Script('bush_app_js', Script::getThemeURL() . '/js/app.min.js', [
-    'foundation'
+    'foundation',
+    'slick',
 ], time());
 
 // menus
