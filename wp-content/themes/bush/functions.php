@@ -38,7 +38,7 @@ $recipes = new PostType(
     true,
     true,
     false,
-    ['title', ],
+    ['title', 'author', 'comments'],
     true
 );
 
