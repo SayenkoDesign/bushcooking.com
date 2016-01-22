@@ -13,5 +13,9 @@
             "Bush\\": "classes/"
         }
     },
-    "require": {}
+    "require": {
+        "pimple/pimple": "^3.0",
+        "twig/twig": "^1.23",
+        "symfony/yaml": "^3.0"
+    }
 }
