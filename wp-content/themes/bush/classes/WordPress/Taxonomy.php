@@ -134,7 +134,7 @@ class Taxonomy
     {
         $this->setName($name);
         $this->setAttachedTo($attached_to);
-        $this->setLabel(__($name));
+        $this->setLabel(__(ucwords($name)));
         $this->setPublic($public);
         $this->setShow($show);
         $this->setHierarchical($hierarchical);

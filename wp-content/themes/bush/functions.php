@@ -30,7 +30,7 @@ $menu_primary = new Menu('primary', 'primary menu used in header');
 
 // post type
 $recipes = new PostType(
-    'Recipes',
+    'recipes',
     'Recipe',
     'Recipe',
     'Food Recipes',
@@ -43,8 +43,10 @@ $recipes = new PostType(
 );
 
 // add taxonomies
-$Difficulty = new Taxonomy('Difficulty', 'recipes');
-$Food = new Taxonomy('Food Category', 'recipes');
+$Difficulty = new Taxonomy('difficulty', 'recipes');
+$Food = new Taxonomy('food_category', 'recipes');
+$Food->setLabel("Food Category");
+$Technique = new Taxonomy('technique', 'recipes');
 
 // move yoast down
 add_filter( 'wpseo_metabox_prio', function() { return 'low';});

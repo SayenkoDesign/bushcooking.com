@@ -41,6 +41,14 @@ class WordPressExtension extends \Twig_Extension
             return $content;
         }, $html_safe);
 
+        // wp_footer
+        $funcs[] = new Twig_SimpleFunction('wp_footer', function() {
+            ob_start();
+            wp_footer();
+            $content = ob_get_clean();
+            return $content;
+        }, $html_safe);
+
         // language_attributes
         $funcs[] = new Twig_SimpleFunction('language_attributes', function($doctype = 'html') {
             return get_language_attributes($doctype);

@@ -4,45 +4,51 @@
     <body {{ body_class() }}>
 
     <div data-sticky-container>
-        <div class="sticky" data-sticky id="top-bar-container">
+        <div class="sticky" data-sticky id="top-bar-container" data-sticky-on="small">
             {% block header_searchbar %}
                 <div class="top-bar" id="search-bar">
-                <div class="column row">
-                    <div class="top-bar-right">
-                        <ul class="menu">
-                            <li>
-                                <button class="dropdown button" type="button" data-toggle="example-dropdown">
-                                    Toggle Dropdown
-                                </button>
-                            </li>
-                            <li>
-                                <input type="search" placeholder="Search">
-                            </li>
-                            <li>
-                                <button type="button" class="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </li>
-                        </ul>
-                        <div class="dropdown-pane" id="example-dropdown" data-dropdown>
-                            <ul class="menu vertical">
-                                {{
-                                    wp_list_categories({
-                                        'orderby'            : 'name',
-                                        'order'              :'ASC',
-                                        'title_li'           : '',
-                                        'hide_empty'         : 0,
-                                        'show_count'         : 0,
-                                        'use_desc_for_title' : 1,
-                                        'child_of'           : 0,
-                                        'hierarchical'       : 0,
-                                    })
-                                }}
+                    <div class="column row collapse">
+                        <div class="top-bar-right">
+                            <ul class="menu">
+                                <li>
+                                    <div class="button-group">
+                                        <a class="button" data-toggle="example-dropdown">Primary Action</a>
+                                        <a class="dropdown button" data-toggle="example-dropdown">
+                                            <i class="fa fa-angle-down"></i>
+                                            <span class="show-for-sr">Show menu</span>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="input-group">
+                                        <input class="input-group-field" type="search" placeholder="Find a Recipe">
+                                        <div class="input-group-button">
+                                            <button type="submit" class="button">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
+                            <div class="dropdown-pane" id="example-dropdown" data-dropdown data-hover="true" data-hover-pane="true">
+                                <ul class="menu vertical">
+                                    {{
+                                        wp_list_categories({
+                                            'orderby'            : 'name',
+                                            'order'              :'ASC',
+                                            'title_li'           : '',
+                                            'hide_empty'         : 0,
+                                            'show_count'         : 0,
+                                            'use_desc_for_title' : 1,
+                                            'child_of'           : 0,
+                                            'hierarchical'       : 0,
+                                        })
+                                    }}
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             {% endblock %}
             {% block primary_navi %}
                 <div class="top-bar" id="primary-navigation">
@@ -62,7 +68,6 @@
                             <li><a href="https://www.instagram.com/_bushcooking_/" target="_blank"><i class="fa fa-instagram"></i></a></li>
                             <li><a href="https://www.pinterest.com/Bush_Cooking/" target="_blank"><i class="fa fa-pinterest"></i></a></li>
                             <li><a href="https://www.facebook.com/BushCooking" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="" target="_blank"><i class="fa fa-stumbleupon"></i></a></li>
                             <li><a href="https://twitter.com/BushCooking" target="_blank"><i class="fa fa-twitter"></i></a></li>
                             <li><a href="https://plus.google.com/u/0/b/116280046121062819121/116280046121062819121" target="_blank"><i class="fa fa-google-plus"></i></a></li>
                         </ul>

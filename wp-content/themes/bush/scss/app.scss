@@ -9,10 +9,6 @@
 @import "footer";
 @import "single-recipes";
 
-.admin-bar .sticky.is-stuck.is-at-top {
-  margin-top: 32px !important;
-}
-
 .social-links {
   .fa {
     background-color: #000;
@@ -22,6 +18,7 @@
     height: 30px;
     padding-top: 8px;
     text-align: center;
+    font-size: 1rem;
   }
   .fa-instagram { background-color: #405f85; }
   .fa-pinterest { background-color: #e55338; }

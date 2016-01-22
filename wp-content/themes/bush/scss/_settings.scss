@@ -31,8 +31,9 @@ $anchor-color-hover: scale-color($anchor-color, $lightness: 20%);
 
 // global
 $body-background: $secondary-3;
-$button-padding: 1rem;
+$button-padding: 0.85em 1em;
 
 // top bar
+$topbar-padding: 4px;
 $topbar-background: $white;
 $topbar-link-color: $primary-1;
