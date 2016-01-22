@@ -1630,6 +1630,22 @@ h6 {
     color: #cacaca;
     line-height: 0; }
 
+/* line 309, ../bower_components/foundation-sites/scss/typography/_base.scss */
+h1 {
+  font-size: 3.85714rem; }
+
+/* line 309, ../bower_components/foundation-sites/scss/typography/_base.scss */
+h2 {
+  font-size: 2.57143rem; }
+
+/* line 309, ../bower_components/foundation-sites/scss/typography/_base.scss */
+h3 {
+  font-size: 2.28571rem; }
+
+/* line 309, ../bower_components/foundation-sites/scss/typography/_base.scss */
+h4 {
+  font-size: 2.14286rem; }
+
 @media screen and (min-width: 40em) {
   /* line 309, ../bower_components/foundation-sites/scss/typography/_base.scss */
   h1 {
@@ -4355,27 +4371,58 @@ h1, h2, h3, h4 {
 /* line 1, ../scss/_footer.scss */
 #footer {
   background-color: #3f3e2c;
-  padding-top: 2rem;
-  color: #729785; }
-  /* line 5, ../scss/_footer.scss */
-  #footer .medium-2 ul.menu {
-    margin-top: 128px; }
-  /* line 8, ../scss/_footer.scss */
+  padding-top: 8rem;
+  color: #729785;
+  text-align: center; }
+  /* line 7, ../scss/_footer.scss */
+  #footer #footer-menus ul.menu {
+    display: inline-block; }
+    /* line 9, ../scss/_footer.scss */
+    #footer #footer-menus ul.menu a {
+      color: #002615;
+      font-size: 1.5rem; }
+    @media screen and (min-width: 40em) {
+      /* line 7, ../scss/_footer.scss */
+      #footer #footer-menus ul.menu {
+        margin-top: 96px;
+        display: block; } }
+    @media screen and (min-width: 64em) {
+      /* line 7, ../scss/_footer.scss */
+      #footer #footer-menus ul.menu {
+        padding: 0 2rem; } }
+  /* line 23, ../scss/_footer.scss */
+  #footer #footer-menus ul.no-bullet a {
+    display: block;
+    padding: 0.2rem 0; }
+  @media screen and (min-width: 40em) {
+    /* line 6, ../scss/_footer.scss */
+    #footer #footer-menus {
+      display: inline-block;
+      text-align: left; }
+      /* line 32, ../scss/_footer.scss */
+      #footer #footer-menus .columns {
+        width: auto;
+        display: inline-block; } }
+  /* line 39, ../scss/_footer.scss */
   #footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer h6 {
     color: #787878; }
-  /* line 11, ../scss/_footer.scss */
+  /* line 42, ../scss/_footer.scss */
   #footer a {
     color: #FFF; }
-    /* line 13, ../scss/_footer.scss */
+    /* line 44, ../scss/_footer.scss */
     #footer a:hover {
       color: #f47c50; }
-  /* line 17, ../scss/_footer.scss */
+  /* line 48, ../scss/_footer.scss */
   #footer #footer-copyright {
     padding: 1rem;
     border-top: 2px dashed #729785; }
-    /* line 20, ../scss/_footer.scss */
+    /* line 51, ../scss/_footer.scss */
     #footer #footer-copyright p {
       margin: 0; }
+  @media screen and (min-width: 40em) {
+    /* line 1, ../scss/_footer.scss */
+    #footer {
+      padding-top: 2rem; } }
 
 /* line 1, ../scss/_single-recipes.scss */
 .slick {

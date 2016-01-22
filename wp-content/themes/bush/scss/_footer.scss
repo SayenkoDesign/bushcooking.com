@@ -1,9 +1,40 @@
 #footer {
   background-color: $footer-color;
-  padding-top: 2rem;
+  padding-top: 8rem;
   color: $footer-font-color;
-  .medium-2 ul.menu {
-    margin-top: 128px;
+  text-align: center;
+  #footer-menus {
+    ul.menu {
+      display: inline-block;
+      a {
+        color: $footer-social-icon-color;
+        font-size: 1.5rem;
+      }
+
+      @include breakpoint(medium) {
+        margin-top: 96px;
+        display: block;
+      }
+      @include breakpoint(large) {
+        padding: 0 2rem;
+      }
+    }
+    ul.no-bullet {
+      a {
+        display: block;
+        padding: 0.2rem 0;
+      }
+    }
+
+    @include breakpoint(medium) {
+      display: inline-block;
+      text-align: left;
+      .columns {
+        width: auto;
+        display: inline-block;
+      }
+    }
+
   }
   h1, h2, h3, h4, h5, h6 {
     color: $secondary-2;
@@ -18,5 +49,9 @@
     padding: 1rem;
     border-top: 2px dashed $footer-font-color;
     p { margin: 0; }
+  }
+
+  @include breakpoint(medium) {
+    padding-top: 2rem;
   }
 }
