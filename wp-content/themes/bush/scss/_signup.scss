@@ -5,6 +5,7 @@
   h4 {
     color: $secondary-2;
     margin-bottom: 1rem;
+    font-size: rem-calc(28px);
   }
   .input-group {
     max-width:360px;
@@ -12,5 +13,8 @@
   }
   input {
     font-size: 12px;
+  }
+  .button {
+    padding: 0.9rem 1rem;
   }
 }

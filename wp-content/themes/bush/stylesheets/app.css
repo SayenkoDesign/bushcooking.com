@@ -4283,33 +4283,34 @@ h1, h2, h3, h4 {
 
 /* line 183, ../scss/_navigation.scss */
 #primary-nav, #primary-mobile-nav {
-  font-size: 1.28571rem; }
-  /* line 185, ../scss/_navigation.scss */
+  font-size: 1.28571rem;
+  text-transform: uppercase; }
+  /* line 186, ../scss/_navigation.scss */
   #primary-nav a, #primary-mobile-nav a {
     color: #773D1A; }
-    /* line 187, ../scss/_navigation.scss */
+    /* line 188, ../scss/_navigation.scss */
     #primary-nav a:hover, #primary-mobile-nav a:hover {
       color: #A9544D; }
 
-/* line 192, ../scss/_navigation.scss */
+/* line 193, ../scss/_navigation.scss */
 #primary-mobile-nav {
   background-color: #FFF;
   border-bottom: 4px solid #773D1A;
   text-align: center; }
-  /* line 196, ../scss/_navigation.scss */
+  /* line 197, ../scss/_navigation.scss */
   #primary-mobile-nav .menu.nested {
     margin-left: 3rem; }
 
-/* line 201, ../scss/_navigation.scss */
+/* line 202, ../scss/_navigation.scss */
 #large-logo {
   position: absolute;
   top: -80px;
   left: 16px; }
-  /* line 205, ../scss/_navigation.scss */
+  /* line 206, ../scss/_navigation.scss */
   #large-logo > img {
     max-width: 124px; }
   @media screen and (min-width: 40em) {
-    /* line 201, ../scss/_navigation.scss */
+    /* line 202, ../scss/_navigation.scss */
     #large-logo {
       top: -92px;
       left: 0; } }
@@ -4322,27 +4323,32 @@ h1, h2, h3, h4 {
   /* line 5, ../scss/_signup.scss */
   #signup h4 {
     color: #787878;
-    margin-bottom: 1rem; }
-  /* line 9, ../scss/_signup.scss */
+    margin-bottom: 1rem;
+    font-size: 2rem; }
+  /* line 10, ../scss/_signup.scss */
   #signup .input-group {
     max-width: 360px;
     margin: 0 auto; }
-  /* line 13, ../scss/_signup.scss */
+  /* line 14, ../scss/_signup.scss */
   #signup input {
     font-size: 12px; }
+  /* line 17, ../scss/_signup.scss */
+  #signup .button {
+    padding: 0.9rem 1rem; }
 
 /* line 1, ../scss/_footer-logo.scss */
 #footer-logo {
   height: 50px;
   background-color: #A9544D;
+  background-image: url("../images/pattern.min.jpg");
   text-align: center;
   position: relative; }
-  /* line 6, ../scss/_footer-logo.scss */
+  /* line 7, ../scss/_footer-logo.scss */
   #footer-logo a {
     position: absolute;
     top: calc(100% - 100px);
     right: calc(50% - 100px); }
-  /* line 11, ../scss/_footer-logo.scss */
+  /* line 12, ../scss/_footer-logo.scss */
   #footer-logo img {
     width: 200px; }
 

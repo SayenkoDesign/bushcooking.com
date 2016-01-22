@@ -181,7 +181,8 @@
   }
 }
 #primary-nav, #primary-mobile-nav {
-  font-size: rem-calc(18pt);
+  font-size: rem-calc(18px);
+  text-transform: uppercase;
   a {
     color: $primary-1;
     &:hover {
