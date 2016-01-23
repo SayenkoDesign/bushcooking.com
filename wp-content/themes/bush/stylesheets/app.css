@@ -4460,36 +4460,90 @@ h1, h2, h3, h4 {
   .slick-next:active, .slick-prev:active {
     background-color: #71a421 !important; }
 
-/* line 34, ../scss/_single-recipes.scss */
+/* line 33, ../scss/_single-recipes.scss */
+.slick-slide {
+  height: auto !important; }
+
+/* line 37, ../scss/_single-recipes.scss */
 .switch-text {
   color: #773D1A; }
 
-/* line 38, ../scss/_single-recipes.scss */
+/* line 41, ../scss/_single-recipes.scss */
 #side {
   background-color: #FFF;
   padding: 1.71429rem;
   border: 1px solid #fcdedc; }
-  /* line 42, ../scss/_single-recipes.scss */
+  /* line 45, ../scss/_single-recipes.scss */
   #side #details {
     width: 100%;
     border: 0 solid transparent; }
-    /* line 45, ../scss/_single-recipes.scss */
+    /* line 48, ../scss/_single-recipes.scss */
     #side #details tr, #side #details tbody, #side #details th, #side #details td {
       border: 0 solid transparent; }
-    /* line 46, ../scss/_single-recipes.scss */
+    /* line 49, ../scss/_single-recipes.scss */
     #side #details tr {
       background-color: transparent; }
-    /* line 49, ../scss/_single-recipes.scss */
+    /* line 52, ../scss/_single-recipes.scss */
     #side #details th {
       font-weight: normal;
       text-align: left;
       padding-left: 0; }
-    /* line 54, ../scss/_single-recipes.scss */
+    /* line 57, ../scss/_single-recipes.scss */
     #side #details td {
       text-align: right;
       padding-right: 0; }
 
-/* line 13, ../scss/app.scss */
+/* line 1, ../scss/_teasers.scss */
+.teaser {
+  border: 1px solid #F15B24;
+  padding: 0.28571rem; }
+  /* line 4, ../scss/_teasers.scss */
+  .teaser img.featured {
+    width: 100%;
+    height: auto;
+    max-width: none; }
+  /* line 9, ../scss/_teasers.scss */
+  .teaser .inner-content {
+    padding: 8px; }
+    /* line 11, ../scss/_teasers.scss */
+    .teaser .inner-content h4 > a {
+      color: #773D1A;
+      font-size: 1.71429rem; }
+      /* line 14, ../scss/_teasers.scss */
+      .teaser .inner-content h4 > a:hover {
+        color: #7AA470; }
+  /* line 20, ../scss/_teasers.scss */
+  .teaser .author-info img {
+    border-radius: 100%; }
+  /* line 24, ../scss/_teasers.scss */
+  .teaser .meta-info {
+    border-top: 1px solid #F15B24;
+    margin: 0;
+    padding: 8px 0 0; }
+    /* line 28, ../scss/_teasers.scss */
+    .teaser .meta-info p {
+      margin: 0; }
+    /* line 31, ../scss/_teasers.scss */
+    .teaser .meta-info .fa {
+      color: #F15B24; }
+  /* line 36, ../scss/_teasers.scss */
+  .teaser#teaser-ad .teaser-content {
+    padding: 128px 0; }
+  /* line 39, ../scss/_teasers.scss */
+  .teaser#teaser-ad img {
+    width: 120px; }
+  /* line 42, ../scss/_teasers.scss */
+  .teaser#teaser-ad h3 {
+    color: #406086;
+    font-size: 2rem; }
+  /* line 46, ../scss/_teasers.scss */
+  .teaser#teaser-ad .button {
+    border-color: #406086;
+    color: #406086;
+    font-size: 1.42857rem;
+    padding: 12px 28px; }
+
+/* line 14, ../scss/app.scss */
 .social-links .fa {
   background-color: #000;
   color: #FFF;
@@ -4499,30 +4553,30 @@ h1, h2, h3, h4 {
   padding-top: 8px;
   text-align: center;
   font-size: 1rem; }
-/* line 23, ../scss/app.scss */
+/* line 24, ../scss/app.scss */
 .social-links .fa-instagram {
   background-color: #405f85; }
-/* line 24, ../scss/app.scss */
+/* line 25, ../scss/app.scss */
 .social-links .fa-pinterest {
   background-color: #e55338; }
-/* line 25, ../scss/app.scss */
+/* line 26, ../scss/app.scss */
 .social-links .fa-facebook {
   background-color: #9681a5; }
-/* line 26, ../scss/app.scss */
+/* line 27, ../scss/app.scss */
 .social-links .fa-stumbleupon {
   background-color: #f68139; }
-/* line 27, ../scss/app.scss */
+/* line 28, ../scss/app.scss */
 .social-links .fa-twitter {
   background-color: #a2bff2; }
-/* line 28, ../scss/app.scss */
+/* line 29, ../scss/app.scss */
 .social-links .fa-google-plus {
   background-color: #ee7547; }
-/* line 29, ../scss/app.scss */
+/* line 30, ../scss/app.scss */
 .social-links .fa.all-recipes {
   background-image: url("../images/AllRecipes.png");
   background-repeat: no-repeat; }
 
-/* line 35, ../scss/app.scss */
+/* line 36, ../scss/app.scss */
 #content {
   padding-top: 80px;
   padding-bottom: 80px; }
