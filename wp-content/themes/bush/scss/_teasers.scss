@@ -42,24 +42,4 @@
       background-image: url('../images/users.min.png');
     }
   }
-  &#teaser-ad {
-    .teaser-content {
-      padding: 120px 0;
-      border: 2px solid $primary-2;
-      margin: 6px;
-    }
-    img {
-      width: 120px;
-    }
-    h3 {
-      color: $ad-color;
-      font-size: rem-calc(28px);
-    }
-    .button {
-      border-color: $ad-color;
-      color: $ad-color;
-      font-size: rem-calc(20px);
-      padding: 12px 28px;
-    }
-  }
 }
