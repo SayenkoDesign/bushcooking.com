@@ -2,6 +2,14 @@ h1, h2, h3, h4 {
   letter-spacing: rem-calc(2);
 }
 
+.read-more {
+  &::after {
+    padding-left: 1rem;
+    font-family: "FontAwesome";
+    content: "\f105";
+  }
+}
+
 .button.dropdown::after {
   display: none;
 }

@@ -11,7 +11,7 @@
                 <h4><a href="{{ home_url() }}/?post_type=recipes" class="large button">All Recipes</a></h4>
             </div>
         </div>
-        <div class="row">
+        <div class="row teasers">
             <div class="medium-6 medium-push-6 large-push-9 large-3 columns text-center">
                 <article id="teaser-ad" {{ post_class('recipe-teaser teaser') }}>
                     <div class="teaser-content">
@@ -38,10 +38,11 @@
                 <h4><a href="{{ home_url() }}/?post_type=articles" class="large button">All Articles</a></h4>
             </div>
         </div>
-        <div class="row">
-            {% for article in articles %}
-                <div class="medium-6 large-3 columns">
-                    {{ article | raw }}
+        <div class="row small-up-1 medium-up-2 large-up-4 teasers">
+            {% for key,top_article in top_articles %}
+                <div class="column">
+                    {{ top_article | raw }}
+                    {{ bottom_articles[key] | raw }}
                 </div>
             {% endfor %}
         </div>

@@ -1,5 +1,9 @@
+.teasers .column article:first-child {
+  margin-bottom: 30px;
+}
 .teaser {
-  border: 1px solid $primary-3;
+  border: 1px solid $border-color;
+  background-color: #FFF;
   padding: rem-calc(4px);
   img.featured {
     width: 100%;
@@ -31,10 +35,18 @@
     .fa {
       color: $primary-3;
     }
+    .fa.fa-users {
+      color: transparent;
+      width: 29px;
+      height: 16px;
+      background-image: url('../images/users.min.png');
+    }
   }
   &#teaser-ad {
     .teaser-content {
-      padding: 128px 0;
+      padding: 120px 0;
+      border: 2px solid $primary-2;
+      margin: 6px;
     }
     img {
       width: 120px;

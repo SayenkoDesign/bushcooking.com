@@ -18,6 +18,13 @@ while ( $query->have_posts() ) {
     ]);
 }
 
+$args = [
+    'post_type' => 'post',
+    'post_status' => 'publish',
+    'posts_per_page' => 8,
+    'caller_get_posts'=> 1
+];
+$query = new WP_Query($args);
 $articles = [];
 while ( $query->have_posts() ) {
     $query->the_post();
@@ -26,9 +33,13 @@ while ( $query->have_posts() ) {
     ]);
 }
 
+$top_articles = array_slice($articles, 0, 4);
+$bottom_articles = array_slice($articles, 3, 4);
+
 echo $app->render('pages/home.html.twig', [
     'rev_slider' => $slider,
     'recipes' => $recipes,
-    'articles' => $articles,
+    'top_articles' => $top_articles,
+    'bottom_articles' => $bottom_articles,
 ]);
 get_footer();
