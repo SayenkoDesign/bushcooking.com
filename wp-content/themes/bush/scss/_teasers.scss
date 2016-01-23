@@ -1,0 +1,53 @@
+.teaser {
+  border: 1px solid $primary-3;
+  padding: rem-calc(4px);
+  img.featured {
+    width: 100%;
+    height: auto;
+    max-width:none;
+  }
+  .inner-content {
+    padding: 8px;
+    h4 > a {
+      color: $primary-1;
+      font-size: rem-calc(24px);
+      &:hover {
+        color: $primary-2;
+      }
+    }
+  }
+  .author-info {
+    img {
+      border-radius: 100%;
+    }
+  }
+  .meta-info {
+    border-top: 1px solid $primary-3;
+    margin: 0;
+    padding: 8px 0 0;
+    p {
+      margin: 0;
+    }
+    .fa {
+      color: $primary-3;
+    }
+  }
+  &#teaser-ad {
+    .teaser-content {
+      padding: 128px 0;
+    }
+    img {
+      width: 120px;
+    }
+    h3 {
+      color: $ad-color;
+      font-size: rem-calc(28px);
+    }
+    .button {
+      border-color: $ad-color;
+      color: $ad-color;
+      font-size: rem-calc(20px);
+      padding: 12px 28px;
+    }
+  }
+}
