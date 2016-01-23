@@ -59,6 +59,11 @@ class WordPressExtension extends \Twig_Extension
             return 'class="' . join( ' ', get_body_class( $class ) ) . '"';
         }, $html_safe);
 
+        // post_class
+        $funcs[] = new Twig_SimpleFunction('post_class', function($class = '') {
+            return 'class="' . join( ' ', get_post_class( $class ) ) . '"';
+        }, $html_safe);
+
         // header_image
         $funcs[] = new Twig_SimpleFunction('header_image', function() {
             return get_header_image();
@@ -74,6 +79,71 @@ class WordPressExtension extends \Twig_Extension
         $funcs[] = new Twig_SimpleFunction('wp_nav_menu', function($args = []) {
             $args['echo'] = false;
             return wp_nav_menu($args);
+        }, $html_safe);
+
+        // the_id
+        $funcs[] = new Twig_SimpleFunction('the_id', function($args = []) {
+            return get_the_ID();
+        }, $html_safe);
+
+        // the_permalink
+        $funcs[] = new Twig_SimpleFunction('the_permalink', function() {
+            ob_start();
+            the_permalink();
+            return ob_get_clean();
+        }, $html_safe);
+
+        // the_post_thumbnail
+        $funcs[] = new Twig_SimpleFunction('the_post_thumbnail', function($id = null, $size = 'post-thumbnail', $attr = '') {
+            return get_the_post_thumbnail($id, $size, $attr);
+        }, $html_safe);
+
+        // post_password_required
+        $funcs[] = new Twig_SimpleFunction('post_password_required', function() {
+            return post_password_required();
+        }, $html_safe);
+
+        // the_title
+        $funcs[] = new Twig_SimpleFunction('the_title', function() {
+            return get_the_title();
+        }, $html_safe);
+
+        // the_content
+        $funcs[] = new Twig_SimpleFunction('the_content', function() {
+            return get_the_content();
+        }, $html_safe);
+
+        // wp_link_pages
+        $funcs[] = new Twig_SimpleFunction('wp_link_pages', function($args) {
+            $args['echo'] = false;
+            return wp_link_pages($args);
+        }, $html_safe);
+
+        // edit_post_link
+        $funcs[] = new Twig_SimpleFunction('edit_post_link', function($text, $before, $after, $class) {
+            ob_start();
+            edit_post_link($text, $before, $after, 0, $class);
+            return ob_get_clean();
+        }, $html_safe);
+
+        // the_field
+        $funcs[] = new Twig_SimpleFunction('the_field', function($field) {
+            return get_field($field);
+        }, $html_safe);
+
+        // the_author_avatar
+        $funcs[] = new Twig_SimpleFunction('the_author_avatar', function($size = null) {
+            return get_avatar( get_the_author_meta( 'ID' ) , $size );
+        }, $html_safe);
+
+        // the_author
+        $funcs[] = new Twig_SimpleFunction('the_author', function($size = null) {
+            return get_the_author();
+        }, $html_safe);
+
+        // the_author_link
+        $funcs[] = new Twig_SimpleFunction('the_author_link', function($size = null) {
+            return get_the_author_link();
         }, $html_safe);
 
         return $funcs;
