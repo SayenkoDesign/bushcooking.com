@@ -111,8 +111,8 @@ get_header(); ?>
 								<th>Difficulty</th>
 								<td>
 									<?php
-										$difficulty = wp_get_post_terms(get_the_ID(), 'Difficulty', array("fields" => "all"))[0]->name;
-										$link = get_term_link( $difficulty, 'Difficulty' );
+										$difficulty = wp_get_post_terms(get_the_ID(), 'difficulty', array("fields" => "all"))[0]->name;
+										$link = get_term_link( $difficulty, 'difficulty' );
 									?>
 									<a href="<?php echo $link; ?>"><?php echo $difficulty; ?></a>
 								</td>
@@ -121,8 +121,8 @@ get_header(); ?>
 								<th>Category</th>
 								<td>
 									<?php
-									$difficulty = wp_get_post_terms(get_the_ID(), 'Food Category', array("fields" => "all"))[0]->name;
-									$link = get_term_link( $difficulty, 'Food Category' );
+									$difficulty = wp_get_post_terms(get_the_ID(), 'food_category', array("fields" => "all"))[0]->name;
+									$link = get_term_link( $difficulty, 'food_category' );
 									?>
 									<a href="<?php echo $link; ?>"><?php echo $difficulty; ?></a>
 								</td>
