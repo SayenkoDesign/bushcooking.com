@@ -4234,7 +4234,7 @@ h1, h2, h3, h4 {
     width: 100%; }
     /* line 113, ../scss/_navigation.scss */
     #search-bar .menu li:first-child {
-      width: 12rem; }
+      width: 12.85714rem; }
     @media screen and (min-width: 40em) {
       /* line 109, ../scss/_navigation.scss */
       #search-bar .menu {
@@ -4305,34 +4305,37 @@ h1, h2, h3, h4 {
 
 /* line 183, ../scss/_navigation.scss */
 #primary-nav, #primary-mobile-nav {
-  font-size: 1.28571rem;
+  font-size: 1.14286rem;
   text-transform: uppercase; }
   /* line 186, ../scss/_navigation.scss */
+  #primary-nav .submenu, #primary-mobile-nav .submenu {
+    font-size: 1rem; }
+  /* line 189, ../scss/_navigation.scss */
   #primary-nav a, #primary-mobile-nav a {
     color: #773D1A; }
-    /* line 188, ../scss/_navigation.scss */
+    /* line 191, ../scss/_navigation.scss */
     #primary-nav a:hover, #primary-mobile-nav a:hover {
       color: #A9544D; }
 
-/* line 193, ../scss/_navigation.scss */
+/* line 196, ../scss/_navigation.scss */
 #primary-mobile-nav {
   background-color: #FFF;
   border-bottom: 4px solid #773D1A;
   text-align: center; }
-  /* line 197, ../scss/_navigation.scss */
+  /* line 200, ../scss/_navigation.scss */
   #primary-mobile-nav .menu.nested {
     margin-left: 3rem; }
 
-/* line 202, ../scss/_navigation.scss */
+/* line 205, ../scss/_navigation.scss */
 #large-logo {
   position: absolute;
   top: -80px;
   left: 16px; }
-  /* line 206, ../scss/_navigation.scss */
+  /* line 209, ../scss/_navigation.scss */
   #large-logo > img {
     max-width: 124px; }
   @media screen and (min-width: 40em) {
-    /* line 202, ../scss/_navigation.scss */
+    /* line 205, ../scss/_navigation.scss */
     #large-logo {
       top: -92px;
       left: 0; } }
@@ -4654,6 +4657,11 @@ h1, h2, h3, h4 {
   background-repeat: no-repeat; }
 
 /* line 36, ../scss/app.scss */
+.dropdown-pane {
+  background-color: #FFF;
+  border: none; }
+
+/* line 41, ../scss/app.scss */
 #content {
   padding-top: 80px;
   padding-bottom: 80px; }

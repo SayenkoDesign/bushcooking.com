@@ -111,7 +111,7 @@
     display: table;
     width: 100%;
     li:first-child {
-      width: rem-calc(168);
+      width: rem-calc(180);
     }
     @include breakpoint(medium) {
       display: block;
@@ -181,8 +181,11 @@
   }
 }
 #primary-nav, #primary-mobile-nav {
-  font-size: rem-calc(18px);
+  font-size: rem-calc(16px);
   text-transform: uppercase;
+  .submenu {
+    font-size: rem-calc(14px);
+  }
   a {
     color: $primary-1;
     &:hover {
