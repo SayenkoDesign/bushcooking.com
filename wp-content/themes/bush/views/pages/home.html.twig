@@ -1,0 +1,49 @@
+<div class="expanded row" id="home-slider">
+    {{ rev_slider | raw }}
+</div>
+<div id="primary" class="content-area">
+    <div id="content" class="content" role="main">
+        <div class="row">
+            <div class="medium-3 columns">
+                <h4>Latest Recipes</h4>
+            </div>
+            <div class="medium-3 columns text-right">
+                <h4><a href="{{ home_url() }}/?post_type=recipes" class="large button">All Recipes</a></h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="medium-6 medium-push-6 large-push-9 large-3 columns text-center">
+                <article id="teaser-ad" {{ post_class('recipe-teaser teaser') }}>
+                    <div class="teaser-content">
+                        <img src=" {{ header_image() }}" alt="">
+                        <h3>Advertise With Us</h3>
+                        <h5><a href="" class="button hollow">Contact Us!</a></h5>
+                    </div>
+                </article>
+            </div>
+            {% for recipe in recipes|slice(0,3) %}
+                <div class="medium-6 {% if loop.first %}medium-pull-6 {% endif %}large-3 large-pull-3 columns">
+                    {{ recipe | raw }}
+                </div>
+            {% endfor %}
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="medium-3 columns">
+                <h4>Latest Articles</h4>
+            </div>
+            <div class="medium-3 columns text-right">
+                <h4><a href="{{ home_url() }}/?post_type=articles" class="large button">All Articles</a></h4>
+            </div>
+        </div>
+        <div class="row">
+            {% for article in articles %}
+                <div class="medium-6 large-3 columns">
+                    {{ article | raw }}
+                </div>
+            {% endfor %}
+        </div>
+    </div><!-- #content -->
+</div><!-- #primary -->

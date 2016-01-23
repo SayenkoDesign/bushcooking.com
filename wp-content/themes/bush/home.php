@@ -1,38 +1,34 @@
-<?php get_header(); ?>
-    <div class="expanded row" id="home-slider">
-        <?php echo do_shortcode('[rev_slider alias="home"]'); ?>
-    </div>
-    <div id="primary" class="content-area">
-        <div id="content" class="content" role="main">
+<?php
+get_header();
+global $app;
+$slider = do_shortcode('[rev_slider alias="home"]');
 
-            <?php /* The loop */ ?>
-            <?php while ( have_posts() ) : the_post(); ?>
+$args = [
+    'post_type' => 'recipes',
+    'post_status' => 'publish',
+    'posts_per_page' => 4,
+    'caller_get_posts'=> 1
+];
+$query = new WP_Query($args);
+$recipes = [];
+while ( $query->have_posts() ) {
+    $query->the_post();
+    $recipes[] = $app->render('partials/recipe-teaser.html.twig', [
 
-                <article id="post-<?php the_ID(); ?>" <?php post_class('row column'); ?>>
-                    <header class="entry-header">
-                        <?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
-                            <div class="entry-thumbnail">
-                                <?php the_post_thumbnail(); ?>
-                            </div>
-                        <?php endif; ?>
+    ]);
+}
 
-                        <h1 class="entry-title"><?php the_title(); ?></h1>
-                    </header><!-- .entry-header -->
+$articles = [];
+while ( $query->have_posts() ) {
+    $query->the_post();
+    $articles[] = $app->render('partials/article-teaser.html.twig', [
 
-                    <div class="entry-content">
-                        <?php the_content(); ?>
-                        <?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentythirteen' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
-                    </div><!-- .entry-content -->
+    ]);
+}
 
-                    <footer class="entry-meta">
-                        <?php edit_post_link( __( 'Edit', 'twentythirteen' ), '<span class="edit-link">', '</span>' ); ?>
-                    </footer><!-- .entry-meta -->
-                </article><!-- #post -->
-
-                <?php comments_template(); ?>
-            <?php endwhile; ?>
-
-        </div><!-- #content -->
-    </div><!-- #primary -->
-
-<?php get_footer(); ?>
+echo $app->render('pages/home.html.twig', [
+    'rev_slider' => $slider,
+    'recipes' => $recipes,
+    'articles' => $articles,
+]);
+get_footer();
