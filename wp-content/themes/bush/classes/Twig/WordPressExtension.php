@@ -146,6 +146,11 @@ class WordPressExtension extends \Twig_Extension
             return get_the_author_link();
         }, $html_safe);
 
+        // do_shortcode
+        $funcs[] = new Twig_SimpleFunction('do_shortcode', function($content) {
+            return do_shortcode($content);
+        }, $html_safe);
+
         return $funcs;
     }
 

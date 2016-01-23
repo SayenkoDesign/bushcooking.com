@@ -1,20 +1,50 @@
 #signup {
   background-color: #FFF;
   padding-top: 64px;
-  padding-bottom: 80px;
+  padding-bottom: 48px;
+  text-align: center;
   h4 {
     color: $secondary-2;
     margin-bottom: 1rem;
     font-size: rem-calc(28px);
   }
-  .input-group {
-    max-width:360px;
-    margin: 0 auto;
+}
+#gform_wrapper_1 {
+  display: inline-block;
+  width: 100%;
+  max-width: 370px;
+  margin: 0;
+  .ginput_container {
+    margin: 0;
   }
-  input {
-    font-size: 12px;
+  .gform_body, .gform_footer {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
   }
-  .button {
-    padding: 0.9rem 1rem;
+  .gform_body {
+    width: calc(100% - 85px);
+  }
+  .gform_footer {
+    position: relative;
+    left: -4px;
+    top: -9px;
+  }
+  #gform_1 {
+    width: 100%;
+    label {
+      display: none;
+    }
+    input {
+      font-size: 12px;
+    }
+    #input_1_1 {
+      margin: 0;
+      width: 100%;
+      padding: 0.57143rem;
+    }
+    .button {
+      padding: 0.9rem 1rem;
+    }
   }
 }

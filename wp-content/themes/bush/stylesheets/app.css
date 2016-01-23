@@ -4341,22 +4341,53 @@ h1, h2, h3, h4 {
 #signup {
   background-color: #FFF;
   padding-top: 64px;
-  padding-bottom: 80px; }
-  /* line 5, ../scss/_signup.scss */
+  padding-bottom: 48px;
+  text-align: center; }
+  /* line 6, ../scss/_signup.scss */
   #signup h4 {
     color: #787878;
     margin-bottom: 1rem;
     font-size: 2rem; }
-  /* line 10, ../scss/_signup.scss */
-  #signup .input-group {
-    max-width: 360px;
-    margin: 0 auto; }
-  /* line 14, ../scss/_signup.scss */
-  #signup input {
-    font-size: 12px; }
+
+/* line 12, ../scss/_signup.scss */
+#gform_wrapper_1 {
+  display: inline-block;
+  width: 100%;
+  max-width: 370px;
+  margin: 0; }
   /* line 17, ../scss/_signup.scss */
-  #signup .button {
-    padding: 0.9rem 1rem; }
+  #gform_wrapper_1 .ginput_container {
+    margin: 0; }
+  /* line 20, ../scss/_signup.scss */
+  #gform_wrapper_1 .gform_body, #gform_wrapper_1 .gform_footer {
+    display: inline-block;
+    padding: 0;
+    margin: 0; }
+  /* line 25, ../scss/_signup.scss */
+  #gform_wrapper_1 .gform_body {
+    width: calc(100% - 85px); }
+  /* line 28, ../scss/_signup.scss */
+  #gform_wrapper_1 .gform_footer {
+    position: relative;
+    left: -4px;
+    top: -9px; }
+  /* line 33, ../scss/_signup.scss */
+  #gform_wrapper_1 #gform_1 {
+    width: 100%; }
+    /* line 35, ../scss/_signup.scss */
+    #gform_wrapper_1 #gform_1 label {
+      display: none; }
+    /* line 38, ../scss/_signup.scss */
+    #gform_wrapper_1 #gform_1 input {
+      font-size: 12px; }
+    /* line 41, ../scss/_signup.scss */
+    #gform_wrapper_1 #gform_1 #input_1_1 {
+      margin: 0;
+      width: 100%;
+      padding: 0.57143rem; }
+    /* line 46, ../scss/_signup.scss */
+    #gform_wrapper_1 #gform_1 .button {
+      padding: 0.9rem 1rem; }
 
 /* line 1, ../scss/_footer-logo.scss */
 #footer-logo {
