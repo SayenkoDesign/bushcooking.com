@@ -46,7 +46,6 @@ $recipes = new PostType(
 $Difficulty = new Taxonomy('difficulty', 'recipes');
 $Food = new Taxonomy('food_category', 'recipes');
 $Food->setLabel("Food Category");
-$Technique = new Taxonomy('technique', 'recipes');
 
 // move yoast down
 add_filter( 'wpseo_metabox_prio', function() { return 'low';});
