@@ -7,6 +7,7 @@ use Bush\WordPress\StyleSheet;
 use Bush\WordPress\Script;
 use Bush\WordPress\PostType;
 use Bush\WordPress\Taxonomy;
+use Bush\WordPress\ImageSize;
 
 // stylesheets
 $stylesheet_slick = new StyleSheet('slick', '//cdn.jsdelivr.net/g/jquery.slick@1.5.9(slick-theme.css+slick.css)');
@@ -38,7 +39,7 @@ $recipes = new PostType(
     true,
     true,
     false,
-    ['title', 'author', 'comments'],
+    ['title', 'author', 'comments', 'thumbnail'],
     true
 );
 
@@ -50,3 +51,6 @@ $Food->setLabel("Food Category");
 // move yoast down
 add_filter( 'wpseo_metabox_prio', function() { return 'low';});
 // gd is gdrts-metabox but I wont be able to move it without a bit of work so I am leaving it as is.
+
+// add image sizes
+$teaser = new ImageSize('teaser', 280, 280, true);

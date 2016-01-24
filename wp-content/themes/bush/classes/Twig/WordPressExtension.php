@@ -151,6 +151,13 @@ class WordPressExtension extends \Twig_Extension
             return do_shortcode($content);
         }, $html_safe);
 
+        // the_post_thumbnail
+        $funcs[] = new Twig_SimpleFunction('the_post_thumbnail', function($size = 'post-thumbnail', $attr = []) {
+            ob_start();
+            the_post_thumbnail( $size, $attr );
+            return ob_get_clean();
+        }, $html_safe);
+
         return $funcs;
     }
 
