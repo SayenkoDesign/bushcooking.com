@@ -7,30 +7,24 @@ $args = [
     'post_type' => 'recipes',
     'post_status' => 'publish',
     'posts_per_page' => 4,
-    'caller_get_posts'=> 1
 ];
 $query = new WP_Query($args);
 $recipes = [];
 while ( $query->have_posts() ) {
     $query->the_post();
-    $recipes[] = $app->render('partials/recipe-teaser.html.twig', [
-
-    ]);
+    $recipes[] = $app->render('partials/recipe-teaser.html.twig');
 }
 
 $args = [
     'post_type' => 'post',
     'post_status' => 'publish',
     'posts_per_page' => 8,
-    'caller_get_posts'=> 1
 ];
 $query = new WP_Query($args);
 $articles = [];
 while ( $query->have_posts() ) {
     $query->the_post();
-    $articles[] = $app->render('partials/article-teaser.html.twig', [
-
-    ]);
+    $articles[] = $app->render('partials/article-teaser.html.twig');
 }
 
 $top_articles = array_slice($articles, 0, 4);

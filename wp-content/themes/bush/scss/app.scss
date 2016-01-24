@@ -11,6 +11,10 @@
 @import "teasers";
 @import "ads";
 
+.row .columns.collapse {
+  padding: 0;
+}
+
 .social-links {
   .fa {
     color: #FFF;

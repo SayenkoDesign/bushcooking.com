@@ -54,3 +54,4 @@ add_filter( 'wpseo_metabox_prio', function() { return 'low';});
 
 // add image sizes
 $teaser = new ImageSize('teaser', 280, 280, true);
+$slider = new ImageSize('slider', 380, 380, true);

@@ -1,0 +1,127 @@
+<div id="primary" class="content-area">
+    <div id="content" class="content" role="main">
+        <div class="row">
+            <div class="medium-9 columns">
+                <div class="row" id="recipe-overview">
+                    <div class="medium-4 columns">
+                        {% if slides %}
+                            <div class="slick">
+                                {% for slide in slides %}
+                                    <img src="{{ slide['sizes']['slider'] }}" alt="{{ slide['alt'] }}" />
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                    </div>
+                    <div class="medium-8 columns">
+                        <h1>{{ the_title() }}</h1>
+                        <div id="share">
+                            <span class='st_pinterest_large' displayText='Pinterest'></span>
+                            <span class='st_facebook_large' displayText='Facebook'></span>
+                            <span class='st_stumbleupon_large' displayText='StumbleUpon'></span>
+                            <span class='st_twitter_large' displayText='Tweet'></span>
+                            <span class='st_googleplus_large' displayText='Google +'></span>
+                            <span class='st_print_large' displayText='Print'></span>
+                            <span class='st_email_large' displayText='Email'></span>
+                        </div>
+                        {{ the_field('teaser_description') }}
+                    </div>
+                </div>
+                <div class="row" id="recipe-instructions">
+                    <div class="medium-4 columns">
+                        {% if ingredients %}
+                            <h4>Ingredients</h4>
+                        {% endif %}
+                        {% for ingredient in ingredients %}
+                            <div class="row">
+                                <div class="small-3 columns">
+                                    <div class="switch tiny">
+                                        <input class="switch-input" id="ingredient-{{ loop.index }}" type="checkbox" name="ingredient-{{ loop.index }}">
+                                        <label class="switch-paddle" for="ingredient-{{ loop.index }}">
+                                            <span class="show-for-sr">Download Kittens</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="small-9 columns">
+                                    <p class="switch-text">{{ ingredient| raw }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="medium-8 columns">
+                        <div id="directions">
+                            <h4>Directions</h4>
+                            {% for direction in directions %}
+                                <div class="direction">{{ direction | raw }}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="recipe-related-title">
+                    <div class="div medium-4 columns end">
+                        <h4>Related</h4>
+                    </div>
+                </div>
+                <div class="row small-up-1 medium-up-3 teasers" id="recipe-related">
+                    {% for post in related %}
+                        <div class="column">
+                            {{ post | raw }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="medium-3 columns collapse">
+                <div id="side">
+                    <div id="author">
+                        {{ the_author_avatar(60) }} By: {{ the_author_link() }}
+                    </div>
+                    <table id="details">
+                        <tr>
+                            <th>Servings</th>
+                            <td>{{ the_field('servings') }}</td>
+                        </tr>
+                        <tr>
+                            <th>Preparation</th>
+                            <td>{{ the_field('preperation_time') }}</td>
+                        </tr>
+                        <tr>
+                            <th>Cook</th>
+                            <td>{{ the_field('cook_time') }}</td>
+                        </tr>
+                        <tr>
+                            <th>Ready in</th>
+                            <td>{{ the_field('ready_in') }}</td>
+                        </tr>
+                        <tr>
+                            <th>Difficulty</th>
+                            <td>
+                                {% for term in difficulties %}
+                                    <a href="{{ term.link }}">{{ term.term }}</a>
+                                {% else %}
+                                    N/A
+                                {% endfor %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Category</th>
+                            <td>
+                                {% for term in categories %}
+                                    <a href="{{ term.link }}">{{ term.term }}</a>
+                                {% else %}
+                                {% endfor %}
+                            </td>
+                        </tr>
+                    </table>
+                    <aside id="custom">
+                        {{ the_field("sidebar_content") }}
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "31abfba6-0978-4139-8479-d6e96f61d25f", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+
