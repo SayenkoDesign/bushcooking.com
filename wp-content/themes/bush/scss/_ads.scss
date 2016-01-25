@@ -6,6 +6,7 @@
   }
   img {
     width: 120px;
+    margin-bottom: 1rem;
   }
   h3 {
     color: $ad-color;
@@ -25,6 +26,27 @@
   padding: 30px;
   margin-top: 80px;
   .content {
+    display: inline-block;
+    position: relative;
+    overflow: visible;
+    &::before, &::after {
+      content: " ";
+      display: block;
+      position: absolute;
+      bottom: 20px;
+    }
+    &::before {
+      width: 65px;
+      height: 101px;
+      background-image: url("../images/advertise-with-us-left.png");
+      left: -65px;
+    }
+    &::after {
+      width: 93px;
+      height: 101px;
+      background-image: url("../images/advertise-with-us-right.png");
+      right: -93px;
+    }
     h3 {
       display: inline-block;
       text-align: right;

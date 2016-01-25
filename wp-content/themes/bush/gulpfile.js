@@ -80,8 +80,4 @@ gulp.task('watch', function() {
     livereload.listen();
     gulp.watch('scss/**/*.scss', ['compass']);
     gulp.watch('js/app.js', ['scripts']);
-    gulp.watch([
-        '!images/**/*.min.{png,jpg,gif,svg}',
-        'images/**/*.{png,jpg,gif,svg}'
-    ], ['images']);
 });

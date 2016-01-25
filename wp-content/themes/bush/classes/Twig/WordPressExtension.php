@@ -182,6 +182,7 @@ class WordPressExtension extends \Twig_Extension
     {
         return [
             'template_directory_uri' => get_template_directory_uri(),
+            'stylesheet_directory_uri' => get_stylesheet_directory_uri(),
         ];
     }
 
