@@ -2497,12 +2497,8 @@ select {
 
 /* line 27, ../bower_components/foundation-sites/scss/components/_accordion-menu.scss */
 .is-accordion-submenu-parent[aria-expanded='true'] > a::after {
-  -webkit-transform-origin: 50% 50%;
-      -ms-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
-  -webkit-transform: scaleY(-1);
-      -ms-transform: scaleY(-1);
-          transform: scaleY(-1); }
+  transform-origin: 50% 50%;
+  transform: scaleY(-1); }
 
 /* line 40, ../bower_components/foundation-sites/scss/components/_badge.scss */
 .badge {
@@ -2734,21 +2730,15 @@ select {
   height: 100%;
   width: 100%;
   background: #FFF;
-  transition: -webkit-transform 0.15s linear;
-  transition: transform 0.15s linear;
-  transition: transform 0.15s linear, -webkit-transform 0.15s linear; }
+  transition: transform 0.15s linear; }
   /* line 43, ../bower_components/foundation-sites/scss/components/_drilldown.scss */
   .is-drilldown-submenu.is-active {
     z-index: 1;
     display: block;
-    -webkit-transform: translateX(-100%);
-        -ms-transform: translateX(-100%);
-            transform: translateX(-100%); }
+    transform: translateX(-100%); }
   /* line 49, ../bower_components/foundation-sites/scss/components/_drilldown.scss */
   .is-drilldown-submenu.is-closing {
-    -webkit-transform: translateX(100%);
-        -ms-transform: translateX(100%);
-            transform: translateX(100%); }
+    transform: translateX(100%); }
 
 /* line 55, ../bower_components/foundation-sites/scss/components/_drilldown.scss */
 .is-drilldown-submenu-parent > a {
@@ -3102,17 +3092,14 @@ body {
   width: 100%;
   overflow-x: hidden;
   position: relative;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   -webkit-overflow-scrolling: auto; }
 
 /* line 59, ../bower_components/foundation-sites/scss/components/_off-canvas.scss */
 .off-canvas-wrapper-inner {
   position: relative;
   width: 100%;
-  transition: -webkit-transform 0.5s ease;
-  transition: transform 0.5s ease;
-  transition: transform 0.5s ease, -webkit-transform 0.5s ease; }
+  transition: transform 0.5s ease; }
   /* line 130, ../bower_components/foundation-sites/scss/util/_mixins.scss */
   .off-canvas-wrapper-inner::before, .off-canvas-wrapper-inner::after {
     content: ' ';
@@ -3126,11 +3113,8 @@ body {
 .off-canvas-content {
   min-height: 100%;
   background: #F8F3E7;
-  transition: -webkit-transform 0.5s ease;
   transition: transform 0.5s ease;
-  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   z-index: 1;
   box-shadow: 0 0 10px rgba(10, 10, 10, 0.5); }
 
@@ -3156,9 +3140,7 @@ body {
   z-index: -1;
   max-height: 100%;
   overflow-y: auto;
-  -webkit-transform: translateX(0);
-      -ms-transform: translateX(0);
-          transform: translateX(0); }
+  transform: translateX(0); }
   /* line 157, ../bower_components/foundation-sites/scss/util/_mixins.scss */
   [data-whatinput='mouse'] .off-canvas {
     outline: 0; }
@@ -3169,9 +3151,7 @@ body {
     width: 250px; }
     /* line 127, ../bower_components/foundation-sites/scss/components/_off-canvas.scss */
     .is-open-left {
-      -webkit-transform: translateX(250px);
-          -ms-transform: translateX(250px);
-              transform: translateX(250px); }
+      transform: translateX(250px); }
   /* line 163, ../bower_components/foundation-sites/scss/components/_off-canvas.scss */
   .off-canvas.position-right {
     right: -250px;
@@ -3179,9 +3159,7 @@ body {
     width: 250px; }
     /* line 127, ../bower_components/foundation-sites/scss/components/_off-canvas.scss */
     .is-open-right {
-      -webkit-transform: translateX(-250px);
-          -ms-transform: translateX(-250px);
-              transform: translateX(-250px); }
+      transform: translateX(-250px); }
 
 @media screen and (min-width: 40em) {
   /* line 170, ../bower_components/foundation-sites/scss/components/_off-canvas.scss */
@@ -3263,9 +3241,7 @@ body {
 .orbit-previous, .orbit-next {
   position: absolute;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   z-index: 10;
   padding: 1rem;
   color: #FFF; }
@@ -3412,9 +3388,7 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     margin: 0;
     font-size: 0.75rem;
     font-weight: bold;
@@ -3429,12 +3403,8 @@ body {
   margin-bottom: 2.25rem;
   background-color: #e6e6e6;
   cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  -ms-touch-action: none;
-      touch-action: none; }
+  user-select: none;
+  touch-action: none; }
 
 /* line 139, ../bower_components/foundation-sites/scss/components/_slider.scss */
 .slider-fill {
@@ -3454,9 +3424,7 @@ body {
 .slider-handle {
   position: absolute;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   position: absolute;
   left: 0;
   z-index: 1;
@@ -3465,8 +3433,7 @@ body {
   height: 1.4rem;
   background-color: #F15B24;
   transition: all 0.2s ease-in-out;
-  -ms-touch-action: manipulation;
-      touch-action: manipulation;
+  touch-action: manipulation;
   border-radius: 0; }
   /* line 157, ../bower_components/foundation-sites/scss/util/_mixins.scss */
   [data-whatinput='mouse'] .slider-handle {
@@ -3490,9 +3457,7 @@ body {
   width: 0.5rem;
   height: 12.5rem;
   margin: 0 1.25rem;
-  -webkit-transform: scale(1, -1);
-      -ms-transform: scale(1, -1);
-          transform: scale(1, -1); }
+  transform: scale(1, -1); }
   /* line 116, ../bower_components/foundation-sites/scss/components/_slider.scss */
   .slider.vertical .slider-fill {
     top: 0;
@@ -3505,9 +3470,7 @@ body {
     left: 50%;
     width: 1.4rem;
     height: 1.4rem;
-    -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-            transform: translateX(-50%); }
+    transform: translateX(-50%); }
 
 /* line 6, ../bower_components/foundation-sites/scss/components/_sticky.scss */
 .sticky-container {
@@ -3517,8 +3480,7 @@ body {
 .sticky {
   position: absolute;
   z-index: 0;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0); }
+  transform: translate3d(0, 0, 0); }
 
 /* line 16, ../bower_components/foundation-sites/scss/components/_sticky.scss */
 .sticky.is-stuck {
@@ -3627,10 +3589,7 @@ body.is-reveal-open {
   margin-bottom: 1rem;
   outline: 0;
   position: relative;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
   color: #FFF;
   font-weight: bold;
   font-size: 1rem; }
@@ -3666,8 +3625,7 @@ body.is-reveal-open {
     top: 0.25rem;
     width: 1.5rem;
     transition: all 0.25s ease-out;
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
     border-radius: 0; }
   /* line 116, ../bower_components/foundation-sites/scss/components/_switch.scss */
   input:checked ~ .switch-paddle {
@@ -3683,9 +3641,7 @@ body.is-reveal-open {
 .switch-active, .switch-inactive {
   position: absolute;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%); }
+  transform: translateY(-50%); }
 
 /* line 209, ../bower_components/foundation-sites/scss/components/_switch.scss */
 .switch-active {
@@ -3987,9 +3943,7 @@ table.hover tr:nth-of-type(even):hover {
     bottom: 100%;
     position: absolute;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-            transform: translateX(-50%); }
+    transform: translateX(-50%); }
   /* line 68, ../bower_components/foundation-sites/scss/components/_tooltip.scss */
   .tooltip.top::before {
     content: '';
@@ -4013,9 +3967,7 @@ table.hover tr:nth-of-type(even):hover {
     bottom: auto;
     left: 100%;
     top: 50%;
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%); }
+    transform: translateY(-50%); }
   /* line 82, ../bower_components/foundation-sites/scss/components/_tooltip.scss */
   .tooltip.right::before {
     content: '';
@@ -4029,9 +3981,7 @@ table.hover tr:nth-of-type(even):hover {
     left: auto;
     right: 100%;
     top: 50%;
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%); }
+    transform: translateY(-50%); }
 
 /* line 63, ../bower_components/foundation-sites/scss/components/_top-bar.scss */
 .top-bar {
@@ -4142,9 +4092,7 @@ h1, h2, h3, h4 {
 /* line 26, ../scss/_navigation.scss */
 .is-accordion-submenu-parent[aria-expanded="true"] > a::after {
   content: "\f107";
-  -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-          transform: scale(1); }
+  transform: scale(1); }
 
 /* line 30, ../scss/_navigation.scss */
 .is-accordion-submenu-parent[aria-expanded="true"] > a {
@@ -4533,6 +4481,19 @@ h1, h2, h3, h4 {
       text-align: right;
       padding-right: 0; }
 
+/* line 1, ../scss/single-post.scss */
+#post-featured-image {
+  float: left;
+  margin: 0 2rem 2rem 0; }
+
+/* line 5, ../scss/single-post.scss */
+#categories a {
+  padding-left: 0;
+  padding-right: 0; }
+  /* line 8, ../scss/single-post.scss */
+  #categories a span {
+    color: #58595B; }
+
 /* line 1, ../scss/_teasers.scss */
 .teasers .column article:first-child, .teasers .columns article:first-child {
   margin-bottom: 30px; }
@@ -4624,11 +4585,11 @@ h1, h2, h3, h4 {
     top: -1.57143rem;
     margin-left: 2rem; }
 
-/* line 14, ../scss/app.scss */
+/* line 15, ../scss/app.scss */
 .row .columns.collapse {
   padding: 0; }
 
-/* line 19, ../scss/app.scss */
+/* line 20, ../scss/app.scss */
 .social-links .fa {
   color: #FFF;
   border-radius: 100%;
@@ -4637,35 +4598,35 @@ h1, h2, h3, h4 {
   padding-top: 8px;
   text-align: center;
   font-size: 1rem; }
-/* line 28, ../scss/app.scss */
+/* line 29, ../scss/app.scss */
 .social-links .fa-instagram {
   background-color: #405f85; }
-/* line 29, ../scss/app.scss */
+/* line 30, ../scss/app.scss */
 .social-links .fa-pinterest {
   background-color: #e55338; }
-/* line 30, ../scss/app.scss */
+/* line 31, ../scss/app.scss */
 .social-links .fa-facebook {
   background-color: #9681a5; }
-/* line 31, ../scss/app.scss */
+/* line 32, ../scss/app.scss */
 .social-links .fa-stumbleupon {
   background-color: #f68139; }
-/* line 32, ../scss/app.scss */
+/* line 33, ../scss/app.scss */
 .social-links .fa-twitter {
   background-color: #a2bff2; }
-/* line 33, ../scss/app.scss */
+/* line 34, ../scss/app.scss */
 .social-links .fa-google-plus {
   background-color: #ee7547; }
-/* line 34, ../scss/app.scss */
+/* line 35, ../scss/app.scss */
 .social-links .fa.all-recipes {
   background-image: url("../images/AllRecipes.png");
   background-repeat: no-repeat; }
 
-/* line 40, ../scss/app.scss */
+/* line 41, ../scss/app.scss */
 .dropdown-pane {
   background-color: #FFF;
   border: none; }
 
-/* line 45, ../scss/app.scss */
+/* line 46, ../scss/app.scss */
 #content {
   padding-top: 80px;
   padding-bottom: 80px; }

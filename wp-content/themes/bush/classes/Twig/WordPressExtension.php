@@ -158,6 +158,16 @@ class WordPressExtension extends \Twig_Extension
             return ob_get_clean();
         }, $html_safe);
 
+        // get_the_category
+        $funcs[] = new Twig_SimpleFunction('the_category', function($id = false) {
+            return get_the_category($id);
+        }, $html_safe);
+
+        // get_category_link
+        $funcs[] = new Twig_SimpleFunction('category_link', function($id) {
+            return get_category_link($id);
+        }, $html_safe);
+
         return $funcs;
     }
 

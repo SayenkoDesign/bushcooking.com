@@ -1,0 +1,59 @@
+<div id="primary" class="content-area">
+    <div id="content" class="content" role="main">
+        <div class="row">
+            <div class="medium-9 columns">
+                <div id="post-featured-image">
+                    {{ the_post_thumbnail('slider') }}
+                </div>
+
+                <h1>{{ the_title() }}</h1>
+                <div id="share">
+                    <span class='st_pinterest_large' displayText='Pinterest'></span>
+                    <span class='st_facebook_large' displayText='Facebook'></span>
+                    <span class='st_stumbleupon_large' displayText='StumbleUpon'></span>
+                    <span class='st_twitter_large' displayText='Tweet'></span>
+                    <span class='st_googleplus_large' displayText='Google +'></span>
+                    <span class='st_print_large' displayText='Print'></span>
+                    <span class='st_email_large' displayText='Email'></span>
+                </div>
+
+                {{ the_content() }}
+                <div class="row small-up-1 medium-up-3 teasers" id="recipe-related">
+                    {% for post in related %}
+                        <div class="column">
+                            {{ post | raw }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="medium-3 columns collapse">
+                <div id="side">
+                    <div id="categories">
+                        <ul class="menu vertical">
+                            <h4>Categories</h4>
+                            {% for category in the_category() %}
+                                <li>
+                                    <a href="{{ category_link(category.term_id) }}">
+                                        <i class="fa fa-angle-right"></i>
+                                        {{ category.name }}
+                                        <span class="float-right">({{ category.count }})</span>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <ul class="menu vertical"><li>N/A</li></ul>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <aside id="custom">
+                        {{ the_field("sidebar_content") }}
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "31abfba6-0978-4139-8479-d6e96f61d25f", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+
