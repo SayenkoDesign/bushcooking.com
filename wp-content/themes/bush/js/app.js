@@ -25,4 +25,27 @@ jQuery(function() {
             cssEase: 'linear'
         });
     });
+
+    jQuery('.stars .star').hover(function() {
+        jQuery(this).children('i.fa').removeClass('fa-star-o').addClass('fa-star');
+        jQuery(this).prevAll('.star').children('i.fa').removeClass('fa-star-o').addClass('fa-star');
+        jQuery(this).nextAll('.star').children('i.fa').removeClass('fa-star').addClass('fa-star-o');
+    });
+
+    jQuery('.stars').mouseleave(function(){
+        var rating = jQuery('#comments input[type=radio]:checked').val();
+        if(!rating) {
+            $(this).find('.fa.fa-star').removeClass('fa-star').addClass('fa-star-o');
+        } else {
+            $(this).find('.fa.fa-star').removeClass('fa-star').addClass('fa-star-o');
+            $(this).find('.star:lt(' + rating + ') .fa').removeClass('fa-star-o').addClass('fa-star');
+        }
+
+    });
+
+    jQuery('.stars .star').on('click', function() {
+        jQuery(this).children('i.fa').removeClass('fa-star-o').addClass('fa-star');
+        jQuery(this).prevAll('.star').children('i.fa').removeClass('fa-star-o').addClass('fa-star');
+        jQuery(this).nextAll('.star').children('i.fa').removeClass('fa-star').addClass('fa-star-o');
+    });
 });

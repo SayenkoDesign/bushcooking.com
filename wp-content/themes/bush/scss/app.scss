@@ -12,6 +12,7 @@
 @import "teasers";
 @import "ads";
 @import "home";
+@import "comments";
 
 .row .columns.collapse {
   padding: 0;
@@ -62,6 +63,15 @@
 .dropdown-pane {
   background-color: $white;
   border: none;
+}
+
+.form-submit .submit {
+  @extend .button;
+  @extend .large;
+}
+
+.fa-star {
+  color: $primary-3;
 }
 
 #content {

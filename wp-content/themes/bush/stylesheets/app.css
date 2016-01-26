@@ -1932,7 +1932,7 @@ kbd {
   h3 {
     page-break-after: avoid; } }
 /* line 200, ../bower_components/foundation-sites/scss/components/_button.scss */
-.button {
+.button, .form-submit .submit {
   display: inline-block;
   text-align: center;
   line-height: 1;
@@ -1948,125 +1948,125 @@ kbd {
   background-color: #F15B24;
   color: #fff; }
   /* line 157, ../bower_components/foundation-sites/scss/util/_mixins.scss */
-  [data-whatinput='mouse'] .button {
+  [data-whatinput='mouse'] .button, [data-whatinput='mouse'] .form-submit .submit, .form-submit [data-whatinput='mouse'] .submit {
     outline: 0; }
   /* line 119, ../bower_components/foundation-sites/scss/components/_button.scss */
-  .button:hover, .button:focus {
+  .button:hover, .form-submit .submit:hover, .button:focus, .form-submit .submit:focus {
     background-color: #dd460e;
     color: #fff; }
   /* line 204, ../bower_components/foundation-sites/scss/components/_button.scss */
-  .button.tiny {
+  .button.tiny, .form-submit .tiny.submit {
     font-size: 0.6rem; }
   /* line 205, ../bower_components/foundation-sites/scss/components/_button.scss */
-  .button.small {
+  .button.small, .form-submit .small.submit {
     font-size: 0.75rem; }
   /* line 206, ../bower_components/foundation-sites/scss/components/_button.scss */
-  .button.large {
+  .button.large, .form-submit .submit {
     font-size: 1.25rem; }
   /* line 207, ../bower_components/foundation-sites/scss/components/_button.scss */
-  .button.expanded {
+  .button.expanded, .form-submit .expanded.submit {
     display: block;
     width: 100%;
     margin-left: 0;
     margin-right: 0; }
   /* line 212, ../bower_components/foundation-sites/scss/components/_button.scss */
-  .button.primary {
+  .button.primary, .form-submit .primary.submit {
     background-color: #F15B24;
     color: #fff; }
     /* line 119, ../bower_components/foundation-sites/scss/components/_button.scss */
-    .button.primary:hover, .button.primary:focus {
+    .button.primary:hover, .form-submit .primary.submit:hover, .button.primary:focus, .form-submit .primary.submit:focus {
       background-color: #d0420d;
       color: #fff; }
   /* line 212, ../bower_components/foundation-sites/scss/components/_button.scss */
-  .button.secondary {
+  .button.secondary, .form-submit .secondary.submit {
     background-color: #773D1A;
     color: #fff; }
     /* line 119, ../bower_components/foundation-sites/scss/components/_button.scss */
-    .button.secondary:hover, .button.secondary:focus {
+    .button.secondary:hover, .form-submit .secondary.submit:hover, .button.secondary:focus, .form-submit .secondary.submit:focus {
       background-color: #5f3115;
       color: #fff; }
   /* line 212, ../bower_components/foundation-sites/scss/components/_button.scss */
-  .button.success {
+  .button.success, .form-submit .success.submit {
     background-color: #7AA470;
     color: #fff; }
     /* line 119, ../bower_components/foundation-sites/scss/components/_button.scss */
-    .button.success:hover, .button.success:focus {
+    .button.success:hover, .form-submit .success.submit:hover, .button.success:focus, .form-submit .success.submit:focus {
       background-color: #5f8756;
       color: #fff; }
   /* line 212, ../bower_components/foundation-sites/scss/components/_button.scss */
-  .button.alert {
+  .button.alert, .form-submit .alert.submit {
     background-color: #ec5840;
     color: #fff; }
     /* line 119, ../bower_components/foundation-sites/scss/components/_button.scss */
-    .button.alert:hover, .button.alert:focus {
+    .button.alert:hover, .form-submit .alert.submit:hover, .button.alert:focus, .form-submit .alert.submit:focus {
       background-color: #da3116;
       color: #fff; }
   /* line 212, ../bower_components/foundation-sites/scss/components/_button.scss */
-  .button.warning {
+  .button.warning, .form-submit .warning.submit {
     background-color: #ffae00;
     color: #fff; }
     /* line 119, ../bower_components/foundation-sites/scss/components/_button.scss */
-    .button.warning:hover, .button.warning:focus {
+    .button.warning:hover, .form-submit .warning.submit:hover, .button.warning:focus, .form-submit .warning.submit:focus {
       background-color: #cc8b00;
       color: #fff; }
   /* line 229, ../bower_components/foundation-sites/scss/components/_button.scss */
-  .button.hollow {
+  .button.hollow, .form-submit .hollow.submit {
     border: 1px solid #F15B24;
     color: #F15B24; }
     /* line 127, ../bower_components/foundation-sites/scss/components/_button.scss */
-    .button.hollow, .button.hollow:hover, .button.hollow:focus {
+    .button.hollow, .form-submit .hollow.submit, .button.hollow:hover, .form-submit .hollow.submit:hover, .button.hollow:focus, .form-submit .hollow.submit:focus {
       background-color: transparent; }
     /* line 139, ../bower_components/foundation-sites/scss/components/_button.scss */
-    .button.hollow:hover, .button.hollow:focus {
+    .button.hollow:hover, .form-submit .hollow.submit:hover, .button.hollow:focus, .form-submit .hollow.submit:focus {
       border-color: #822908;
       color: #822908; }
     /* line 234, ../bower_components/foundation-sites/scss/components/_button.scss */
-    .button.hollow.primary {
+    .button.hollow.primary, .form-submit .hollow.primary.submit {
       border: 1px solid #F15B24;
       color: #F15B24; }
       /* line 139, ../bower_components/foundation-sites/scss/components/_button.scss */
-      .button.hollow.primary:hover, .button.hollow.primary:focus {
+      .button.hollow.primary:hover, .form-submit .hollow.primary.submit:hover, .button.hollow.primary:focus, .form-submit .hollow.primary.submit:focus {
         border-color: #822908;
         color: #822908; }
     /* line 234, ../bower_components/foundation-sites/scss/components/_button.scss */
-    .button.hollow.secondary {
+    .button.hollow.secondary, .form-submit .hollow.secondary.submit {
       border: 1px solid #773D1A;
       color: #773D1A; }
       /* line 139, ../bower_components/foundation-sites/scss/components/_button.scss */
-      .button.hollow.secondary:hover, .button.hollow.secondary:focus {
+      .button.hollow.secondary:hover, .form-submit .hollow.secondary.submit:hover, .button.hollow.secondary:focus, .form-submit .hollow.secondary.submit:focus {
         border-color: #3c1f0d;
         color: #3c1f0d; }
     /* line 234, ../bower_components/foundation-sites/scss/components/_button.scss */
-    .button.hollow.success {
+    .button.hollow.success, .form-submit .hollow.success.submit {
       border: 1px solid #7AA470;
       color: #7AA470; }
       /* line 139, ../bower_components/foundation-sites/scss/components/_button.scss */
-      .button.hollow.success:hover, .button.hollow.success:focus {
+      .button.hollow.success:hover, .form-submit .hollow.success.submit:hover, .button.hollow.success:focus, .form-submit .hollow.success.submit:focus {
         border-color: #3c5436;
         color: #3c5436; }
     /* line 234, ../bower_components/foundation-sites/scss/components/_button.scss */
-    .button.hollow.alert {
+    .button.hollow.alert, .form-submit .hollow.alert.submit {
       border: 1px solid #ec5840;
       color: #ec5840; }
       /* line 139, ../bower_components/foundation-sites/scss/components/_button.scss */
-      .button.hollow.alert:hover, .button.hollow.alert:focus {
+      .button.hollow.alert:hover, .form-submit .hollow.alert.submit:hover, .button.hollow.alert:focus, .form-submit .hollow.alert.submit:focus {
         border-color: #881f0e;
         color: #881f0e; }
     /* line 234, ../bower_components/foundation-sites/scss/components/_button.scss */
-    .button.hollow.warning {
+    .button.hollow.warning, .form-submit .hollow.warning.submit {
       border: 1px solid #ffae00;
       color: #ffae00; }
       /* line 139, ../bower_components/foundation-sites/scss/components/_button.scss */
-      .button.hollow.warning:hover, .button.hollow.warning:focus {
+      .button.hollow.warning:hover, .form-submit .hollow.warning.submit:hover, .button.hollow.warning:focus, .form-submit .hollow.warning.submit:focus {
         border-color: #805700;
         color: #805700; }
   /* line 242, ../bower_components/foundation-sites/scss/components/_button.scss */
-  .button.disabled, .button[disabled] {
+  .button.disabled, .form-submit .disabled.submit, .button[disabled], .form-submit [disabled].submit {
     opacity: 0.25;
     cursor: not-allowed;
     pointer-events: none; }
   /* line 161, ../bower_components/foundation-sites/scss/components/_button.scss */
-  .button.dropdown::after {
+  .button.dropdown::after, .form-submit .dropdown.submit::after {
     content: '';
     display: block;
     width: 0;
@@ -2080,7 +2080,7 @@ kbd {
     margin-left: 1em;
     display: inline-block; }
   /* line 259, ../bower_components/foundation-sites/scss/components/_button.scss */
-  .button.arrow-only::after {
+  .button.arrow-only::after, .form-submit .arrow-only.submit::after {
     margin-left: 0;
     float: none;
     top: 0.2em; }
@@ -2579,12 +2579,12 @@ select {
   .button-group::after {
     clear: both; }
   /* line 34, ../bower_components/foundation-sites/scss/components/_button-group.scss */
-  .button-group .button {
+  .button-group .button, .button-group .form-submit .submit, .form-submit .button-group .submit {
     float: left;
     margin: 0;
     font-size: inherit; }
     /* line 39, ../bower_components/foundation-sites/scss/components/_button-group.scss */
-    .button-group .button:not(:last-child) {
+    .button-group .button:not(:last-child), .button-group .form-submit .submit:not(:last-child), .form-submit .button-group .submit:not(:last-child) {
       border-right: 1px solid #F8F3E7; }
   /* line 99, ../bower_components/foundation-sites/scss/components/_button-group.scss */
   .button-group.tiny {
@@ -2593,7 +2593,7 @@ select {
   .button-group.small {
     font-size: 0.75rem; }
   /* line 101, ../bower_components/foundation-sites/scss/components/_button-group.scss */
-  .button-group.large {
+  .button-group.large, .form-submit .button-group.submit {
     font-size: 1.25rem; }
   /* line 102, ../bower_components/foundation-sites/scss/components/_button-group.scss */
   .button-group.expanded {
@@ -2604,61 +2604,61 @@ select {
     .button-group.expanded::before, .button-group.expanded::after {
       display: none; }
     /* line 60, ../bower_components/foundation-sites/scss/components/_button-group.scss */
-    .button-group.expanded .button {
+    .button-group.expanded .button, .button-group.expanded .form-submit .submit, .form-submit .button-group.expanded .submit {
       display: table-cell;
       float: none; }
   /* line 107, ../bower_components/foundation-sites/scss/components/_button-group.scss */
-  .button-group.primary .button {
+  .button-group.primary .button, .button-group.primary .form-submit .submit, .form-submit .button-group.primary .submit {
     background-color: #F15B24;
     color: #fff; }
     /* line 119, ../bower_components/foundation-sites/scss/components/_button.scss */
-    .button-group.primary .button:hover, .button-group.primary .button:focus {
+    .button-group.primary .button:hover, .button-group.primary .form-submit .submit:hover, .form-submit .button-group.primary .submit:hover, .button-group.primary .button:focus, .button-group.primary .form-submit .submit:focus, .form-submit .button-group.primary .submit:focus {
       background-color: #d0420d;
       color: #fff; }
   /* line 107, ../bower_components/foundation-sites/scss/components/_button-group.scss */
-  .button-group.secondary .button {
+  .button-group.secondary .button, .button-group.secondary .form-submit .submit, .form-submit .button-group.secondary .submit {
     background-color: #773D1A;
     color: #fff; }
     /* line 119, ../bower_components/foundation-sites/scss/components/_button.scss */
-    .button-group.secondary .button:hover, .button-group.secondary .button:focus {
+    .button-group.secondary .button:hover, .button-group.secondary .form-submit .submit:hover, .form-submit .button-group.secondary .submit:hover, .button-group.secondary .button:focus, .button-group.secondary .form-submit .submit:focus, .form-submit .button-group.secondary .submit:focus {
       background-color: #5f3115;
       color: #fff; }
   /* line 107, ../bower_components/foundation-sites/scss/components/_button-group.scss */
-  .button-group.success .button {
+  .button-group.success .button, .button-group.success .form-submit .submit, .form-submit .button-group.success .submit {
     background-color: #7AA470;
     color: #fff; }
     /* line 119, ../bower_components/foundation-sites/scss/components/_button.scss */
-    .button-group.success .button:hover, .button-group.success .button:focus {
+    .button-group.success .button:hover, .button-group.success .form-submit .submit:hover, .form-submit .button-group.success .submit:hover, .button-group.success .button:focus, .button-group.success .form-submit .submit:focus, .form-submit .button-group.success .submit:focus {
       background-color: #5f8756;
       color: #fff; }
   /* line 107, ../bower_components/foundation-sites/scss/components/_button-group.scss */
-  .button-group.alert .button {
+  .button-group.alert .button, .button-group.alert .form-submit .submit, .form-submit .button-group.alert .submit {
     background-color: #ec5840;
     color: #fff; }
     /* line 119, ../bower_components/foundation-sites/scss/components/_button.scss */
-    .button-group.alert .button:hover, .button-group.alert .button:focus {
+    .button-group.alert .button:hover, .button-group.alert .form-submit .submit:hover, .form-submit .button-group.alert .submit:hover, .button-group.alert .button:focus, .button-group.alert .form-submit .submit:focus, .form-submit .button-group.alert .submit:focus {
       background-color: #da3116;
       color: #fff; }
   /* line 107, ../bower_components/foundation-sites/scss/components/_button-group.scss */
-  .button-group.warning .button {
+  .button-group.warning .button, .button-group.warning .form-submit .submit, .form-submit .button-group.warning .submit {
     background-color: #ffae00;
     color: #fff; }
     /* line 119, ../bower_components/foundation-sites/scss/components/_button.scss */
-    .button-group.warning .button:hover, .button-group.warning .button:focus {
+    .button-group.warning .button:hover, .button-group.warning .form-submit .submit:hover, .form-submit .button-group.warning .submit:hover, .button-group.warning .button:focus, .button-group.warning .form-submit .submit:focus, .form-submit .button-group.warning .submit:focus {
       background-color: #cc8b00;
       color: #fff; }
   /* line 71, ../bower_components/foundation-sites/scss/components/_button-group.scss */
-  .button-group.stacked .button, .button-group.stacked-for-small .button {
+  .button-group.stacked .button, .button-group.stacked .form-submit .submit, .form-submit .button-group.stacked .submit, .button-group.stacked-for-small .button, .button-group.stacked-for-small .form-submit .submit, .form-submit .button-group.stacked-for-small .submit {
     width: 100%; }
     /* line 74, ../bower_components/foundation-sites/scss/components/_button-group.scss */
-    .button-group.stacked .button:not(:last-child), .button-group.stacked-for-small .button:not(:last-child) {
+    .button-group.stacked .button:not(:last-child), .button-group.stacked .form-submit .submit:not(:last-child), .form-submit .button-group.stacked .submit:not(:last-child), .button-group.stacked-for-small .button:not(:last-child), .button-group.stacked-for-small .form-submit .submit:not(:last-child), .form-submit .button-group.stacked-for-small .submit:not(:last-child) {
       border-right: 1px solid; }
   @media screen and (min-width: 40em) {
     /* line 85, ../bower_components/foundation-sites/scss/components/_button-group.scss */
-    .button-group.stacked-for-small .button {
+    .button-group.stacked-for-small .button, .button-group.stacked-for-small .form-submit .submit, .form-submit .button-group.stacked-for-small .submit {
       width: auto; }
       /* line 88, ../bower_components/foundation-sites/scss/components/_button-group.scss */
-      .button-group.stacked-for-small .button:not(:last-child) {
+      .button-group.stacked-for-small .button:not(:last-child), .button-group.stacked-for-small .form-submit .submit:not(:last-child), .form-submit .button-group.stacked-for-small .submit:not(:last-child) {
         border-right: 1px solid #F8F3E7; } }
 
 /* line 88, ../bower_components/foundation-sites/scss/components/_callout.scss */
@@ -2698,7 +2698,7 @@ select {
     padding-bottom: 0.5rem;
     padding-left: 0.5rem; }
   /* line 101, ../bower_components/foundation-sites/scss/components/_callout.scss */
-  .callout.large {
+  .callout.large, .form-submit .callout.submit {
     padding-top: 3rem;
     padding-right: 3rem;
     padding-bottom: 3rem;
@@ -2805,7 +2805,7 @@ select {
   width: 200px; }
 
 /* line 60, ../bower_components/foundation-sites/scss/components/_dropdown.scss */
-.dropdown-pane.large {
+.dropdown-pane.large, .form-submit .dropdown-pane.submit {
   width: 400px; }
 
 /* line 157, ../bower_components/foundation-sites/scss/util/_mixins.scss */
@@ -3607,7 +3607,7 @@ body.is-reveal-open {
       max-width: 85.71429rem; } }
   @media screen and (min-width: 40em) {
     /* line 149, ../bower_components/foundation-sites/scss/components/_reveal.scss */
-    .reveal.large {
+    .reveal.large, .form-submit .reveal.submit {
       width: 90%;
       max-width: 85.71429rem; } }
   /* line 152, ../bower_components/foundation-sites/scss/components/_reveal.scss */
@@ -3729,16 +3729,16 @@ body.is-reveal-open {
   left: 2rem; }
 
 /* line 171, ../bower_components/foundation-sites/scss/components/_switch.scss */
-.switch.large .switch-paddle {
+.switch.large .switch-paddle, .form-submit .switch.submit .switch-paddle {
   width: 5rem;
   height: 2.5rem;
   font-size: 1.14286rem; }
 /* line 177, ../bower_components/foundation-sites/scss/components/_switch.scss */
-.switch.large .switch-paddle::after {
+.switch.large .switch-paddle::after, .form-submit .switch.submit .switch-paddle::after {
   width: 2rem;
   height: 2rem; }
 /* line 182, ../bower_components/foundation-sites/scss/components/_switch.scss */
-.switch.large input:checked ~ .switch-paddle:after {
+.switch.large input:checked ~ .switch-paddle:after, .form-submit .switch.submit input:checked ~ .switch-paddle:after {
   left: 2.75rem; }
 
 /* line 196, ../bower_components/foundation-sites/scss/components/_table.scss */
@@ -4055,7 +4055,7 @@ table.hover tr:nth-of-type(even):hover {
     width: 200px;
     margin-right: 1rem; }
   /* line 44, ../bower_components/foundation-sites/scss/components/_top-bar.scss */
-  .top-bar input.button {
+  .top-bar input.button, .top-bar .form-submit input.submit, .form-submit .top-bar input.submit {
     width: auto; }
 
 @media screen and (max-width: 39.9375em) {
@@ -4109,7 +4109,7 @@ h1, h2, h3, h4 {
   content: "\f105"; }
 
 /* line 13, ../scss/_typography.scss */
-.button.dropdown::after {
+.button.dropdown::after, .form-submit .dropdown.submit::after {
   display: none; }
 
 /* line 1, ../scss/_navigation.scss */
@@ -4179,7 +4179,7 @@ h1, h2, h3, h4 {
     position: relative;
     margin-bottom: 0; }
     /* line 62, ../scss/_navigation.scss */
-    #search-bar .button-group .button:not(:last-child) {
+    #search-bar .button-group .button:not(:last-child), #search-bar .button-group .form-submit .submit:not(:last-child), .form-submit #search-bar .button-group .submit:not(:last-child) {
       border-right-color: #A9544D;
       border-right-width: 1px; }
   /* line 67, ../scss/_navigation.scss */
@@ -4215,7 +4215,7 @@ h1, h2, h3, h4 {
       #search-bar input {
         width: 290px; } }
   /* line 98, ../scss/_navigation.scss */
-  #search-bar a.button {
+  #search-bar a.button, #search-bar .form-submit a.submit, .form-submit #search-bar a.submit {
     color: #FFF; }
   /* line 102, ../scss/_navigation.scss */
   #search-bar button .fa {
@@ -4385,7 +4385,7 @@ h1, h2, h3, h4 {
       width: 100%;
       padding: 0.57143rem; }
     /* line 46, ../scss/_signup.scss */
-    #gform_wrapper_1 #gform_1 .button {
+    #gform_wrapper_1 #gform_1 .button, #gform_wrapper_1 #gform_1 .form-submit .submit, .form-submit #gform_wrapper_1 #gform_1 .submit {
       padding: 0.9rem 1rem; }
 
 /* line 1, ../scss/_footer-logo.scss */
@@ -4561,30 +4561,43 @@ h1, h2, h3, h4 {
     height: auto;
     max-width: none; }
   /* line 13, ../scss/_teasers.scss */
+  .teaser .rating {
+    display: inline-block;
+    position: relative;
+    right: 0px;
+    float: right;
+    top: -2rem;
+    padding: 0.5rem 1rem;
+    background-color: white;
+    border-top-left-radius: 10px; }
+    /* line 22, ../scss/_teasers.scss */
+    .teaser .rating .fa {
+      font-size: 1.28571rem; }
+  /* line 26, ../scss/_teasers.scss */
   .teaser .inner-content {
     padding: 8px; }
-    /* line 15, ../scss/_teasers.scss */
+    /* line 28, ../scss/_teasers.scss */
     .teaser .inner-content h4 > a {
       color: #773D1A;
       font-size: 1.71429rem; }
-      /* line 18, ../scss/_teasers.scss */
+      /* line 31, ../scss/_teasers.scss */
       .teaser .inner-content h4 > a:hover {
         color: #259d48; }
-  /* line 24, ../scss/_teasers.scss */
+  /* line 37, ../scss/_teasers.scss */
   .teaser .author-info img {
     border-radius: 100%; }
-  /* line 28, ../scss/_teasers.scss */
+  /* line 41, ../scss/_teasers.scss */
   .teaser .meta-info {
     border-top: 1px solid #F15B24;
     margin: 0;
     padding: 8px 0 0; }
-    /* line 32, ../scss/_teasers.scss */
+    /* line 45, ../scss/_teasers.scss */
     .teaser .meta-info p {
       margin: 0; }
-    /* line 35, ../scss/_teasers.scss */
+    /* line 48, ../scss/_teasers.scss */
     .teaser .meta-info .fa {
       color: #F15B24; }
-    /* line 38, ../scss/_teasers.scss */
+    /* line 51, ../scss/_teasers.scss */
     .teaser .meta-info .fa.fa-users {
       color: transparent;
       width: 29px;
@@ -4605,7 +4618,7 @@ h1, h2, h3, h4 {
   color: #406086;
   font-size: 2rem; }
 /* line 15, ../scss/_ads.scss */
-.teaser#teaser-ad .button {
+.teaser#teaser-ad .button, .teaser#teaser-ad .form-submit .submit, .form-submit .teaser#teaser-ad .submit {
   border-color: #406086;
   color: #406086;
   font-size: 1.42857rem;
@@ -4652,7 +4665,7 @@ h1, h2, h3, h4 {
         font-size: 2.28571rem;
         margin-top: 0.71429rem; }
     /* line 61, ../scss/_ads.scss */
-    .row#large-ad .content a.button {
+    .row#large-ad .content a.button, .row#large-ad .content .form-submit a.submit, .form-submit .row#large-ad .content a.submit {
       font-family: "Amatic SC", cursive;
       display: inline-block;
       font-size: 1.57143rem;
@@ -4674,11 +4687,52 @@ h1, h2, h3, h4 {
     position: absolute;
     bottom: 0; }
 
-/* line 16, ../scss/app.scss */
+/* line 1, ../scss/_comments.scss */
+#comments {
+  margin-top: 2rem; }
+  /* line 3, ../scss/_comments.scss */
+  #comments .comment {
+    margin-bottom: 2rem; }
+  /* line 6, ../scss/_comments.scss */
+  #comments .author, #comments .details {
+    float: left; }
+  /* line 7, ../scss/_comments.scss */
+  #comments .author {
+    margin-right: 2rem; }
+    /* line 9, ../scss/_comments.scss */
+    #comments .author img {
+      border-radius: 100%; }
+  /* line 13, ../scss/_comments.scss */
+  #comments h4 {
+    margin: 0; }
+  /* line 16, ../scss/_comments.scss */
+  #comments .rating, #comments .date {
+    display: inline-block; }
+  /* line 17, ../scss/_comments.scss */
+  #comments .rating {
+    font-size: 1.5rem;
+    margin-right: 1rem; }
+  /* line 21, ../scss/_comments.scss */
+  #comments .date {
+    position: relative;
+    bottom: 0.14286rem; }
+  /* line 25, ../scss/_comments.scss */
+  #comments .content {
+    margin-top: 1rem; }
+  /* line 28, ../scss/_comments.scss */
+  #comments .star {
+    display: inline-block;
+    font-size: 1.5rem;
+    margin: 1rem 0.5rem 1rem 0; }
+    /* line 32, ../scss/_comments.scss */
+    #comments .star:hover {
+      cursor: pointer; }
+
+/* line 17, ../scss/app.scss */
 .row .columns.collapse {
   padding: 0; }
 
-/* line 22, ../scss/app.scss */
+/* line 23, ../scss/app.scss */
 .social-links .fa {
   border-radius: 100%;
   width: 30px;
@@ -4688,27 +4742,27 @@ h1, h2, h3, h4 {
   font-size: 1rem;
   background-image: url("../images/social-icons.png");
   color: transparent; }
-/* line 33, ../scss/app.scss */
+/* line 34, ../scss/app.scss */
 .social-links .fa-instagram {
   background-position: 30px; }
-/* line 34, ../scss/app.scss */
+/* line 35, ../scss/app.scss */
 .social-links .fa-pinterest {
   background-position: 0; }
-/* line 35, ../scss/app.scss */
+/* line 36, ../scss/app.scss */
 .social-links .fa-facebook {
   background-position: -36px; }
-/* line 36, ../scss/app.scss */
+/* line 37, ../scss/app.scss */
 .social-links .fa-twitter {
   background-position: -107px; }
-/* line 37, ../scss/app.scss */
+/* line 38, ../scss/app.scss */
 .social-links .fa-google-plus {
   background-position: -143px; }
-/* line 38, ../scss/app.scss */
+/* line 39, ../scss/app.scss */
 .social-links .fa.all-recipes {
   background-image: url("../images/AllRecipes.png");
   background-repeat: no-repeat; }
 
-/* line 44, ../scss/app.scss */
+/* line 45, ../scss/app.scss */
 #share .stButton .stLarge {
   border-radius: 100%;
   width: 30px;
@@ -4719,40 +4773,44 @@ h1, h2, h3, h4 {
   background-image: url("../images/social-icons.png") !important;
   color: transparent; }
 
-/* line 54, ../scss/app.scss */
+/* line 55, ../scss/app.scss */
 .st_pinterest_large .stLarge {
   background-position: 0; }
 
-/* line 55, ../scss/app.scss */
+/* line 56, ../scss/app.scss */
 .st_facebook_large .stLarge {
   background-position: -36px; }
 
-/* line 56, ../scss/app.scss */
+/* line 57, ../scss/app.scss */
 .st_stumbleupon_large .stLarge {
   background-position: -71px; }
 
-/* line 57, ../scss/app.scss */
+/* line 58, ../scss/app.scss */
 .st_twitter_large .stLarge {
   background-position: -107px; }
 
-/* line 58, ../scss/app.scss */
+/* line 59, ../scss/app.scss */
 .st_googleplus_large .stLarge {
   background-position: -143px; }
 
-/* line 59, ../scss/app.scss */
+/* line 60, ../scss/app.scss */
 .st_print_large .stLarge {
   background-position: -181px; }
 
-/* line 60, ../scss/app.scss */
+/* line 61, ../scss/app.scss */
 .st_email_large .stLarge {
   background-position: -217px; }
 
-/* line 62, ../scss/app.scss */
+/* line 63, ../scss/app.scss */
 .dropdown-pane {
   background-color: #FFF;
   border: none; }
 
-/* line 67, ../scss/app.scss */
+/* line 73, ../scss/app.scss */
+.fa-star {
+  color: #F15B24; }
+
+/* line 77, ../scss/app.scss */
 #content {
   padding-top: 80px;
   padding-bottom: 80px; }

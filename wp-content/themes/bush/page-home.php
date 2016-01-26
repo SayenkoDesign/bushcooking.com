@@ -12,7 +12,17 @@ $query = new WP_Query($args);
 $recipes = [];
 while ( $query->have_posts() ) {
     $query->the_post();
-    $recipes[] = $app->render('partials/recipe-teaser.html.twig');
+    $comments = get_comments([
+        'post_id' => get_the_ID(),
+    ]);
+    $ratings_total = 0;
+    $ratings_count = 0;
+    foreach($comments as $comment) {
+        $ratings_total += get_comment_meta($comment->comment_ID, 'rating', true);
+        $ratings_count++;
+    }
+    $rating = (!$ratings_total || !$ratings_count) ? 0 : $ratings_total / $ratings_count;
+    $recipes[] = $app->render('partials/recipe-teaser.html.twig', ['rating' => $rating]);
 }
 
 $args = [

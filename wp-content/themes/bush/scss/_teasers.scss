@@ -10,6 +10,19 @@
     height: auto;
     max-width:none;
   }
+  .rating {
+    display: inline-block;
+    position: relative;
+    right: 0px;
+    float: right;
+    top: -2rem;
+    padding: 0.5rem 1rem;
+    background-color: rgb(255, 255, 255);
+    border-top-left-radius: 10px;
+    .fa {
+      font-size: rem-calc(18px);
+    }
+  }
   .inner-content {
     padding: 8px;
     h4 > a {

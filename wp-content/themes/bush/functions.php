@@ -55,3 +55,120 @@ add_filter( 'wpseo_metabox_prio', function() { return 'low';});
 // add image sizes
 $teaser = new ImageSize('teaser', 280, 280, true);
 $slider = new ImageSize('slider', 380, 380, true);
+
+// control field order and remove uri field
+add_filter( 'comment_form_fields', function ( $fields ) {
+    $commenter = wp_get_current_commenter();
+
+	$comment_field = '<div class="row column"><textarea placeholder="Your Comment" id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></div>';
+    $fields['author'] = '<div class="row">'
+        . '<div class="medium-6 columns">'
+        . '<input placeholder="Name" name="author" type="text" aria-required="true" required="required" value="'.esc_attr( $commenter['comment_author'] ).'"/>'
+        . '</div>';
+    $fields['email'] = '<div class="medium-6 columns">'
+        . '<input name="email" placeholder="Email" type="text" aria-required="true" required="required" value="'.esc_attr( $commenter['comment_author_email'] ).'"/>'
+        . '</div>'
+        . '</div>';
+
+    unset($fields['url']);
+	unset( $fields['comment'] );
+	$fields['comment'] = $comment_field;
+	return $fields;
+});
+
+// Add fields after default fields above the comment box, always visible
+add_action( 'comment_form_logged_in_after', 'additional_fields' );
+add_action( 'comment_form_after_fields', 'additional_fields' );
+function additional_fields () {
+?>
+    <div class="row column">
+        <label for="rating">Your Rating</label>
+        <div class="hide">
+            <input type="radio" name="rating" id="rating-1" value="1" />
+            <input type="radio" name="rating" id="rating-2" value="2" />
+            <input type="radio" name="rating" id="rating-3" value="3" />
+            <input type="radio" name="rating" id="rating-4" value="4" />
+            <input type="radio" name="rating" id="rating-5" value="5" />
+        </div>
+        <div class="star-container">
+            <span class="stars">
+                <label for="rating-1" class="star"><i class="fa fa-star-o"></i></label>
+                <label for="rating-2" class="star"><i class="fa fa-star-o"></i></label>
+                <label for="rating-3" class="star"><i class="fa fa-star-o"></i></label>
+                <label for="rating-4" class="star"><i class="fa fa-star-o"></i></label>
+                <label for="rating-5" class="star"><i class="fa fa-star-o"></i></label>
+            </span>
+        </div>
+    </div>
+<?php
+}
+
+// Save the comment meta data along with comment
+add_action( 'comment_post', 'save_comment_meta_data' );
+function save_comment_meta_data( $comment_id ) {
+    if ( ( isset( $_POST['rating'] ) ) && ( $_POST['rating'] != '') )
+        $rating = wp_filter_nohtml_kses($_POST['rating']);
+    add_comment_meta( $comment_id, 'rating', $rating );
+}
+
+// Add the filter to check whether the comment meta data has been filled
+add_filter( 'preprocess_comment', 'verify_comment_meta_data' );
+function verify_comment_meta_data( $commentdata ) {
+    if ( ! isset( $_POST['rating'] ) )
+        wp_die( __( 'Error: You did not add a rating. Hit the Back button on your Web browser and resubmit your comment with a rating.' ) );
+    return $commentdata;
+}
+
+// Add the comment meta (saved earlier) to the comment text
+// You can also output the comment meta values directly to the comments template
+add_filter( 'comment_text', 'modify_comment');
+function modify_comment( $text ){
+
+    $plugin_url_path = WP_PLUGIN_URL;
+
+    if( $commentrating = get_comment_meta( get_comment_ID(), 'rating', true ) ) {
+        $commentrating = '<p class="comment-rating">  Rating: <strong>'. $commentrating .' / 5</strong></p>';
+        $text = $text . $commentrating;
+        return $text;
+    } else {
+        return $text;
+    }
+}
+
+// Add an edit option to comment editing screen
+add_action( 'add_meta_boxes_comment', 'extend_comment_add_meta_box' );
+function extend_comment_add_meta_box() {
+    add_meta_box( 'title', __( 'Rating' ), 'extend_comment_meta_box', 'comment', 'normal', 'high' );
+}
+
+function extend_comment_meta_box ( $comment ) {
+    $rating = get_comment_meta( $comment->comment_ID, 'rating', true );
+    wp_nonce_field( 'extend_comment_update', 'extend_comment_update', false );
+    ?>
+    <p>
+        <label for="rating"><?php _e( 'Rating: ' ); ?></label>
+      <span class="commentratingbox">
+      <?php for( $i=1; $i <= 5; $i++ ) {
+          echo '<span class="commentrating"><input type="radio" name="rating" id="rating" value="'. $i .'"';
+          if ( $rating == $i ) echo ' checked="checked"';
+          echo ' />'. $i .' </span>';
+      }
+      ?>
+      </span>
+    </p>
+    <?php
+}
+
+// Update comment meta data from comment editing screen
+add_action( 'edit_comment', 'extend_comment_edit_metafields' );
+function extend_comment_edit_metafields( $comment_id ) {
+    if( ! isset( $_POST['extend_comment_update'] ) || ! wp_verify_nonce( $_POST['extend_comment_update'], 'extend_comment_update' ) ) return;
+
+    if ( ( isset( $_POST['rating'] ) ) && ( $_POST['rating'] != '') ):
+        $rating = wp_filter_nohtml_kses($_POST['rating']);
+        update_comment_meta( $comment_id, 'rating', $rating );
+    else :
+        delete_comment_meta( $comment_id, 'rating');
+    endif;
+
+}

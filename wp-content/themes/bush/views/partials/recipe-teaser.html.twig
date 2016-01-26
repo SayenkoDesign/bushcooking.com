@@ -4,6 +4,15 @@
     {% else %}
         <img src="http://placehold.it/280x280" class="featured"/>
     {% endif %}
+    <div class="rating">
+        {% for i in 1..5 %}
+            {% if i <= rating %}
+                <i class="fa fa-star"></i>
+            {% else %}
+                <i class="fa fa-star-o"></i>
+            {% endif %}
+        {% endfor %}
+    </div>
     <div class="inner-content">
         <h4 class="title"><a href="{{ the_permalink() }}">{{ the_title() }}</a></h4>
         <div class="description">

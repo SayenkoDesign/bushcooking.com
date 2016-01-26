@@ -52,10 +52,31 @@ $related_posts = get_field('related');
 if($related_posts) {
 	foreach($related_posts as $post) {
 		setup_postdata($post);
-		$related[] = $app->render('partials/recipe-teaser.html.twig');
+		$comments = get_comments([
+				'post_id' => get_the_ID(),
+		]);
+		$ratings_total = 0;
+		$ratings_count = 0;
+		foreach($comments as $comment) {
+			$ratings_total += get_comment_meta($comment->comment_ID, 'rating', true);
+			$ratings_count++;
+		}
+		$rating = (!$ratings_total || !$ratings_count) ? 0 : $ratings_total / $ratings_count;
+		$related[] = $app->render('partials/recipe-teaser.html.twig', ['rating' => $rating]);
 	}
 	wp_reset_postdata();
 }
+
+$comments = get_comments([
+	'post_id' => get_the_ID(),
+]);
+$ratings_total = 0;
+$ratings_count = 0;
+foreach($comments as $comment) {
+	$ratings_total += get_comment_meta($comment->comment_ID, 'rating', true);
+	$ratings_count++;
+}
+$rating = (!$ratings_total || !$ratings_count) ? 0 : $ratings_total / $ratings_count;
 
 while (have_posts()) {
 	the_post();
@@ -66,6 +87,7 @@ while (have_posts()) {
 		'difficulties' => $difficulties,
 		'categories' => $categories,
 		'related' => $related,
+		'rating' => $rating,
 	]);
 }
 get_footer();

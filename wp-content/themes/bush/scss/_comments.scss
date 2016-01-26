@@ -1,0 +1,36 @@
+#comments {
+  margin-top: 2rem;
+  .comment {
+    margin-bottom: 2rem;
+  }
+  .author, .details { float: left; }
+  .author {
+    margin-right: 2rem;
+    img {
+      border-radius: 100%;
+    }
+  }
+  h4 {
+    margin: 0;
+  }
+  .rating, .date { display: inline-block; }
+  .rating {
+    font-size:1.5rem;
+    margin-right: 1rem;
+  }
+  .date {
+    position: relative;
+    bottom: rem-calc(2px);
+  }
+  .content {
+    margin-top: 1rem;
+  }
+  .star {
+    display: inline-block;
+    font-size: 1.5rem;
+    margin: 1rem 0.5rem 1rem 0;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

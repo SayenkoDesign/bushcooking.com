@@ -69,6 +69,9 @@
                         </div>
                     {% endfor %}
                 </div>
+                <div id="comments">
+                    {{ comments_template() }}
+                </div>
             </div>
             <div class="medium-3 columns collapse">
                 <div id="side">
@@ -76,6 +79,20 @@
                         {{ the_author_avatar(60) }} By: {{ the_author_link() }}
                     </div>
                     <table id="details">
+                        <tr>
+                            <th>Rating</th>
+                            <td>
+                                <div class="rating">
+                                    {% for i in 1..5 %}
+                                        {% if i <= rating %}
+                                            <i class="fa fa-star"></i>
+                                        {% else %}
+                                            <i class="fa fa-star-o"></i>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </td>
+                        </tr>
                         <tr>
                             <th>Servings</th>
                             <td>{{ the_field('servings') }}</td>

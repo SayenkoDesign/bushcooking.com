@@ -132,8 +132,8 @@ class WordPressExtension extends \Twig_Extension
         }, $html_safe);
 
         // the_author_avatar
-        $funcs[] = new Twig_SimpleFunction('the_author_avatar', function($size = null) {
-            return get_avatar( get_the_author_meta( 'ID' ) , $size );
+        $funcs[] = new Twig_SimpleFunction('the_author_avatar', function($size = null, $id = null) {
+            return get_avatar( $id ?: get_the_author_meta( 'ID' ) , $size );
         }, $html_safe);
 
         // the_author
@@ -166,6 +166,18 @@ class WordPressExtension extends \Twig_Extension
         // get_category_link
         $funcs[] = new Twig_SimpleFunction('category_link', function($id) {
             return get_category_link($id);
+        }, $html_safe);
+
+        // comments_template
+        $funcs[] = new Twig_SimpleFunction('comments_template', function($file = '/comments.php', $seperate = false) {
+            ob_start();
+            comments_template($file, $seperate);
+            return ob_get_clean();
+        }, $html_safe);
+
+        // get_comment_meta
+        $funcs[] = new Twig_SimpleFunction('comment_meta', function($id, $string = '', $single = false) {
+            return get_comment_meta($id, $string, $single);
         }, $html_safe);
 
         return $funcs;
