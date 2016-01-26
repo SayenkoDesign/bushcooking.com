@@ -20,20 +20,22 @@
 
 .social-links {
   .fa {
-    color: #FFF;
     border-radius: 100%;
     width: 30px;
     height: 30px;
     padding-top: 8px;
     text-align: center;
     font-size: 1rem;
+    background-image: url("../images/social-icons.png");
+    color: transparent;
   }
-  .fa-instagram { background-color: #405f85; }
-  .fa-pinterest { background-color: #e55338; }
-  .fa-facebook { background-color: #9681a5; }
+
+  .fa-instagram { background-position: 30px; }
+  .fa-pinterest { background-position: 0; }
+  .fa-facebook { background-position: -36px; }
   .fa-stumbleupon { background-color: #f68139; }
-  .fa-twitter { background-color: #a2bff2; }
-  .fa-google-plus { background-color: #ee7547; }
+  .fa-twitter { background-position: -107px; }
+  .fa-google-plus { background-position: -143px; }
   .fa.all-recipes {
     background-image: url('../images/AllRecipes.png');
     background-repeat: no-repeat;
