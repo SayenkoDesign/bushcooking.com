@@ -4698,25 +4698,61 @@ h1, h2, h3, h4 {
 .social-links .fa-facebook {
   background-position: -36px; }
 /* line 36, ../scss/app.scss */
-.social-links .fa-stumbleupon {
-  background-color: #f68139; }
-/* line 37, ../scss/app.scss */
 .social-links .fa-twitter {
   background-position: -107px; }
-/* line 38, ../scss/app.scss */
+/* line 37, ../scss/app.scss */
 .social-links .fa-google-plus {
   background-position: -143px; }
-/* line 39, ../scss/app.scss */
+/* line 38, ../scss/app.scss */
 .social-links .fa.all-recipes {
   background-image: url("../images/AllRecipes.png");
   background-repeat: no-repeat; }
 
-/* line 45, ../scss/app.scss */
+/* line 44, ../scss/app.scss */
+#share .stButton .stLarge {
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  padding-top: 8px;
+  text-align: center;
+  font-size: 1rem;
+  background-image: url("../images/social-icons.png") !important;
+  color: transparent; }
+
+/* line 54, ../scss/app.scss */
+.st_pinterest_large .stLarge {
+  background-position: 0; }
+
+/* line 55, ../scss/app.scss */
+.st_facebook_large .stLarge {
+  background-position: -36px; }
+
+/* line 56, ../scss/app.scss */
+.st_stumbleupon_large .stLarge {
+  background-position: -71px; }
+
+/* line 57, ../scss/app.scss */
+.st_twitter_large .stLarge {
+  background-position: -107px; }
+
+/* line 58, ../scss/app.scss */
+.st_googleplus_large .stLarge {
+  background-position: -143px; }
+
+/* line 59, ../scss/app.scss */
+.st_print_large .stLarge {
+  background-position: -181px; }
+
+/* line 60, ../scss/app.scss */
+.st_email_large .stLarge {
+  background-position: -217px; }
+
+/* line 62, ../scss/app.scss */
 .dropdown-pane {
   background-color: #FFF;
   border: none; }
 
-/* line 50, ../scss/app.scss */
+/* line 67, ../scss/app.scss */
 #content {
   padding-top: 80px;
   padding-bottom: 80px; }

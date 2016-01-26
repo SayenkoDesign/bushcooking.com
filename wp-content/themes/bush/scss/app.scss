@@ -33,7 +33,6 @@
   .fa-instagram { background-position: 30px; }
   .fa-pinterest { background-position: 0; }
   .fa-facebook { background-position: -36px; }
-  .fa-stumbleupon { background-color: #f68139; }
   .fa-twitter { background-position: -107px; }
   .fa-google-plus { background-position: -143px; }
   .fa.all-recipes {
@@ -41,6 +40,24 @@
     background-repeat: no-repeat;
   }
 }
+
+#share .stButton .stLarge {
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  padding-top: 8px;
+  text-align: center;
+  font-size: 1rem;
+  background-image: url("../images/social-icons.png") !important;
+  color: transparent;
+}
+.st_pinterest_large .stLarge { background-position: 0; }
+.st_facebook_large .stLarge { background-position: -36px; }
+.st_stumbleupon_large .stLarge { background-position: -71px; }
+.st_twitter_large .stLarge { background-position: -107px; }
+.st_googleplus_large .stLarge { background-position: -143px; }
+.st_print_large .stLarge { background-position: -181px;}
+.st_email_large .stLarge { background-position: -217px; }
 
 .dropdown-pane {
   background-color: $white;
