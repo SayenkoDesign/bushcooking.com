@@ -20,14 +20,17 @@
                                     </div>
                                 </li>
                                 <li>
+                                    <form role="search" method="get" id="searchform" class="searchform" action="{{ home_url( '/' ) }}">
                                     <div class="input-group">
-                                        <input class="input-group-field" type="search" placeholder="Find a Recipe">
+                                        <input class="input-group-field" type="search" placeholder="Find a Recipe" name="s">
+                                        <input type="hidden" name="post_type" value="recipes" />
                                         <div class="input-group-button">
-                                            <button type="submit" class="button">
+                                            <button type="submit" class="button" value="Search">
                                                 <i class="fa fa-search"></i>
                                             </button>
                                         </div>
                                     </div>
+                                    </form>
                                 </li>
                             </ul>
                             <div class="dropdown-pane" id="example-dropdown" data-dropdown data-hover="true" data-hover-pane="true">

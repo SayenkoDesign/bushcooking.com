@@ -4649,15 +4649,41 @@ h1, h2, h3, h4 {
 /* line 1, ../scss/_single-post.scss */
 #post-featured-image {
   float: left;
-  margin: 0 2rem 2rem 0; }
+  margin: 0 2rem 1rem 0;
+  background-color: #FFF;
+  border: 1px solid #fcdedc;
+  padding: 6px; }
 
-/* line 5, ../scss/_single-post.scss */
+/* line 8, ../scss/_single-post.scss */
 #categories a {
   padding-left: 0;
   padding-right: 0; }
-  /* line 8, ../scss/_single-post.scss */
+  /* line 11, ../scss/_single-post.scss */
   #categories a span {
     color: #58595B; }
+
+/* line 16, ../scss/_single-post.scss */
+#search-post input[type=search], #search-post input[type=text] {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+  appearance: textfield; }
+  /* line 20, ../scss/_single-post.scss */
+  #search-post input[type=search]::-webkit-input-placeholder, #search-post input[type=text]::-webkit-input-placeholder {
+    color: #F15B24; }
+  /* line 23, ../scss/_single-post.scss */
+  #search-post input[type=search]:-moz-placeholder, #search-post input[type=text]:-moz-placeholder {
+    /* FF 4-18 */
+    color: #F15B24;
+    opacity: 1; }
+  /* line 28, ../scss/_single-post.scss */
+  #search-post input[type=search]::-moz-placeholder, #search-post input[type=text]::-moz-placeholder {
+    /* FF 19+ */
+    color: #F15B24;
+    opacity: 1; }
+  /* line 33, ../scss/_single-post.scss */
+  #search-post input[type=search]:-ms-input-placeholder, #search-post input[type=text]:-ms-input-placeholder {
+    /* IE 10+ */
+    color: #F15B24; }
 
 /* line 1, ../scss/_teasers.scss */
 .teasers .column article:first-child, .teasers .columns article:first-child {

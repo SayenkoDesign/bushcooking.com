@@ -1,0 +1,32 @@
+<section id="primary" class="content-area">
+    <main id="content" class="content" role="main">
+
+        {% if content %}
+
+            <div class="row column">
+                <h1 class="page-title">{{ title }}</h1>
+            </div>
+
+            <div class="row small-up-1 medium-up-2 large-up-4 teasers">
+                {% for teaser in content %}
+                    <div class="column">
+                        {{ teaser | raw }}
+                    </div>
+                {% endfor %}
+            </div>
+
+            {{
+                posts_pagination({
+                    'prev_text'          : 'Previous page',
+                    'next_text'          : 'Next page',
+                    'before_page_number' : '<span class="meta-nav screen-reader-text">Page</span>',
+                })
+            }}
+        {% else %}
+            <div class="row column">
+                <h1 class="page-title">Nothing Found</h1>
+            </div>
+        {% endif %}
+
+    </main><!-- .site-main -->
+</section><!-- .content-area -->

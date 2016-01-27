@@ -180,6 +180,12 @@ class WordPressExtension extends \Twig_Extension
             return get_comment_meta($id, $string, $single);
         }, $html_safe);
 
+
+        // posts_pagination
+        $funcs[] = new Twig_SimpleFunction('posts_pagination', function($args = []) {
+            return get_the_posts_pagination();
+        }, $html_safe);
+
         return $funcs;
     }
 
