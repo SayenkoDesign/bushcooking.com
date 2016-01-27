@@ -56,6 +56,61 @@ add_filter( 'wpseo_metabox_prio', function() { return 'low';});
 $teaser = new ImageSize('teaser', 280, 280, true);
 $slider = new ImageSize('slider', 380, 380, true);
 
+// tabed short code
+remove_filter( 'the_content', 'wpautop' );
+add_filter( 'the_content', 'wpautop' , 99);
+add_filter( 'the_content', 'shortcode_unautop',100 );
+
+add_shortcode( 'bush_tabbed_titles', function ( $atts, $content = '' ) {
+    $remove_br_right = str_replace('<br />[', '[', $content);
+    $remove_br_left = str_replace(']<br />', ']', $remove_br_right);
+    $remove_p_right = str_replace('</p>[', '[', $remove_br_left);
+    $filtered_content = str_replace(']<p>', ']', $remove_p_right);
+    $inner_content = do_shortcode($filtered_content);
+    return <<<HTML
+<ul class="tabs" data-tabs>$inner_content</ul>
+HTML;
+});
+
+add_shortcode( 'bush_tabbed_title', function ( $atts, $content = '' ) {
+    static $tabbed_title_counter = 0;
+    $tabbed_title_counter++;
+    if($tabbed_title_counter == 1 ) {
+        return <<<HTML
+        <li class="tabs-title is-active"><a href="#panel-$tabbed_title_counter" aria-selected="true">$content</a></li>
+HTML;
+    } else {
+        return <<<HTML
+        <li class="tabs-title"><a href="#panel-$tabbed_title_counter">$content</a></li>
+HTML;
+    }
+});
+
+add_shortcode( 'bush_tabbed_contents', function ( $atts, $content = '' ){
+    $inner_content = do_shortcode($content);
+    return <<<HTML
+<div class="tabs-content" data-tabs-content="example-tabs">$inner_content</div>
+HTML;
+});
+
+add_shortcode( 'bush_tabbed_content', function ( $atts, $content = '' ) {
+    static $tabbed_content_counter = 0;
+    $tabbed_content_counter++;
+    if($tabbed_content_counter == 1) {
+        return <<<HTML
+    <div class="tabs-panel is-active" id="panel-$tabbed_content_counter">
+        $content
+    </div>
+HTML;
+    } else {
+        return <<<HTML
+    <div class="tabs-panel" id="panel-$tabbed_content_counter">
+        $content
+    </div>
+HTML;
+    }
+});
+
 // control field order and remove uri field
 add_filter( 'comment_form_fields', function ( $fields ) {
     $commenter = wp_get_current_commenter();
