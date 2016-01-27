@@ -4743,19 +4743,19 @@ h1, h2, h3, h4 {
   background-image: url("../images/social-icons.png");
   color: transparent; }
 /* line 34, ../scss/app.scss */
-.social-links .fa-instagram {
+.social-links .fa-instagram, .social-links .fa-instagram:hover {
   background-position: 30px; }
 /* line 35, ../scss/app.scss */
-.social-links .fa-pinterest {
+.social-links .fa-pinterest, .social-links .fa-pinterest:hover {
   background-position: 0; }
 /* line 36, ../scss/app.scss */
-.social-links .fa-facebook {
+.social-links .fa-facebook, .social-links .fa-facebook:hover {
   background-position: -36px; }
 /* line 37, ../scss/app.scss */
-.social-links .fa-twitter {
+.social-links .fa-twitter, .social-links .fa-twitter:hover {
   background-position: -107px; }
 /* line 38, ../scss/app.scss */
-.social-links .fa-google-plus {
+.social-links .fa-google-plus, .social-links .fa-google-plus:hover {
   background-position: -143px; }
 /* line 39, ../scss/app.scss */
 .social-links .fa.all-recipes {
@@ -4775,31 +4775,31 @@ h1, h2, h3, h4 {
 
 /* line 55, ../scss/app.scss */
 .st_pinterest_large .stLarge {
-  background-position: 0; }
+  background-position: 0 !important; }
 
 /* line 56, ../scss/app.scss */
 .st_facebook_large .stLarge {
-  background-position: -36px; }
+  background-position: -36px !important; }
 
 /* line 57, ../scss/app.scss */
 .st_stumbleupon_large .stLarge {
-  background-position: -71px; }
+  background-position: -71px !important; }
 
 /* line 58, ../scss/app.scss */
 .st_twitter_large .stLarge {
-  background-position: -107px; }
+  background-position: -107px !important; }
 
 /* line 59, ../scss/app.scss */
 .st_googleplus_large .stLarge {
-  background-position: -143px; }
+  background-position: -143px !important; }
 
 /* line 60, ../scss/app.scss */
 .st_print_large .stLarge {
-  background-position: -181px; }
+  background-position: -181px !important; }
 
 /* line 61, ../scss/app.scss */
 .st_email_large .stLarge {
-  background-position: -217px; }
+  background-position: -217px !important; }
 
 /* line 63, ../scss/app.scss */
 .dropdown-pane {
