@@ -48,4 +48,14 @@ jQuery(function() {
         jQuery(this).prevAll('.star').children('i.fa').removeClass('fa-star-o').addClass('fa-star');
         jQuery(this).nextAll('.star').children('i.fa').removeClass('fa-star').addClass('fa-star-o');
     });
+
+    jQuery(window).scroll(function (event) {
+        var scroll = $(window).scrollTop();
+        var sticky_container = jQuery('#top-bar-container');
+        if(scroll > 0) {
+            sticky_container.addClass('shrink');
+        } else {
+            sticky_container.removeClass('shrink');
+        }
+    });
 });
