@@ -1,3 +1,17 @@
+.single-post {
+  #content {
+    h1 {
+      margin: 0;
+    }
+    .author-info {
+      margin-bottom: 1rem;
+      a {
+        color: $primary-2;
+      }
+    }
+  }
+}
+
 #post-featured-image {
   float: left;
   margin: 0 2rem 1rem 0;
@@ -5,15 +19,19 @@
   border: 1px solid #fcdedc;
   padding: 6px;
 }
-#categories a {
-  padding-left: 0;
-  padding-right: 0;
-  span {
-    color: $body-font-color;
+#categories {
+  margin-bottom: 1rem;
+  a {
+    padding-left: 0;
+    padding-right: 0;
+    span {
+      color: $body-font-color;
+    }
   }
 }
 #search-post {
   input[type=search], input[type=text] {
+    font-size: 14px;
     -moz-appearance:    textfield;
     -webkit-appearance: textfield;
     appearance: textfield;
@@ -34,5 +52,9 @@
       /* IE 10+ */
       color: $primary-3;
     }
+  }
+  button {
+    margin-left: 4px;
+    font-size: 14px;
   }
 }

@@ -7,6 +7,10 @@
                 </div>
 
                 <h1>{{ the_title() }}</h1>
+                <p class="author-info">
+                    By: <a href="{{ the_author_posts_url(the_author_ID()) }}">{{ the_author() }}</a>
+                    | {{ the_date() | date("F d, Y") }}
+                </p>
                 {% include 'partials/sharethis.html.twig' %}
                 {{ the_content() }}
 
