@@ -60,5 +60,10 @@
       height: 16px;
       background-image: url('../images/users.min.png');
     }
+    .fa.fa-clock-o {
+      font-size: rem-calc(18px);
+      position: relative;
+      top: rem-calc(3px);
+    }
   }
 }

@@ -183,6 +183,13 @@ class WordPressExtension extends \Twig_Extension
             return get_category_link($id);
         }, $html_safe);
 
+        // comments_number
+        $funcs[] = new Twig_SimpleFunction('comments_number', function($zero = '', $single = '', $many = '') {
+            ob_start();
+            comments_number($zero, $single, $many);
+            return ob_get_clean();
+        }, $html_safe);
+
         // comments_template
         $funcs[] = new Twig_SimpleFunction('comments_template', function($file = '/comments.php', $seperate = false) {
             ob_start();

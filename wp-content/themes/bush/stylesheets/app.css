@@ -4645,34 +4645,59 @@ h1, h2, h3, h4 {
   height: auto !important; }
 
 /* line 37, ../scss/_single-recipes.scss */
+#recipe-overview h1 {
+  font-size: 2.57143rem;
+  line-height: 1;
+  margin: 0 0 1rem 0; }
+
+/* line 43, ../scss/_single-recipes.scss */
 #recipe-instructions {
   margin-bottom: 2rem; }
 
-/* line 41, ../scss/_single-recipes.scss */
+/* line 47, ../scss/_single-recipes.scss */
+#directions .icon {
+  float: left;
+  font-size: 3rem; }
+/* line 51, ../scss/_single-recipes.scss */
+#directions .content {
+  margin-left: 4rem;
+  margin-bottom: 2rem; }
+
+/* line 57, ../scss/_single-recipes.scss */
 #share {
   margin-bottom: 1rem; }
 
-/* line 45, ../scss/_single-recipes.scss */
+/* line 61, ../scss/_single-recipes.scss */
 #side {
   background-color: #FFF;
   padding: 1.71429rem;
   border: 1px solid #fcdedc; }
-  /* line 49, ../scss/_single-recipes.scss */
+  /* line 65, ../scss/_single-recipes.scss */
+  #side #author {
+    margin-bottom: 2rem; }
+    /* line 67, ../scss/_single-recipes.scss */
+    #side #author img {
+      border-radius: 100%; }
+    /* line 70, ../scss/_single-recipes.scss */
+    #side #author h4 {
+      float: right; }
+  /* line 74, ../scss/_single-recipes.scss */
   #side #details {
+    clear: both;
     width: 100%;
     border: 0 solid transparent; }
-    /* line 52, ../scss/_single-recipes.scss */
+    /* line 78, ../scss/_single-recipes.scss */
     #side #details tr, #side #details tbody, #side #details th, #side #details td {
       border: 0 solid transparent; }
-    /* line 53, ../scss/_single-recipes.scss */
+    /* line 79, ../scss/_single-recipes.scss */
     #side #details tr {
       background-color: transparent; }
-    /* line 56, ../scss/_single-recipes.scss */
+    /* line 82, ../scss/_single-recipes.scss */
     #side #details th {
       font-weight: normal;
       text-align: left;
       padding-left: 0; }
-    /* line 61, ../scss/_single-recipes.scss */
+    /* line 87, ../scss/_single-recipes.scss */
     #side #details td {
       text-align: right;
       padding-right: 0; }
@@ -4781,6 +4806,11 @@ h1, h2, h3, h4 {
       width: 29px;
       height: 16px;
       background-image: url("../images/users.min.png"); }
+    /* line 63, ../scss/_teasers.scss */
+    .teaser .meta-info .fa.fa-clock-o {
+      font-size: 1.28571rem;
+      position: relative;
+      top: 0.21429rem; }
 
 /* line 2, ../scss/_ads.scss */
 .teaser#teaser-ad .teaser-content {
@@ -4884,27 +4914,38 @@ h1, h2, h3, h4 {
   #comments h4 {
     margin: 0; }
   /* line 16, ../scss/_comments.scss */
+  #comments > h4 {
+    margin-bottom: 2rem; }
+  /* line 19, ../scss/_comments.scss */
   #comments .rating, #comments .date {
     display: inline-block; }
-  /* line 17, ../scss/_comments.scss */
+  /* line 20, ../scss/_comments.scss */
   #comments .rating {
     font-size: 1.5rem;
     margin-right: 1rem; }
-  /* line 21, ../scss/_comments.scss */
+  /* line 24, ../scss/_comments.scss */
   #comments .date {
     position: relative;
     bottom: 0.14286rem; }
-  /* line 25, ../scss/_comments.scss */
+  /* line 28, ../scss/_comments.scss */
   #comments .content {
     margin-top: 1rem; }
-  /* line 28, ../scss/_comments.scss */
+  /* line 31, ../scss/_comments.scss */
   #comments .star {
     display: inline-block;
     font-size: 1.5rem;
     margin: 1rem 0.5rem 1rem 0; }
-    /* line 32, ../scss/_comments.scss */
+    /* line 35, ../scss/_comments.scss */
     #comments .star:hover {
       cursor: pointer; }
+
+/* line 40, ../scss/_comments.scss */
+#commentform {
+  border: 2px solid #e5e4e0;
+  padding: 2rem; }
+  /* line 44, ../scss/_comments.scss */
+  #commentform input[type=submit] {
+    font-family: "Amatic SC", cursive; }
 
 /* line 17, ../scss/app.scss */
 .row .columns.collapse {

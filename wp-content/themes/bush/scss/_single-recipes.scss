@@ -33,9 +33,25 @@
 .slick-slide {
   height: auto !important;
 }
-
+#recipe-overview {
+  h1 {
+    font-size: rem-calc(36px);
+    line-height: 1;
+    margin: 0 0 1rem 0;
+  }
+}
 #recipe-instructions {
   margin-bottom: 2rem;
+}
+#directions {
+  .icon {
+    float: left;
+    font-size: 3rem;
+  }
+  .content {
+    margin-left: 4rem;
+    margin-bottom: 2rem;
+  }
 }
 
 #share {
@@ -46,7 +62,17 @@
   background-color: #FFF;
   padding: rem-calc(24);
   border: 1px solid #fcdedc;
+  #author {
+    margin-bottom: 2rem;
+    img {
+      border-radius: 100%;
+    }
+    h4 {
+      float: right;
+    }
+  }
   #details {
+    clear: both;
     width: 100%;
     border: 0 solid transparent;
     tr, tbody, th, td { border: 0 solid transparent; }

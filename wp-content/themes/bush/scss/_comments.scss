@@ -13,6 +13,9 @@
   h4 {
     margin: 0;
   }
+  > h4 {
+    margin-bottom: 2rem;
+  }
   .rating, .date { display: inline-block; }
   .rating {
     font-size:1.5rem;
@@ -32,5 +35,13 @@
     &:hover {
       cursor: pointer;
     }
+  }
+}
+#commentform {
+  border: 2px solid #e5e4e0;
+  padding: 2rem;
+
+  input[type=submit] {
+    font-family: $header-font-family;
   }
 }
