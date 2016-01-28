@@ -33,6 +33,11 @@ class WordPressExtension extends \Twig_Extension
             return wp_title($sep, false, $dir);
         }, $html_safe);
 
+        // the_archive_title()
+        $funcs[] = new Twig_SimpleFunction('the_archive_title', function() {
+            return get_the_archive_title();
+        }, $html_safe);
+
         // wp_head
         $funcs[] = new Twig_SimpleFunction('wp_head', function() {
             ob_start();
