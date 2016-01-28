@@ -24,35 +24,8 @@
             </div>
             <div class="medium-3 columns collapse">
                 <div id="side">
-                    <div id="search">
-                        <form role="search" method="get" id="search-post" action="{{ home_url( '/' ) }}">
-                            <div class="input-group">
-                                <input class="input-group-field" type="search" placeholder="Search for..." name="s">
-                                <input type="hidden" name="post_type" value="post" />
-                                <div class="input-group-button">
-                                    <button type="submit" class="button" value="Search">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div id="categories">
-                        <ul class="menu vertical">
-                            <h4>Categories</h4>
-                            {% for category in the_category() %}
-                                <li>
-                                    <a href="{{ category_link(category.term_id) }}">
-                                        <i class="fa fa-angle-right"></i>
-                                        {{ category.name }}
-                                        <span class="float-right">({{ category.count }})</span>
-                                    </a>
-                                </li>
-                            {% else %}
-                                <ul class="menu vertical"><li>N/A</li></ul>
-                            {% endfor %}
-                        </ul>
-                    </div>
+                    {% include 'partials/post-sidebar-search.html.twig' %}
+                    {% include 'partials/post-sidebar-categories.html.twig' %}
                     <aside id="custom">
                         {{ the_field("sidebar_content") }}
                     </aside>

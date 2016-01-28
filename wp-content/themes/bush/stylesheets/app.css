@@ -4728,33 +4728,36 @@ h1, h2, h3, h4 {
     padding-left: 0;
     padding-right: 0; }
     /* line 27, ../scss/_single-post.scss */
+    #categories a i {
+      vertical-align: top; }
+    /* line 30, ../scss/_single-post.scss */
     #categories a span {
       color: #773D1A; }
 
-/* line 33, ../scss/_single-post.scss */
+/* line 36, ../scss/_single-post.scss */
 #search-post input[type=search], #search-post input[type=text] {
   font-size: 14px;
   -moz-appearance: textfield;
   -webkit-appearance: textfield;
   appearance: textfield; }
-  /* line 38, ../scss/_single-post.scss */
+  /* line 41, ../scss/_single-post.scss */
   #search-post input[type=search]::-webkit-input-placeholder, #search-post input[type=text]::-webkit-input-placeholder {
     color: #F15B24; }
-  /* line 41, ../scss/_single-post.scss */
+  /* line 44, ../scss/_single-post.scss */
   #search-post input[type=search]:-moz-placeholder, #search-post input[type=text]:-moz-placeholder {
     /* FF 4-18 */
     color: #F15B24;
     opacity: 1; }
-  /* line 46, ../scss/_single-post.scss */
+  /* line 49, ../scss/_single-post.scss */
   #search-post input[type=search]::-moz-placeholder, #search-post input[type=text]::-moz-placeholder {
     /* FF 19+ */
     color: #F15B24;
     opacity: 1; }
-  /* line 51, ../scss/_single-post.scss */
+  /* line 54, ../scss/_single-post.scss */
   #search-post input[type=search]:-ms-input-placeholder, #search-post input[type=text]:-ms-input-placeholder {
     /* IE 10+ */
     color: #F15B24; }
-/* line 56, ../scss/_single-post.scss */
+/* line 59, ../scss/_single-post.scss */
 #search-post button {
   margin-left: 4px;
   font-size: 14px; }
@@ -4965,11 +4968,24 @@ h1, h2, h3, h4 {
   #commentform input[type=submit] {
     font-family: "Amatic SC", cursive; }
 
-/* line 17, ../scss/app.scss */
+/* line 2, ../scss/_archives.scss */
+#archives li {
+  text-align: right;
+  clear: both; }
+  /* line 5, ../scss/_archives.scss */
+  #archives li a {
+    float: left; }
+    /* line 7, ../scss/_archives.scss */
+    #archives li a::before {
+      content: "\f105";
+      font-family: "FontAwesome";
+      padding-right: 0.5rem; }
+
+/* line 18, ../scss/app.scss */
 .row .columns.collapse {
   padding: 0; }
 
-/* line 23, ../scss/app.scss */
+/* line 24, ../scss/app.scss */
 .social-links .fa {
   border-radius: 100%;
   width: 30px;
@@ -4979,27 +4995,27 @@ h1, h2, h3, h4 {
   font-size: 1rem;
   background-image: url("../images/social-icons.png");
   color: transparent; }
-/* line 34, ../scss/app.scss */
+/* line 35, ../scss/app.scss */
 .social-links .fa-instagram, .social-links .fa-instagram:hover {
   background-position: 30px; }
-/* line 35, ../scss/app.scss */
+/* line 36, ../scss/app.scss */
 .social-links .fa-pinterest, .social-links .fa-pinterest:hover {
   background-position: 0; }
-/* line 36, ../scss/app.scss */
+/* line 37, ../scss/app.scss */
 .social-links .fa-facebook, .social-links .fa-facebook:hover {
   background-position: -36px; }
-/* line 37, ../scss/app.scss */
+/* line 38, ../scss/app.scss */
 .social-links .fa-twitter, .social-links .fa-twitter:hover {
   background-position: -107px; }
-/* line 38, ../scss/app.scss */
+/* line 39, ../scss/app.scss */
 .social-links .fa-google-plus, .social-links .fa-google-plus:hover {
   background-position: -143px; }
-/* line 39, ../scss/app.scss */
+/* line 40, ../scss/app.scss */
 .social-links .fa.all-recipes {
   background-image: url("../images/AllRecipes.png");
   background-repeat: no-repeat; }
 
-/* line 45, ../scss/app.scss */
+/* line 46, ../scss/app.scss */
 #share .stButton .stLarge {
   border-radius: 100%;
   width: 30px;
@@ -5010,48 +5026,48 @@ h1, h2, h3, h4 {
   background-image: url("../images/social-icons.png") !important;
   color: transparent; }
 
-/* line 55, ../scss/app.scss */
+/* line 56, ../scss/app.scss */
 .st_pinterest_large .stLarge {
   background-position: 0 !important; }
 
-/* line 56, ../scss/app.scss */
+/* line 57, ../scss/app.scss */
 .st_facebook_large .stLarge {
   background-position: -36px !important; }
 
-/* line 57, ../scss/app.scss */
+/* line 58, ../scss/app.scss */
 .st_stumbleupon_large .stLarge {
   background-position: -71px !important; }
 
-/* line 58, ../scss/app.scss */
+/* line 59, ../scss/app.scss */
 .st_twitter_large .stLarge {
   background-position: -107px !important; }
 
-/* line 59, ../scss/app.scss */
+/* line 60, ../scss/app.scss */
 .st_googleplus_large .stLarge {
   background-position: -143px !important; }
 
-/* line 60, ../scss/app.scss */
+/* line 61, ../scss/app.scss */
 .st_print_large .stLarge {
   background-position: -181px !important; }
 
-/* line 61, ../scss/app.scss */
+/* line 62, ../scss/app.scss */
 .st_email_large .stLarge {
   background-position: -217px !important; }
 
-/* line 63, ../scss/app.scss */
+/* line 64, ../scss/app.scss */
 .dropdown-pane {
   background-color: #FFF;
   border: none; }
 
-/* line 73, ../scss/app.scss */
+/* line 74, ../scss/app.scss */
 .fa-star {
   color: #F15B24; }
 
-/* line 77, ../scss/app.scss */
+/* line 78, ../scss/app.scss */
 #content {
   padding-top: 80px;
   padding-bottom: 80px; }
 
-/* line 82, ../scss/app.scss */
+/* line 83, ../scss/app.scss */
 .tabs + p, .tabs-content > p {
   display: none; }

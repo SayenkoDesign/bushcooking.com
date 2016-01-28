@@ -1,0 +1,26 @@
+<div id="categories">
+    <ul class="menu vertical">
+        <h4>Categories</h4>
+        {% for category in the_category() %}
+            <li>
+                <a href="{{ category_link(category.term_id) }}">
+                    <i class="fa fa-angle-right"></i>
+                    {{ category.name }}
+                    <span class="float-right">({{ category.count }})</span>
+                </a>
+            </li>
+        {% else %}
+            {% for category in categories %}
+                <li>
+                    <a href="{{ category_link(category.term_id) }}">
+                        <i class="fa fa-angle-right"></i>
+                        {{ category.name }}
+                        <span class="float-right">({{ category.count }})</span>
+                    </a>
+                </li>
+            {% else %}
+                <ul class="menu vertical"><li>N/A</li></ul>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+</div>

@@ -98,6 +98,11 @@ class Taxonomy
     protected $sort;
 
     /**
+     * @var bool|array Set to false to prevent automatic URL rewriting a.k.a. "pretty permalinks". Pass an $args array to override default URL settings for permalinks as outlined below
+     */
+    protected $rewrite = true;
+
+    /**
      * @var array An array of the capabilities for this taxonomy.
      *
      * <b>manage_terms</b> - 'manage_categories'
@@ -157,6 +162,7 @@ class Taxonomy
                     'hierarchical' => $this->hierarchical,
                     'sort' => $this->sort,
                     'capabilities' => $this->capabilities,
+                    'rewrite' => $this->rewrite,
                 )
             );
         });
@@ -313,5 +319,23 @@ class Taxonomy
         return $this;
     }
 
+
+    /**
+     * @return bool|array
+     */
+    public function getRewrite()
+    {
+        return $this->rewrite;
+    }
+
+    /**
+     * @param bool|array $rewrite
+     * @return Taxonomy
+     */
+    public function setRewrite($rewrite)
+    {
+        $this->name = $rewrite;
+        return $this;
+    }
 
 }

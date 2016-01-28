@@ -1,0 +1,13 @@
+<div id="search">
+    <form role="search" method="get" id="search-post" action="{{ home_url( '/' ) }}">
+        <div class="input-group">
+            <input class="input-group-field" type="search" placeholder="Search for..." name="s">
+            <input type="hidden" name="post_type" value="post" />
+            <div class="input-group-button">
+                <button type="submit" class="button" value="Search">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

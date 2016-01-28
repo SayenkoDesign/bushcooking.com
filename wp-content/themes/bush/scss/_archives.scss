@@ -1,0 +1,14 @@
+#archives {
+  li {
+    text-align: right;
+    clear: both;
+    a {
+      float: left;
+      &::before {
+        content: "\f105";
+        font-family: "FontAwesome";
+        padding-right: 0.5rem;
+      }
+    }
+  }
+}
