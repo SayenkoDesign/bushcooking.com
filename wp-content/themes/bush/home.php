@@ -28,7 +28,28 @@ while ( have_posts() ) {
     }
 }
 
+wp_reset_postdata();
+$post = get_post(get_option('page_for_posts'));
+setup_postdata($post);
+
 echo $app->render('/pages/home-blog.html.twig', [
     'content' => $content,
+    'categories' => get_categories([
+        "hide_empty" => 0,
+        "type"      => "post",
+        "orderby"   => "name",
+        "order"     => "ASC"
+    ]),
+    'archives' => wp_get_archives([
+        'type'            => 'monthly',
+        'limit'           => '',
+        'format'          => 'html',
+        'before'          => '',
+        'after'           => '',
+        'show_post_count' => true,
+        'echo'            => 0,
+        'order'           => 'DESC',
+        'post_type'     => 'post'
+    ]),
 ]);
 get_footer();

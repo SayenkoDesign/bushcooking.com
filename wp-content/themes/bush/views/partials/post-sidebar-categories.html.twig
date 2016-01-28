@@ -1,7 +1,8 @@
 <div id="categories">
     <ul class="menu vertical">
         <h4>Categories</h4>
-        {% for category in the_category() %}
+
+        {% for category in categories %}
             <li>
                 <a href="{{ category_link(category.term_id) }}">
                     <i class="fa fa-angle-right"></i>
@@ -10,7 +11,7 @@
                 </a>
             </li>
         {% else %}
-            {% for category in categories %}
+            {% for category in the_category() %}
                 <li>
                     <a href="{{ category_link(category.term_id) }}">
                         <i class="fa fa-angle-right"></i>
