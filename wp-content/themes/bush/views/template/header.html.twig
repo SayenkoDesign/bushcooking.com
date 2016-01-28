@@ -12,8 +12,8 @@
                             <ul class="menu">
                                 <li>
                                     <div class="button-group">
-                                        <a class="button" data-toggle="example-dropdown">Recipe Category</a>
-                                        <a class="dropdown button" data-toggle="example-dropdown">
+                                        <a class="button" data-toggle="recipe-category-dropdown">Recipe Category</a>
+                                        <a class="dropdown button" data-toggle="recipe-category-dropdown">
                                             <i class="fa fa-angle-down"></i>
                                             <span class="show-for-sr">Show menu</span>
                                         </a>
@@ -33,14 +33,15 @@
                                     </form>
                                 </li>
                             </ul>
-                            <div class="dropdown-pane" id="example-dropdown" data-dropdown data-hover="true" data-hover-pane="true">
+                            <div class="dropdown-pane" id="recipe-category-dropdown" data-dropdown data-hover="true" data-hover-pane="true">
                                 <ul class="menu vertical">
                                     {{
                                         wp_list_categories({
+                                            'taxonomy'           : 'food_category',
                                             'orderby'            : 'name',
                                             'order'              :'ASC',
                                             'title_li'           : '',
-                                            'hide_empty'         : 0,
+                                            'hide_empty'         : 1,
                                             'show_count'         : 0,
                                             'use_desc_for_title' : 1,
                                             'child_of'           : 0,

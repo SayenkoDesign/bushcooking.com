@@ -20,12 +20,19 @@
         <div class="columns" id="recipe-categories">
             <h4>RECIPE CATEGORIES</h4>
             <ul class="no-bullet">
-                <li><a href="#">Sample 1</a></li>
-                <li><a href="#">Sample 2</a></li>
-                <li><a href="#">Sample 3</a></li>
-                <li><a href="#">Sample 4</a></li>
-                <li><a href="#">Sample 5</a></li>
-                <li><a href="#">Sample 6</a></li>
+                {{
+                wp_list_categories({
+                    'taxonomy'           : 'food_category',
+                    'orderby'            : 'name',
+                    'order'              :'ASC',
+                    'title_li'           : '',
+                    'hide_empty'         : 1,
+                    'show_count'         : 0,
+                    'use_desc_for_title' : 1,
+                    'child_of'           : 0,
+                    'hierarchical'       : 0,
+                })
+                }}
             </ul>
         </div>
         <div class="columns text-center" id="footer-menu">
@@ -41,12 +48,19 @@
         <div class="columns end" id="blog-categories">
             <h4>BLOG CATEGORIES</h4>
             <ul class="no-bullet">
-                <li><a href="#">Sample 1</a></li>
-                <li><a href="#">Sample 2</a></li>
-                <li><a href="#">Sample 3</a></li>
-                <li><a href="#">Sample 4</a></li>
-                <li><a href="#">Sample 5</a></li>
-                <li><a href="#">Sample 6</a></li>
+                {{
+                wp_list_categories({
+                    'taxonomy'           : 'category',
+                    'orderby'            : 'name',
+                    'order'              :'ASC',
+                    'title_li'           : '',
+                    'hide_empty'         : 1,
+                    'show_count'         : 0,
+                    'use_desc_for_title' : 1,
+                    'child_of'           : 0,
+                    'hierarchical'       : 0,
+                })
+                }}
             </ul>
         </div>
     </div>

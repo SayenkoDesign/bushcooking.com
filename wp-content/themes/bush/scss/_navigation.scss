@@ -1,3 +1,12 @@
+#recipe-category-dropdown {
+  a {
+    color: $primary-1;
+    &:hover {
+      color: $secondary-1;
+    }
+  }
+}
+
 .dropdown.menu .is-dropdown-submenu-parent.is-down-arrow > a::after {
   font-family: "FontAwesome";
   content: "\f105";

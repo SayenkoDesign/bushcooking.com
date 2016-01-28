@@ -86,6 +86,11 @@ class WordPressExtension extends \Twig_Extension
             return get_the_ID();
         }, $html_safe);
 
+        // the_date
+        $funcs[] = new Twig_SimpleFunction('the_date', function($id = null) {
+            return get_the_date('', $id);
+        }, $html_safe);
+
         // the_permalink
         $funcs[] = new Twig_SimpleFunction('the_permalink', function() {
             ob_start();
@@ -146,6 +151,16 @@ class WordPressExtension extends \Twig_Extension
             return get_the_author_link();
         }, $html_safe);
 
+        // the_author_ID
+        $funcs[] = new Twig_SimpleFunction('the_author_ID', function() {
+            return get_the_author_meta('ID');
+        }, $html_safe);
+
+        // get_author_posts_url
+        $funcs[] = new Twig_SimpleFunction('the_author_posts_url', function($author_id = null, $author_nicename = '') {
+            return get_author_posts_url($author_id, $author_nicename);
+        }, $html_safe);
+
         // do_shortcode
         $funcs[] = new Twig_SimpleFunction('do_shortcode', function($content) {
             return do_shortcode($content);
@@ -179,7 +194,6 @@ class WordPressExtension extends \Twig_Extension
         $funcs[] = new Twig_SimpleFunction('comment_meta', function($id, $string = '', $single = false) {
             return get_comment_meta($id, $string, $single);
         }, $html_safe);
-
 
         // posts_pagination
         $funcs[] = new Twig_SimpleFunction('posts_pagination', function($args = []) {

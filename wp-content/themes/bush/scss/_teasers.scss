@@ -16,6 +16,7 @@
     right: 0px;
     float: right;
     top: -2rem;
+    margin-bottom: -2rem;
     padding: 0.5rem 1rem;
     background-color: rgb(255, 255, 255);
     border-top-left-radius: 10px;
@@ -34,12 +35,17 @@
     }
   }
   .author-info {
+    margin: 1rem 0 2rem 0;
     img {
       border-radius: 100%;
+      margin-right: 0.5rem;
+    }
+    a {
+      color: $primary-2;
     }
   }
   .meta-info {
-    border-top: 1px solid $primary-3;
+    border-top: 1px solid $border-color;
     margin: 0;
     padding: 8px 0 0;
     p {

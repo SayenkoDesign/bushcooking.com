@@ -6,6 +6,10 @@
     {% endif %}
     <div class="inner-content">
         <h4 class="title"><a href="{{ the_permalink() }}">{{ the_title() }}</a></h4>
+        <p class="author-info">
+            By: <a href="{{ the_author_posts_url(the_author_ID()) }}">{{ the_author() }}</a>
+            | {{ the_date() | date("F d, Y") }}
+        </p>
         <div class="description">
             {{ the_field('teaser_description') }}
         </div>

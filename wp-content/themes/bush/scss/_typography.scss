@@ -2,6 +2,30 @@ h1, h2, h3, h4 {
   letter-spacing: rem-calc(2);
 }
 
+.text-primary {
+  color: $primary-1;
+}
+
+.text-primary-2 {
+  color: $primary-2;
+}
+
+.text-primary-3 {
+  color: $primary-3;
+}
+
+.text-secondary {
+  color: $secondary-1;
+}
+
+.text-secondary-2 {
+  color: $secondary-2;
+}
+
+.text-text-secondary-3 {
+  color: $secondary-3;
+}
+
 .read-more {
   &::after {
     padding-left: 1rem;

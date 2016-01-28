@@ -19,7 +19,7 @@
             {{ the_field('teaser_description') }}
         </div>
         <p class="author-info">
-            {{ the_author_avatar(26) }} By: {{ the_author_link() }}
+            {{ the_author_avatar(26) }} By: <a href="{{ the_author_posts_url(the_author_ID()) }}">{{ the_author() }}</a>
         </p>
         <div class="row meta-info">
             <div class="small-6 columns">
