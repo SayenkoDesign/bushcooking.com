@@ -4968,18 +4968,23 @@ h1, h2, h3, h4 {
   #commentform input[type=submit] {
     font-family: "Amatic SC", cursive; }
 
-/* line 2, ../scss/_archives.scss */
-#archives li {
-  text-align: right;
-  clear: both; }
-  /* line 5, ../scss/_archives.scss */
-  #archives li a {
-    float: left; }
+/* line 1, ../scss/_archives.scss */
+#archives {
+  margin-bottom: 2rem; }
+  /* line 4, ../scss/_archives.scss */
+  #archives li {
+    text-align: right;
+    clear: both; }
     /* line 7, ../scss/_archives.scss */
-    #archives li a::before {
-      content: "\f105";
-      font-family: "FontAwesome";
-      padding-right: 0.5rem; }
+    #archives li a {
+      padding-left: 0;
+      padding-right: 0;
+      float: left; }
+      /* line 11, ../scss/_archives.scss */
+      #archives li a::before {
+        content: "\f105";
+        font-family: "FontAwesome";
+        padding-right: 0.5rem; }
 
 /* line 18, ../scss/app.scss */
 .row .columns.collapse {

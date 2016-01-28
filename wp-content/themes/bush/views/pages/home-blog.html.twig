@@ -27,13 +27,7 @@
                     <div id="side">
                         {% include 'partials/post-sidebar-search.html.twig' %}
                         {% include 'partials/post-sidebar-categories.html.twig' %}
-                        <div id="archives">
-                            <h4>Archives</h4>
-                            <ul class="no-bullet">
-                                {{ archives | raw }}
-                            </ul>
-                        </div>
-
+                        {% include 'partials/post-sidebar-archives.html.twig' %}
                         {{ the_field("sidebar_content") | raw }}
                     </div>
                 </div>

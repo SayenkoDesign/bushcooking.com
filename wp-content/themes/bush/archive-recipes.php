@@ -28,6 +28,11 @@ while ( have_posts() ) {
     }
 }
 
+
+wp_reset_postdata();
+$post = get_post(131);
+setup_postdata($post);
+
 echo $app->render('/pages/home-recipes.html.twig', [
     'content' => $content,
     'categories' => get_categories([
