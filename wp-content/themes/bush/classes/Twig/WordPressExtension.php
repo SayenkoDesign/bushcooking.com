@@ -59,6 +59,11 @@ class WordPressExtension extends \Twig_Extension
             return get_language_attributes($doctype);
         }, $html_safe);
 
+        // get_option
+        $funcs[] = new Twig_SimpleFunction('get_option', function($option, $default = '') {
+            return get_option($option, $default);
+        }, $html_safe);
+
         // body_class
         $funcs[] = new Twig_SimpleFunction('body_class', function($class = '') {
             return 'class="' . join( ' ', get_body_class( $class ) ) . '"';
@@ -137,8 +142,8 @@ class WordPressExtension extends \Twig_Extension
         }, $html_safe);
 
         // the_field
-        $funcs[] = new Twig_SimpleFunction('the_field', function($field) {
-            return get_field($field);
+        $funcs[] = new Twig_SimpleFunction('the_field', function($field, $id = false) {
+            return get_field($field, $id);
         }, $html_safe);
 
         // the_author_avatar

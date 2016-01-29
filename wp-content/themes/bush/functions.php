@@ -56,6 +56,17 @@ add_filter( 'wpseo_metabox_prio', function() { return 'low';});
 $teaser = new ImageSize('teaser', 280, 280, true);
 $slider = new ImageSize('slider', 380, 380, true);
 
+if( function_exists('acf_add_options_page') ) {
+
+    acf_add_options_page(array(
+        'page_title' => 'Theme Options',
+        'menu_title' => 'Theme Settings',
+        'menu_slug' => 'bush-theme-general-settings',
+        'capability' => 'edit_posts',
+        'redirect' => false
+    ));
+}
+
 // tabed short code
 remove_filter( 'the_content', 'wpautop' );
 add_filter( 'the_content', 'wpautop' , 99);
