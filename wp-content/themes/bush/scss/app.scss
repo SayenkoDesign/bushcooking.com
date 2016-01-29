@@ -80,6 +80,22 @@
   padding-bottom: 80px;
 }
 
-.tabs +p, .tabs-content > p {
+.tabs {
+  border: none;
+  display: inline-block;
+}
+.tabs + br, .tabs-content > br {
   display: none;
+}
+.tabs-title > a {
+  font-family: $header-font-family;
+  font-size: 20px;
+  border: 1px solid #CCC;
+  border-right: none;
+}
+.tabs-title:last-of-type > a {
+  border-right: 1px solid #CCC;
+}
+.tabs-title > a:focus, .tabs-title > a[aria-selected="true"], .tabs-title > a:hover {
+  color: $primary-3;
 }

@@ -1,0 +1,30 @@
+<section id="primary" class="content-area">
+    <main id="content" class="content" role="main">
+
+        {% if the_content() %}
+
+            <div class="row column text-center">
+                <h1 class="page-title">{{ the_title() }}</h1>
+            </div>
+            {% if the_post_thumbnail() %}
+                <div class="row">
+                    <div class="medium-6 large-4 columns">
+                        {{ the_post_thumbnail() }}
+                    </div>
+                    <div class="medium-6 large-8 columns">
+                        {{ do_shortcode(the_content()) | raw }}
+                    </div>
+                </div>
+            {% else %}
+                <div class="row column">
+                    {{ do_shortcode(the_content()) | raw }}
+                </div>
+            {% endif %}
+        {% else %}
+            <div class="row column">
+                <h1 class="page-title">Nothing Found</h1>
+            </div>
+        {% endif %}
+
+    </main><!-- .site-main -->
+</section><!-- .content-area -->

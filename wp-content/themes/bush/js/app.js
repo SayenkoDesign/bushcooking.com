@@ -58,4 +58,6 @@ jQuery(function() {
             sticky_container.removeClass('shrink');
         }
     });
+
+    jQuery('p:empty').remove();
 });

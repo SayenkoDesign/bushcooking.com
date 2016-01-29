@@ -3867,8 +3867,8 @@ table.hover tr:nth-of-type(even):hover {
 .tabs {
   margin: 0;
   list-style-type: none;
-  background: #FFF;
-  border: 1px solid #e6e6e6; }
+  background: #F15B24;
+  border: 1px solid transparent; }
   /* line 134, ../bower_components/foundation-sites/scss/util/_mixins.scss */
   .tabs::before, .tabs::after {
     content: ' ';
@@ -3909,30 +3909,30 @@ table.hover tr:nth-of-type(even):hover {
     padding: 1.25rem 1.5rem;
     line-height: 1;
     font-size: 12px;
-    color: #F15B24; }
+    color: #FFF; }
     /* line 85, ../bower_components/foundation-sites/scss/components/_tabs.scss */
     .tabs-title > a:hover {
       background: #FFF; }
     /* line 89, ../bower_components/foundation-sites/scss/components/_tabs.scss */
     .tabs-title > a:focus, .tabs-title > a[aria-selected='true'] {
-      background: #e6e6e6; }
+      background: #FFF; }
 
 /* line 159, ../bower_components/foundation-sites/scss/components/_tabs.scss */
 .tabs-content {
-  background: #FFF;
+  background: transparent;
   transition: all 0.5s ease;
-  border: 1px solid #e6e6e6;
+  border: 1px solid transparent;
   border-top: 0; }
 
 /* line 163, ../bower_components/foundation-sites/scss/components/_tabs.scss */
 .tabs-content.vertical {
-  border: 1px solid #e6e6e6;
+  border: 1px solid transparent;
   border-left: 0; }
 
 /* line 167, ../bower_components/foundation-sites/scss/components/_tabs.scss */
 .tabs-panel {
   display: none;
-  padding: 1rem; }
+  padding: 1rem 0; }
   /* line 115, ../bower_components/foundation-sites/scss/components/_tabs.scss */
   .tabs-panel.is-active {
     display: block; }
@@ -5074,5 +5074,25 @@ h1, h2, h3, h4 {
   padding-bottom: 80px; }
 
 /* line 83, ../scss/app.scss */
-.tabs + p, .tabs-content > p {
+.tabs {
+  border: none;
+  display: inline-block; }
+
+/* line 87, ../scss/app.scss */
+.tabs + br, .tabs-content > br {
   display: none; }
+
+/* line 90, ../scss/app.scss */
+.tabs-title > a {
+  font-family: "Amatic SC", cursive;
+  font-size: 20px;
+  border: 1px solid #CCC;
+  border-right: none; }
+
+/* line 96, ../scss/app.scss */
+.tabs-title:last-of-type > a {
+  border-right: 1px solid #CCC; }
+
+/* line 99, ../scss/app.scss */
+.tabs-title > a:focus, .tabs-title > a[aria-selected="true"], .tabs-title > a:hover {
+  color: #F15B24; }
