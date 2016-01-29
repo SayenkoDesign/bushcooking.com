@@ -15,19 +15,41 @@
     </tr>
     <tr>
         <th>Servings:</th>
-        <td>{{ the_field('servings') }}</td>
+        <td itemprop="recipeYield">{{ the_field('servings') }}</td>
     </tr>
     <tr>
         <th>Preparation</th>
-        <td>{{ the_field('preperation_time') }}</td>
+        <td>
+            {% if prep_hours or prep_minutes %}
+                {% if prep_hours %}{{ prep_hours }} hour{% if prep_hours > 1 %}s{% endif %} {% endif %}
+                {% if prep_minutes %}{{ prep_minutes }} min{% endif %}
+                <span itemprop="prepTime" class="hide">{{ "%02d:%02d"|format(prep_hours, prep_minutes) }}</span>
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>Cook</th>
-        <td>{{ the_field('cook_time') }}</td>
+        <td>
+            {% if cook_hours or cook_minutes %}
+                {% if cook_hours %}{{ cook_hours }} hour{% if cook_hours > 1 %}s{% endif %} {% endif %}
+                {% if cook_minutes %}{{ cook_minutes }} min{% endif %}
+                <span itemprop="cookTime" class="hide">{{ "%02d:%02d"|format(cook_hours, cook_minutes) }}</span>
+            {% else %}
+                N/A
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>Ready in</th>
-        <td>{{ the_field('ready_in') }}</td>
+        <td>
+            {% if total_hours or total_minutes %}
+                {% if total_hours %}{{ total_hours }} hour{% if total_hours > 1 %}s{% endif %} {% endif %}
+                {% if total_minutes %}{{ total_minutes }} min{% endif %}
+                <span itemprop="totalTime" class="hide">{{ "%02d:%02d"|format(total_hours, total_minutes) }}</span>
+            {% else %}
+                N/A
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>Difficulty</th>

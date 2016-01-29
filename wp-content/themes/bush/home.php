@@ -17,7 +17,7 @@ while ( have_posts() ) {
                 $ratings_count++;
             }
             $rating = (!$ratings_total || !$ratings_count) ? 0 : $ratings_total / $ratings_count;
-            $content[] = $app->render('partials/recipe-teaser.html.twig', ['rating' => $rating]);
+            $content[] = $app->render('partials/recipe-teaser.html.twig', ['rating' => $rating, 'rating_count' => $ratings_count]);
             break;
         case 'post':
             $content[] = $app->render('partials/article-teaser.html.twig');

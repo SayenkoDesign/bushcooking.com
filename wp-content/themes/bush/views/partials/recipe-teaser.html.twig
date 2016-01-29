@@ -1,8 +1,8 @@
-<article id="post-{{ the_id() }}" {{ post_class('recipe-teaser teaser') }}>
+<article id="post-{{ the_id() }}" {{ post_class('recipe-teaser teaser') }} itemscope itemtype="http://schema.org/Recipe">
     {% if the_post_thumbnail() %}
         {{ the_post_thumbnail('teaser') }}
     {% else %}
-        <img src="http://placehold.it/280x280" class="featured"/>
+        <img src="http://placehold.it/280x280" class="featured" itemprop="image"/>
     {% endif %}
     <div class="rating">
         {% for i in 1..5 %}
@@ -14,19 +14,34 @@
         {% endfor %}
     </div>
     <div class="inner-content">
-        <h4 class="title"><a href="{{ the_permalink() }}">{{ the_title() }}</a></h4>
-        <div class="description">
+        <h4 class="title"><a href="{{ the_permalink() }}" itemprop="name">{{ the_title() }}</a></h4>
+        <time class="hide" datetime="2009-11-05">{{ the_date() | date('Y-m-d') }}</time>
+        {% if rating and rating_count %}
+            <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="hide">
+                    <span itemprop="ratingValue">{{ rating }}</span>
+                    <span itemprop="reviewCount">{{ rating_count }}</span>
+                    <span itemprop="bestRating">5</span>
+                    <span itemprop="worstRating">1</span>
+                </span>
+        {% endif %}
+        <div class="description" itemprop="description">
             {{ the_field('teaser_description') }}
         </div>
-        <p class="author-info">
-            {{ the_author_avatar(26) }} By: <a href="{{ the_author_posts_url(the_author_ID()) }}">{{ the_author() }}</a>
+        <p class="author-info" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            {{ the_author_avatar(26) }} By: <a href="{{ the_author_posts_url(the_author_ID()) }}" itemprop="name">{{ the_author() }}</a>
         </p>
         <div class="row meta-info">
             <div class="small-6 columns">
-                <p><i class="fa fa-users"></i> {{ the_field('servings') }} People</p>
+                <p itemprop="recipeYield"><i class="fa fa-users"></i> {{ the_field('servings') }} People</p>
             </div>
             <div class="small-6 columns">
-                <p><i class="fa fa-clock-o"></i> {{ the_field('ready_in') }}</p>
+                <p><i class="fa fa-clock-o"></i>
+                    {% if total_hours %}{{ total_hours }} hour{% if total_hours > 1 %}s{% endif %} {% endif %}
+                    {% if total_minutes %}{{ total_minutes }} min{% endif %}
+                </p>
+                {% if total_hours or total_minutes %}
+                    <span itemprop="totalTime" class="hide">{{ "%02d:%02d"|format(total_hours, total_minutes) }}
+                {% endif %}
             </div>
         </div>
     </div>

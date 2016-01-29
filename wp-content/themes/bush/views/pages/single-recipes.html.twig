@@ -1,21 +1,31 @@
 {% extends 'template/main.html.twig' %}
 {% set has_sidebar = true %}
+{% set content_attr = 'itemscope itemtype="http://schema.org/Recipe"' %}
 {% block content %}
     <div class="row" id="recipe-overview">
         <div class="medium-4 columns">
             {% if slides %}
                 <div class="slick">
                     {% for slide in slides %}
-                        <img src="{{ slide['sizes']['slider'] }}" alt="{{ slide['alt'] }}" />
+                        <img src="{{ slide['sizes']['slider'] }}" alt="{{ slide['alt'] }}" itemprop="image"/>
                     {% endfor %}
                 </div>
             {% endif %}
 
         </div>
         <div class="medium-8 columns">
-            <h1>{{ the_title() }}</h1>
+            <h1 itemprop="name">{{ the_title() }}</h1>
+            <time class="hide" datetime="2009-11-05">{{ the_date() | date('Y-m-d') }}</time>
+            {% if rating and rating_count %}
+                <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="hide">
+                    <span itemprop="ratingValue">{{ rating }}</span>
+                    <span itemprop="reviewCount">{{ rating_count }}</span>
+                    <span itemprop="bestRating">5</span>
+                    <span itemprop="worstRating">1</span>
+                </span>
+            {% endif %}
             {% include 'partials/sharethis.html.twig' %}
-            {{ the_field('teaser_description') }}
+            <div itemprop="description">{{ the_field('teaser_description') }}</div>
         </div>
     </div>
     <div class="row" id="recipe-instructions">
@@ -29,18 +39,18 @@
                         <div class="switch tiny">
                             <input class="switch-input" id="ingredient-{{ loop.index }}" type="checkbox" name="ingredient-{{ loop.index }}">
                             <label class="switch-paddle" for="ingredient-{{ loop.index }}">
-                                <span class="show-for-sr">Download Kittens</span>
+                                <span class="show-for-sr">Ingredient</span>
                             </label>
                         </div>
                     </div>
                     <div class="small-9 columns">
-                        <p class="switch-text">{{ ingredient| raw }}</p>
+                        <p class="switch-text" itemprop="recipeIngredient">{{ ingredient| raw }}</p>
                     </div>
                 </div>
             {% endfor %}
         </div>
         <div class="medium-8 columns">
-            <div id="directions">
+            <div id="directions" itemprop="recipeInstructions">
                 <h4>Directions</h4>
                 {% for direction in directions %}
                     <div class="direction">
@@ -55,9 +65,7 @@
     {{ comments_template() }}
 {% endblock %}
 {% block sidebar %}
-    <div id="author">
-        {{ the_author_avatar(60) }} <h4>By: {{ the_author() }}</h4>
-    </div>
+    {% include "partials/sidebar-recipe-author.html.twig" %}
     {% include "partials/sidebar-recipe-details.html.twig" %}
     {% include "partials/sidebar-custom-content.html.twig" %}
 {% endblock %}

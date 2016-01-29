@@ -5,7 +5,7 @@
     <div id="content" class="content" role="main">
         {% block title %}
         {% endblock %}
-        <div class="row">
+        <div class="row" {% if content_attr is defined %}{{ content_attr|raw }}{% endif %}>
             <div class="{% if has_sidebar %}medium-9{% else %}small-12{% endif %} columns">
                 {% block content %}
                 {% endblock %}
