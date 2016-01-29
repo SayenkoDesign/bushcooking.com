@@ -1,42 +1,21 @@
-<div id="primary" class="content-area">
-    <main id="content" class="content" role="main">
-        {% if content %}
-            <div class="row column text-center">
-                <h1 class="page-title">Articles</h1>
-            </div>
-            <div class="row column">
-                <div class="medium-9 columns">
-
-                    <div class="row small-up-1 large-up-3 teasers">
-                        {% for teaser in content %}
-                            <div class="column">
-                                {{ teaser | raw }}
-                            </div>
-                        {% endfor %}
-                    </div>
-
-                    {{
-                    posts_pagination({
-                        'prev_text'          : 'Previous page',
-                        'next_text'          : 'Next page',
-                        'before_page_number' : '<span class="meta-nav screen-reader-text">Page</span>',
-                    })
-                    }}
-                </div>
-                <div class="medium-3 columns collapse">
-                    <div id="side">
-                        {% include 'partials/post-sidebar-search.html.twig' %}
-                        {% include 'partials/post-sidebar-categories.html.twig' %}
-                        {% include 'partials/post-sidebar-archives.html.twig' %}
-                        {{ the_field("sidebar_content") | raw }}
-                    </div>
-                </div>
-            </div>
-        {% else %}
-            <div class="row column">
-                <h1 class="page-title">Nothing Found</h1>
-            </div>
-        {% endif %}
-
-    </main><!-- .site-main -->
-</div><!-- .content-area -->
+{% extends 'template/main.html.twig' %}
+{% set has_sidebar = true %}
+{% block title %}
+    <div class="row column">
+        <h1 class="text-center">Articles</h1>
+    </div>
+{% endblock %}
+{% block content %}
+    {% if content %}
+        {% include 'partials/related.html.twig' with {'related': content, 'related_title': false }%}
+        {% include 'partials/pagination.html.twig' %}
+    {% else %}
+        <h1>Nothing Found</h1>
+    {% endif %}
+{% endblock %}
+{% block sidebar %}
+    {% include 'partials/post-sidebar-search.html.twig' %}
+    {% include 'partials/post-sidebar-categories.html.twig' %}
+    {% include 'partials/post-sidebar-archives.html.twig' %}
+    {{ the_field("sidebar_content") }}
+{% endblock %}

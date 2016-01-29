@@ -1,0 +1,23 @@
+{% if has_sidebar is not defined %}{% set has_sidebar = false %}{% endif %}
+{% block pre_content %}
+{% endblock %}
+<div id="primary" class="content-area">
+    <div id="content" class="content" role="main">
+        {% block title %}
+        {% endblock %}
+        <div class="row">
+            <div class="{% if has_sidebar %}medium-9{% else %}small-12{% endif %} columns">
+                {% block content %}
+                {% endblock %}
+            </div>
+            {% if has_sidebar %}
+                <div class="medium-3 columns collapse">
+                    <div id="side">
+                        {% block sidebar %}
+                        {% endblock %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

@@ -1,36 +1,21 @@
-<div id="primary" class="content-area">
-    <div id="content" class="content" role="main">
-        <div class="row">
-            <div class="medium-9 columns">
-                <div id="post-featured-image">
-                    {{ the_post_thumbnail('slider') }}
-                </div>
-
-                <h1>{{ the_title() }}</h1>
-                <p class="author-info">
-                    By: <a href="{{ the_author_posts_url(the_author_ID()) }}">{{ the_author() }}</a>
-                    | {{ the_date() | date("F d, Y") }}
-                </p>
-                {% include 'partials/sharethis.html.twig' %}
-                {{ the_content() }}
-
-                <div class="row small-up-1 medium-up-3 teasers" id="recipe-related">
-                    {% for post in related %}
-                        <div class="column">
-                            {{ post | raw }}
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-            <div class="medium-3 columns collapse">
-                <div id="side">
-                    {% include 'partials/post-sidebar-search.html.twig' %}
-                    {% include 'partials/post-sidebar-categories.html.twig' %}
-                    <aside id="custom">
-                        {{ the_field("sidebar_content") }}
-                    </aside>
-                </div>
-            </div>
-        </div>
+{% extends 'template/main.html.twig' %}
+{% set has_sidebar = true %}
+{% block content %}
+    <div id="post-featured-image">
+        {{ the_post_thumbnail('slider') }}
     </div>
-</div>
+
+    <h1>{{ the_title() }}</h1>
+    <p class="author-info">
+        By: <a href="{{ the_author_posts_url(the_author_ID()) }}">{{ the_author() }}</a>
+        | {{ the_date() | date("F d, Y") }}
+    </p>
+    {% include 'partials/sharethis.html.twig' %}
+    {{ the_content() }}
+    {% include 'partials/related.html.twig' %}
+{% endblock %}
+{% block sidebar %}
+    {% include 'partials/post-sidebar-search.html.twig' %}
+    {% include 'partials/post-sidebar-categories.html.twig' %}
+    {% include 'partials/sidebar-custom-content.html.twig' %}
+{% endblock %}

@@ -1,0 +1,51 @@
+<table id="details">
+    <tr>
+        <th>Rating:</th>
+        <td>
+            <div class="rating">
+                {% for i in 1..5 %}
+                    {% if i <= rating %}
+                        <i class="fa fa-star"></i>
+                    {% else %}
+                        <i class="fa fa-star-o"></i>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <th>Servings:</th>
+        <td>{{ the_field('servings') }}</td>
+    </tr>
+    <tr>
+        <th>Preparation</th>
+        <td>{{ the_field('preperation_time') }}</td>
+    </tr>
+    <tr>
+        <th>Cook</th>
+        <td>{{ the_field('cook_time') }}</td>
+    </tr>
+    <tr>
+        <th>Ready in</th>
+        <td>{{ the_field('ready_in') }}</td>
+    </tr>
+    <tr>
+        <th>Difficulty</th>
+        <td>
+            {% for term in difficulties %}
+                <a href="{{ term.link }}">{{ term.term }}</a>
+            {% else %}
+                N/A
+            {% endfor %}
+        </td>
+    </tr>
+    <tr>
+        <th>Category</th>
+        <td>
+            {% for term in categories %}
+                <a href="{{ term.link }}">{{ term.term }}</a>
+            {% else %}
+            {% endfor %}
+        </td>
+    </tr>
+</table>

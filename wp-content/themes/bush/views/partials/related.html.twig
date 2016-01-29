@@ -1,0 +1,22 @@
+{% if related %}
+    {% if related_title is not defined %}
+        {% set related_title = true %}
+    {% endif %}
+    {% if grid_sizes is not defined %}
+        {% set grid_sizes = [1, 3, 3] %}
+    {% endif %}
+    {% if related_title is not defined or related_title %}
+        <div class="row" id="recipe-related-title">
+            <div class="div medium-4 columns end">
+                <h4>Related</h4>
+            </div>
+        </div>
+    {% endif %}
+    <div class="row small-up-{{ grid_sizes[0] }} medium-up-{{ grid_sizes[1] }} large-up-{{ grid_sizes[2] }} teasers" id="recipe-related">
+        {% for post in related %}
+            <div class="column">
+                {{ post | raw }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

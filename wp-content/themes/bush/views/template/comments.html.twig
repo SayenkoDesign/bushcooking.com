@@ -1,0 +1,7 @@
+<div id="comments">
+    <h4>{{ comments_number('No comments', '1 Comment', '% Comments') }}</h4>
+    {% for comment in comments %}
+        {{ comment | raw }}
+    {% endfor %}
+    {{ comment_form | raw }}
+</div>
