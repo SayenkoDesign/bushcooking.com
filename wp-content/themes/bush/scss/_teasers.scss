@@ -1,11 +1,19 @@
 .teasers .column article:first-child {
-  margin-bottom: 30px;
+  margin-bottom: rem-calc(30px);
+}
+.teasers .column article {
+  @include breakpoint(small only) {
+    margin-bottom: rem-calc(30px);
+  }
+  @include breakpoint(medium only) {
+    margin-bottom: rem-calc(30px);
+  }
 }
 .teaser {
   border: 1px solid $border-color;
   background-color: #FFF;
   padding: rem-calc(4px);
-  img.featured {
+  img.featured, img.attachment-teaser {
     width: 100%;
     height: auto;
     max-width:none;

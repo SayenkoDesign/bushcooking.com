@@ -29,43 +29,54 @@
     display: inline-block;
     position: relative;
     overflow: visible;
-    &::before, &::after {
-      content: " ";
-      display: block;
-      position: absolute;
-      bottom: 20px;
-    }
-    &::before {
-      width: 65px;
-      height: 101px;
-      background-image: url("../images/advertise-with-us-left.png");
-      left: -65px;
-    }
-    &::after {
-      width: 93px;
-      height: 101px;
-      background-image: url("../images/advertise-with-us-right.png");
-      right: -93px;
-    }
     h3 {
-      display: inline-block;
-      text-align: right;
       font-size: rem-calc(40px);
       small {
         display: block;
         color: $primary-1;
         font-size: rem-calc(32px);
         margin-top: rem-calc(10px);
+        line-height: 1;
       }
     }
     a.button {
       font-family: $header-font-family;
-      display: inline-block;
       font-size: rem-calc(22px);
       padding: 12px 32px;
       position: relative;
-      top: rem-calc(-22px);
-      margin-left: 2rem;
+    }
+
+    @include breakpoint(medium) {
+      &::before, &::after {
+        content: " ";
+        display: block;
+        position: absolute;
+        bottom: 20px;
+      }
+      &::before {
+        width: 65px;
+        height: 101px;
+        background-image: url("../images/advertise-with-us-left.png");
+        left: -65px;
+      }
+      &::after {
+        width: 93px;
+        height: 101px;
+        background-image: url("../images/advertise-with-us-right.png");
+        right: -93px;
+      }
+      h3 {
+        display: inline-block;
+        text-align: right;
+        small {
+          line-height: 0;
+        }
+      }
+      a.button {
+        display: inline-block;
+        top: rem-calc(-22px);
+        margin-left: 2rem;
+      }
     }
   }
 }

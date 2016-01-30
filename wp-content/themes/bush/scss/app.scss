@@ -99,3 +99,10 @@
 .tabs-title > a:focus, .tabs-title > a[aria-selected="true"], .tabs-title > a:hover {
   color: $primary-3;
 }
+
+.attachment-post-thumbnail {
+  margin-bottom: 2rem;
+  @include breakpoint(medium){
+    margin-bottom: 0;
+  }
+}

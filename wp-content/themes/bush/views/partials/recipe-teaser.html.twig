@@ -36,12 +36,14 @@
             </div>
             <div class="small-6 columns">
                 <p><i class="fa fa-clock-o"></i>
-                    {% if total_hours %}{{ total_hours }} hour{% if total_hours > 1 %}s{% endif %} {% endif %}
-                    {% if total_minutes %}{{ total_minutes }} min{% endif %}
+                    {% if total_hours or total_minutes %}
+                        {% if total_hours %}{{ total_hours }} hour{% if total_hours > 1 %}s{% endif %} {% endif %}
+                        {% if total_minutes %}{{ total_minutes }} min{% endif %}
+                        <span itemprop="totalTime" class="hide">{{ "%02d:%02d"|format(total_hours, total_minutes) }}
+                    {% else %}
+                        N/A
+                    {% endif %}
                 </p>
-                {% if total_hours or total_minutes %}
-                    <span itemprop="totalTime" class="hide">{{ "%02d:%02d"|format(total_hours, total_minutes) }}
-                {% endif %}
             </div>
         </div>
     </div>

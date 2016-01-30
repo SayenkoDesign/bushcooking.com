@@ -28,7 +28,7 @@
   .gform_footer {
     position: relative;
     left: -4px;
-    top: -9px;
+    vertical-align: top;
   }
   #gform_1 {
     width: 100%;
@@ -45,6 +45,7 @@
     }
     .button {
       padding: 0.9rem 1rem;
+      margin: 0;
     }
   }
 }

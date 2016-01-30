@@ -10,3 +10,9 @@
     bottom: 0;
   }
 }
+
+.home #content .row.teasers div:nth-child(2n+1) {
+  @include breakpoint(medium only) {
+    clear: both;
+  }
+}

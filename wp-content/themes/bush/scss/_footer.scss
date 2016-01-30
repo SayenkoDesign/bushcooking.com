@@ -1,3 +1,4 @@
+$footer-breakpoint: rem-calc(650px);
 #footer {
   background-color: $footer-color;
   padding-top: 8rem;
@@ -6,12 +7,13 @@
   #footer-menus {
     ul.menu {
       display: inline-block;
+      margin-bottom: 1rem;
       a {
         color: $footer-social-icon-color;
         font-size: 1.5rem;
       }
 
-      @include breakpoint(medium) {
+      @include breakpoint($footer-breakpoint) {
         margin-top: 96px;
         display: block;
       }
@@ -21,16 +23,22 @@
     }
     ul.no-bullet {
       a {
-        display: block;
+        display: inline-block;
         padding: 0.2rem 0;
       }
     }
+    #footer-menu {
+      display: none;
+    }
 
-    @include breakpoint(medium) {
+    @include breakpoint($footer-breakpoint) {
       display: inline-block;
       text-align: left;
       .columns {
         width: auto;
+        display: inline-block;
+      }
+      #footer-menu {
         display: inline-block;
       }
     }
@@ -51,7 +59,7 @@
     p { margin: 0; }
   }
 
-  @include breakpoint(medium) {
+  @include breakpoint($footer-breakpoint) {
     padding-top: 2rem;
   }
 }

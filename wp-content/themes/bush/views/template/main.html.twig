@@ -6,12 +6,12 @@
         {% block title %}
         {% endblock %}
         <div class="row" {% if content_attr is defined %}{{ content_attr|raw }}{% endif %}>
-            <div class="{% if has_sidebar %}medium-9{% else %}small-12{% endif %} columns">
+            <div class="small-12 {% if has_sidebar %}medium-7 large-9{% endif %} columns">
                 {% block content %}
                 {% endblock %}
             </div>
             {% if has_sidebar %}
-                <div class="medium-3 columns collapse">
+                <div class="small-12 medium-5 large-3 columns large-collapse">
                     <div id="side">
                         {% block sidebar %}
                         {% endblock %}

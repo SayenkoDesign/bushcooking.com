@@ -13,11 +13,20 @@
 }
 
 #post-featured-image {
-  float: left;
-  margin: 0 2rem 1rem 0;
   background-color: #FFF;
   border: 1px solid #fcdedc;
   padding: 6px;
+  margin-bottom: 2rem;
+  img {
+    width: 100%;
+  }
+  @include breakpoint(large) {
+    float: left;
+    margin: 0 2rem 1rem 0;
+    background-color: #FFF;
+    border: 1px solid #fcdedc;
+    padding: 6px;
+  }
 }
 #categories {
   margin-bottom: 1rem;
