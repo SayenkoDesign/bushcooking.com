@@ -17,6 +17,9 @@
     width: 100%;
     height: auto;
     max-width:none;
+    &:hover {
+      opacity: 0.5;
+    }
   }
   .rating {
     display: inline-block;
@@ -58,15 +61,19 @@
     padding: 8px 0 0;
     p {
       margin: 0;
+      font-size: 12px;
     }
     .fa {
       color: $primary-3;
+      margin-right: 0.2rem;
     }
     .fa.fa-users {
       color: transparent;
       width: 29px;
       height: 16px;
       background-image: url('../images/users.min.png');
+      position: relative;
+      top: rem-calc(-2px);
     }
     .fa.fa-clock-o {
       font-size: rem-calc(18px);

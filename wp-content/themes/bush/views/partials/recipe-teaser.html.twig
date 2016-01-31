@@ -1,8 +1,8 @@
 <article id="post-{{ the_id() }}" {{ post_class('recipe-teaser teaser') }} itemscope itemtype="http://schema.org/Recipe">
     {% if the_post_thumbnail() %}
-        {{ the_post_thumbnail('teaser') }}
+        <a href="{{ the_permalink() }}">{{ the_post_thumbnail('teaser') }}</a>
     {% else %}
-        <img src="http://placehold.it/280x280" class="featured" itemprop="image"/>
+        <a href="{{ the_permalink() }}"><img src="http://placehold.it/280x280" class="featured" itemprop="image"/></a>
     {% endif %}
     <div class="rating">
         {% for i in 1..5 %}
@@ -30,7 +30,7 @@
         <p class="author-info" itemprop="author" itemscope itemtype="http://schema.org/Person">
             {{ the_author_avatar(26) }} By: <a href="{{ the_author_posts_url(the_author_ID()) }}" itemprop="name">{{ the_author() }}</a>
         </p>
-        <div class="row meta-info">
+        <div class="row collapse meta-info">
             <div class="small-6 columns">
                 <p itemprop="recipeYield"><i class="fa fa-users"></i> {{ the_field('servings') }} People</p>
             </div>

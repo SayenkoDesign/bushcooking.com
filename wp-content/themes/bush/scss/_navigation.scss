@@ -60,13 +60,15 @@
     padding: 0;
   }
   .button-group {
-    font-size: 1rem;
     margin-right: 2px;
     position: relative;
     margin-bottom: 0;
+    .button {
+      font-size: rem-calc(15px);
+    }
     .button:not(:last-child) {
       border-right-color: $secondary-1;
-      border-right-width: 1px;
+      border-right-width: 2px;
     }
   }
   .input-group {
@@ -116,7 +118,7 @@
     display: table;
     width: 100%;
     li:first-child {
-      width: rem-calc(180);
+      width: rem-calc(190);
     }
     @include breakpoint(medium) {
       display: block;
@@ -137,10 +139,10 @@
   padding-top: rem-calc(12px);
   padding-bottom: rem-calc(12px);
   border-bottom: 4px solid $primary-1;
+  > .row.column {
+    padding: 0;
+  }
   .top-bar-center {
-    display: inline-block;
-    position: relative;
-    left: calc(237px/2);// width of social menu / 2
     a {
       padding-right: rem-calc(20px);
       padding-left: rem-calc(20px);
@@ -152,10 +154,31 @@
         padding-top: 1rem;
       }
     }
+    @include breakpoint(medium) {
+      > div {
+        text-align: center;
+      }
+      #primary-nav {
+        display: inline-block;
+      }
+    }
+    /**
+     * center with inline block
+     * Then move left by half of social bar
+     * then move right by half of logo
+     */
+    @include breakpoint(large) {
+      display: inline-block;
+      position: relative;
+      left: calc(231px/2 - 124px/2);
+    }
   }
   .top-bar-right {
     text-align: right;
     margin-top: rem-calc(4px);
+    position: relative;
+    right: -4px;
+    top: -2px;
     a {
       padding: 0 3px;
       transition: opacity 0.3s linear;
@@ -163,8 +186,10 @@
         opacity: 0.8;
       }
     }
-    @include breakpoint(medium) {
+    @include breakpoint(medium only) {
       text-align: left;
+      display: inline-block;
+      float: none;
     }
   }
   #primary-menu-toggle {
@@ -179,6 +204,16 @@
   }
   #primary-menu-toggle, .social-links {
     display: inline-block;
+    li:first-of-type {
+      a {
+        padding-left: 0;
+      }
+    }
+    li:last-of-type {
+      a {
+        padding-right: 0;
+      }
+    }
     @include breakpoint(medium) {
       display: block;
     }
@@ -194,6 +229,9 @@
   text-transform: uppercase;
   .submenu {
     font-size: rem-calc(14px);
+    @include breakpoint(small only) {
+      font-size: rem-calc(12px);
+    }
   }
   a {
     color: $primary-1;

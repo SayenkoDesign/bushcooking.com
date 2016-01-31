@@ -56,16 +56,7 @@
             {% endblock %}
             {% block primary_navi %}
                 <div class="top-bar" id="primary-navigation">
-                <div class="column row">
-                    <div class="top-bar-center hide-for-small-only">
-                        {{
-                            wp_nav_menu({
-                                'theme_location' : 'primary',
-                                'menu_class'     : "dropdown menu",
-                                'menu_id'        : 'primary-nav'
-                            })
-                        }}
-                    </div>
+                <div class="column row collapse">
                     <div class="top-bar-right">
                         <ul class="menu social-links">
                             <li><a href="{{ the_field("all_recipes", "option") }}" target="_blank"><i class="fa all-recipes"></i></a></li>
@@ -80,6 +71,15 @@
                                 <button class="menu-icon" type="button" data-toggle></button>
                             </div>
                         </div>
+                    </div>
+                    <div class="top-bar-center hide-for-small-only">
+                        {{
+                            wp_nav_menu({
+                                'theme_location' : 'primary',
+                                'menu_class'     : "dropdown menu",
+                                'menu_id'        : 'primary-nav'
+                            })
+                        }}
                     </div>
                 </div>
             </div>

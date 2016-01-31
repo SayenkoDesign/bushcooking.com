@@ -1,8 +1,8 @@
 <article id="post-{{ the_id() }}" {{ post_class('recipe-teaser teaser') }}>
     {% if the_post_thumbnail() %}
-        {{ the_post_thumbnail('teaser') }}
+        <a href="{{ the_permalink() }}">{{ the_post_thumbnail('teaser') }}</a>
     {% else %}
-        <img src="http://placehold.it/280x280" class="featured"/>
+        <a href="{{ the_permalink() }}"><img src="http://placehold.it/280x280" class="featured"/></a>
     {% endif %}
     <div class="inner-content">
         <h4 class="title"><a href="{{ the_permalink() }}">{{ the_title() }}</a></h4>
