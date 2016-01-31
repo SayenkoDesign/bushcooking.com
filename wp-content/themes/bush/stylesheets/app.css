@@ -5000,56 +5000,63 @@ h1, h2, h3, h4 {
     clear: both; } }
 
 /* line 1, ../scss/_comments.scss */
+.fa-star, .fa-star-o, .fa-star-half, .fa-star-half-o {
+  color: #F15B24; }
+
+/* line 4, ../scss/_comments.scss */
 #comments {
   margin-top: 2rem; }
-  /* line 3, ../scss/_comments.scss */
+  /* line 6, ../scss/_comments.scss */
   #comments .comment {
     margin-bottom: 2rem; }
-  /* line 6, ../scss/_comments.scss */
+  /* line 9, ../scss/_comments.scss */
   #comments .author, #comments .details {
     float: left; }
-  /* line 7, ../scss/_comments.scss */
+  /* line 10, ../scss/_comments.scss */
   #comments .author {
     margin-right: 2rem; }
-    /* line 9, ../scss/_comments.scss */
+    /* line 12, ../scss/_comments.scss */
     #comments .author img {
       border-radius: 100%; }
-  /* line 13, ../scss/_comments.scss */
+  /* line 16, ../scss/_comments.scss */
   #comments h4 {
     margin: 0; }
-  /* line 16, ../scss/_comments.scss */
+  /* line 19, ../scss/_comments.scss */
   #comments > h4 {
     margin-bottom: 2rem; }
-  /* line 19, ../scss/_comments.scss */
+  /* line 22, ../scss/_comments.scss */
   #comments .rating, #comments .date {
     display: inline-block; }
-  /* line 20, ../scss/_comments.scss */
+  /* line 23, ../scss/_comments.scss */
   #comments .rating {
     font-size: 1.5rem;
     margin-right: 1rem; }
-  /* line 24, ../scss/_comments.scss */
+  /* line 27, ../scss/_comments.scss */
   #comments .date {
     position: relative;
     bottom: 0.14286rem; }
-  /* line 28, ../scss/_comments.scss */
+  /* line 31, ../scss/_comments.scss */
   #comments .content {
     margin-top: 1rem; }
-  /* line 31, ../scss/_comments.scss */
+  /* line 34, ../scss/_comments.scss */
   #comments .star {
     display: inline-block;
     font-size: 1.5rem;
     margin: 1rem 0.5rem 1rem 0; }
-    /* line 35, ../scss/_comments.scss */
+    /* line 38, ../scss/_comments.scss */
     #comments .star:hover {
       cursor: pointer; }
 
-/* line 40, ../scss/_comments.scss */
+/* line 43, ../scss/_comments.scss */
 #commentform {
   border: 2px solid #e5e4e0;
   padding: 2rem; }
-  /* line 44, ../scss/_comments.scss */
+  /* line 47, ../scss/_comments.scss */
   #commentform input[type=submit] {
     font-family: "Amatic SC", cursive; }
+  /* line 51, ../scss/_comments.scss */
+  #commentform .comment-notes {
+    display: none; }
 
 /* line 1, ../scss/_archives.scss */
 #archives {

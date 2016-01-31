@@ -40,7 +40,6 @@ jQuery(function() {
             $(this).find('.fa.fa-star').removeClass('fa-star').addClass('fa-star-o');
             $(this).find('.star:lt(' + rating + ') .fa').removeClass('fa-star-o').addClass('fa-star');
         }
-
     });
 
     jQuery('.stars .star').on('click', function() {

@@ -154,15 +154,15 @@ function additional_fields () {
             <input type="radio" name="rating" id="rating-2" value="2" />
             <input type="radio" name="rating" id="rating-3" value="3" />
             <input type="radio" name="rating" id="rating-4" value="4" />
-            <input type="radio" name="rating" id="rating-5" value="5" />
+            <input type="radio" name="rating" id="rating-5" value="5" checked="checked" />
         </div>
         <div class="star-container">
             <span class="stars">
-                <label for="rating-1" class="star"><i class="fa fa-star-o"></i></label>
-                <label for="rating-2" class="star"><i class="fa fa-star-o"></i></label>
-                <label for="rating-3" class="star"><i class="fa fa-star-o"></i></label>
-                <label for="rating-4" class="star"><i class="fa fa-star-o"></i></label>
-                <label for="rating-5" class="star"><i class="fa fa-star-o"></i></label>
+                <label for="rating-1" class="star"><i class="fa fa-star"></i></label>
+                <label for="rating-2" class="star"><i class="fa fa-star"></i></label>
+                <label for="rating-3" class="star"><i class="fa fa-star"></i></label>
+                <label for="rating-4" class="star"><i class="fa fa-star"></i></label>
+                <label for="rating-5" class="star"><i class="fa fa-star"></i></label>
             </span>
         </div>
     </div>

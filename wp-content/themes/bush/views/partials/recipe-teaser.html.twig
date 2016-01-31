@@ -5,13 +5,21 @@
         <a href="{{ the_permalink() }}"><img src="http://placehold.it/280x280" class="featured" itemprop="image"/></a>
     {% endif %}
     <div class="rating">
-        {% for i in 1..5 %}
-            {% if i <= rating %}
-                <i class="fa fa-star"></i>
-            {% else %}
-                <i class="fa fa-star-o"></i>
-            {% endif %}
-        {% endfor %}
+        {% if rating %}
+            {% for i in 1..10 %}
+                {% if i <= rating*2 %}
+                    {% if i is even %}
+                        <i class="fa fa-star"></i>
+                    {% elseif i+0.5 > rating*2 %}
+                        <i class="fa fa-star-half-o"></i>
+                    {% endif %}
+                {% elseif i is even and i-1 > rating*2 %}
+                    <i class="fa fa-star-o"></i>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            No Reviews
+        {% endif %}
     </div>
     <div class="inner-content">
         <h4 class="title"><a href="{{ the_permalink() }}" itemprop="name">{{ the_title() }}</a></h4>
