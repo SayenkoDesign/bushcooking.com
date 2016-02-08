@@ -1,7 +1,21 @@
-{{
-    posts_pagination({
-        'prev_text'          : 'Previous page',
-        'next_text'          : 'Next page',
-        'before_page_number' : '<span class="meta-nav screen-reader-text">Page</span>',
-    })
-}}
+{% if paged_pages() > 1 %}
+    <ul class="pagination text-center" role="navigation" aria-label="Pagination">
+        {% if paged_page() == 1 %}
+            <li class="disabled"><i class="fa fa-angle-double-left"></i></li>
+        {% else %}
+            <li><a href="{{ pagenum_link() }}"><i class="fa fa-angle-double-left"></i></a></li>
+        {% endif %}
+        {% for i in 1..paged_pages() %}
+            {% if i == paged_page() %}
+                <li class="current"><span class="show-for-sr">You're on page</span> {{ paged_page() }}</li>
+            {% else %}
+                <li><a href="{{ pagenum_link(i) }}" aria-label="Page 2">{{ i }}</a></li>
+            {% endif %}
+        {% endfor %}
+        {% if paged_page() == paged_pages() %}
+            <li class="disabled"><i class="fa fa-angle-double-right"></i></li>
+        {% else %}
+            <li><a href="{{ pagenum_link(paged_pages()) }}"><i class="fa fa-angle-double-right"></i></a></li>
+        {% endif %}
+    </ul>
+{% endif %}

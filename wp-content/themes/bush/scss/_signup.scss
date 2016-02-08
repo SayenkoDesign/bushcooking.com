@@ -1,7 +1,17 @@
+#signup::before {
+  content: " ";
+  display: block;
+  width: 100%;
+  height: 67px;
+  background-image: url("../images/border-splash-white.png");
+  position: absolute;
+  top: -32px;
+}
 #signup {
+  position: relative;
   background-color: #FFF;
   padding-top: 64px;
-  padding-bottom: 48px;
+  padding-bottom: 64px;
   text-align: center;
   h4 {
     color: $secondary-2;

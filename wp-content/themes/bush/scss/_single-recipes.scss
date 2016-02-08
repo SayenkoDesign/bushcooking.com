@@ -44,12 +44,18 @@
   margin-bottom: 2rem;
 }
 #directions {
-  .icon {
-    float: left;
+  ol {
+    margin-top: 1rem;
+    margin-left: 3rem;
+  }
+  li {
     font-size: 3rem;
+    counter-increment: customlistcounter;
   }
   .content {
-    margin-left: 4rem;
+    position: relative;
+    top: -1rem;
+    font-size: 1rem;
     margin-bottom: 2rem;
   }
 }

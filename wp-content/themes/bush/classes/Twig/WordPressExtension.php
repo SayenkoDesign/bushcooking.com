@@ -128,6 +128,22 @@ class WordPressExtension extends \Twig_Extension
             return get_the_content();
         }, $html_safe);
 
+        // get_pagenum_link
+        $funcs[] = new Twig_SimpleFunction('pagenum_link', function($page = 1, $escape = true) {
+            return get_pagenum_link($page, $escape);
+        }, $html_safe);
+
+        // paged_page
+        $funcs[] = new Twig_SimpleFunction('paged_page', function() {
+            return get_query_var('paged') ?: 1;
+        }, $html_safe);
+
+        // paged_pages
+        $funcs[] = new Twig_SimpleFunction('paged_pages', function() {
+            global $wp_query;
+            return $wp_query->max_num_pages;
+        }, $html_safe);
+
         // wp_link_pages
         $funcs[] = new Twig_SimpleFunction('wp_link_pages', function($args) {
             $args['echo'] = false;

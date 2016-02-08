@@ -19,24 +19,17 @@
     <div class="row" id="footer-menus">
         <div class="columns" id="recipe-categories">
             <h4>RECIPE CATEGORIES</h4>
-            <ul class="no-bullet">
-                {{
-                wp_list_categories({
-                    'taxonomy'           : 'food_category',
-                    'orderby'            : 'name',
-                    'order'              :'ASC',
-                    'title_li'           : '',
-                    'hide_empty'         : 1,
-                    'show_count'         : 0,
-                    'use_desc_for_title' : 1,
-                    'child_of'           : 0,
-                    'hierarchical'       : 0,
+            {{
+                wp_nav_menu({
+                    'theme_location' : 'recipes',
+                    'menu_class'     : "no-bullet",
+                    'depth'          : 1
                 })
-                }}
-            </ul>
+            }}
         </div>
         <div class="columns text-center" id="footer-menu">
             <ul class="menu">
+                <li><a href="{{ the_field("instagram", "option") }}" target="_blank"><i class="fa fa-instagram"></i></a></li>
                 <li><a href="{{ the_field("pinterest", "option") }}" target="_blank"><i class="fa fa-pinterest"></i></a></li>
                 <li><a href="{{ the_field("facebook", "option") }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
                 <li><a href="{{ the_field("twitter", "option") }}" target="_blank"><i class="fa fa-twitter"></i></a></li>
@@ -47,26 +40,18 @@
         </div>
         <div class="columns end" id="blog-categories">
             <h4>BLOG CATEGORIES</h4>
-            <ul class="no-bullet">
-                {{
-                wp_list_categories({
-                    'taxonomy'           : 'category',
-                    'orderby'            : 'name',
-                    'order'              :'ASC',
-                    'title_li'           : '',
-                    'hide_empty'         : 1,
-                    'show_count'         : 0,
-                    'use_desc_for_title' : 1,
-                    'child_of'           : 0,
-                    'hierarchical'       : 0,
+            {{
+                wp_nav_menu({
+                    'theme_location' : 'categories',
+                    'menu_class'     : "no-bullet",
+                    'depth'          : 1
                 })
-                }}
-            </ul>
+            }}
         </div>
     </div>
     <div class="expanded row column text-center" id="footer-copyright">
         <p>
-            &copy; 2015 Bush Cooking.  All rights reserved. <a href="http://www.sayenkodesign.com/" target="_blank">Seattle Web Design</a> by Sayenko Design.
+            &copy; {{ date() | date('Y') }} Bush Cooking.  All rights reserved. <a href="http://www.sayenkodesign.com/" target="_blank">Seattle Web Design</a> by Sayenko Design.
             |
             <a href="{{ the_field("privacy_policy_page", "option") }}">Privacy Policy</a>
         </p>

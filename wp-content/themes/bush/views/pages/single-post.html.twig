@@ -1,17 +1,19 @@
 {% extends 'template/main.html.twig' %}
 {% set has_sidebar = true %}
 {% block content %}
-    <div id="post-featured-image">
-        {{ the_post_thumbnail('slider') }}
-    </div>
+    <div class="row column">
+        <div id="post-featured-image">
+            {{ the_post_thumbnail('slider') }}
+        </div>
 
-    <h1>{{ the_title() }}</h1>
-    <p class="author-info">
-        By: <a href="{{ the_author_posts_url(the_author_ID()) }}">{{ the_author() }}</a>
-        | {{ the_date() | date("F d, Y") }}
-    </p>
-    {% include 'partials/sharethis.html.twig' %}
-    {{ the_content() }}
+        <h1>{{ the_title() }}</h1>
+        <p class="author-info">
+            By: <a href="{{ the_author_posts_url(the_author_ID()) }}">{{ the_author() }}</a>
+            | {{ the_date() | date("F d, Y") }}
+        </p>
+        {% include 'partials/sharethis.html.twig' %}
+        {{ the_content() }}
+    </div>
     {% include 'partials/related.html.twig' %}
 {% endblock %}
 {% block sidebar %}

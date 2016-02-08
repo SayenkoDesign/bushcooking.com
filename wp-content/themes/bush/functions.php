@@ -27,7 +27,9 @@ $script_app = new Script('bush_app_js', Script::getThemeURL() . '/js/app.min.js'
 ], time());
 
 // menus
-$menu_primary = new Menu('primary', 'primary menu used in header');
+$menu_primary = new Menu('primary', 'Primary menu used in header');
+$menu_recipes = new Menu('recipes', 'Recipes menu for header and footer');
+$menu_categories = new Menu('categories', 'Categories menu used in footer');
 
 // post type
 $recipes = new PostType(
@@ -56,6 +58,7 @@ add_filter( 'wpseo_metabox_prio', function() { return 'low';});
 $teaser = new ImageSize('teaser', 280, 280, true);
 $slider = new ImageSize('slider', 380, 380, true);
 
+// acf theme options page
 if( function_exists('acf_add_options_page') ) {
 
     acf_add_options_page(array(
@@ -67,7 +70,7 @@ if( function_exists('acf_add_options_page') ) {
     ));
 }
 
-// tabed short code
+// tabbed short code
 remove_filter( 'the_content', 'wpautop' );
 add_filter( 'the_content', 'wpautop' , 99);
 add_filter( 'the_content', 'shortcode_unautop',100 );

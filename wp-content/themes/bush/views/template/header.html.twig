@@ -34,21 +34,13 @@
                                 </li>
                             </ul>
                             <div class="dropdown-pane" id="recipe-category-dropdown" data-dropdown data-hover="true" data-hover-pane="true">
-                                <ul class="menu vertical">
-                                    {{
-                                        wp_list_categories({
-                                            'taxonomy'           : 'food_category',
-                                            'orderby'            : 'name',
-                                            'order'              :'ASC',
-                                            'title_li'           : '',
-                                            'hide_empty'         : 1,
-                                            'show_count'         : 0,
-                                            'use_desc_for_title' : 1,
-                                            'child_of'           : 0,
-                                            'hierarchical'       : 0,
-                                        })
-                                    }}
-                                </ul>
+                                {{
+                                    wp_nav_menu({
+                                        'theme_location' : 'recipes',
+                                        'menu_class'     : "menu vertical",
+                                        'depth'          : 1
+                                    })
+                                }}
                             </div>
                         </div>
                     </div>

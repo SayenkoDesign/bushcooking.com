@@ -52,12 +52,13 @@
         <div class="large-8 columns">
             <div id="directions" itemprop="recipeInstructions">
                 <h4>Directions</h4>
+                <ol>
                 {% for direction in directions %}
-                    <div class="direction">
-                        <div class="icon"><i class="fa fa-clock-o"></i></div>
+                    <li class="direction">
                         <div class="content">{{ direction | raw }}</div>
-                    </div>
+                    </li>
                 {% endfor %}
+                </ol>
             </div>
         </div>
     </div>

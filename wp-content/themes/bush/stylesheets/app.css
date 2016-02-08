@@ -1659,28 +1659,28 @@ h6 {
 
 /* line 309, ../bower_components/foundation-sites/scss/typography/_base.scss */
 h1 {
-  font-size: 3.85714rem; }
-
-/* line 309, ../bower_components/foundation-sites/scss/typography/_base.scss */
-h2 {
   font-size: 2.57143rem; }
 
 /* line 309, ../bower_components/foundation-sites/scss/typography/_base.scss */
-h3 {
+h2 {
   font-size: 2.28571rem; }
 
 /* line 309, ../bower_components/foundation-sites/scss/typography/_base.scss */
-h4 {
+h3 {
   font-size: 2.14286rem; }
+
+/* line 309, ../bower_components/foundation-sites/scss/typography/_base.scss */
+h4 {
+  font-size: 2rem; }
 
 @media screen and (min-width: 40em) {
   /* line 309, ../bower_components/foundation-sites/scss/typography/_base.scss */
   h1 {
-    font-size: 5.14286rem; }
+    font-size: 3rem; }
 
   /* line 309, ../bower_components/foundation-sites/scss/typography/_base.scss */
   h2 {
-    font-size: 3.85714rem; }
+    font-size: 2.71429rem; }
 
   /* line 309, ../bower_components/foundation-sites/scss/typography/_base.scss */
   h3 {
@@ -3384,7 +3384,7 @@ body {
   /* line 91, ../bower_components/foundation-sites/scss/components/_pagination.scss */
   .pagination a,
   .pagination button {
-    color: #0a0a0a;
+    color: #787878;
     display: block;
     padding: 0.21429rem 0.71429rem;
     border-radius: 0; }
@@ -4454,6 +4454,13 @@ h1, h2, h3, h4 {
       /* line 205, ../scss/_navigation.scss */
       #primary-navigation #primary-menu-toggle, #primary-navigation .social-links {
         display: block; } }
+  /* line 222, ../scss/_navigation.scss */
+  #primary-navigation .social-links li:nth-child(5), #primary-navigation .social-links li:nth-child(6) {
+    display: none; }
+  @media screen and (min-width: 28.125em) {
+    /* line 226, ../scss/_navigation.scss */
+    #primary-navigation .social-links li:nth-child(5), #primary-navigation .social-links li:nth-child(6) {
+      display: table-cell; } }
   @media screen and (min-width: 40em) {
     /* line 137, ../scss/_navigation.scss */
     #primary-navigation {
@@ -4461,109 +4468,125 @@ h1, h2, h3, h4 {
       padding-bottom: 0.5rem;
       border-bottom: none; } }
 
-/* line 227, ../scss/_navigation.scss */
+/* line 237, ../scss/_navigation.scss */
 #primary-nav, #primary-mobile-nav {
   font-size: 1.14286rem;
   text-transform: uppercase; }
-  /* line 230, ../scss/_navigation.scss */
+  /* line 240, ../scss/_navigation.scss */
   #primary-nav .submenu, #primary-mobile-nav .submenu {
     font-size: 1rem; }
     @media screen and (min-width: 0em) and (max-width: 39.9375em) {
-      /* line 230, ../scss/_navigation.scss */
+      /* line 240, ../scss/_navigation.scss */
       #primary-nav .submenu, #primary-mobile-nav .submenu {
         font-size: 0.85714rem; } }
-  /* line 236, ../scss/_navigation.scss */
+  /* line 246, ../scss/_navigation.scss */
   #primary-nav a, #primary-mobile-nav a {
     color: #773D1A; }
-    /* line 238, ../scss/_navigation.scss */
+    /* line 248, ../scss/_navigation.scss */
     #primary-nav a:hover, #primary-mobile-nav a:hover {
       color: #A9544D; }
 
-/* line 243, ../scss/_navigation.scss */
+/* line 253, ../scss/_navigation.scss */
 #primary-mobile-nav {
   background-color: #FFF;
   border-bottom: 4px solid #773D1A;
   text-align: center; }
-  /* line 247, ../scss/_navigation.scss */
-  #primary-mobile-nav .menu.nested {
-    margin-left: 3rem; }
 
-/* line 252, ../scss/_navigation.scss */
+/* line 259, ../scss/_navigation.scss */
 .shrink #large-logo {
   display: none; }
   @media screen and (min-width: 40em) {
-    /* line 252, ../scss/_navigation.scss */
+    /* line 259, ../scss/_navigation.scss */
     .shrink #large-logo {
       display: inline-block; }
-      /* line 256, ../scss/_navigation.scss */
+      /* line 263, ../scss/_navigation.scss */
       .shrink #large-logo img {
         max-width: 80px;
         position: relative;
         top: 50px; } }
 
-/* line 263, ../scss/_navigation.scss */
+/* line 270, ../scss/_navigation.scss */
 #large-logo {
   position: absolute;
-  top: -80px;
-  left: 16px; }
-  /* line 267, ../scss/_navigation.scss */
+  top: -32px;
+  left: 8px; }
+  /* line 274, ../scss/_navigation.scss */
   #large-logo > img {
-    max-width: 124px; }
+    max-width: 62px; }
+  @media screen and (min-width: 28.125em) {
+    /* line 270, ../scss/_navigation.scss */
+    #large-logo {
+      top: -60px;
+      left: 16px; }
+      /* line 280, ../scss/_navigation.scss */
+      #large-logo > img {
+        max-width: 124px; } }
   @media screen and (min-width: 40em) {
-    /* line 263, ../scss/_navigation.scss */
+    /* line 270, ../scss/_navigation.scss */
     #large-logo {
       top: -92px;
       left: 0; } }
 
 /* line 1, ../scss/_signup.scss */
+#signup::before {
+  content: " ";
+  display: block;
+  width: 100%;
+  height: 67px;
+  background-image: url("../images/border-splash-white.png");
+  position: absolute;
+  top: -32px; }
+
+/* line 10, ../scss/_signup.scss */
 #signup {
+  position: relative;
   background-color: #FFF;
   padding-top: 64px;
-  padding-bottom: 48px;
+  padding-bottom: 64px;
   text-align: center; }
-  /* line 6, ../scss/_signup.scss */
+  /* line 16, ../scss/_signup.scss */
   #signup h4 {
     color: #787878;
     margin-bottom: 1rem;
     font-size: 2rem; }
 
-/* line 12, ../scss/_signup.scss */
+/* line 22, ../scss/_signup.scss */
 #gform_wrapper_1 {
   display: inline-block;
   width: 100%;
   max-width: 370px;
   margin: 0; }
-  /* line 17, ../scss/_signup.scss */
+  /* line 27, ../scss/_signup.scss */
   #gform_wrapper_1 .ginput_container {
     margin: 0; }
-  /* line 20, ../scss/_signup.scss */
+  /* line 30, ../scss/_signup.scss */
   #gform_wrapper_1 .gform_body, #gform_wrapper_1 .gform_footer {
     display: inline-block;
     padding: 0;
     margin: 0; }
-  /* line 25, ../scss/_signup.scss */
+  /* line 35, ../scss/_signup.scss */
   #gform_wrapper_1 .gform_body {
     width: calc(100% - 85px); }
-  /* line 28, ../scss/_signup.scss */
+  /* line 38, ../scss/_signup.scss */
   #gform_wrapper_1 .gform_footer {
     position: relative;
     left: -4px;
     vertical-align: top; }
-  /* line 33, ../scss/_signup.scss */
+  /* line 43, ../scss/_signup.scss */
   #gform_wrapper_1 #gform_1 {
     width: 100%; }
-    /* line 35, ../scss/_signup.scss */
+    /* line 45, ../scss/_signup.scss */
     #gform_wrapper_1 #gform_1 label {
       display: none; }
-    /* line 38, ../scss/_signup.scss */
+    /* line 48, ../scss/_signup.scss */
     #gform_wrapper_1 #gform_1 input {
       font-size: 12px; }
-    /* line 41, ../scss/_signup.scss */
+    /* line 51, ../scss/_signup.scss */
     #gform_wrapper_1 #gform_1 #input_1_1 {
       margin: 0;
       width: 100%;
       padding: 0.57143rem; }
-    /* line 46, ../scss/_signup.scss */
+    /* line 56, ../scss/_signup.scss */
     #gform_wrapper_1 #gform_1 .button, #gform_wrapper_1 #gform_1 .form-submit .submit, .form-submit #gform_wrapper_1 #gform_1 .submit {
       padding: 0.9rem 1rem;
       margin: 0; }
@@ -4698,49 +4721,55 @@ h1, h2, h3, h4 {
   margin-bottom: 2rem; }
 
 /* line 47, ../scss/_single-recipes.scss */
-#directions .icon {
-  float: left;
-  font-size: 3rem; }
+#directions ol {
+  margin-top: 1rem;
+  margin-left: 3rem; }
 /* line 51, ../scss/_single-recipes.scss */
+#directions li {
+  font-size: 3rem;
+  counter-increment: customlistcounter; }
+/* line 55, ../scss/_single-recipes.scss */
 #directions .content {
-  margin-left: 4rem;
+  position: relative;
+  top: -1rem;
+  font-size: 1rem;
   margin-bottom: 2rem; }
 
-/* line 57, ../scss/_single-recipes.scss */
+/* line 63, ../scss/_single-recipes.scss */
 #share {
   margin-bottom: 1rem; }
 
-/* line 61, ../scss/_single-recipes.scss */
+/* line 67, ../scss/_single-recipes.scss */
 #side {
   background-color: #FFF;
   padding: 1.71429rem;
   border: 1px solid #fcdedc; }
-  /* line 65, ../scss/_single-recipes.scss */
+  /* line 71, ../scss/_single-recipes.scss */
   #side #author {
     margin-bottom: 2rem; }
-    /* line 67, ../scss/_single-recipes.scss */
+    /* line 73, ../scss/_single-recipes.scss */
     #side #author img {
       border-radius: 100%; }
-    /* line 70, ../scss/_single-recipes.scss */
+    /* line 76, ../scss/_single-recipes.scss */
     #side #author h4 {
       float: right; }
-  /* line 74, ../scss/_single-recipes.scss */
+  /* line 80, ../scss/_single-recipes.scss */
   #side #details {
     clear: both;
     width: 100%;
     border: 0 solid transparent; }
-    /* line 78, ../scss/_single-recipes.scss */
+    /* line 84, ../scss/_single-recipes.scss */
     #side #details tr, #side #details tbody, #side #details th, #side #details td {
       border: 0 solid transparent; }
-    /* line 79, ../scss/_single-recipes.scss */
+    /* line 85, ../scss/_single-recipes.scss */
     #side #details tr {
       background-color: transparent; }
-    /* line 82, ../scss/_single-recipes.scss */
+    /* line 88, ../scss/_single-recipes.scss */
     #side #details th {
       font-weight: normal;
       text-align: left;
       padding-left: 0; }
-    /* line 87, ../scss/_single-recipes.scss */
+    /* line 93, ../scss/_single-recipes.scss */
     #side #details td {
       text-align: right;
       padding-right: 0; }

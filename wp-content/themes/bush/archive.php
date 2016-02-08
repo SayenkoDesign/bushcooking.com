@@ -56,7 +56,6 @@ while ( have_posts() ) {
 wp_reset_postdata();
 $post = get_post(131);
 setup_postdata($post);
-
 echo $app->render('pages/archives.html.twig', [
     'content' => $content,
 ]);

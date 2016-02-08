@@ -28,7 +28,7 @@ $body-font-color: $primary-1;//#58595B;
 $body-font-family: $font_raleway;
 $header-font-family: $font_amatic;
 $header-font-weight: bold;
-$header-sizes: (small: ('h1': 54, 'h2': 36, 'h3': 32, 'h4': 30), medium: ('h1': 72, 'h2': 54, 'h3': 36, 'h4': 30));
+$header-sizes: (small: ('h1': 36, 'h2': 32, 'h3': 30, 'h4': 28), medium: ('h1': 42, 'h2': 38, 'h3': 36, 'h4': 30));
 $header-color: $primary-1;
 $anchor-color: $primary-3;
 $anchor-color-hover: scale-color($anchor-color, $lightness: 20%);
@@ -50,3 +50,6 @@ $tab-content-background: transparent;
 $tab-content-border: transparent;
 $tab-content-color: $primary-1;
 $tab-content-padding: 1rem 0;
+
+//pagination
+$pagination-item-color: $secondary-2;

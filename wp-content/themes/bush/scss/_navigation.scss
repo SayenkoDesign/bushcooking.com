@@ -218,6 +218,16 @@
       display: block;
     }
   }
+  .social-links {
+    li:nth-child(5), li:nth-child(6) {
+      display: none;
+    }
+    @include breakpoint(450px) {
+      li:nth-child(5), li:nth-child(6) {
+        display: table-cell;
+      }
+    }
+  }
   @include breakpoint(medium) {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -244,9 +254,6 @@
   background-color: $white;
   border-bottom: 4px solid $primary-1;
   text-align: center;
-  .menu.nested {
-    margin-left: 3rem;
-  }
 }
 
 .shrink #large-logo {
@@ -262,10 +269,17 @@
 }
 #large-logo {
   position: absolute;
-  top: -80px;
-  left: 16px;
+  top: -32px;
+  left: 8px;
   > img {
-    max-width: 124px;
+    max-width: 62px;
+  }
+  @include breakpoint(450px) {
+    top: -60px;
+    left: 16px;
+    > img {
+      max-width: 124px;
+    }
   }
   @include breakpoint(medium) {
     top: -92px;
