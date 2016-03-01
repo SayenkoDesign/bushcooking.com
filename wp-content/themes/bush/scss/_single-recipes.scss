@@ -2,6 +2,13 @@
   background-color: #FFF;
   border: 1px solid #fcdedc;
   padding: 6px;
+  &:hover button {
+    display: block !important;
+  }
+  button {
+    display: none !important;
+  }
+
 }
 .slick-next {
   right: 5px;
@@ -42,6 +49,9 @@
 }
 #recipe-instructions {
   margin-bottom: 2rem;
+  .strike {
+    text-decoration: line-through;
+  }
 }
 #directions {
   ol {
@@ -49,12 +59,12 @@
     margin-left: 3rem;
   }
   li {
-    font-size: 3rem;
+    font-size: 1.5rem;
     counter-increment: customlistcounter;
   }
   .content {
     position: relative;
-    top: -1rem;
+    top: -0.2rem;
     font-size: 1rem;
     margin-bottom: 2rem;
   }

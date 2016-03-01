@@ -52,11 +52,12 @@ while ( have_posts() ) {
     }
 }
 
-
 wp_reset_postdata();
+$title = get_the_archive_title();
 $post = get_post(131);
 setup_postdata($post);
 echo $app->render('pages/archives.html.twig', [
+    'title' => $title,
     'content' => $content,
 ]);
 get_footer();

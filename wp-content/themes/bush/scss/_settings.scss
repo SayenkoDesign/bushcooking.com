@@ -33,6 +33,16 @@ $header-color: $primary-1;
 $anchor-color: $primary-3;
 $anchor-color-hover: scale-color($anchor-color, $lightness: 20%);
 
+
+// grid
+$breakpoints: (
+    small: 0px,
+    medium: 700px,
+    large: 1024px,
+    xlarge: 1200px,
+    xxlarge: 1440px,
+);
+
 // global
 $body-background: $secondary-3;
 $button-padding: 0.85rem 1rem;

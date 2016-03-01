@@ -162,6 +162,19 @@
         display: inline-block;
       }
     }
+    @include breakpoint(medium) {
+      > div {
+        text-align: right;
+      }
+    }
+    @include breakpoint(800px) {
+      > div {
+        text-align: center;
+      }
+      #primary-nav {
+        display: inline-block;
+      }
+    }
     /**
      * center with inline block
      * Then move left by half of social bar
@@ -186,15 +199,24 @@
         opacity: 0.8;
       }
     }
-    @include breakpoint(medium only) {
+    @include breakpoint(medium) {
+      padding-right: rem-calc(20px);
+    }
+    @include breakpoint(800px) {
+      padding-right: 0;
       text-align: left;
       display: inline-block;
       float: none;
     }
+    @include breakpoint(large) {
+      text-align: right;
+      float: right;
+    }
   }
   #primary-menu-toggle {
+    padding-right: 16px;
     button {
-      top: -8px;
+      top: -12px;
       margin-left: 1rem;
     }
     button::after {
@@ -229,6 +251,7 @@
     }
   }
   @include breakpoint(medium) {
+    padding-left: 128px;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     border-bottom: none;
@@ -269,10 +292,10 @@
 }
 #large-logo {
   position: absolute;
-  top: -32px;
+  top: -60px;
   left: 8px;
   > img {
-    max-width: 62px;
+    max-width: 80px;
   }
   @include breakpoint(450px) {
     top: -60px;
