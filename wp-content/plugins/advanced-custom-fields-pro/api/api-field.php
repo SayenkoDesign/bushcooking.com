@@ -300,7 +300,7 @@ function acf_is_sub_field( $field ) {
 function acf_get_field_label( $field ) {
 	
 	// vars
-	$label = esc_html($field['label']);
+	$label = $field['label'];
 	
 	
 	if( $field['required'] ) {
@@ -308,6 +308,10 @@ function acf_get_field_label( $field ) {
 		$label .= ' <span class="acf-required">*</span>';
 		
 	}
+	
+	
+	// filter for 3rd party customization
+	$label = apply_filters("acf/get_field_label", $label, $field);
 	
 	
 	// return
