@@ -41,7 +41,9 @@
         {% for key,top_article in top_articles %}
             <div class="column">
                 {{ top_article | raw }}
-                {{ bottom_articles[key] | raw }}
+                {% if bottom_articles[key] is defined %}
+                    {{ bottom_articles[key] | raw }}
+                {% endif %}
             </div>
         {% endfor %}
     </div>

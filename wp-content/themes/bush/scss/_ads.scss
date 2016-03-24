@@ -15,8 +15,10 @@
   .button {
     border-color: $ad-color;
     color: $ad-color;
-    font-size: rem-calc(20px);
-    padding: 12px 28px;
+    font-size: rem-calc(24px);
+    padding: 8px 28px;
+    border-width: 2px;
+    border-radius: 4px;
   }
 }
 

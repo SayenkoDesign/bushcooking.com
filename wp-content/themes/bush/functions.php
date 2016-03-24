@@ -9,6 +9,8 @@ use Bush\WordPress\PostType;
 use Bush\WordPress\Taxonomy;
 use Bush\WordPress\ImageSize;
 
+add_theme_support( 'post-thumbnails' );
+
 // stylesheets
 $stylesheet_slick = new StyleSheet('slick', '//cdn.jsdelivr.net/g/jquery.slick@1.5.9(slick-theme.css+slick.css)');
 $stylesheet_fontawesome = new StyleSheet('fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');

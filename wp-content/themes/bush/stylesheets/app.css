@@ -4982,63 +4982,65 @@ h1, h2, h3, h4 {
 .teaser#teaser-ad .button, .teaser#teaser-ad .form-submit .submit, .form-submit .teaser#teaser-ad .submit {
   border-color: #406086;
   color: #406086;
-  font-size: 1.42857rem;
-  padding: 12px 28px; }
+  font-size: 1.71429rem;
+  padding: 8px 28px;
+  border-width: 2px;
+  border-radius: 4px; }
 
-/* line 23, ../scss/_ads.scss */
+/* line 25, ../scss/_ads.scss */
 .row#large-ad {
   border: 1px solid #f9d3cc;
   background-color: #FFF;
   padding: 30px;
   margin-top: 80px; }
-  /* line 28, ../scss/_ads.scss */
+  /* line 30, ../scss/_ads.scss */
   .row#large-ad .content {
     display: inline-block;
     position: relative;
     overflow: visible; }
-    /* line 32, ../scss/_ads.scss */
+    /* line 34, ../scss/_ads.scss */
     .row#large-ad .content h3 {
       font-size: 2.85714rem; }
-      /* line 34, ../scss/_ads.scss */
+      /* line 36, ../scss/_ads.scss */
       .row#large-ad .content h3 small {
         display: block;
         color: #773D1A;
         font-size: 2.28571rem;
         margin-top: 0.71429rem;
         line-height: 1; }
-    /* line 42, ../scss/_ads.scss */
+    /* line 44, ../scss/_ads.scss */
     .row#large-ad .content a.button, .row#large-ad .content .form-submit a.submit, .form-submit .row#large-ad .content a.submit {
       font-family: "Amatic SC", cursive;
       font-size: 1.57143rem;
       padding: 12px 32px;
       position: relative; }
     @media screen and (min-width: 43.75em) {
-      /* line 50, ../scss/_ads.scss */
+      /* line 52, ../scss/_ads.scss */
       .row#large-ad .content::before, .row#large-ad .content::after {
         content: " ";
         display: block;
         position: absolute;
         bottom: 20px; }
-      /* line 56, ../scss/_ads.scss */
+      /* line 58, ../scss/_ads.scss */
       .row#large-ad .content::before {
         width: 65px;
         height: 101px;
         background-image: url("../images/advertise-with-us-left.png");
         left: -65px; }
-      /* line 62, ../scss/_ads.scss */
+      /* line 64, ../scss/_ads.scss */
       .row#large-ad .content::after {
         width: 93px;
         height: 101px;
         background-image: url("../images/advertise-with-us-right.png");
         right: -93px; }
-      /* line 68, ../scss/_ads.scss */
+      /* line 70, ../scss/_ads.scss */
       .row#large-ad .content h3 {
         display: inline-block;
         text-align: right; }
-        /* line 71, ../scss/_ads.scss */
+        /* line 73, ../scss/_ads.scss */
         .row#large-ad .content h3 small {
           line-height: 0; }
-      /* line 75, ../scss/_ads.scss */
+      /* line 77, ../scss/_ads.scss */
       .row#large-ad .content a.button, .row#large-ad .content .form-submit a.submit, .form-submit .row#large-ad .content a.submit {
         display: inline-block;
         top: -1.57143rem;
@@ -5143,7 +5145,12 @@ h1, h2, h3, h4 {
 .row .columns.collapse {
   padding: 0; }
 
-/* line 24, ../scss/app.scss */
+/* line 22, ../scss/app.scss */
+.alignright {
+  float: right;
+  padding: 1rem; }
+
+/* line 28, ../scss/app.scss */
 .social-links .fa {
   border-radius: 100%;
   width: 30px;
@@ -5153,27 +5160,27 @@ h1, h2, h3, h4 {
   font-size: 1rem;
   background-image: url("../images/social-icons.png");
   color: transparent; }
-/* line 35, ../scss/app.scss */
+/* line 39, ../scss/app.scss */
 .social-links .fa-instagram, .social-links .fa-instagram:hover {
   background-position: 30px; }
-/* line 36, ../scss/app.scss */
+/* line 40, ../scss/app.scss */
 .social-links .fa-pinterest, .social-links .fa-pinterest:hover {
   background-position: 0; }
-/* line 37, ../scss/app.scss */
+/* line 41, ../scss/app.scss */
 .social-links .fa-facebook, .social-links .fa-facebook:hover {
   background-position: -36px; }
-/* line 38, ../scss/app.scss */
+/* line 42, ../scss/app.scss */
 .social-links .fa-twitter, .social-links .fa-twitter:hover {
   background-position: -107px; }
-/* line 39, ../scss/app.scss */
+/* line 43, ../scss/app.scss */
 .social-links .fa-google-plus, .social-links .fa-google-plus:hover {
   background-position: -143px; }
-/* line 40, ../scss/app.scss */
+/* line 44, ../scss/app.scss */
 .social-links .fa.all-recipes {
   background-image: url("../images/AllRecipes.png");
   background-repeat: no-repeat; }
 
-/* line 46, ../scss/app.scss */
+/* line 50, ../scss/app.scss */
 #share .stButton .stLarge {
   border-radius: 100%;
   width: 30px;
@@ -5184,76 +5191,76 @@ h1, h2, h3, h4 {
   background-image: url("../images/social-icons.png") !important;
   color: transparent; }
 
-/* line 56, ../scss/app.scss */
+/* line 60, ../scss/app.scss */
 .st_pinterest_large .stLarge {
   background-position: 0 !important; }
 
-/* line 57, ../scss/app.scss */
+/* line 61, ../scss/app.scss */
 .st_facebook_large .stLarge {
   background-position: -36px !important; }
 
-/* line 58, ../scss/app.scss */
+/* line 62, ../scss/app.scss */
 .st_stumbleupon_large .stLarge {
   background-position: -71px !important; }
 
-/* line 59, ../scss/app.scss */
+/* line 63, ../scss/app.scss */
 .st_twitter_large .stLarge {
   background-position: -107px !important; }
 
-/* line 60, ../scss/app.scss */
+/* line 64, ../scss/app.scss */
 .st_googleplus_large .stLarge {
   background-position: -143px !important; }
 
-/* line 61, ../scss/app.scss */
+/* line 65, ../scss/app.scss */
 .st_print_large .stLarge {
   background-position: -181px !important; }
 
-/* line 62, ../scss/app.scss */
+/* line 66, ../scss/app.scss */
 .st_email_large .stLarge {
   background-position: -217px !important; }
 
-/* line 64, ../scss/app.scss */
+/* line 68, ../scss/app.scss */
 .dropdown-pane {
   background-color: #FFF;
   border: none; }
 
-/* line 74, ../scss/app.scss */
+/* line 78, ../scss/app.scss */
 .fa-star {
   color: #F15B24; }
 
-/* line 78, ../scss/app.scss */
+/* line 82, ../scss/app.scss */
 #content {
   padding-top: 80px;
   padding-bottom: 80px; }
 
-/* line 83, ../scss/app.scss */
+/* line 87, ../scss/app.scss */
 .tabs {
   border: none;
   display: inline-block; }
 
-/* line 87, ../scss/app.scss */
+/* line 91, ../scss/app.scss */
 .tabs + br, .tabs-content > br {
   display: none; }
 
-/* line 90, ../scss/app.scss */
+/* line 94, ../scss/app.scss */
 .tabs-title > a {
   font-family: "Amatic SC", cursive;
   font-size: 20px;
   border: 1px solid #CCC;
   border-right: none; }
 
-/* line 96, ../scss/app.scss */
+/* line 100, ../scss/app.scss */
 .tabs-title:last-of-type > a {
   border-right: 1px solid #CCC; }
 
-/* line 99, ../scss/app.scss */
+/* line 103, ../scss/app.scss */
 .tabs-title > a:focus, .tabs-title > a[aria-selected="true"], .tabs-title > a:hover {
   color: #F15B24; }
 
-/* line 103, ../scss/app.scss */
+/* line 107, ../scss/app.scss */
 .attachment-post-thumbnail {
   margin-bottom: 2rem; }
   @media screen and (min-width: 43.75em) {
-    /* line 103, ../scss/app.scss */
+    /* line 107, ../scss/app.scss */
     .attachment-post-thumbnail {
       margin-bottom: 0; } }

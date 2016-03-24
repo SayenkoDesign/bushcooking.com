@@ -66,7 +66,7 @@ jQuery(function() {
         }
     });
 
-    jQuery('p:empty').remove();
+    jQuery('p:empty, ul.tabs > p').remove();
 
     jQuery('#recipe-instructions .switch-input').on('change', function(){
         jQuery(this).parent('div').parent('div').next('div').children('.switch-text').toggleClass('strike');
