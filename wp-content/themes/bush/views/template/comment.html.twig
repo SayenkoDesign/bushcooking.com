@@ -1,0 +1,19 @@
+<div class="comment clearfix">
+    <div class="author">{{ the_author_avatar(64, comment.user_id) }}</div>
+    <div class="details">
+        <h4>{{ comment.comment_author }}</h4>
+        <div class="rating">
+            {% for i in 1..5 %}
+                {% if i <= rating %}
+                    <i class="fa fa-star"></i>
+                {% else %}
+                    <i class="fa fa-star-o"></i>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="date">{{ comment.comment_date|date('F d, Y') }}</div>
+        <div class="content">
+            {{ comment.comment_content }}
+        </div>
+    </div>
+</div>

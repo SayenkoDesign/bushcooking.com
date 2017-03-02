@@ -25,7 +25,7 @@ class WPSEO_Taxonomy_Social_Fields extends WPSEO_Taxonomy_Fields {
 	 * @return bool
 	 */
 	public function show_social() {
-		return ( $this->options['opengraph'] === true || $this->options['twitter'] === true || $this->options['googleplus'] === true );
+		return ( $this->options['opengraph'] === true || $this->options['twitter'] === true );
 	}
 
 	/**
@@ -60,7 +60,7 @@ class WPSEO_Taxonomy_Social_Fields extends WPSEO_Taxonomy_Fields {
 				/* translators: %1$s expands to the social network name */
 				sprintf( esc_html__( 'If you want to use an image for sharing on %1$s, you can upload / choose an image or add the image URL here.', 'wordpress-seo' ), $settings['label'] ) . '<br />' .
 				/* translators: %1$s expands to the social network name, %2$s expands to the image size */
-				sprintf( __( 'The recommended image size for %1$s is %2$spx.', 'wordpress-seo' ), $settings['label'], $settings['size'] ),
+				sprintf( __( 'The recommended image size for %1$s is %2$s pixels.', 'wordpress-seo' ), $settings['label'], $settings['size'] ),
 				'upload'
 			),
 		);
@@ -89,9 +89,15 @@ class WPSEO_Taxonomy_Social_Fields extends WPSEO_Taxonomy_Fields {
 	 */
 	private function get_social_networks() {
 		$social_networks = array(
-			'opengraph'  => $this->social_network( 'opengraph', __( 'Facebook', 'wordpress-seo' ), '1200 x 628' ),
-			'twitter'    => $this->social_network( 'twitter', __( 'Twitter', 'wordpress-seo' ), '1024 x 512' ),
-			'googleplus' => $this->social_network( 'google-plus', __( 'Google+', 'wordpress-seo' ), '800 x 1200' ),
+			// Source: https://developers.facebook.com/docs/sharing/best-practices#images.
+			'opengraph' => $this->social_network( 'opengraph', __( 'Facebook', 'wordpress-seo' ), sprintf(
+				/* translators: %1$s expands to the image recommended width, %2$s to its height. */
+				__( '%1$s by %2$s', 'wordpress-seo' ), '1200', '630'
+			) ),
+			'twitter'   => $this->social_network( 'twitter', __( 'Twitter', 'wordpress-seo' ), sprintf(
+				/* translators: %1$s expands to the image recommended width, %2$s to its height. */
+				__( '%1$s by %2$s', 'wordpress-seo' ), '1024', '512'
+			) ),
 		);
 		$social_networks = $this->filter_social_networks( $social_networks );
 
@@ -131,5 +137,4 @@ class WPSEO_Taxonomy_Social_Fields extends WPSEO_Taxonomy_Fields {
 
 		return $social_networks;
 	}
-
 }

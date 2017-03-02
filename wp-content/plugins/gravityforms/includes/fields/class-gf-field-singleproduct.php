@@ -73,7 +73,7 @@ class GF_Field_SingleProduct extends GF_Field {
 
 		if ( $is_entry_detail || $is_form_editor  ) {
 			$style          = $this->disableQuantity ? "style='display:none;'" : '';
-			$quantity_field = " <span class='ginput_quantity_label' {$style}>{$product_quantity_sub_label}</span> <input type='{$qty_input_type}' name='input_{$id}.3' value='{$quantity}' id='ginput_quantity_{$form_id}_{$this->id}' class='ginput_quantity' size='10' {$disabled_text}/>";
+			$quantity_field = " <span class='ginput_quantity_label' {$style}>{$product_quantity_sub_label}</span> <input type='{$qty_input_type}' name='input_{$id}.3' value='{$quantity}' id='ginput_quantity_{$form_id}_{$this->id}' class='ginput_quantity' size='10' {$disabled_text} {$style} />";
 		} else if ( ! $this->disableQuantity ) {
 			$tabindex  = $this->get_tabindex();
 			$quantity_field .= " <span class='ginput_quantity_label'>" . $product_quantity_sub_label . "</span> <input type='{$qty_input_type}' name='input_{$id}.3' value='{$quantity}' id='ginput_quantity_{$form_id}_{$this->id}' class='ginput_quantity' size='10' {$qty_min_attr} {$tabindex} {$disabled_text}/>";
@@ -101,9 +101,17 @@ class GF_Field_SingleProduct extends GF_Field {
 			$price        = trim( $value[ $this->id . '.2' ] );
 			$quantity     = trim( $value[ $this->id . '.3' ] );
 
-			$product = $product_name . ', ' . esc_html__( 'Qty: ', 'gravityforms' ) . $quantity . ', ' . esc_html__( 'Price: ', 'gravityforms' ) . $price;
+			$product_details = $product_name;
 
-			return $product;
+			if ( ! rgblank( $quantity ) ) {
+				$product_details .= ', ' . esc_html__( 'Qty: ', 'gravityforms' ) . $quantity;
+			}
+
+			if ( ! rgblank( $price ) ) {
+				$product_details .= ', ' . esc_html__( 'Price: ', 'gravityforms' ) . GFCommon::format_number( $price, 'currency', $currency );
+			}
+
+			return $product_details;
 		} else {
 			return '';
 		}

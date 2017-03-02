@@ -3,8 +3,8 @@ Contributors: PerS
 Donate link: http://soderlind.no/donate/
 Tags: acf, custom field,datepicker,timepicker
 Requires at least: 3.6
-Tested up to: 4.0
-Stable tag: 2.0.18.1
+Tested up to: 4.7
+Stable tag: 2.1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,7 +15,7 @@ Date and Time Picker field for Advanced Custom Fields
 
 This is an add-on for the [Advanced Custom Fields](http://wordpress.org/extend/plugins/advanced-custom-fields/) WordPress plugin, that allows you to add a Date and Time Picker field type.
 
-Thanks to [yanknudtskov](https://github.com/yanknudtskov), the plugin now works with ACF 5.0
+**ACF PRO 5.0+ is no longer supported, ACF PRO [has its own date and time picker](https://www.advancedcustomfields.com/resources/date-time-picker/)**
 
 [youtube http://www.youtube.com/watch?v=Mumx4HGOljQ]
 
@@ -23,7 +23,7 @@ Thanks to [yanknudtskov](https://github.com/yanknudtskov), the plugin now works 
 
 This add-on will work with:
 
-* Advanced Custom Fields version 4.3.5 and up (including ACF 5.0)
+* Advanced Custom Fields version 4.*.*
 * Advanced Custom Fields version 3 and bellow
 
 = More Information =
@@ -60,8 +60,23 @@ function my_register_fields()
 
 == Frequently Asked Questions  ==
 
+= Updating to ACF PRO =
 
-**How do I set the date and time format?**
+I got this quetion over at [AWP on Facebook](https://www.facebook.com/groups/advancedwp/permalink/1198240376904841/?comment_id=1198432300218982&notif_t=group_comment&notif_id=1469033404164280):
+
+`
+How does upgrading work? If someone starts with ACF and your plugin,
+then upgrades to ACF Pro, will their date/time custom field disappear?
+I understand the data will be maintained but wondering if the field
+will still be visible in WP admin.
+`
+
+Updating to ACF PRO should work fine, ACF PRO has a compatibility add-on for this plugin, but test it on a non production environment first.
+
+Also, read the comments on this issue: [https://github.com/.../acf-field-date-time-picker/issues/103](https://github.com/.../acf-field-date-time-picker/issues/103)
+
+
+= How do I set the date and time format? =
 
 To set  the date and time format when you create the field, you have to create a string using the letters below.
 
@@ -111,7 +126,21 @@ TT   AM or PM for AM/PM
 
 The Date and Time Picker field is saved as an UNIX timestamp. Use the PHP [date](http://php.net/manual/en/function.date.php) function when you use it in your theme.
 
+
 == Changelog ==
+= 2.1.5 =
+* Remove call to write_log() causing fatal error. 
+= 2.1.4 =
+* Fix for English Canadian locale which became Catalan, also fixes other en_*, fr_* and de_* locale.
+= 2.1.3 =
+* Sorry, but 2.1.2 had unfinsihed code, please update to 2.1.3
+= 2.1.2 =
+* Tested & found compatible with WP 4.7.
+= 2.1.1 =
+* Tested & found compatible with WP 4.6.
+= 2.1.0 =
+* ACF PRO 5.0+ is no longer supported, ACF PRO [has its own date and time picker](https://www.advancedcustomfields.com/resources/date-time-picker/)
+* Update plugin to WPCS standards.
 = 2.0.18 =
 * Thanks to [kamilgrzegorczyk](https://github.com/kamilgrzegorczyk), Fixing clone field issue in repeater
 = 2.0.17 =
@@ -122,8 +151,8 @@ The Date and Time Picker field is saved as an UNIX timestamp. Use the PHP [date]
 * Thanks to [yanknudtskov](https://github.com/yanknudtskov), the plugin now works with ACF 5.0
 = 2.0.14 =
 * Added new languages/acf-field-date-time-picker.po file (note, renamed the language file)
-= 2.0.13 = 
-* Fixed compatibility bug with ACF 4.3.5 
+= 2.0.13 =
+* Fixed compatibility bug with ACF 4.3.5
 * NOTE: 2.0.13 requires ACF 4.3.5 or later
 = 2.0.12 =
 * Added support for date format dd/mm/yy

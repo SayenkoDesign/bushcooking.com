@@ -2,8 +2,8 @@
 Contributors: yourwpexpert
 Tags: remove, query, strings, static, resources, pingdom, gtmetrix, yslow, pagespeed
 Requires at least: 3.0.1
-Tested up to: 4.0
-Stable tag: 1.3
+Tested up to: 4.6.1
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,6 +22,10 @@ Resources with a “?” or “&” in the URL are not cached by some proxy cach
 3. That's it!
 
 == Changelog ==
+
+= 1.3.1 =
+
+* Tested for WordPress 4.6.1
 
 = 1.3 =
 

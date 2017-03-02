@@ -75,6 +75,65 @@ class WPMDB_Command extends WP_CLI_Command {
 		$this->_perform_cli_migration( $profile );
 	}
 
+	/**
+	 * Run a find/replace on the database.
+	 *
+	 * ## OPTIONS
+	 *
+	 * [--find=<strings>]
+	 * : A comma separated list of strings to find when performing a string find
+	 * and replace across the database.
+	 *
+	 *     Table names should be quoted as needed, i.e. when using a comma in the
+	 *     find/replace string.
+	 *
+	 *     The --replace=<strings> argument should be used in conjunction to specify
+	 *     the replace values for the strings found using this argument. The number
+	 *     of strings specified in this argument should match the number passed into
+	 *     --replace=<strings> argument.
+	 *
+	 * [--replace=<strings>]
+	 * : A comma separated list of replace value strings to implement when
+	 * performing a string find & replace across the database.
+	 *
+	 *     Should be used in conjunction with the --find=<strings> argument, see it's
+	 *     documentation for further explanation of the find & replace functionality.
+	 *
+	 * [--exclude-post-revisions]
+	 * : Exclude post revisions from the find & replace.
+	 *
+	 * [--skip-replace-guids]
+	 * : Do not perform a find & replace on the guid column in the wp_posts table.
+	 *
+	 * [--exclude-spam]
+	 * : Exclude spam comments.
+	 *
+	 * [--include-transients]
+	 * : Include transients (temporary cached data).
+	 *
+	 * ## EXAMPLES
+	 *
+	 *     wp migratedb find-replace
+	 *        --find=http://dev.bradt.ca,/Users/bradt/home/bradt.ca
+	 *        --replace=http://bradt.ca,/home/bradt.ca
+	 *
+	 * @param array $args
+	 * @param array $assoc_args
+	 *
+	 * @subcommand find-replace
+	 */
+	public function find_replace( $args, $assoc_args ) {
+
+		$assoc_args['action'] = 'find_replace';
+
+		$profile = $this->_get_profile_data_from_args( $args, $assoc_args );
+
+		if ( is_wp_error( $profile ) ) {
+			WP_CLI::error( $profile );
+		}
+
+		$this->_perform_cli_migration( $profile );
+	}
 
 	/**
 	 * Get profile data from CLI args.
@@ -85,110 +144,19 @@ class WPMDB_Command extends WP_CLI_Command {
 	 * @return array|WP_Error
 	 */
 	protected function _get_profile_data_from_args( $args, $assoc_args ) {
-
-		//load correct cli class
-		if ( function_exists( 'wp_migrate_db_pro_cli_addon' ) ){
-			$wpmdb_cli = wp_migrate_db_pro_cli_addon();
-		}
-		elseif ( function_exists( 'wpmdb_pro_cli' ) ) {
-			$wpmdb_cli = wpmdb_pro_cli();
+		// Load the correct CLI class
+		if ( function_exists( 'wpmdb_pro_cli' ) ) {
+			if ( function_exists( 'wp_migrate_db_pro_cli_addon' ) ) {
+				$wpmdb_cli = wp_migrate_db_pro_cli_addon();
+			} else {
+				$wpmdb_cli = wpmdb_pro_cli();
+			}
 		} else {
 			$wpmdb_cli = wpmdb_cli();
 		}
 
-		if ( empty( $assoc_args['action'] ) ) {
-			return $wpmdb_cli->cli_error( __( 'Missing action parameter', 'wp-migrate-db-cli' ) );
-		}
-
-		if ( 'savefile' === $assoc_args['action'] && ! empty( $assoc_args['export_dest'] ) ) {
-			$export_dest = $assoc_args['export_dest'];
-		}
-
-		$action = $assoc_args['action'];
-
-		// --find=<old> and --replace=<new>
-		$replace_old = array();
-		$replace_new = array();
-		if ( ! empty( $assoc_args['find'] ) ) {
-			$replace_old = str_getcsv( $assoc_args['find'] );
-		}
-		if ( ! empty( $assoc_args['replace'] ) ) {
-			$replace_new = str_getcsv( $assoc_args['replace'] );
-		}
-		if ( count( $replace_old ) !== count( $replace_new ) ) {
-			return $wpmdb_cli->cli_error( sprintf( __( '%1$s and %2$s must contain the same number of values', 'wp-migrate-db-cli' ), '--find', '--replace' ) );
-		}
-		array_unshift( $replace_old, '' );
-		array_unshift( $replace_new, '' );
-
-		// --exclude-spam
-		$exclude_spam = intval( isset( $assoc_args['exclude-spam'] ) );
-
-		// --gzip-file
-		$gzip_file = intval( isset( $assoc_args['gzip-file'] ) );
-
-		$select_post_types = array();
-
-		// --exclude-post-revisions
-		if ( ! empty( $assoc_args['exclude-post-revisions'] ) ) {
-			$select_post_types[] = 'revision';
-		}
-
-		$exclude_post_types = count( $select_post_types ) > 0 ? 1 : 0;
-
-		// --skip-replace-guids
-		$replace_guids = 1;
-		if ( isset( $assoc_args['skip-replace-guids'] ) ) {
-			$replace_guids = 0;
-		}
-
-		$select_tables        = array();
-		$table_migrate_option = 'migrate_only_with_prefix';
-
-		// --include-transients.
-		$exclude_transients = intval( ! isset( $assoc_args['include-transients'] ) );
-
-		//cleanup filename for exports
-		if ( ! empty( $export_dest ) ) {
-			if ( $gzip_file ) {
-				if ( 'gz' !== pathinfo( $export_dest, PATHINFO_EXTENSION ) ) {
-					if ( 'sql' === pathinfo( $export_dest, PATHINFO_EXTENSION ) ) {
-						$export_dest .= '.gz';
-					} else {
-						$export_dest .= '.sql.gz';
-					}
-				}
-			} elseif ( 'sql' !== pathinfo( $export_dest, PATHINFO_EXTENSION ) ) {
-				$export_dest = preg_replace( '/(\.sql)?(\.gz)?$/i', '', $export_dest ) . '.sql';
-			}
-
-			// ensure export destination is writable
-			if ( ! @touch( $export_dest ) ) {
-				return $wpmdb_cli->cli_error( sprintf( __( 'Cannot write to file "%1$s". Please ensure that the specified directory exists and is writable.', 'wp-migrate-db-cli' ), $export_dest ) );
-			}
-
-		}
-
-		$profile = compact(
-			'action',
-			'replace_old',
-			'table_migrate_option',
-			'replace_new',
-			'select_tables',
-			'exclude_post_types',
-			'select_post_types',
-			'replace_guids',
-			'exclude_spam',
-			'gzip_file',
-			'exclude_transients',
-			'export_dest'
-		);
-
-		$profile = apply_filters( 'wpmdb_cli_filter_get_profile_data_from_args', $profile, $args, $assoc_args );
-
-		return $profile;
+		return $wpmdb_cli->get_profile_data_from_args( $args, $assoc_args );
 	}
-
 
 	/**
 	 * Perform CLI migration.
@@ -209,13 +177,20 @@ class WPMDB_Command extends WP_CLI_Command {
 
 		if ( empty( $wpmdb_cli ) ) {
 			WP_CLI::error( __( 'WP Migrate DB CLI class not available.', 'wp-migrate-db-cli' ) );
+
 			return;
 		}
 
 		$result = $wpmdb_cli->cli_migration( $profile );
 
 		if ( ! is_wp_error( $result ) ) {
-			WP_CLI::success( sprintf( __( 'Export saved to: %s', 'wp-migrate-db-cli' ), $result ) );
+			$success_msg = sprintf( __( 'Export saved to: %s', 'wp-migrate-db-cli' ), $result );
+
+			if ( 'find_replace' === $profile['action'] ) {
+				$success_msg = __( 'Find & Replace complete', 'wp-migrate-db-cli' );
+			}
+
+			WP_CLI::success( $success_msg );
 		} elseif ( is_wp_error( $result ) ) {
 			WP_CLI::error( WPMDB_CLI::cleanup_message( $result->get_error_message() ) );
 		}

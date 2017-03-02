@@ -1,7 +1,12 @@
 <div id="signup">
     <div class="row column">
         <h4 class="text-center">GET OUTDOOR COOKING RECIPIES & EXPERT TECHINQUES</h4>
-        {{ do_shortcode("[gravityform id=1 title=false description=false ajax=true tabindex=49]") }}
+        
+		<form class="signup" action="{{ blog_info('url') }}/thank-you-newsletter/" method="post" enctype="application/x-www-form-urlencoded">	
+			<input id="email" name="email" type="email" placeholder="Sign Up for Our Newsletter" value="" required>
+			<button name="submit" type="submit" id="submit" class="gform_button button" value="submit">Sign Up</button>
+		</form>
+
     </div>
 </div>
 

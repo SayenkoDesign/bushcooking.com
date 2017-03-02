@@ -5264,3 +5264,17 @@ h1, h2, h3, h4 {
     /* line 107, ../scss/app.scss */
     .attachment-post-thumbnail {
       margin-bottom: 0; } }
+
+
+#gform_3 div {
+	display: inline-block !important;
+	clear: none !important;
+	width: auto !important;
+}
+	#gform_3 label, #input_3_2, .gfield_description {
+		display: none !important;
+	}
+	
+	#gform_3 #field_3_1 div {
+		width: 100% !important;
+	}

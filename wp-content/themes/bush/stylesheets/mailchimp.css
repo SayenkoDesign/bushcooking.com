@@ -1,0 +1,17 @@
+#email, #email_header {
+	max-width: 245px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+#home-slider form {
+	display: block;
+	width: 330px;
+	margin: 0 auto;
+	position: relative;
+	z-index: 9999;
+}
+
+#home-slider::after {
+	pointer-events: none !important;
+}

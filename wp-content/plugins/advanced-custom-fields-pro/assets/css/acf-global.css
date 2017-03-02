@@ -1,5 +1,13 @@
 /*--------------------------------------------------------------------------------------------
 *
+*	vars
+*
+*--------------------------------------------------------------------------------------------*/
+/* colors */
+/* acf-field */
+/* responsive */
+/*--------------------------------------------------------------------------------------------
+*
 *	General
 *
 *--------------------------------------------------------------------------------------------*/
@@ -164,7 +172,7 @@ img.acf-fw {
   color: #fff;
   padding: 5px 15px;
   position: absolute;
-  z-index: 9999;
+  z-index: 999999;
   font-size: 12px;
 }
 .acf-tooltip.top {
@@ -519,6 +527,8 @@ a.acf-icon.-cancel.grey:hover {
   border: 1px solid #E5E5E5;
   position: relative;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+  /* title */
+  /* footer */
 }
 .acf-box .title {
   border-bottom: 1px solid #EEEEEE;
@@ -555,51 +565,61 @@ a.acf-icon.-cancel.grey:hover {
   padding: 15px;
   position: relative;
 }
-.acf-box .footer-blue {
+.acf-box .footer.-blue {
   border-top: 0 none;
-  background-color: #52ACCC;
+  background-color: #2a9bd9;
   color: #FFFFFF;
 }
-.acf-box .footer-blue a {
+.acf-box .footer.-blue p {
+  margin: 0;
+}
+.acf-box .footer.-blue a {
   text-decoration: none;
   text-shadow: none;
-}
-.acf-box .footer .acf-hl > li {
-  margin: 0 10px 0 0;
-}
-.acf-box .footer .acf-hl > li.acf-fr {
-  margin: 0 0 0 10px;
+  color: inherit;
 }
 /* error */
 .acf-error-message {
   position: relative;
   display: block;
   background: #F55E4F;
-  border-radius: 3px;
   margin: 5px 0 15px;
-  padding: 1px 10px;
+  padding: 1px 12px;
   min-height: 0px;
+  border-left: #dd4232 solid 4px;
 }
 .acf-error-message p {
   font-size: 13px !important;
-  line-height: 1.4;
-  margin: 8px 0;
-  padding: 0;
+  line-height: 1.5;
+  margin: 0.5em 0;
+  padding: 2px;
   text-shadow: none;
   color: #fff;
-  text-shadow: 0 1px 0 #DD4232;
 }
 .acf-error-message .acf-icon {
   position: absolute;
-  top: 8px;
-  right: 10px;
+  top: 9px;
+  right: 12px;
   background-color: #dd4232;
   border-color: transparent;
   color: #fff;
 }
-.acf-error-message .acf-icon:hover {
-  background-color: #F1F1F1;
+/* important to include .-cancel to override .acf-icon.-cancel class */
+.acf-error-message .acf-icon.-cancel:hover {
+  background-color: #191e23;
   color: #F55E4F;
+}
+/* success */
+.acf-error-message.-success {
+  background-color: #46b450;
+  border-color: #32973b;
+}
+.acf-error-message.-success .acf-icon {
+  background-color: #32973b;
+}
+.acf-error-message.-success .acf-icon.-cancel:hover {
+  background-color: #191e23;
+  color: #46b450;
 }
 /*--------------------------------------------------------------------------------------------
 *
@@ -616,48 +636,53 @@ a.acf-icon.-cancel.grey:hover {
   margin: 0;
   width: 100%;
   clear: both;
+  /* defaults */
+  /* thead */
+  /* tbody */
+  /* -clear */
 }
-.acf-table > tbody > tr {
-  z-index: 1;
-}
+.acf-table > tbody > tr > th,
 .acf-table > thead > tr > th,
-.acf-table > tbody > tr > td {
+.acf-table > tbody > tr > td,
+.acf-table > thead > tr > td {
   padding: 8px;
   vertical-align: top;
   background: #fff;
   text-align: left;
-  font-size: 14px;
-  line-height: 1.4em;
   border-style: solid;
-  border-color: #EDEDED;
-  border-width: 1px 0 0 1px;
+  font-weight: normal;
 }
-/* th */
+.acf-table > tbody > tr > th,
 .acf-table > thead > tr > th {
   position: relative;
   color: #333333;
-  font-weight: normal;
+}
+.acf-table > thead > tr > th {
   border-color: #E1E1E1;
   border-width: 0 0 1px 1px;
 }
 .acf-table > thead > tr > th:first-child {
   border-left-width: 0;
 }
-/* td */
-.acf-table > tbody > tr > td {
-  font-size: 13px;
+.acf-table > tbody > tr {
+  z-index: 1;
 }
-.acf-table > tbody > tr:first-child > td {
-  border-top-width: 0;
+.acf-table > tbody > tr > td {
+  border-color: #EDEDED;
+  border-width: 1px 0 0 1px;
 }
 .acf-table > tbody > tr > td:first-child {
   border-left-width: 0;
 }
-/* clear table */
+.acf-table > tbody > tr:first-child > td {
+  border-top-width: 0;
+}
 .acf-table.-clear {
   border: 0 none;
 }
 .acf-table.-clear > tbody > tr > td,
+.acf-table.-clear > thead > tr > td,
+.acf-table.-clear > tbody > tr > th,
 .acf-table.-clear > thead > tr > th {
   border: 0 none;
   padding: 4px;
@@ -692,7 +717,6 @@ a.acf-icon.-cancel.grey:hover {
 *
 *---------------------------------------------------------------------------------------------*/
 /* Menu */
-#adminmenu a[href="edit.php?post_type=acf-field-group&page=acf-upgrade"],
 #adminmenu a[href="edit.php?post_type=acf-field-group&page=acf-settings-info"] {
   display: none;
 }
@@ -722,9 +746,6 @@ a.acf-icon.-cancel.grey:hover {
 #acf-field-group-wrap .tablenav.bottom {
   display: block;
 }
-#acf-field-group-wrap .wp-list-table {
-  border-radius: 0;
-}
 #acf-field-group-wrap .acf-description {
   font-weight: normal;
   font-size: 13px;
@@ -732,9 +753,11 @@ a.acf-icon.-cancel.grey:hover {
   margin-left: 7px;
   font-style: italic;
 }
-/* WPML fix */
+/* subsubsub */
 #acf-field-group-wrap .subsubsub {
+  /* WPML */
   margin-bottom: 3px;
+  /* search */
 }
 #acf-field-group-wrap .subsubsub ul {
   margin: 0;
@@ -742,18 +765,43 @@ a.acf-icon.-cancel.grey:hover {
 #acf-field-group-wrap .subsubsub + .subsubsub {
   margin-top: 0;
 }
+#acf-field-group-wrap .subsubsub a:focus {
+  box-shadow: none;
+}
 /* columns (replicate post edit layout) */
 .acf-columns-2 {
   margin-right: 300px;
+  clear: both;
+  /* rtl */
+}
+html[dir="rtl"] .acf-columns-2 {
+  margin-right: 0;
+  margin-left: 300px;
 }
 .acf-columns-2 .acf-column-1 {
   float: left;
   width: 100%;
+  /* rtl */
+}
+html[dir="rtl"] .acf-columns-2 .acf-column-1 {
+  float: right;
 }
 .acf-columns-2 .acf-column-2 {
   float: right;
   margin-right: -300px;
   width: 280px;
+  /* rtl */
+}
+html[dir="rtl"] .acf-columns-2 .acf-column-2 {
+  float: left;
+  margin-right: 0;
+  margin-left: -300px;
+}
+/* search */
+#acf-field-group-wrap .search-box:after {
+  display: block;
+  content: "";
+  height: 5px;
 }
 .acf-clear {
   clear: both;
@@ -997,13 +1045,14 @@ html[dir="rtl"] #acf-popup .title .acf-icon {
 }
 .acf-three-col > div {
   float: left;
-  margin: 0 0 10px 5%;
+  margin: 0 0 15px 5%;
   position: relative;
   width: 30%;
 }
 .acf-three-col > div:first-child,
 .acf-three-col > br + div {
   margin-left: 0;
+  clear: left;
 }
 .acf-three-col > br {
   display: none;
@@ -1054,6 +1103,41 @@ html[dir="rtl"] #acf-popup .title .acf-icon {
 }
 /*--------------------------------------------------------------------------------------------
 *
+*	Plugins
+*
+*--------------------------------------------------------------------------------------------*/
+.acf-plugin-upgrade-notice {
+  font-weight: normal;
+  color: #fff;
+  background: #d54d21;
+  padding: 1em;
+  margin: 9px 0;
+}
+.acf-plugin-upgrade-notice:before {
+  content: "\f348";
+  display: inline-block;
+  font: 400 18px/1 dashicons;
+  speak: none;
+  margin: 0 8px 0 -2px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  vertical-align: top;
+}
+.acf-plugin-upgrade-notice h4 {
+  display: none;
+}
+.acf-plugin-upgrade-notice ul,
+.acf-plugin-upgrade-notice li {
+  display: inline;
+  color: inherit;
+  list-style: none;
+}
+.acf-plugin-upgrade-notice li:after {
+  content: '. ';
+  display: inline;
+}
+/*--------------------------------------------------------------------------------------------
+*
 *	RTL
 *
 *--------------------------------------------------------------------------------------------*/
@@ -1099,7 +1183,7 @@ html[dir="rtl"] .acf-table > tbody > tr > td.order + td {
   [class^="acf-sprite-"],
   [class*=" acf-sprite-"] {
     background-image: url(../images/sprite@2x.png);
-    background-size: 500px 500px;
+    background-size: 250px 250px;
   }
   .acf-loading,
   .acf-spinner {

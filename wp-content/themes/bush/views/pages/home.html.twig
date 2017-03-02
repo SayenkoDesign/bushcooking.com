@@ -16,10 +16,14 @@
     <div class="row teasers">
         <div class="medium-6 medium-push-6 large-push-9 large-3 columns text-center">
             <article id="teaser-ad" {{ post_class('recipe-teaser teaser') }}>
-                <div class="teaser-content">
-                    <img src=" {{ stylesheet_directory_uri }}/images/Website-Logo-orange.png" alt="">
-                    <h3>Advertise With Us</h3>
-                    <h5><a href="{{ the_field("advertise_with_us_url", "option") }}" class="button hollow">Contact Us!</a></h5>
+                <div class="teaser-content" style="background-size: cover; background-position: center center; background-image: url('{{ the_field("ad_1_bg_image", "option") }}');">
+                
+                	{% set adimg = the_field('ad_1_image', 'option') %}
+					{% if adimg != null %}
+                    <img src="{{ the_field("ad_1_image", "option") }}" alt="">
+					{% endif %}
+                    <h3>{{ the_field("ad_1_text", "option") }}</h3>
+                    <h5><a target="_blank" href="{{ the_field("ad_1_url", "option") }}" class="button hollow">{{ the_field("ad_1_btn_text", "option") }}</a></h5>
                 </div>
             </article>
         </div>
@@ -47,10 +51,10 @@
             </div>
         {% endfor %}
     </div>
-    <div class="row text-center" id="large-ad">
+    <div class="row text-center" id="large-ad" style="background-size: cover; background-position: center center; background-image: url('{{ the_field("ad_2_bg_image", "option") }}');">
         <div class="content">
-            <h3>ADVERTISE <small>WITH US</small></h3>
-            <a href="{{ the_field("advertise_with_us_url", "option") }}" class="button">CONTACT US!</a>
+            <h3>{{ the_field("ad_2_text", "option") }}<small>{{ the_field("ad_2_subtext", "option") }}</small></h3>
+            <a target="_blank" href="{{ the_field("ad_2_url", "option") }}" class="button">{{ the_field("ad_2_btn_text", "option") }}</a>
         </div>
     </div>
 {% endblock %}

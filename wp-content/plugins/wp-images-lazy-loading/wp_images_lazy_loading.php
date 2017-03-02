@@ -4,7 +4,7 @@
   Plugin Name: WP images lazy loading
   Plugin URI: http://www.petrichorpost.com
   Description: a WordPress optimiztion plugin to enable jQuery image lazy loading.
-  Version: 1.2.6
+  Version: 1.3.1
   Author: Petrichorpost
   Author URI: http://www.petrichorpost.com
   */
