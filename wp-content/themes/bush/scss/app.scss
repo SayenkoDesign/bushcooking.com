@@ -14,6 +14,7 @@
 @import "home";
 @import "comments";
 @import "archives";
+@import "mailchimp";
 
 .row .columns.collapse {
   padding: 0;
@@ -109,4 +110,18 @@
   @include breakpoint(medium){
     margin-bottom: 0;
   }
+}
+
+/** code another developer placed in the compiled css file instead of in sass. **/
+#gform_3 div {
+  display: inline-block !important;
+  clear: none !important;
+  width: auto !important;
+}
+#gform_3 label, #input_3_2, .gfield_description {
+  display: none !important;
+}
+
+#gform_3 #field_3_1 div {
+  width: 100% !important;
 }

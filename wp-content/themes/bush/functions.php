@@ -16,8 +16,6 @@ $stylesheet_slick = new StyleSheet('slick', '//cdn.jsdelivr.net/g/jquery.slick@1
 $stylesheet_fontawesome = new StyleSheet('fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
 $stylesheet_app = new StyleSheet('bush_app_css', StyleSheet::getThemeURL() . '/stylesheets/app.css', ['fontawesome', 'slick']);
 
-$stylesheet_mailchimp = new StyleSheet('mailchimp', StyleSheet::getThemeURL() . '/stylesheets/mailchimp.css');
-
 // scripts
 add_action('wp_enqueue_scripts', function () {
     wp_deregister_script('jquery');
