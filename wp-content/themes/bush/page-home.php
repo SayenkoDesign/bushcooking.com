@@ -62,7 +62,7 @@ while ( $query->have_posts() ) {
 }
 
 $top_articles = array_slice($articles, 0, 4);
-$bottom_articles = array_slice($articles, 3, 4);
+$bottom_articles = array_slice($articles, 4, 4);
 
 echo $app->render('pages/home.html.twig', [
     'rev_slider' => $slider,
