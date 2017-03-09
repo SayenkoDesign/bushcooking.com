@@ -1,5 +1,11 @@
 <div class="comment clearfix">
-    <div class="author">{{ the_author_avatar(64, comment.user_id) }}</div>
+    <div class="author">
+        {% if comment.user_id %}
+            {{ the_author_avatar(64, comment.user_id) }}
+        {% else %}
+            <img alt="" src="{{ stylesheet_directory_uri }}/images/fav-icon.png"  class="avatar avatar-64 photo" width="64" height="64">
+        {% endif %}
+    </div>
     <div class="details">
         <h4>{{ comment.comment_author }}</h4>
         <div class="rating">
