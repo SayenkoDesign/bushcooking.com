@@ -244,12 +244,15 @@
     }
   }
   .social-links {
-    li:nth-child(5), li:nth-child(6) {
+    li:nth-child(1), li:nth-child(6), li:nth-child(7) {
       display: none;
     }
-    @include breakpoint(450px) {
-      li:nth-child(5), li:nth-child(6) {
+    @include breakpoint(medium) {
+      li:nth-child(1), li:nth-child(6), li:nth-child(7) {
         display: table-cell;
+      }
+      li:nth-child(2), li:nth-child(8) {
+        display: none;
       }
     }
   }
