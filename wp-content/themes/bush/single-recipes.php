@@ -36,6 +36,61 @@ if($difficulties_terms) {
 	}
 }
 
+$countries = [];
+$countries_terms = wp_get_post_terms(get_the_ID(), 'country', array("fields" => "all"));
+if($countries_terms) {
+	foreach($countries_terms as $term) {
+		$countries[] = [
+			'term' => $term->name,
+			'link' => get_term_link($term->name, 'country')
+		];
+	}
+}
+
+$methods = [];
+$methods_terms = wp_get_post_terms(get_the_ID(), 'cooking_method', array("fields" => "all"));
+if($methods_terms) {
+	foreach($methods_terms as $term) {
+		$methods[] = [
+			'term' => $term->name,
+			'link' => get_term_link($term->name, 'cooking_method')
+		];
+	}
+}
+
+$ingredient_cats = [];
+$ingredient_cats_terms = wp_get_post_terms(get_the_ID(), 'ingredient', array("fields" => "all"));
+if($ingredient_cats_terms) {
+	foreach($ingredient_cats_terms as $term) {
+		$ingredient_cats[] = [
+			'term' => $term->name,
+			'link' => get_term_link($term->name, 'ingredient')
+		];
+	}
+}
+
+$equipment = [];
+$equipment_terms = wp_get_post_terms(get_the_ID(), 'equipment', array("fields" => "all"));
+if($equipment_terms) {
+	foreach($equipment_terms as $term) {
+		$equipment[] = [
+			'term' => $term->name,
+			'link' => get_term_link($term->name, 'equipment')
+		];
+	}
+}
+
+$recipe_types = [];
+$recipe_types__terms = wp_get_post_terms(get_the_ID(), 'recipe_type', array("fields" => "all"));
+if($recipe_types__terms) {
+	foreach($recipe_types__terms as $term) {
+		$recipe_types[] = [
+			'term' => $term->name,
+			'link' => get_term_link($term->name, 'recipe_type')
+		];
+	}
+}
+
 $categories = [];
 $categories_terms = wp_get_post_terms(get_the_ID(), 'food_category', array("fields" => "all"));
 if($categories_terms) {
@@ -121,6 +176,11 @@ while (have_posts()) {
 		'ingredients' => $ingredients,
 		'directions' => $directions,
 		'difficulties' => $difficulties,
+		'countries' => $countries,
+		'cooking_methods' => $methods,
+		'equipment' => $equipment,
+		'recipe_types' => $recipe_types,
+		'ingredient_cats' => $ingredient_cats,
 		'categories' => $categories,
 		'related' => $related,
 		'rating' => $rating,

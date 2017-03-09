@@ -1,5 +1,15 @@
 <table id="details">
     <tr>
+        <th>Country:</th>
+        <td>
+            {% for term in countries %}
+                <a href="{{ term.link }}">{{ term.term }}</a>
+            {% else %}
+                N/A
+            {% endfor %}
+        </td>
+    </tr>
+    <tr>
         <th>Rating:</th>
         <td>
             <div class="rating">
@@ -70,11 +80,42 @@
         </td>
     </tr>
     <tr>
-        <th>Category</th>
+        <th>Cooking Method</th>
         <td>
-            {% for term in categories %}
+            {% for term in cooking_methods %}
                 <a href="{{ term.link }}">{{ term.term }}</a>
             {% else %}
+                N/A
+            {% endfor %}
+        </td>
+    </tr>
+    <tr>
+        <th>Ingredients</th>
+        <td>
+            {% for term in ingredient_cats %}
+                <a href="{{ term.link }}">{{ term.term }}</a>
+            {% else %}
+                N/A
+            {% endfor %}
+        </td>
+    </tr>
+    <tr>
+        <th>Equipment</th>
+        <td>
+            {% for term in equipment %}
+                <a href="{{ term.link }}">{{ term.term }}</a>
+            {% else %}
+                N/A
+            {% endfor %}
+        </td>
+    </tr>
+    <tr>
+        <th>Recipe Type</th>
+        <td>
+            {% for term in recipe_types %}
+                <a href="{{ term.link }}">{{ term.term }}</a>
+            {% else %}
+                N/A
             {% endfor %}
         </td>
     </tr>

@@ -51,6 +51,13 @@ $recipes = new PostType(
 $Difficulty = new Taxonomy('difficulty', 'recipes');
 $Food = new Taxonomy('food_category', 'recipes');
 $Food->setLabel("Food Category");
+$Country = new Taxonomy('country', 'recipes');
+$CookMethod = new Taxonomy('cooking_method', 'recipes');
+$CookMethod->setLabel("Cooking Method");
+$Ingredient = new Taxonomy('ingredient', 'recipes');
+$Equipment = new Taxonomy('equipment', 'recipes');
+$RecipeType = new Taxonomy('recipe_type', 'recipes');
+$RecipeType->setLabel("Recipe Type");
 
 // move yoast down
 add_filter( 'wpseo_metabox_prio', function() { return 'low';});

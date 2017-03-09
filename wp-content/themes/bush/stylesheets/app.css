@@ -4483,12 +4483,15 @@ h1, h2, h3, h4 {
       #primary-navigation #primary-menu-toggle, #primary-navigation .social-links {
         display: block; } }
   /* line 247, ../scss/_navigation.scss */
-  #primary-navigation .social-links li:nth-child(5), #primary-navigation .social-links li:nth-child(6) {
+  #primary-navigation .social-links li:nth-child(1), #primary-navigation .social-links li:nth-child(6), #primary-navigation .social-links li:nth-child(7) {
     display: none; }
-  @media screen and (min-width: 28.125em) {
+  @media screen and (min-width: 43.75em) {
     /* line 251, ../scss/_navigation.scss */
-    #primary-navigation .social-links li:nth-child(5), #primary-navigation .social-links li:nth-child(6) {
-      display: table-cell; } }
+    #primary-navigation .social-links li:nth-child(1), #primary-navigation .social-links li:nth-child(6), #primary-navigation .social-links li:nth-child(7) {
+      display: table-cell; }
+    /* line 254, ../scss/_navigation.scss */
+    #primary-navigation .social-links li:nth-child(2), #primary-navigation .social-links li:nth-child(8) {
+      display: none; } }
   @media screen and (min-width: 43.75em) {
     /* line 140, ../scss/_navigation.scss */
     #primary-navigation {
@@ -4497,61 +4500,61 @@ h1, h2, h3, h4 {
       padding-bottom: 0.5rem;
       border-bottom: none; } }
 
-/* line 263, ../scss/_navigation.scss */
+/* line 266, ../scss/_navigation.scss */
 #primary-nav, #primary-mobile-nav {
   font-size: 1.14286rem;
   text-transform: uppercase; }
-  /* line 266, ../scss/_navigation.scss */
+  /* line 269, ../scss/_navigation.scss */
   #primary-nav .submenu, #primary-mobile-nav .submenu {
     font-size: 1rem; }
     @media screen and (min-width: 0em) and (max-width: 43.6875em) {
-      /* line 266, ../scss/_navigation.scss */
+      /* line 269, ../scss/_navigation.scss */
       #primary-nav .submenu, #primary-mobile-nav .submenu {
         font-size: 0.85714rem; } }
-  /* line 272, ../scss/_navigation.scss */
+  /* line 275, ../scss/_navigation.scss */
   #primary-nav a, #primary-mobile-nav a {
     color: #773D1A; }
-    /* line 274, ../scss/_navigation.scss */
+    /* line 277, ../scss/_navigation.scss */
     #primary-nav a:hover, #primary-mobile-nav a:hover {
       color: #A9544D; }
 
-/* line 279, ../scss/_navigation.scss */
+/* line 282, ../scss/_navigation.scss */
 #primary-mobile-nav {
   background-color: #FFF;
   border-bottom: 4px solid #773D1A;
   text-align: center; }
 
-/* line 285, ../scss/_navigation.scss */
+/* line 288, ../scss/_navigation.scss */
 .shrink #large-logo {
   display: none; }
   @media screen and (min-width: 43.75em) {
-    /* line 285, ../scss/_navigation.scss */
+    /* line 288, ../scss/_navigation.scss */
     .shrink #large-logo {
       display: inline-block; }
-      /* line 289, ../scss/_navigation.scss */
+      /* line 292, ../scss/_navigation.scss */
       .shrink #large-logo img {
         max-width: 80px;
         position: relative;
         top: 50px; } }
 
-/* line 296, ../scss/_navigation.scss */
+/* line 299, ../scss/_navigation.scss */
 #large-logo {
   position: absolute;
   top: -60px;
   left: 8px; }
-  /* line 300, ../scss/_navigation.scss */
+  /* line 303, ../scss/_navigation.scss */
   #large-logo > img {
     max-width: 80px; }
   @media screen and (min-width: 28.125em) {
-    /* line 296, ../scss/_navigation.scss */
+    /* line 299, ../scss/_navigation.scss */
     #large-logo {
       top: -60px;
       left: 16px; }
-      /* line 306, ../scss/_navigation.scss */
+      /* line 309, ../scss/_navigation.scss */
       #large-logo > img {
         max-width: 124px; } }
   @media screen and (min-width: 43.75em) {
-    /* line 296, ../scss/_navigation.scss */
+    /* line 299, ../scss/_navigation.scss */
     #large-logo {
       top: -92px;
       left: 0; } }
@@ -4705,109 +4708,106 @@ h1, h2, h3, h4 {
   border: 1px solid #fcdedc;
   padding: 6px; }
   /* line 5, ../scss/_single-recipes.scss */
-  .slick:hover button {
-    display: block !important; }
-  /* line 8, ../scss/_single-recipes.scss */
   .slick button {
-    display: none !important; }
+    display: block !important; }
 
-/* line 13, ../scss/_single-recipes.scss */
+/* line 10, ../scss/_single-recipes.scss */
 .slick-next {
   right: 5px; }
-  /* line 15, ../scss/_single-recipes.scss */
+  /* line 12, ../scss/_single-recipes.scss */
   .slick-next:before {
     content: "\f105"; }
 
-/* line 19, ../scss/_single-recipes.scss */
+/* line 16, ../scss/_single-recipes.scss */
 .slick-prev {
   left: 6px; }
-  /* line 21, ../scss/_single-recipes.scss */
+  /* line 18, ../scss/_single-recipes.scss */
   .slick-prev:before {
     content: "\f104"; }
 
-/* line 25, ../scss/_single-recipes.scss */
+/* line 22, ../scss/_single-recipes.scss */
 .slick-next, .slick-prev {
   padding: 1rem;
   z-index: 1;
   background-color: #71a421 !important; }
-  /* line 29, ../scss/_single-recipes.scss */
+  /* line 26, ../scss/_single-recipes.scss */
   .slick-next:before, .slick-prev:before {
     font-family: 'FontAwesome';
     line-height: 0; }
-  /* line 33, ../scss/_single-recipes.scss */
+  /* line 30, ../scss/_single-recipes.scss */
   .slick-next:hover, .slick-prev:hover {
     background-color: #7AA470 !important; }
-  /* line 36, ../scss/_single-recipes.scss */
+  /* line 33, ../scss/_single-recipes.scss */
   .slick-next:active, .slick-prev:active {
     background-color: #71a421 !important; }
 
-/* line 40, ../scss/_single-recipes.scss */
+/* line 37, ../scss/_single-recipes.scss */
 .slick-slide {
   height: auto !important; }
 
-/* line 44, ../scss/_single-recipes.scss */
+/* line 41, ../scss/_single-recipes.scss */
 #recipe-overview h1 {
   font-size: 2.57143rem;
   line-height: 1;
   margin: 0 0 1rem 0; }
 
-/* line 50, ../scss/_single-recipes.scss */
+/* line 47, ../scss/_single-recipes.scss */
 #recipe-instructions {
   margin-bottom: 2rem; }
-  /* line 52, ../scss/_single-recipes.scss */
+  /* line 49, ../scss/_single-recipes.scss */
   #recipe-instructions .strike {
     text-decoration: line-through; }
 
-/* line 57, ../scss/_single-recipes.scss */
+/* line 54, ../scss/_single-recipes.scss */
 #directions ol {
   margin-top: 1rem;
   margin-left: 3rem; }
-/* line 61, ../scss/_single-recipes.scss */
+/* line 58, ../scss/_single-recipes.scss */
 #directions li {
   font-size: 1.5rem;
   counter-increment: customlistcounter; }
-/* line 65, ../scss/_single-recipes.scss */
+/* line 62, ../scss/_single-recipes.scss */
 #directions .content {
   position: relative;
   top: -0.2rem;
   font-size: 1rem;
   margin-bottom: 2rem; }
 
-/* line 73, ../scss/_single-recipes.scss */
+/* line 70, ../scss/_single-recipes.scss */
 #share {
   margin-bottom: 1rem; }
 
-/* line 77, ../scss/_single-recipes.scss */
+/* line 74, ../scss/_single-recipes.scss */
 #side {
   background-color: #FFF;
   padding: 1.71429rem;
   border: 1px solid #fcdedc; }
-  /* line 81, ../scss/_single-recipes.scss */
+  /* line 78, ../scss/_single-recipes.scss */
   #side #author {
     margin-bottom: 2rem; }
-    /* line 83, ../scss/_single-recipes.scss */
+    /* line 80, ../scss/_single-recipes.scss */
     #side #author img {
       border-radius: 100%; }
-    /* line 86, ../scss/_single-recipes.scss */
+    /* line 83, ../scss/_single-recipes.scss */
     #side #author h4 {
       float: right; }
-  /* line 90, ../scss/_single-recipes.scss */
+  /* line 87, ../scss/_single-recipes.scss */
   #side #details {
     clear: both;
     width: 100%;
     border: 0 solid transparent; }
-    /* line 94, ../scss/_single-recipes.scss */
+    /* line 91, ../scss/_single-recipes.scss */
     #side #details tr, #side #details tbody, #side #details th, #side #details td {
       border: 0 solid transparent; }
-    /* line 95, ../scss/_single-recipes.scss */
+    /* line 92, ../scss/_single-recipes.scss */
     #side #details tr {
       background-color: transparent; }
-    /* line 98, ../scss/_single-recipes.scss */
+    /* line 95, ../scss/_single-recipes.scss */
     #side #details th {
       font-weight: normal;
       text-align: left;
       padding-left: 0; }
-    /* line 103, ../scss/_single-recipes.scss */
+    /* line 100, ../scss/_single-recipes.scss */
     #side #details td {
       text-align: right;
       padding-right: 0; }
@@ -4980,12 +4980,12 @@ h1, h2, h3, h4 {
   margin-bottom: 1rem; }
 /* line 11, ../scss/_ads.scss */
 .teaser#teaser-ad h3 {
-  color: #406086;
+  color: #FFF;
   font-size: 2rem; }
 /* line 15, ../scss/_ads.scss */
 .teaser#teaser-ad .button, .teaser#teaser-ad .form-submit .submit, .form-submit .teaser#teaser-ad .submit {
-  border-color: #406086;
-  color: #406086;
+  border-color: #FFF;
+  color: #FFF;
   font-size: 1.71429rem;
   padding: 8px 28px;
   border-width: 2px;
@@ -5004,47 +5004,56 @@ h1, h2, h3, h4 {
     overflow: visible; }
     /* line 34, ../scss/_ads.scss */
     .row#large-ad .content h3 {
-      font-size: 2.85714rem; }
-      /* line 36, ../scss/_ads.scss */
+      font-size: 2.85714rem;
+      color: #FFF; }
+      /* line 37, ../scss/_ads.scss */
       .row#large-ad .content h3 small {
+        color: #FFF;
         display: block;
-        color: #773D1A;
         font-size: 2.28571rem;
         margin-top: 0.71429rem;
         line-height: 1; }
-    /* line 44, ../scss/_ads.scss */
+    /* line 45, ../scss/_ads.scss */
     .row#large-ad .content a.button, .row#large-ad .content .form-submit a.submit, .form-submit .row#large-ad .content a.submit {
       font-family: "Amatic SC", cursive;
       font-size: 1.57143rem;
       padding: 12px 32px;
-      position: relative; }
+      position: relative;
+      border-width: 2px;
+      border-radius: 4px;
+      border-color: #FFF;
+      color: #FFF;
+      background-color: #F15B24; }
+      /* line 55, ../scss/_ads.scss */
+      .row#large-ad .content a.button:hover, .row#large-ad .content .form-submit a.submit:hover, .form-submit .row#large-ad .content a.submit:hover {
+        background-color: #e0470e; }
     @media screen and (min-width: 43.75em) {
-      /* line 52, ../scss/_ads.scss */
+      /* line 61, ../scss/_ads.scss */
       .row#large-ad .content::before, .row#large-ad .content::after {
         content: " ";
         display: block;
         position: absolute;
         bottom: 20px; }
-      /* line 58, ../scss/_ads.scss */
+      /* line 67, ../scss/_ads.scss */
       .row#large-ad .content::before {
         width: 65px;
         height: 101px;
         background-image: url("../images/advertise-with-us-left.png");
         left: -65px; }
-      /* line 64, ../scss/_ads.scss */
+      /* line 73, ../scss/_ads.scss */
       .row#large-ad .content::after {
         width: 93px;
         height: 101px;
         background-image: url("../images/advertise-with-us-right.png");
         right: -93px; }
-      /* line 70, ../scss/_ads.scss */
+      /* line 79, ../scss/_ads.scss */
       .row#large-ad .content h3 {
         display: inline-block;
         text-align: right; }
-        /* line 73, ../scss/_ads.scss */
+        /* line 82, ../scss/_ads.scss */
         .row#large-ad .content h3 small {
           line-height: 0; }
-      /* line 77, ../scss/_ads.scss */
+      /* line 86, ../scss/_ads.scss */
       .row#large-ad .content a.button, .row#large-ad .content .form-submit a.submit, .form-submit .row#large-ad .content a.submit {
         display: inline-block;
         top: -1.57143rem;
@@ -5163,16 +5172,21 @@ h1, h2, h3, h4 {
 #home-slider::after {
   pointer-events: none !important; }
 
-/* line 19, ../scss/app.scss */
+@font-face {
+  font-family: 'Besom-free-font 2';
+  src: url("../fonts/Besom-free-font 2.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+/* line 27, ../scss/app.scss */
 .row .columns.collapse {
   padding: 0; }
 
-/* line 23, ../scss/app.scss */
+/* line 31, ../scss/app.scss */
 .alignright {
   float: right;
   padding: 1rem; }
 
-/* line 29, ../scss/app.scss */
+/* line 37, ../scss/app.scss */
 .social-links .fa {
   border-radius: 100%;
   width: 30px;
@@ -5182,27 +5196,27 @@ h1, h2, h3, h4 {
   font-size: 1rem;
   background-image: url("../images/social-icons.png");
   color: transparent; }
-/* line 40, ../scss/app.scss */
+/* line 48, ../scss/app.scss */
 .social-links .fa-instagram, .social-links .fa-instagram:hover {
   background-position: 30px; }
-/* line 41, ../scss/app.scss */
+/* line 49, ../scss/app.scss */
 .social-links .fa-pinterest, .social-links .fa-pinterest:hover {
   background-position: 0; }
-/* line 42, ../scss/app.scss */
+/* line 50, ../scss/app.scss */
 .social-links .fa-facebook, .social-links .fa-facebook:hover {
   background-position: -36px; }
-/* line 43, ../scss/app.scss */
+/* line 51, ../scss/app.scss */
 .social-links .fa-twitter, .social-links .fa-twitter:hover {
   background-position: -107px; }
-/* line 44, ../scss/app.scss */
+/* line 52, ../scss/app.scss */
 .social-links .fa-google-plus, .social-links .fa-google-plus:hover {
   background-position: -143px; }
-/* line 45, ../scss/app.scss */
+/* line 53, ../scss/app.scss */
 .social-links .fa.all-recipes {
   background-image: url("../images/AllRecipes.png");
   background-repeat: no-repeat; }
 
-/* line 51, ../scss/app.scss */
+/* line 59, ../scss/app.scss */
 #share .stButton .stLarge {
   border-radius: 100%;
   width: 30px;
@@ -5213,91 +5227,91 @@ h1, h2, h3, h4 {
   background-image: url("../images/social-icons.png") !important;
   color: transparent; }
 
-/* line 61, ../scss/app.scss */
+/* line 69, ../scss/app.scss */
 .st_pinterest_large .stLarge {
   background-position: 0 !important; }
 
-/* line 62, ../scss/app.scss */
+/* line 70, ../scss/app.scss */
 .st_facebook_large .stLarge {
-  background-position: -36px !important; }
+  background-position: -35px !important; }
 
-/* line 63, ../scss/app.scss */
+/* line 71, ../scss/app.scss */
 .st_stumbleupon_large .stLarge {
-  background-position: -71px !important; }
+  background-position: -69px !important; }
 
-/* line 64, ../scss/app.scss */
+/* line 72, ../scss/app.scss */
 .st_twitter_large .stLarge {
-  background-position: -107px !important; }
+  background-position: -103px !important; }
 
-/* line 65, ../scss/app.scss */
+/* line 73, ../scss/app.scss */
 .st_googleplus_large .stLarge {
-  background-position: -143px !important; }
+  background-position: -138px !important; }
 
-/* line 66, ../scss/app.scss */
+/* line 74, ../scss/app.scss */
 .st_print_large .stLarge {
-  background-position: -181px !important; }
+  background-position: -175px !important; }
 
-/* line 67, ../scss/app.scss */
+/* line 75, ../scss/app.scss */
 .st_email_large .stLarge {
-  background-position: -217px !important; }
+  background-position: -209px !important; }
 
-/* line 69, ../scss/app.scss */
+/* line 77, ../scss/app.scss */
 .dropdown-pane {
   background-color: #FFF;
   border: none; }
 
-/* line 79, ../scss/app.scss */
+/* line 87, ../scss/app.scss */
 .fa-star {
   color: #F15B24; }
 
-/* line 83, ../scss/app.scss */
+/* line 91, ../scss/app.scss */
 #content {
   padding-top: 80px;
   padding-bottom: 80px; }
 
-/* line 88, ../scss/app.scss */
+/* line 96, ../scss/app.scss */
 .tabs {
   border: none;
   display: inline-block; }
 
-/* line 92, ../scss/app.scss */
+/* line 100, ../scss/app.scss */
 .tabs + br, .tabs-content > br {
   display: none; }
 
-/* line 95, ../scss/app.scss */
+/* line 103, ../scss/app.scss */
 .tabs-title > a {
   font-family: "Amatic SC", cursive;
   font-size: 20px;
   border: 1px solid #CCC;
   border-right: none; }
 
-/* line 101, ../scss/app.scss */
+/* line 109, ../scss/app.scss */
 .tabs-title:last-of-type > a {
   border-right: 1px solid #CCC; }
 
-/* line 104, ../scss/app.scss */
+/* line 112, ../scss/app.scss */
 .tabs-title > a:focus, .tabs-title > a[aria-selected="true"], .tabs-title > a:hover {
   color: #F15B24; }
 
-/* line 108, ../scss/app.scss */
+/* line 116, ../scss/app.scss */
 .attachment-post-thumbnail {
   margin-bottom: 2rem; }
   @media screen and (min-width: 43.75em) {
-    /* line 108, ../scss/app.scss */
+    /* line 116, ../scss/app.scss */
     .attachment-post-thumbnail {
       margin-bottom: 0; } }
 
 /** code another developer placed in the compiled css file instead of in sass. **/
-/* line 116, ../scss/app.scss */
+/* line 124, ../scss/app.scss */
 #gform_3 div {
   display: inline-block !important;
   clear: none !important;
   width: auto !important; }
 
-/* line 121, ../scss/app.scss */
+/* line 129, ../scss/app.scss */
 #gform_3 label, #input_3_2, .gfield_description {
   display: none !important; }
 
-/* line 125, ../scss/app.scss */
+/* line 133, ../scss/app.scss */
 #gform_3 #field_3_1 div {
   width: 100% !important; }
