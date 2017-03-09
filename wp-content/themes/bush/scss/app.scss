@@ -16,6 +16,14 @@
 @import "archives";
 @import "mailchimp";
 
+
+@font-face {
+  font-family: 'Besom-free-font 2';
+  src:  url('../fonts/Besom-free-font 2.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .row .columns.collapse {
   padding: 0;
 }
@@ -59,12 +67,12 @@
   color: transparent;
 }
 .st_pinterest_large .stLarge { background-position: 0 !important; }
-.st_facebook_large .stLarge { background-position: -36px !important; }
-.st_stumbleupon_large .stLarge { background-position: -71px !important; }
-.st_twitter_large .stLarge { background-position: -107px !important; }
-.st_googleplus_large .stLarge { background-position: -143px !important; }
-.st_print_large .stLarge { background-position: -181px !important;}
-.st_email_large .stLarge { background-position: -217px !important; }
+.st_facebook_large .stLarge { background-position: -35px !important; }
+.st_stumbleupon_large .stLarge { background-position: -69px !important; }
+.st_twitter_large .stLarge { background-position: -103px !important; }
+.st_googleplus_large .stLarge { background-position: -138px !important; }
+.st_print_large .stLarge { background-position: -175px !important;}
+.st_email_large .stLarge { background-position: -209px !important; }
 
 .dropdown-pane {
   background-color: $white;
