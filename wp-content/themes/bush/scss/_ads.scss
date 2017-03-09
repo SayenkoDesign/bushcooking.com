@@ -33,9 +33,10 @@
     overflow: visible;
     h3 {
       font-size: rem-calc(40px);
+      color: $ad-color;
       small {
+        color: $ad-color;
         display: block;
-        color: $primary-1;
         font-size: rem-calc(32px);
         margin-top: rem-calc(10px);
         line-height: 1;
@@ -46,6 +47,14 @@
       font-size: rem-calc(22px);
       padding: 12px 32px;
       position: relative;
+      border-width: 2px;
+      border-radius: 4px;
+      border-color: $ad-color;
+      color: $ad-color;
+      background-color: $primary-color;
+      &:hover {
+        background-color: scale_color($primary-color, $lightness: -14%);
+      }
     }
 
     @include breakpoint(medium) {
