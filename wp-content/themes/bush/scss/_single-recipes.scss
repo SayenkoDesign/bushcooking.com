@@ -49,15 +49,33 @@
   .strike {
     text-decoration: line-through;
   }
+  .row h4 {
+    margin-top: $global-margin;
+  }
 }
 #directions {
   ol {
     margin-top: 1rem;
     margin-left: 3rem;
+    counter-reset: customlistcounter;
+    list-style:none;
   }
   li {
     font-size: 1.5rem;
-    counter-increment: customlistcounter;
+    position: relative;
+    &:not(.skip) {
+      counter-increment: customlistcounter;
+      &:before {
+        position: absolute;
+        content:counter(customlistcounter) ".";
+        left: -1.5rem;
+        top: -0.5rem;
+      }
+    }
+    &.skip {
+      margin-bottom: 1rem;
+      margin-left: -40px;
+    }
   }
   .content {
     position: relative;
@@ -84,7 +102,7 @@
       float: right;
     }
   }
-  #details {
+  #details, #share {
     clear: both;
     width: 100%;
     border: 0 solid transparent;
@@ -102,4 +120,21 @@
       padding-right: 0;
     }
   }
+  #share .stButton .stLarge {
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    padding-top: 8px;
+    text-align: center;
+    font-size: 1rem;
+    background-image: url("../images/social-icons.png") !important;
+    color: transparent;
+  }
+  .st_pinterest_large .stLarge { background-position: 0 !important; }
+  .st_facebook_large .stLarge { background-position: -35px !important; }
+  .st_stumbleupon_large .stLarge { background-position: -69px !important; }
+  .st_twitter_large .stLarge { background-position: -103px !important; }
+  .st_googleplus_large .stLarge { background-position: -138px !important; }
+  .st_print_large .stLarge { background-position: -175px !important;}
+  .st_email_large .stLarge { background-position: -209px !important; }
 }

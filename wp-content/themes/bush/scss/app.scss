@@ -56,24 +56,6 @@
   }
 }
 
-#share .stButton .stLarge {
-  border-radius: 100%;
-  width: 30px;
-  height: 30px;
-  padding-top: 8px;
-  text-align: center;
-  font-size: 1rem;
-  background-image: url("../images/social-icons.png") !important;
-  color: transparent;
-}
-.st_pinterest_large .stLarge { background-position: 0 !important; }
-.st_facebook_large .stLarge { background-position: -35px !important; }
-.st_stumbleupon_large .stLarge { background-position: -69px !important; }
-.st_twitter_large .stLarge { background-position: -103px !important; }
-.st_googleplus_large .stLarge { background-position: -138px !important; }
-.st_print_large .stLarge { background-position: -175px !important;}
-.st_email_large .stLarge { background-position: -209px !important; }
-
 .dropdown-pane {
   background-color: $white;
   border: none;

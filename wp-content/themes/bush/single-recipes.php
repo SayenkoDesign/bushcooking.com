@@ -13,7 +13,16 @@ $ingredients = [];
 if( have_rows('ingredients') ) {
 	while (have_rows('ingredients')) {
 		the_row();
-		$ingredients[] = get_sub_field('ingredient');
+		switch($type = get_sub_field('row_type')) {
+			case 'ingredient': $value = get_sub_field('ingredient'); break;
+			case 'equipment': $value = get_sub_field('equipment'); break;
+			case 'heading': $value = get_sub_field('heading'); break;
+			default: $value = ''; break;
+		}
+		$ingredients[] = [
+			'type' => $type,
+			'value' => $value,
+		];
 	}
 }
 
@@ -21,7 +30,15 @@ $directions = [];
 if( have_rows('directions') ) {
 	while (have_rows('directions')) {
 		the_row();
-		$directions[] = get_sub_field('direction');
+		switch($type = get_sub_field('row_type')) {
+			case 'direction': $value = get_sub_field('direction'); break;
+			case 'heading': $value = get_sub_field('heading'); break;
+			default: $value = ''; break;
+		}
+		$directions[] = [
+			'type' => $type,
+			'value' => $value,
+		];
 	}
 }
 

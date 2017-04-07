@@ -24,8 +24,7 @@
                     <span itemprop="worstRating">1</span>
                 </span>
             {% endif %}
-            {% include 'partials/sharethis.html.twig' %}
-            <div itemprop="description">{{ the_field('teaser_description') }}</div>
+            <div itemprop="description">{{ the_field('description') }}</div>
         </div>
     </div>
     <div class="row" id="recipe-instructions">
@@ -34,19 +33,25 @@
                 <h4>Ingredients</h4>
             {% endif %}
             {% for ingredient in ingredients %}
-                <div class="row">
-                    <div class="small-3 columns">
-                        <div class="switch tiny">
-                            <input class="switch-input" id="ingredient-{{ loop.index }}" type="checkbox" name="ingredient-{{ loop.index }}">
-                            <label class="switch-paddle" for="ingredient-{{ loop.index }}">
-                                <span class="show-for-sr">Ingredient</span>
-                            </label>
+                {% if ingredient.type == 'ingredient' %}
+                    <div class="row">
+                        <div class="small-3 columns">
+                            <div class="switch tiny">
+                                <input class="switch-input" id="ingredient-{{ loop.index }}" type="checkbox" name="ingredient-{{ loop.index }}">
+                                <label class="switch-paddle" for="ingredient-{{ loop.index }}">
+                                    <span class="show-for-sr">Ingredient</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="small-9 columns">
+                            <p class="switch-text" itemprop="recipeIngredient">{{ ingredient.value | raw }}</p>
                         </div>
                     </div>
-                    <div class="small-9 columns">
-                        <p class="switch-text" itemprop="recipeIngredient">{{ ingredient| raw }}</p>
+                {% elseif ingredient.type == 'equipment' or ingredient.type == 'heading' %}
+                    <div class="row columns">
+                        <h4>{{ ingredient.value | raw }}</h4>
                     </div>
-                </div>
+                {% endif %}
             {% endfor %}
         </div>
         <div class="large-8 columns">
@@ -54,9 +59,15 @@
                 <h4>Directions</h4>
                 <ol>
                 {% for direction in directions %}
-                    <li class="direction">
-                        <div class="content">{{ direction | raw }}</div>
-                    </li>
+                    {% if direction.type == "direction" %}
+                        <li class="direction">
+                            <div class="content">{{ direction.value | raw }}</div>
+                        </li>
+                    {% elseif direction.type == "heading" %}
+                        <li class="direction skip">
+                            <h4>{{ direction.value | raw }}</h4>
+                        </li>
+                    {% endif %}
                 {% endfor %}
                 </ol>
             </div>
@@ -69,4 +80,5 @@
     {% include "partials/sidebar-recipe-author.html.twig" %}
     {% include "partials/sidebar-recipe-details.html.twig" %}
     {% include "partials/sidebar-custom-content.html.twig" %}
+    {% include 'partials/sharethis.html.twig' %}
 {% endblock %}

@@ -11,7 +11,6 @@
             By: <a href="{{ the_author_posts_url(the_author_ID()) }}">{{ the_author() }}</a>
             | {{ the_date() | date("F d, Y") }}
         </p>
-        {% include 'partials/sharethis.html.twig' %}
         {{ the_content() }}
     </div>
     {% include 'partials/related.html.twig' %}
@@ -20,4 +19,5 @@
     {% include 'partials/post-sidebar-search.html.twig' %}
     {% include 'partials/post-sidebar-categories.html.twig' %}
     {% include 'partials/sidebar-custom-content.html.twig' %}
+    {% include 'partials/sharethis.html.twig' %}
 {% endblock %}
