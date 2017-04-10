@@ -1,0 +1,72 @@
+@media print {
+  .print-only {
+    display: block !important;
+  }
+  .sticky-container, #signup, #footer-logo, #footer, #comments, #share, #side {
+    display: none;
+  }
+  #recipe-overview {
+    > .large-4.columns {
+      width: 50%;
+    }
+    > .large-8.columns {
+      width: 50%;
+    }
+    .print-only {
+      width: 100%;
+      margin-top: $global-margin;
+      th {
+        text-align: left;
+      }
+    }
+    .slick {
+      border: none;
+      padding: 0;
+      .slick-track {
+        width: 100% !important;
+        img {
+          width: 100% !important;
+        }
+      }
+    }
+  }
+  #recipe-instructions {
+    > .large-4.columns {
+      width: 25%;
+    }
+    > .large-8.columns {
+      width: 75%;
+    }
+    .switch {
+      margin-top: rem-calc(2px);
+      border: 1px solid #000;
+      width: 1.5rem;
+    }
+  }
+  #details {
+    tr:nth-child(1), tr:nth-child(1n+6) {
+      display: none;
+    }
+  }
+  #custom {
+    display: none;
+  }
+
+  #print-footer {
+    display: block;
+    text-align: center;
+    img {
+      width: rem-calc(28px);
+      position: relative;
+      bottom: 2px;
+    }
+    .title {
+      font-family: $header-font-family;
+      color: $secondary-color !important;
+      font-size: rem-calc(28px);
+      position: relative;
+      top: 4px;
+      font-weight: $global-weight-bold;
+    }
+  }
+}

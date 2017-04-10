@@ -11,7 +11,6 @@
                     {% endfor %}
                 </div>
             {% endif %}
-
         </div>
         <div class="large-8 columns">
             <h1 itemprop="name">{{ the_title() }}</h1>
@@ -25,6 +24,9 @@
                 </span>
             {% endif %}
             <div itemprop="description">{{ the_field('description') }}</div>
+            <div class="hide print-only">
+                {% include "partials/sidebar-recipe-details.html.twig" %}
+            </div>
         </div>
     </div>
     <div class="row" id="recipe-instructions">
