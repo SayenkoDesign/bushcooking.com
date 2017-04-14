@@ -116,3 +116,12 @@
 #gform_3 #field_3_1 div {
   width: 100% !important;
 }
+
+
+#primary .wprm-recipe-container .wprm-recipe {
+  background-color: transparent;
+  border: none;
+}
+.wprm-recipe-details-container br, .wprm-recipe-ingredient br, .wprm-recipe-details-icon br {
+  display: none;
+}

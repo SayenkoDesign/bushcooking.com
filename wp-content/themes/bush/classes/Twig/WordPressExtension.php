@@ -125,7 +125,7 @@ class WordPressExtension extends \Twig_Extension
 
         // the_content
         $funcs[] = new Twig_SimpleFunction('the_content', function() {
-            return get_the_content();
+            return the_content();
         }, $html_safe);
 
         // get_pagenum_link
