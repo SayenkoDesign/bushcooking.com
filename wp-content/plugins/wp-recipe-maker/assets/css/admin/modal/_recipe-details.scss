@@ -1,0 +1,38 @@
+// main: ../modal.scss
+.wprm-recipe-details-form {
+		input {
+				&#wprm-recipe-name {
+						max-width: 450px;
+				}
+
+				&#wprm-recipe-author-name {
+						max-width: none;
+				}
+
+				&#wprm-recipe-calories {
+						max-width: 70px;
+				}
+		}
+
+		.wprm-recipe-image-preview {
+				float: right;
+				max-width: 100px;
+
+				img {
+						max-width: 100%;
+						height: auto;
+				}
+		}
+
+		.wprm-recipe-summary-container {
+				clear: both;
+		}
+}
+@media only screen and (max-width: 480px) {
+		.wprm-recipe-details-form {
+				.wprm-recipe-image-preview {
+						float: none;
+						margin: 10px auto;
+				}
+		}
+}

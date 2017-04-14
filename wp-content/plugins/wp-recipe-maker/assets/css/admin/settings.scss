@@ -1,0 +1,41 @@
+.wprm-settings {
+	select {
+		min-width: 200px;
+	}
+
+	.select2_wprm-container {
+		z-index: 99000;
+	}
+
+	#template_font_size {
+		width: 60px;
+	}
+
+	.template-preview-container {
+		.template-preview {
+			float: left;
+			text-align: center;
+			width: 250px;
+			height: 230px;
+			overflow: hidden;
+			margin: 5px;
+		}
+
+		.template-name {
+			font-weight: bold;
+			line-height: 30px;
+		}
+
+		.template-screenshot {
+			width: 250px;
+		}
+
+		.template-no-screenshot {
+			width: 250px;
+			height: 200px;
+			line-height: 200px;
+			border: 1px dashed #999;
+			box-sizing: border-box;
+		}
+	}
+}

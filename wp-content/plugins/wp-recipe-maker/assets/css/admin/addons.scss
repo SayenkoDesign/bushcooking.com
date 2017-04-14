@@ -1,0 +1,26 @@
+.wprm-addons {
+	p {
+		max-width: 650px;
+	}
+
+	ul {
+		list-style-type: square;
+	}
+
+	.wprm-drip-form {
+		margin: 20px 0;
+		input {
+			width: 100%;
+			max-width: 400px;
+			margin: 10px 0;
+
+			&[type=submit] {
+				max-width: 250px;
+				margin-bottom: 0;
+			}
+		}
+		.wprm-disclaimer {
+			font-size: 0.8em;
+		}
+	}
+}

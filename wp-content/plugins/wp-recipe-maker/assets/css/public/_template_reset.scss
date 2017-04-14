@@ -1,0 +1,14 @@
+// main: public.scss
+.wprm-recipe {
+    // Clearfix
+    overflow: auto;
+    zoom: 1;
+
+    p, li {
+		font-size: 1em;
+	}
+
+    li:before {
+        display: none;
+    }
+}

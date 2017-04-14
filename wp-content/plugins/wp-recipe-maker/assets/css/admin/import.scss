@@ -1,0 +1,22 @@
+.wprm-import {
+	p {
+		max-width: 600px;
+	}
+
+	.wprm-import-error {
+		max-width: 600px;
+		border: 1px solid darkred;
+		background-color: #ff9f9f;
+		padding: 10px;
+	}
+
+	.wprm-import-recipes {
+		width: 100%;
+
+		td {
+			&:nth-child(1) {
+				width: 2%;
+			}
+		}
+	}
+}

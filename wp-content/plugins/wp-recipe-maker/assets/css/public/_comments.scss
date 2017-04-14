@@ -1,0 +1,23 @@
+// main: public.scss
+.comment-form-wprm-rating {
+	display: none;
+
+	.wprm-rating-star {
+		cursor: pointer;
+	}
+}
+
+.wprm-rating-star {
+	svg {
+		vertical-align: middle;
+		width: 16px;
+		height: 16px;
+		margin: 0;
+	}
+
+	&.rated {
+		svg polygon {
+			fill: black;
+		}
+	}
+}
