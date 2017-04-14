@@ -2,11 +2,13 @@
 {% set has_sidebar = true %}
 {% block content %}
     <div class="row column">
-        <div id="post-featured-image">
-            {{ the_post_thumbnail('slider') }}
-        </div>
+        {% if the_post_thumbnail('slider') %}
+            <div id="post-featured-image">
+                {{ the_post_thumbnail('slider') }}
+            </div>
+        {% endif %}
 
-        <h1>{{ the_title() }}</h1>
+        <h1 class="entry-title">{{ the_title() }}</h1>
         <p class="author-info">
             By: <a href="{{ the_author_posts_url(the_author_ID()) }}">{{ the_author() }}</a>
             | {{ the_date() | date("F d, Y") }}
