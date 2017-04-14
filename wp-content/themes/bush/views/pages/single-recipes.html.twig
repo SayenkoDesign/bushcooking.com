@@ -3,7 +3,7 @@
 {% set content_attr = 'itemscope itemtype="http://schema.org/Recipe"' %}
 {% block content %}
     <div class="row" id="recipe-overview">
-        <div class="large-4 columns">
+        <div class="large-4 columns text-center">
             {% if slides %}
                 <div class="slick">
                     {% for slide in slides %}
@@ -11,6 +11,7 @@
                     {% endfor %}
                 </div>
             {% endif %}
+            <button class="primary button" onClick="window.print()" ><i class="fa fa-print"></i> Print</button>
         </div>
         <div class="large-8 columns">
             <h1 itemprop="name">{{ the_title() }}</h1>
@@ -49,9 +50,33 @@
                             <p class="switch-text" itemprop="recipeIngredient">{{ ingredient.value | raw }}</p>
                         </div>
                     </div>
-                {% elseif ingredient.type == 'equipment' or ingredient.type == 'heading' %}
+                {% elseif ingredient.type == 'heading' %}
                     <div class="row columns">
-                        <h4>{{ ingredient.value | raw }}</h4>
+                        <h5>{{ ingredient.value | raw }}</h5>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            {% if equipments %}
+                <h4>Equipment</h4>
+            {% endif %}
+            {% for equipment in equipments %}
+                {% if equipment.type == 'equipment' %}
+                    <div class="row">
+                        <div class="small-3 columns">
+                            <div class="switch tiny">
+                                <input class="switch-input" id="equipment-{{ loop.index }}" type="checkbox" name="equipment-{{ loop.index }}">
+                                <label class="switch-paddle" for="equipment-{{ loop.index }}">
+                                    <span class="show-for-sr">Equipment</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="small-9 columns">
+                            <p class="switch-text">{{ equipment.value | raw }}</p>
+                        </div>
+                    </div>
+                {% elseif equipment.type == 'heading' %}
+                    <div class="row columns">
+                        <h5>{{ equipment.value | raw }}</h5>
                     </div>
                 {% endif %}
             {% endfor %}
@@ -67,7 +92,7 @@
                         </li>
                     {% elseif direction.type == "heading" %}
                         <li class="direction skip">
-                            <h4>{{ direction.value | raw }}</h4>
+                            <h5>{{ direction.value | raw }}</h5>
                         </li>
                     {% endif %}
                 {% endfor %}

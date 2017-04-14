@@ -15,11 +15,26 @@ if( have_rows('ingredients') ) {
 		the_row();
 		switch($type = get_sub_field('row_type')) {
 			case 'ingredient': $value = get_sub_field('ingredient'); break;
-			case 'equipment': $value = get_sub_field('equipment'); break;
 			case 'heading': $value = get_sub_field('heading'); break;
 			default: $value = ''; break;
 		}
 		$ingredients[] = [
+			'type' => $type,
+			'value' => $value,
+		];
+	}
+}
+
+$equipments = [];
+if( have_rows('equipment_list') ) {
+	while (have_rows('equipment_list')) {
+		the_row();
+		switch($type = get_sub_field('row_type')) {
+			case 'equipment': $value = get_sub_field('equipment'); break;
+			case 'heading': $value = get_sub_field('heading'); break;
+			default: $value = ''; break;
+		}
+		$equipments[] = [
 			'type' => $type,
 			'value' => $value,
 		];
@@ -191,6 +206,7 @@ while (have_posts()) {
 	echo $app->render('pages/single-recipes.html.twig', [
 		'slides' => $slides,
 		'ingredients' => $ingredients,
+		'equipments' => $equipments,
 		'directions' => $directions,
 		'difficulties' => $difficulties,
 		'countries' => $countries,

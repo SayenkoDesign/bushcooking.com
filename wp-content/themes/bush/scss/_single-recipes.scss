@@ -52,8 +52,14 @@
   .row h4 {
     margin-top: $global-margin;
   }
+  .row h5 {
+    font-size: rem-calc(20px);
+  }
 }
 #directions {
+  h5 {
+    font-size: rem-calc(20px);
+  }
   ol {
     margin-top: 1rem;
     margin-left: 3rem;
