@@ -1,0 +1,59 @@
+{% extends 'template/main.html.twig' %}
+{% set has_sidebar = true %}
+{% block title %}
+    <div class="row column">
+        <h1 class="text-center">{{ title | raw }}</h1>
+    </div>
+{% endblock %}
+{% block content %}
+    {% if content %}
+        {% include 'partials/related.html.twig' with {'related': content, 'related_title': false }%}
+        {% include 'partials/pagination.html.twig' %}
+    {% else %}
+        <h1>Nothing Found</h1>
+    {% endif %}
+{% endblock %}
+{% block sidebar %}
+    <div id="author-sidebar">
+        <div id="authr-profile-pic">
+            {{ the_author_avatar(400, author.id) }}
+        </div>
+
+        <div id="author-bio-teaser">
+            {{ author.bio_teaser | raw  }}
+            <a data-fancybox data-src="#author-bio" href="javascript:;">
+                Read More...
+            </a>
+        </div>
+
+        <div style="display: none;" id="author-bio">
+            {{ author.bio | raw  }}
+        </div>
+
+        <div id="author-social">
+            <h4>Find me on</h4>
+            <a href="{{ author.website }}" rel="nofollow" target="_blank">
+                <i class="fa fa-globe"></i>
+            </a>
+            <a href="{{ author.google }}" rel="nofollow" target="_blank">
+                <i class="fa fa-google-plus"></i>
+            </a>
+            <a href="{{ author.twitter }}" rel="nofollow" target="_blank">
+                <i class="fa fa-twitter"></i>
+            </a>
+            <a href="{{ author.facebook }}" rel="nofollow" target="_blank">
+                <i class="fa fa-facebook"></i>
+            </a>
+            <a href="{{ author.linkedin }}" rel="nofollow" target="_blank">
+                <i class="fa fa-linkedin"></i>
+            </a>
+            <a href="{{ author.pinterest }}" rel="nofollow" target="_blank">
+                <i class="fa fa-pinterest"></i>
+            </a>
+            <a href="{{ author.instagram }}" rel="nofollow" target="_blank">
+                <i class="fa fa-instagram"></i>
+            </a>
+        </div>
+    </div>
+    {{ the_field("sidebar_content") }}
+{% endblock %}

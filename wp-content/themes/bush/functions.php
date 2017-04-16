@@ -14,7 +14,8 @@ add_theme_support( 'post-thumbnails' );
 // stylesheets
 $stylesheet_slick = new StyleSheet('slick', '//cdn.jsdelivr.net/g/jquery.slick@1.5.9(slick-theme.css+slick.css)');
 $stylesheet_fontawesome = new StyleSheet('fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
-$stylesheet_app = new StyleSheet('bush_app_css', StyleSheet::getThemeURL() . '/stylesheets/app.css', ['fontawesome', 'slick']);
+$stylesheet_fancybox = new StyleSheet('fancybox', StyleSheet::getThemeURL() . '/bower_components/fancybox/dist/jquery.fancybox.css');
+$stylesheet_app = new StyleSheet('bush_app_css', StyleSheet::getThemeURL() . '/stylesheets/app.css', ['fontawesome', 'slick', 'fancybox']);
 
 // scripts
 add_action('wp_enqueue_scripts', function () {
@@ -22,9 +23,11 @@ add_action('wp_enqueue_scripts', function () {
 });
 $script_jquery = new Script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js');
 $script_slickjs = new Script('slick', '//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js', ['jquery']);
+$script_fancybox = new Script('fancybox', Script::getThemeURL() . '/bower_components/fancybox/dist/jquery.fancybox.js');
 $script_foundation = new Script('foundation', Script::getThemeURL() . '/bower_components/foundation-sites/dist/foundation.min.js');
 $script_app = new Script('bush_app_js', Script::getThemeURL() . '/js/app.min.js', [
     'foundation',
+    'fancybox',
     'slick',
 ], time());
 
@@ -250,3 +253,14 @@ function extend_comment_edit_metafields( $comment_id ) {
     endif;
 
 }
+
+// author fields
+add_filter('user_contactmethods', function ($profile_fields) {
+    $profile_fields['linkedin'] = 'Linkedin';
+    $profile_fields['pinterest'] = 'Pinterest';
+    $profile_fields['instagram'] = 'Instagram';
+    $profile_fields['twitter'] = 'Twitter';
+    $profile_fields['facebook'] = 'Facebook';
+
+    return $profile_fields;
+});

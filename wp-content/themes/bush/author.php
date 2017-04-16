@@ -3,7 +3,21 @@ get_header();
 global $app;
 
 $content = [];
-
+$author_id = get_the_author_meta('ID');
+$acf_user = 'user_'.$author;
+$author = [
+    'id' => $author_id,
+    'website' => get_the_author_meta('url'),
+    'google' => get_the_author_meta('google'),
+    'twitter' => get_the_author_meta('twitter'),
+    'facebook' => get_the_author_meta('facebook'),
+    'linkedin' => get_the_author_meta('linkedin'),
+    'pinterest' => get_the_author_meta('pinterest'),
+    'instagram' => get_the_author_meta('instagram'),
+    'overview' => get_field('overview', $acf_user),
+    'bio' => get_field('bio', $acf_user),
+    'bio_teaser' => get_field('bio_teaser', $acf_user),
+];
 $args = [
     'post_type' => 'recipes' ,
     'author' => get_queried_object_id(),
@@ -64,8 +78,9 @@ wp_reset_postdata();
 $title = get_the_archive_title();
 $post = get_post(131);
 setup_postdata($post);
-echo $app->render('pages/archives.html.twig', [
+echo $app->render('pages/author.html.twig', [
     'title' => $title,
     'content' => $content,
+    'author' => $author,
 ]);
 get_footer();
