@@ -17,6 +17,7 @@ $author = [
     'overview' => get_field('overview', $acf_user),
     'bio' => get_field('bio', $acf_user),
     'bio_teaser' => get_field('bio_teaser', $acf_user),
+    'name' => get_the_author_meta('first_name') . ' ' . get_the_author_meta('last_name'),
 ];
 $args = [
     'post_type' => 'recipes' ,
@@ -75,7 +76,7 @@ while ($custom_posts->have_posts()) {
 }
 
 wp_reset_postdata();
-$title = get_the_archive_title();
+$title = $author['name'];
 $post = get_post(131);
 setup_postdata($post);
 echo $app->render('pages/author.html.twig', [

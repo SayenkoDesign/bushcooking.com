@@ -1,0 +1,42 @@
+#author-overview {
+  text-align: center;
+  margin-top: -1*$global-margin;
+  margin-bottom: $global-margin;
+}
+#author-profile-pic, #author-lightbox-profile-pic {
+  margin-bottom: $global-padding/2;
+}
+#author-bio-teaser {
+  margin-bottom: $global-margin;
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+}
+#author-social, #author-lightbox-social {
+  h4 {
+    font-size: rem-calc(24px);
+  }
+  a {
+    .fa {
+      color: $white;
+    }
+    .fa-circle {
+      color: $secondary-color;
+    }
+    .fa-2x {
+      font-size: rem-calc(16px);
+    }
+    .fa-stack-2x {
+      font-size: rem-calc(36px);
+    }
+    .fa-stack-1x {
+      position: relative;
+      top: rem-calc(2px);
+    }
+    &:hover {
+      .fa-circle {
+        color: scale_color($secondary-color, $lightness: 14%);
+      }
+    }
+  }
+}

@@ -5228,6 +5228,46 @@ h1, h2, h3, h4 {
 #home-slider::after {
   pointer-events: none !important; }
 
+/* line 1, ../scss/_author.scss */
+#author-overview {
+  text-align: center;
+  margin-top: -1rem;
+  margin-bottom: 1rem; }
+
+/* line 6, ../scss/_author.scss */
+#author-profile-pic, #author-lightbox-profile-pic {
+  margin-bottom: 0.5rem; }
+
+/* line 9, ../scss/_author.scss */
+#author-bio-teaser {
+  margin-bottom: 1rem; }
+  /* line 11, ../scss/_author.scss */
+  #author-bio-teaser p:last-of-type {
+    margin-bottom: 0; }
+
+/* line 16, ../scss/_author.scss */
+#author-social h4, #author-lightbox-social h4 {
+  font-size: 1.71429rem; }
+/* line 20, ../scss/_author.scss */
+#author-social a .fa, #author-lightbox-social a .fa {
+  color: #FFF; }
+/* line 23, ../scss/_author.scss */
+#author-social a .fa-circle, #author-lightbox-social a .fa-circle {
+  color: #773D1A; }
+/* line 26, ../scss/_author.scss */
+#author-social a .fa-2x, #author-lightbox-social a .fa-2x {
+  font-size: 1.14286rem; }
+/* line 29, ../scss/_author.scss */
+#author-social a .fa-stack-2x, #author-lightbox-social a .fa-stack-2x {
+  font-size: 2.57143rem; }
+/* line 32, ../scss/_author.scss */
+#author-social a .fa-stack-1x, #author-lightbox-social a .fa-stack-1x {
+  position: relative;
+  top: 0.14286rem; }
+/* line 37, ../scss/_author.scss */
+#author-social a:hover .fa-circle, #author-lightbox-social a:hover .fa-circle {
+  color: #a15223; }
+
 @media print {
   /* line 2, ../scss/_print.scss */
   .print-only {
@@ -5339,16 +5379,16 @@ h1, h2, h3, h4 {
   src: url("../fonts/Besom-free-font 2.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
-/* line 28, ../scss/app.scss */
+/* line 29, ../scss/app.scss */
 .row .columns.collapse {
   padding: 0; }
 
-/* line 32, ../scss/app.scss */
+/* line 33, ../scss/app.scss */
 .alignright {
   float: right;
   padding: 1rem; }
 
-/* line 38, ../scss/app.scss */
+/* line 39, ../scss/app.scss */
 .social-links .fa {
   border-radius: 100%;
   width: 30px;
@@ -5358,92 +5398,92 @@ h1, h2, h3, h4 {
   font-size: 1rem;
   background-image: url("../images/social-icons.png");
   color: transparent; }
-/* line 49, ../scss/app.scss */
+/* line 50, ../scss/app.scss */
 .social-links .fa-instagram, .social-links .fa-instagram:hover {
   background-position: 30px; }
-/* line 50, ../scss/app.scss */
+/* line 51, ../scss/app.scss */
 .social-links .fa-pinterest, .social-links .fa-pinterest:hover {
   background-position: 0; }
-/* line 51, ../scss/app.scss */
+/* line 52, ../scss/app.scss */
 .social-links .fa-facebook, .social-links .fa-facebook:hover {
   background-position: -36px; }
-/* line 52, ../scss/app.scss */
+/* line 53, ../scss/app.scss */
 .social-links .fa-twitter, .social-links .fa-twitter:hover {
   background-position: -107px; }
-/* line 53, ../scss/app.scss */
+/* line 54, ../scss/app.scss */
 .social-links .fa-google-plus, .social-links .fa-google-plus:hover {
   background-position: -143px; }
-/* line 54, ../scss/app.scss */
+/* line 55, ../scss/app.scss */
 .social-links .fa.all-recipes {
   background-image: url("../images/AllRecipes.png");
   background-repeat: no-repeat; }
 
-/* line 60, ../scss/app.scss */
+/* line 61, ../scss/app.scss */
 .dropdown-pane {
   background-color: #FFF;
   border: none; }
 
-/* line 70, ../scss/app.scss */
+/* line 71, ../scss/app.scss */
 .fa-star {
   color: #F15B24; }
 
-/* line 74, ../scss/app.scss */
+/* line 75, ../scss/app.scss */
 #content {
   padding-top: 80px;
   padding-bottom: 80px; }
 
-/* line 79, ../scss/app.scss */
+/* line 80, ../scss/app.scss */
 .tabs {
   border: none;
   display: inline-block; }
 
-/* line 83, ../scss/app.scss */
+/* line 84, ../scss/app.scss */
 .tabs + br, .tabs-content > br {
   display: none; }
 
-/* line 86, ../scss/app.scss */
+/* line 87, ../scss/app.scss */
 .tabs-title > a {
   font-family: "Amatic SC", cursive;
   font-size: 20px;
   border: 1px solid #CCC;
   border-right: none; }
 
-/* line 92, ../scss/app.scss */
+/* line 93, ../scss/app.scss */
 .tabs-title:last-of-type > a {
   border-right: 1px solid #CCC; }
 
-/* line 95, ../scss/app.scss */
+/* line 96, ../scss/app.scss */
 .tabs-title > a:focus, .tabs-title > a[aria-selected="true"], .tabs-title > a:hover {
   color: #F15B24; }
 
-/* line 99, ../scss/app.scss */
+/* line 100, ../scss/app.scss */
 .attachment-post-thumbnail {
   margin-bottom: 2rem; }
   @media screen and (min-width: 43.75em) {
-    /* line 99, ../scss/app.scss */
+    /* line 100, ../scss/app.scss */
     .attachment-post-thumbnail {
       margin-bottom: 0; } }
 
 /** code another developer placed in the compiled css file instead of in sass. **/
-/* line 107, ../scss/app.scss */
+/* line 108, ../scss/app.scss */
 #gform_3 div {
   display: inline-block !important;
   clear: none !important;
   width: auto !important; }
 
-/* line 112, ../scss/app.scss */
+/* line 113, ../scss/app.scss */
 #gform_3 label, #input_3_2, .gfield_description {
   display: none !important; }
 
-/* line 116, ../scss/app.scss */
+/* line 117, ../scss/app.scss */
 #gform_3 #field_3_1 div {
   width: 100% !important; }
 
-/* line 121, ../scss/app.scss */
+/* line 122, ../scss/app.scss */
 #primary .wprm-recipe-container .wprm-recipe {
   background-color: transparent;
   border: none; }
 
-/* line 125, ../scss/app.scss */
+/* line 126, ../scss/app.scss */
 .wprm-recipe-details-container br, .wprm-recipe-ingredient br, .wprm-recipe-details-icon br {
   display: none; }
