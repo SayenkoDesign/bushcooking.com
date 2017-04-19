@@ -5229,44 +5229,68 @@ h1, h2, h3, h4 {
   pointer-events: none !important; }
 
 /* line 1, ../scss/_author.scss */
+#author-bio {
+  max-width: 61.42857rem; }
+
+/* line 4, ../scss/_author.scss */
 #author-overview {
   text-align: center;
   margin-top: -1rem;
   margin-bottom: 1rem; }
 
-/* line 6, ../scss/_author.scss */
+/* line 9, ../scss/_author.scss */
 #author-profile-pic, #author-lightbox-profile-pic {
   margin-bottom: 0.5rem; }
 
-/* line 9, ../scss/_author.scss */
+/* line 12, ../scss/_author.scss */
 #author-bio-teaser {
-  margin-bottom: 1rem; }
-  /* line 11, ../scss/_author.scss */
-  #author-bio-teaser p:last-of-type {
-    margin-bottom: 0; }
+  margin-bottom: 2rem; }
 
 /* line 16, ../scss/_author.scss */
 #author-social h4, #author-lightbox-social h4 {
   font-size: 1.71429rem; }
 /* line 20, ../scss/_author.scss */
+#author-social a:focus, #author-lightbox-social a:focus {
+  outline: none;
+  border: none;
+  text-decoration: none; }
+/* line 25, ../scss/_author.scss */
+#author-social a.web .fa-circle, #author-lightbox-social a.web .fa-circle {
+  color: #FD6804; }
+/* line 28, ../scss/_author.scss */
+#author-social a.google-plus .fa-circle, #author-lightbox-social a.google-plus .fa-circle {
+  color: #EE7547; }
+/* line 31, ../scss/_author.scss */
+#author-social a.twitter .fa-circle, #author-lightbox-social a.twitter .fa-circle {
+  color: #A2BFF2; }
+/* line 34, ../scss/_author.scss */
+#author-social a.facebook .fa-circle, #author-lightbox-social a.facebook .fa-circle {
+  color: #9580A4; }
+/* line 37, ../scss/_author.scss */
+#author-social a.linkedin .fa-circle, #author-lightbox-social a.linkedin .fa-circle {
+  color: #405F85; }
+/* line 40, ../scss/_author.scss */
+#author-social a.pinterest .fa-circle, #author-lightbox-social a.pinterest .fa-circle {
+  color: #E55438; }
+/* line 43, ../scss/_author.scss */
+#author-social a.instagram .fa-circle, #author-lightbox-social a.instagram .fa-circle {
+  color: #405F85; }
+/* line 46, ../scss/_author.scss */
 #author-social a .fa, #author-lightbox-social a .fa {
   color: #FFF; }
-/* line 23, ../scss/_author.scss */
-#author-social a .fa-circle, #author-lightbox-social a .fa-circle {
-  color: #773D1A; }
-/* line 26, ../scss/_author.scss */
+/* line 49, ../scss/_author.scss */
 #author-social a .fa-2x, #author-lightbox-social a .fa-2x {
   font-size: 1.14286rem; }
-/* line 29, ../scss/_author.scss */
+/* line 52, ../scss/_author.scss */
 #author-social a .fa-stack-2x, #author-lightbox-social a .fa-stack-2x {
   font-size: 2.57143rem; }
-/* line 32, ../scss/_author.scss */
+/* line 55, ../scss/_author.scss */
 #author-social a .fa-stack-1x, #author-lightbox-social a .fa-stack-1x {
   position: relative;
   top: 0.14286rem; }
-/* line 37, ../scss/_author.scss */
+/* line 60, ../scss/_author.scss */
 #author-social a:hover .fa-circle, #author-lightbox-social a:hover .fa-circle {
-  color: #a15223; }
+  opacity: 0.8; }
 
 @media print {
   /* line 2, ../scss/_print.scss */

@@ -2,7 +2,7 @@
 {% set has_sidebar = true %}
 {% block title %}
     <div class="row column">
-        <h1 class="text-center">{{ title | raw }}</h1>
+        <h1 class="text-center">{{ the_author() | raw }}</h1>
         {% if author.overview %}<h4 id="author-overview">{{ author.overview }}</h4>{% endif %}
     </div>
 {% endblock %}
@@ -16,6 +16,11 @@
 {% endblock %}
 {% block sidebar %}
     <div id="author-sidebar">
+        <div class="hide" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="hide" itemprop="name">{{ author.name }}</span>
+            <span class="hide" itemprop="familyName">{{ author.last_name }}</span>
+            <span class="hide" itemprop="givenName">{{ author.first_name }}</span>
+        </div>
         <div id="author-profile-pic">
             {{ the_author_avatar(400, author.id) }}
         </div>
@@ -32,48 +37,62 @@
                 <div class="small-12 medium-6 large-4 columns">
                     <div id="author-lightbox-profile-pic">{{ the_author_avatar(400, author.id) }}</div>
                     <div id="author-lightbox-social">
-                        <a href="{{ author.website }}" rel="nofollow" target="_blank">
-                            <span class="fa-stack fa-2x">
-                                <i class="fa fa-circle fa-stack-2x icon-background"></i>
-                                <i class="fa fa-globe fa-stack-1x"></i>
-                            </span>
-                        </a>
-                        <a href="{{ author.google }}" rel="nofollow" target="_blank">
-                            <span class="fa-stack fa-2x">
-                                <i class="fa fa-circle fa-stack-2x icon-background"></i>
-                                <i class="fa fa-google-plus fa-stack-1x"></i>
-                            </span>
-                        </a>
-                        <a href="{{ author.twitter }}" rel="nofollow" target="_blank">
-                            <span class="fa-stack fa-2x">
-                                <i class="fa fa-circle fa-stack-2x icon-background"></i>
-                                <i class="fa fa-twitter fa-stack-1x"></i>
-                            </span>
-                        </a>
-                        <a href="{{ author.facebook }}" rel="nofollow" target="_blank">
-                            <span class="fa-stack fa-2x">
-                                <i class="fa fa-circle fa-stack-2x icon-background"></i>
-                                <i class="fa fa-facebook fa-stack-1x"></i>
-                            </span>
-                        </a>
-                        <a href="{{ author.linkedin }}" rel="nofollow" target="_blank">
-                            <span class="fa-stack fa-2x">
-                                <i class="fa fa-circle fa-stack-2x icon-background"></i>
-                                <i class="fa fa-linkedin fa-stack-1x"></i>
-                            </span>
-                        </a>
-                        <a href="{{ author.pinterest }}" rel="nofollow" target="_blank">
-                            <span class="fa-stack fa-2x">
-                                <i class="fa fa-circle fa-stack-2x icon-background"></i>
-                                <i class="fa fa-pinterest fa-stack-1x"></i>
-                            </span>
-                        </a>
-                        <a href="{{ author.instagram }}" rel="nofollow" target="_blank">
-                            <span class="fa-stack fa-2x">
-                                <i class="fa fa-circle fa-stack-2x icon-background"></i>
-                                <i class="fa fa-instagram fa-stack-1x"></i>
-                            </span>
-                        </a>
+                        {% if author.website %}
+                            <a href="{{ author.website }}" rel="nofollow" target="_blank" class="web">
+                                <span class="fa-stack fa-2x">
+                                    <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                    <i class="fa fa-globe fa-stack-1x"></i>
+                                </span>
+                            </a>
+                        {% endif %}
+                        {% if author.google %}
+                            <a href="{{ author.google }}" rel="nofollow" target="_blank" class="google-plus">
+                                <span class="fa-stack fa-2x">
+                                    <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                    <i class="fa fa-google-plus fa-stack-1x"></i>
+                                </span>
+                            </a>
+                        {% endif %}
+                        {% if author.twitter %}
+                            <a href="{{ author.twitter }}" rel="nofollow" target="_blank" class="twitter">
+                                <span class="fa-stack fa-2x">
+                                    <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                    <i class="fa fa-twitter fa-stack-1x"></i>
+                                </span>
+                            </a>
+                        {% endif %}
+                        {% if author.facebook %}
+                            <a href="{{ author.facebook }}" rel="nofollow" target="_blank" class="facebook">
+                                <span class="fa-stack fa-2x">
+                                    <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                    <i class="fa fa-facebook fa-stack-1x"></i>
+                                </span>
+                            </a>
+                        {% endif %}
+                        {% if author.linkedin %}
+                            <a href="{{ author.linkedin }}" rel="nofollow" target="_blank" class="linkedin">
+                                <span class="fa-stack fa-2x">
+                                    <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x"></i>
+                                </span>
+                            </a>
+                        {% endif %}
+                        {% if author.pinterest %}
+                            <a href="{{ author.pinterest }}" rel="nofollow" target="_blank" class="pinterest">
+                                <span class="fa-stack fa-2x">
+                                    <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                    <i class="fa fa-pinterest fa-stack-1x"></i>
+                                </span>
+                            </a>
+                        {% endif %}
+                        {% if author.instagram %}
+                            <a href="{{ author.instagram }}" rel="nofollow" target="_blank" class="instagram">
+                                <span class="fa-stack fa-2x">
+                                    <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                    <i class="fa fa-instagram fa-stack-1x"></i>
+                                </span>
+                            </a>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="small-12 medium-6 large-8 columns">
@@ -83,51 +102,67 @@
             </div>
         </div>
 
-        <div id="author-social">
-            <h4>Find me on</h4>
-            <a href="{{ author.website }}" rel="nofollow" target="_blank">
-                <span class="fa-stack fa-2x">
-                    <i class="fa fa-circle fa-stack-2x icon-background"></i>
-                    <i class="fa fa-globe fa-stack-1x"></i>
-                </span>
-            </a>
-            <a href="{{ author.google }}" rel="nofollow" target="_blank">
-                <span class="fa-stack fa-2x">
-                    <i class="fa fa-circle fa-stack-2x icon-background"></i>
-                    <i class="fa fa-google-plus fa-stack-1x"></i>
-                </span>
-            </a>
-            <a href="{{ author.twitter }}" rel="nofollow" target="_blank">
-                <span class="fa-stack fa-2x">
-                    <i class="fa fa-circle fa-stack-2x icon-background"></i>
-                    <i class="fa fa-twitter fa-stack-1x"></i>
-                </span>
-            </a>
-            <a href="{{ author.facebook }}" rel="nofollow" target="_blank">
-                <span class="fa-stack fa-2x">
-                    <i class="fa fa-circle fa-stack-2x icon-background"></i>
-                    <i class="fa fa-facebook fa-stack-1x"></i>
-                </span>
-            </a>
-            <a href="{{ author.linkedin }}" rel="nofollow" target="_blank">
-                <span class="fa-stack fa-2x">
-                    <i class="fa fa-circle fa-stack-2x icon-background"></i>
-                    <i class="fa fa-linkedin fa-stack-1x"></i>
-                </span>
-            </a>
-            <a href="{{ author.pinterest }}" rel="nofollow" target="_blank">
-                <span class="fa-stack fa-2x">
-                    <i class="fa fa-circle fa-stack-2x icon-background"></i>
-                    <i class="fa fa-pinterest fa-stack-1x"></i>
-                </span>
-            </a>
-            <a href="{{ author.instagram }}" rel="nofollow" target="_blank">
-                <span class="fa-stack fa-2x">
-                    <i class="fa fa-circle fa-stack-2x icon-background"></i>
-                    <i class="fa fa-instagram fa-stack-1x"></i>
-                </span>
-            </a>
-        </div>
+        {% if author.website or author.google or author.twitter or author.facebook or author.linkedin or author.pinterest or author.instagram %}
+            <div id="author-social">
+                <h4>Find me on</h4>
+                {% if author.website %}
+                    <a href="{{ author.website }}" rel="nofollow" target="_blank" class="web">
+                        <span class="fa-stack fa-2x">
+                            <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                            <i class="fa fa-globe fa-stack-1x"></i>
+                        </span>
+                    </a>
+                {% endif %}
+                {% if author.google %}
+                    <a href="{{ author.google }}" rel="nofollow" target="_blank" class="google-plus">
+                        <span class="fa-stack fa-2x">
+                            <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                            <i class="fa fa-google-plus fa-stack-1x"></i>
+                        </span>
+                    </a>
+                {% endif %}
+                {% if author.twitter %}
+                    <a href="{{ author.twitter }}" rel="nofollow" target="_blank" class="twitter">
+                        <span class="fa-stack fa-2x">
+                            <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                            <i class="fa fa-twitter fa-stack-1x"></i>
+                        </span>
+                    </a>
+                {% endif %}
+                {% if author.facebook %}
+                    <a href="{{ author.facebook }}" rel="nofollow" target="_blank" class="facebook">
+                        <span class="fa-stack fa-2x">
+                            <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                            <i class="fa fa-facebook fa-stack-1x"></i>
+                        </span>
+                    </a>
+                {% endif %}
+                {% if author.linkedin %}
+                    <a href="{{ author.linkedin }}" rel="nofollow" target="_blank" class="linkedin">
+                        <span class="fa-stack fa-2x">
+                            <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                            <i class="fa fa-linkedin fa-stack-1x"></i>
+                        </span>
+                    </a>
+                {% endif %}
+                {% if author.pinterest %}
+                    <a href="{{ author.pinterest }}" rel="nofollow" target="_blank" class="pinterest">
+                        <span class="fa-stack fa-2x">
+                            <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                            <i class="fa fa-pinterest fa-stack-1x"></i>
+                        </span>
+                    </a>
+                {% endif %}
+                {% if author.instagram %}
+                    <a href="{{ author.instagram }}" rel="nofollow" target="_blank" class="instagram">
+                        <span class="fa-stack fa-2x">
+                            <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                            <i class="fa fa-instagram fa-stack-1x"></i>
+                        </span>
+                    </a>
+                {% endif %}
+            </div>
+        {% endif %}
     </div>
     {{ the_field("sidebar_content") }}
 {% endblock %}

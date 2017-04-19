@@ -8,7 +8,7 @@ $acf_user = 'user_'.$author;
 $author = [
     'id' => $author_id,
     'website' => get_the_author_meta('url'),
-    'google' => get_the_author_meta('google'),
+    'google' => get_the_author_meta('googleplus'),
     'twitter' => get_the_author_meta('twitter'),
     'facebook' => get_the_author_meta('facebook'),
     'linkedin' => get_the_author_meta('linkedin'),
@@ -18,6 +18,8 @@ $author = [
     'bio' => get_field('bio', $acf_user),
     'bio_teaser' => get_field('bio_teaser', $acf_user),
     'name' => get_the_author_meta('first_name') . ' ' . get_the_author_meta('last_name'),
+    'first_name' => get_the_author_meta('first_name'),
+    'last_name' => get_the_author_meta('last_name'),
 ];
 $args = [
     'post_type' => 'recipes' ,
@@ -76,11 +78,9 @@ while ($custom_posts->have_posts()) {
 }
 
 wp_reset_postdata();
-$title = $author['name'];
 $post = get_post(131);
 setup_postdata($post);
 echo $app->render('pages/author.html.twig', [
-    'title' => $title,
     'content' => $content,
     'author' => $author,
 ]);

@@ -2,6 +2,16 @@
 {% set has_sidebar = true %}
 {% set content_attr = 'itemscope itemtype="http://schema.org/Recipe"' %}
 {% block content %}
+    {% if nutrition.cals or nutrition.fat or nutrition.carbs or nutrition.protein or nutrition.cholesterol or nutrition.sodium %}
+        <div class="hide" itemprop="nutrition" itemscope itemtype="http://schema.org/NutritionInformation">
+            {% if nutrition.cals %}<span class="hide" itemprop="calories">{{ nutrition.cals }} kcal</span>{% endif %}
+            {% if nutrition.fat %}<span class="hide" itemprop="fatContent">{{ nutrition.fat }} g</span>{% endif %}
+            {% if nutrition.carbs %}<span class="hide" itemprop="carbohydrateContent">{{ nutrition.carbs }} g</span>{% endif %}
+            {% if nutrition.protein %}<span class="hide" itemprop="proteinContent">{{ nutrition.protein }} g</span>{% endif %}
+            {% if nutrition.cholesterol %}<span class="hide" itemprop="cholesterolContent">{{ nutrition.cholesterol }} mg</span>{% endif %}
+            {% if nutrition.sodium %}<span class="hide" itemprop="sodiumContent">{{ nutrition.sodium }} mg</span>{% endif %}
+        </div>
+    {% endif %}
     <div class="row" id="recipe-overview">
         <div class="large-4 columns text-center">
             {% if slides %}
@@ -104,6 +114,11 @@
     {{ comments_template() }}
 {% endblock %}
 {% block sidebar %}
+    <div class="hide" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="hide" itemprop="name">{{ author.name }}</span>
+        <span class="hide" itemprop="familyName">{{ author.last_name }}</span>
+        <span class="hide" itemprop="givenName">{{ author.first_name }}</span>
+    </div>
     {% include "partials/sidebar-recipe-author.html.twig" %}
     {% include "partials/sidebar-recipe-details.html.twig" %}
     {% include "partials/sidebar-custom-content.html.twig" %}

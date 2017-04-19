@@ -264,3 +264,14 @@ add_filter('user_contactmethods', function ($profile_fields) {
 
     return $profile_fields;
 });
+
+// remove taxonomy boxes
+add_action( 'admin_menu', function (){
+    remove_meta_box('food_categorydiv', 'recipes', 'side');
+    remove_meta_box('difficultydiv', 'recipes', 'side');
+    remove_meta_box('countrydiv', 'recipes', 'side');
+    remove_meta_box('cooking_methoddiv', 'recipes', 'side');
+    remove_meta_box('ingredientdiv', 'recipes', 'side');
+    remove_meta_box('equipmentdiv', 'recipes', 'side');
+    remove_meta_box('recipe_typediv', 'recipes', 'side');
+});

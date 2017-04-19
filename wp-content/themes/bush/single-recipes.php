@@ -2,6 +2,34 @@
 get_header();
 global $app;
 
+$author_id = get_the_author_meta('ID');
+$acf_user = 'user_'.$author;
+$author = [
+	'id' => $author_id,
+	'website' => get_the_author_meta('url'),
+	'google' => get_the_author_meta('google'),
+	'twitter' => get_the_author_meta('twitter'),
+	'facebook' => get_the_author_meta('facebook'),
+	'linkedin' => get_the_author_meta('linkedin'),
+	'pinterest' => get_the_author_meta('pinterest'),
+	'instagram' => get_the_author_meta('instagram'),
+	'overview' => get_field('overview', $acf_user),
+	'bio' => get_field('bio', $acf_user),
+	'bio_teaser' => get_field('bio_teaser', $acf_user),
+	'name' => get_the_author_meta('first_name') . ' ' . get_the_author_meta('last_name'),
+	'first_name' => get_the_author_meta('first_name'),
+	'last_name' => get_the_author_meta('last_name'),
+];
+
+$nutrition = [
+	'cals' => get_field('calories'),
+	'fat' => get_field('fat'),
+	'carbs' => get_field('carbohydrate'),
+	'protein' => get_field('protein'),
+	'cholesterol' => get_field('cholesterol'),
+	'sodium' => get_field('sodium'),
+];
+
 $slides = [];
 if(get_field('slider')) {
 	foreach( get_field('slider') as $slide ) {
@@ -204,6 +232,8 @@ while (have_posts()) {
 	$total_total = $total_hours * 60 + $total_minutes;
 
 	echo $app->render('pages/single-recipes.html.twig', [
+		'author' => $author,
+		'nutrition' => $nutrition,
 		'slides' => $slides,
 		'ingredients' => $ingredients,
 		'equipments' => $equipments,
