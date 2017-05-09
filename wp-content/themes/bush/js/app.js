@@ -6,6 +6,11 @@
 ga('create', 'UA-73280214-1', 'auto');
 ga('send', 'pageview');
 
+(adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1689122723756643",
+    enable_page_level_ads: true
+});
+
 jQuery(function() {
     $('#primary-nav').attr({
         'class': 'dropdown menu',
