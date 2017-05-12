@@ -38,7 +38,9 @@ wprm_admin.close_modal = function() {
 };
 
 wprm_admin.shortcode_escape_map = {
-		'"': "'"
+	'"': "'",
+    '[': '{',
+    ']': '}'
 };
 
 wprm_admin.shortcode_escape = function(text) {

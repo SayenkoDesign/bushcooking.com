@@ -66,6 +66,9 @@ class WPRM_Settings {
 		'features_custom_style' => true,
 		// Features Premium.
 		'features_adjustable_servings' => true,
+		// Advanced.
+		'recipe_css' => '',
+		'print_css' => '',
 	);
 
 	/**
@@ -79,6 +82,7 @@ class WPRM_Settings {
 		add_action( 'admin_post_wprm_settings_appearance', array( __CLASS__, 'form_save_settings_appearance' ) );
 		add_action( 'admin_post_wprm_settings_labels', array( __CLASS__, 'form_save_settings_labels' ) );
 		add_action( 'admin_post_wprm_settings_features', array( __CLASS__, 'form_save_settings_features' ) );
+		add_action( 'admin_post_wprm_settings_advanced', array( __CLASS__, 'form_save_settings_advanced' ) );
 
 		add_action( 'wprm_settings_page', array( __CLASS__, 'settings_page' ) );
 	}
@@ -117,6 +121,8 @@ class WPRM_Settings {
 			require_once( WPRM_DIR . 'templates/admin/settings/labels.php' );
 		} elseif ( 'features' === $sub ) {
 			require_once( WPRM_DIR . 'templates/admin/settings/features.php' );
+		} elseif ( 'advanced' === $sub ) {
+			require_once( WPRM_DIR . 'templates/admin/settings/advanced.php' );
 		}
 	}
 
@@ -329,6 +335,27 @@ class WPRM_Settings {
 			self::update_settings( $settings );
 		}
 		wp_safe_redirect( admin_url( 'admin.php?page=wprm_settings&sub=features' ) );
+		exit();
+	}
+
+	/**
+	 * Save the advanced settings.
+	 *
+	 * @since    1.7.0
+	 */
+	public static function form_save_settings_advanced() {
+		if ( isset( $_POST['wprm_settings'] ) && wp_verify_nonce( sanitize_key( $_POST['wprm_settings'] ), 'wprm_settings' ) ) { // Input var okay.
+			$recipe_css = isset( $_POST['recipe_css'] ) ? wp_kses_post( wp_unslash( $_POST['recipe_css'] ) ) : ''; // Input var okay.
+			$print_css = isset( $_POST['print_css'] ) ? wp_kses_post( wp_unslash( $_POST['print_css'] ) ) : ''; // Input var okay.
+
+			$settings = array();
+
+			$settings['recipe_css'] = $recipe_css;
+			$settings['print_css'] = $print_css;
+
+			self::update_settings( $settings );
+		}
+		wp_safe_redirect( admin_url( 'admin.php?page=wprm_settings&sub=advanced' ) );
 		exit();
 	}
 }

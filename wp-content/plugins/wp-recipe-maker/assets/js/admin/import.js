@@ -65,4 +65,15 @@ jQuery(document).ready(function($) {
 
 		window.location = url;
 	});
+
+	// Edit imported recipe
+	jQuery(document).on('click', '.wprm-manage-recipes-actions-edit', function(e) {
+		e.preventDefault();
+
+		var id = jQuery(this).data('id');
+
+		wprm_admin.open_modal(false, {
+			recipe_id: id
+		});
+	});
 });

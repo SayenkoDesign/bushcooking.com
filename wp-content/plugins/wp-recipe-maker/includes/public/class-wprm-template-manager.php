@@ -96,6 +96,9 @@ class WPRM_Template_Manager {
 		$output .= ' .wprm-comment-rating svg path, .comment-form-wprm-rating svg path { fill: ' . WPRM_Settings::get( 'template_color_comment_rating' ) . '; }';
 		$output .= ' .wprm-comment-rating svg polygon, .comment-form-wprm-rating svg polygon { stroke: ' . WPRM_Settings::get( 'template_color_comment_rating' ) . '; }';
 
+		// Custom recipe CSS.
+		$output .= WPRM_Settings::get( 'recipe_css' );
+
 		$output .= '</style>';
 
 		echo $output;

@@ -81,6 +81,10 @@
 		<label for="wprm-recipe-total-time"><?php esc_html_e( 'Total Time', 'wp-recipe-maker' ); ?></label>
 		<input type="number" id="wprm-recipe-total-time" class="wprm-recipe-time" placeholder="30" min="0" /> <?php esc_html_e( 'minutes', 'wp-recipe-maker' ); ?>
 	</div>
+	<div class='wprm-modal-hint'>
+		<span class="wprm-modal-hint-header"><?php esc_html_e( 'Hint', 'wp-recipe-maker' ); ?></span>
+		<span class="wprm-modal-hint-text"><?php esc_html_e( 'Your recipe template will automatically use hours.', 'wp-recipe-maker' ); ?></span>
+	</div>
 	<?php
 	$taxonomies = WPRM_Taxonomies::get_taxonomies();
 

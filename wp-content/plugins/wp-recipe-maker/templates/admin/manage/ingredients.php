@@ -15,6 +15,10 @@ if ( ! function_exists( 'get_term_meta' ) ) {
 
 ?>
 
+<div class="wprm-manage-header">
+	<button type="button" class="button button-primary wprm-manage-ingredients-bulk-delete"><?php esc_html_e( 'Delete selected Ingredients', 'wp-recipe-maker' ); ?></button>
+</div>
+
 <table id="wprm-manage-ingredients" class="wprm-manage-datatable" cellspacing="0" width="100%">
 	<thead>
 		<tr>

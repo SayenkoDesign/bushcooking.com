@@ -16,6 +16,7 @@ $tabs = apply_filters( 'wprm_settings_tabs', array(
 	'appearance' => __( 'Appearance', 'wp-recipe-maker' ),
 	'labels' => __( 'Labels', 'wp-recipe-maker' ),
 	'features' => __( 'Features', 'wp-recipe-maker' ),
+	'advanced' => __( 'Advanced', 'wp-recipe-maker' ),
 ) );
 
 if ( ! array_key_exists( $sub, $tabs ) ) {

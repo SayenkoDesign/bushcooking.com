@@ -10,7 +10,7 @@
  */
 
 ?>
-<div class="wprm-manage-recipes-filters">
+<div class="wprm-manage-header wprm-manage-recipes-filters">
 <?php
 esc_html_e( 'Filter', 'wp-recipe-maker' );
 $taxonomies = WPRM_Taxonomies::get_taxonomies( true );

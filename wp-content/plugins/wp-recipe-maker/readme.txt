@@ -3,7 +3,7 @@ Contributors: BrechtVds
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QG7KZMGFU325Y
 Tags: recipe, recipes, ingredients, food, cooking, seo, schema.org, json-ld
 Requires at least: 4.4
-Tested up to: 4.7.3
+Tested up to: 4.7.4
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -96,6 +96,13 @@ Yes! We pride ourselves on offering awesome support and almost always answer sup
 4. Example Pasta Pesto recipe with the Tastefully Simple (EasyRecipe like) template.
 
 == Changelog ==
+
+= 1.18.0 =
+* Feature: Add custom styling to the recipe print page
+* Feature: Bulk delete ingredients
+* Improvement: Easy edit and view links for imported recipes
+* Fix: Prevent jumping to the top on the manage page
+* Fix: Print URL without trailing slash
 
 = 1.17.1 =
 * Fix: Ingredient import problem
@@ -284,6 +291,9 @@ Yes! We pride ourselves on offering awesome support and almost always answer sup
 * Feature: Fallback recipe when the plugin is disabled
 
 == Upgrade notice ==
+
+= 1.18.0 =
+Update to easily customize the recipe print page
 
 = 1.17.1 =
 Update if you're importing recipes

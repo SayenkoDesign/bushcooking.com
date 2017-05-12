@@ -55,13 +55,18 @@ class WPRM_Print {
 	 * @since    1.3.0
 	 */
 	public static function print_page() {
-		preg_match( '/\/wprm_print\/(\d+)$/', $_SERVER['REQUEST_URI'], $print_url ); // Input var okay.
+		preg_match( '/\/wprm_print\/(\d+)\/?$/', $_SERVER['REQUEST_URI'], $print_url ); // Input var okay.
 		$recipe_id = isset( $print_url[1] ) ? intval( $print_url[1] ) : false;
 		if ( $recipe_id && WPRM_POST_TYPE === get_post_type( $recipe_id ) ) {
 			$recipe = WPRM_Recipe_Manager::get_recipe( $recipe_id );
 
 			$styles = WPRM_Template_Manager::get_template_styles( $recipe, 'print' );
 			$styles .= '<style>body { position: relative; padding-bottom: 30px; } #wprm-print-footer { position: absolute; bottom: 0; left: 0; right: 0; text-align: center; font-size: 0.8em; }</style>';
+
+			if ( WPRM_Settings::get( 'print_css' ) ) {
+				$styles .= '<style>' . WPRM_Settings::get( 'print_css' ) . '</style>';
+			}
+
 			if ( WPRM_Addons::is_active( 'premium' ) ) {
 				$styles .= '<link rel="stylesheet" type="text/css" href="' . WPRMP_URL . 'assets/css/public/public.min.css"/>';
 			}

@@ -11,6 +11,15 @@
 
 ?>
 
+<h3>2017-05-11 | WP Recipe Maker 1.18.0</h3>
+<ul>
+	<li>Feature: Add custom styling to the recipe print page</li>
+	<li>Feature: Bulk delete ingredients</li>
+	<li>Improvement: Easy edit and view links for imported recipes</li>
+	<li>Fix: Prevent jumping to the top on the manage page</li>
+	<li>Fix: Print URL without trailing slash</li>
+</ul>
+
 <h3>2017-04-11 | WP Recipe Maker Premium 1.4.0</h3>
 <ul>
 	<li>Feature: Text field display for servings changer</li>

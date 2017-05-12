@@ -13,9 +13,24 @@
 	.wprm-import-recipes {
 		width: 100%;
 
+		input[type="checkbox"] {
+			vertical-align: top;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		.dashicons.dashicons-visibility {
+			font-size: 18px;
+		}
+
 		td {
 			&:nth-child(1) {
 				width: 2%;
+			}
+			&:nth-child(2) {
+				width: 30%;
 			}
 		}
 	}

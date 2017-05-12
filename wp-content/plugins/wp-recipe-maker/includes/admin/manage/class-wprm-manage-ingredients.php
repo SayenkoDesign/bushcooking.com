@@ -121,6 +121,10 @@ class WPRM_Manage_Ingredients {
 		$terms = get_terms( $args );
 
 		foreach ( $terms as $term ) {
+			// Bulk delete checkbox.
+			$checkbox_disabled = $term->count > 0 ? ' disabled="disabled"' : '';
+			$checkbox = '<input type="checkbox" class="wprm-manage-ingredients-bulk" id="wprm-manage-ingredients-bulk-' . esc_attr( $term->term_id ) . '" value="' . esc_attr( $term->term_id ) . '"' . $checkbox_disabled . '>';
+
 			// Link to recipes.
 			$recipes_url = add_query_arg( array(
 				'sub' => 'recipes',
@@ -155,7 +159,7 @@ class WPRM_Manage_Ingredients {
 			}
 
 			$data[] = array(
-				$term->term_id,
+				$checkbox . ' <label for="wprm-manage-ingredients-bulk-' . esc_attr( $term->term_id ) . '">' . $term->term_id . '</label>',
 				'<span id="wprm-manage-ingredients-name-' . esc_attr( $term->term_id ) . '">' . $term->name . '</span>',
 				'<a href="' . $recipes_url . '">' . $term->count . '</a>',
 				'<span id="wprm-manage-ingredients-link-' . esc_attr( $term->term_id ) . '"><a href="' . esc_url( $link ) . '" target="_blank">' . esc_url( $link ) . '</a></span>',

@@ -28,6 +28,19 @@ wprm_admin.delete_or_merge_term = function(term_id, taxonomy, new_term_id) {
 	});
 };
 
+wprm_admin.delete_terms = function(term_ids, taxonomy) {
+	var data = {
+			action: 'wprm_delete_terms',
+			security: wprm_manage.nonce,
+			term_ids: term_ids,
+			taxonomy: taxonomy
+	};
+
+	jQuery.post(wprm_manage.ajax_url, data, function() {
+		jQuery('.wprm-manage-datatable').DataTable().ajax.reload(null, false);
+	});
+};
+
 wprm_admin.delete_recipe = function(recipe_id) {
 	var data = {
 			action: 'wprm_delete_recipe',
@@ -215,7 +228,9 @@ jQuery(document).ready(function($) {
 		}
 	} );
 
-	jQuery(document).on('click', '.wprm-manage-recipes-seo', function() {
+	jQuery(document).on('click', '.wprm-manage-recipes-seo', function(e) {
+		e.preventDefault();
+
 		var id = jQuery(this).data('id');
 
 		wprm_admin.open_modal(false, {
@@ -223,14 +238,18 @@ jQuery(document).ready(function($) {
 		});
 	});
 
-	jQuery(document).on('change', '.wprm-manage-ingredients-link-nofollow', function() {
+	jQuery(document).on('change', '.wprm-manage-ingredients-link-nofollow', function(e) {
+		e.preventDefault();
+
 		var id = jQuery(this).data('id'),
 			nofollow = jQuery(this).val();
 		
 		wprm_admin.update_term_metadata(id, 'ingredient_link_nofollow', nofollow);
 	});
 
-	jQuery(document).on('click', '.wprm-manage-ingredients-actions-link', function() {
+	jQuery(document).on('click', '.wprm-manage-ingredients-actions-link', function(e) {
+		e.preventDefault();
+
 		var id = jQuery(this).data('id'),
 			name = jQuery('#wprm-manage-ingredients-name-' + id).text(),
 			link_container = jQuery('#wprm-manage-ingredients-link-' + id),
@@ -240,7 +259,9 @@ jQuery(document).ready(function($) {
 		wprm_admin.update_term_metadata(id, 'ingredient_link', new_link);
 	});
 
-	jQuery(document).on('click', '.wprm-manage-ingredients-actions-merge', function() {
+	jQuery(document).on('click', '.wprm-manage-ingredients-actions-merge', function(e) {
+		e.preventDefault();
+
 		var id = jQuery(this).data('id'),
 			name = jQuery('#wprm-manage-ingredients-name-' + id).text();
 		
@@ -250,7 +271,9 @@ jQuery(document).ready(function($) {
 		}
 	});
 
-	jQuery(document).on('click', '.wprm-manage-taxonomies-actions-merge', function() {
+	jQuery(document).on('click', '.wprm-manage-taxonomies-actions-merge', function(e) {
+		e.preventDefault();
+
 		var id = jQuery(this).data('id'),
 			name = jQuery('#wprm-manage-taxonomies-name-' + id).text(),
 			taxonomy = jQuery('.wprm-manage-taxonomies').data('taxonomy');
@@ -261,12 +284,16 @@ jQuery(document).ready(function($) {
 		}
 	});
 
-	jQuery(document).on('click', '.wprm-manage-ingredients-actions-delete', function() {
+	jQuery(document).on('click', '.wprm-manage-ingredients-actions-delete', function(e) {
+		e.preventDefault();
+
 		var id = jQuery(this).data('id');
 		wprm_admin.delete_or_merge_term(id, 'ingredient', 0);
 	});
 
-	jQuery(document).on('click', '.wprm-manage-taxonomies-actions-delete', function() {
+	jQuery(document).on('click', '.wprm-manage-taxonomies-actions-delete', function(e) {
+		e.preventDefault();
+
 		var id = jQuery(this).data('id'),
 			name = jQuery('#wprm-manage-taxonomies-name-' + id).text(),
 			taxonomy = jQuery('.wprm-manage-taxonomies').data('taxonomy');
@@ -276,7 +303,9 @@ jQuery(document).ready(function($) {
 		}
 	});
 
-	jQuery(document).on('click', '.wprm-manage-recipes-actions-edit', function() {
+	jQuery(document).on('click', '.wprm-manage-recipes-actions-edit', function(e) {
+		e.preventDefault();
+
 		var id = jQuery(this).data('id');
 
 		wprm_admin.open_modal(false, {
@@ -284,12 +313,29 @@ jQuery(document).ready(function($) {
 		});
 	});
 
-	jQuery(document).on('click', '.wprm-manage-recipes-actions-delete', function() {
+	jQuery(document).on('click', '.wprm-manage-recipes-actions-delete', function(e) {
+		e.preventDefault();
+		
 		var id = jQuery(this).data('id'),
 			name = jQuery('#wprm-manage-recipes-name-' + id).text();
 		
 		if(confirm('Are you sure you want to delete "' + name + '"?')) {
 			wprm_admin.delete_recipe(id);
+		}
+	});
+
+	jQuery(document).on('click', '.wprm-manage-ingredients-bulk-delete', function(e) {
+		e.preventDefault();
+
+		var ingredients = jQuery('.wprm-manage-ingredients-bulk:checkbox:checked');
+		var ids = [];
+
+		ingredients.each(function() {
+			ids.push(parseInt(jQuery(this).val()));
+		});
+
+		if(ids.length > 0) {
+			wprm_admin.delete_terms(ids, 'ingredient', 0);
 		}
 	});
 });

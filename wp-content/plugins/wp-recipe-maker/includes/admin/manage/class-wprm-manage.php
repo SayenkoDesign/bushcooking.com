@@ -33,6 +33,7 @@ class WPRM_Manage {
 		add_action( 'wp_ajax_wprm_manage_datatable', array( __CLASS__, 'ajax_manage_datatable' ) );
 		add_action( 'wp_ajax_wprm_update_term_metadata', array( __CLASS__, 'ajax_update_term_metadata' ) );
 		add_action( 'wp_ajax_wprm_delete_or_merge_term', array( __CLASS__, 'ajax_delete_or_merge_term' ) );
+		add_action( 'wp_ajax_wprm_delete_terms', array( __CLASS__, 'ajax_delete_terms' ) );
 		add_action( 'wp_ajax_wprm_delete_recipe', array( __CLASS__, 'ajax_delete_recipe' ) );
 	}
 
@@ -117,6 +118,38 @@ class WPRM_Manage {
 
 						if ( $new_term && ! is_wp_error( $new_term ) ) {
 							self::merge_recipe_terms( $term, $new_term );
+							wp_delete_term( $term->term_id, $taxonomy );
+						}
+					}
+				}
+			}
+		}
+
+		wp_die();
+	}
+
+	/**
+	 * Delete nultiple terms at once through AJAX.
+	 *
+	 * @since    1.18.0
+	 */
+	public static function ajax_delete_terms() {
+		if ( check_ajax_referer( 'wprm', 'security', false ) ) {
+			$term_ids = isset( $_POST['term_ids'] ) ? array_map( 'intval', $_POST['term_ids'] ) : 0; // Input var okay.
+			$taxonomy = isset( $_POST['taxonomy'] ) ? sanitize_key( wp_unslash( $_POST['taxonomy'] ) ) : ''; // Input var okay.
+
+			// This ensures were only chaning our own taxonomies.
+			$taxonomy = 'wprm_' . $taxonomy;
+
+			if ( !empty( $term_ids ) ) {
+
+				foreach ( $term_ids as $term_id ) {
+					$term = get_term( $term_id, $taxonomy );
+
+					// Check if this is one of our taxonomies.
+					if ( $term && ! is_wp_error( $term ) ) {
+						// Make sure this ingredient is not used anymore before deleting.
+						if ( 'wprm_ingredient' !== $taxonomy || 0 === $term->count ) {
 							wp_delete_term( $term->term_id, $taxonomy );
 						}
 					}

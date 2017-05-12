@@ -100,10 +100,13 @@
 								<input type="checkbox" name="recipes[]" value="<?php echo esc_attr( $recipe->id() ); ?>" />
 							</td>
 							<td>
+								<a href="#" class="wprm-manage-recipes-actions-edit" data-id="<?php echo esc_attr( $recipe->id() ); ?>"><span class="dashicons dashicons-edit"></span></a> <?php echo esc_html( $recipe->name() ); ?>
+							</td>
+							<td>
 								<?php if ( $recipe->parent_post_id() > 0 ) : ?>
-								<a href="<?php echo esc_url( get_edit_post_link( $recipe->parent_post_id() ) ); ?>" target="_blank"><?php echo esc_html( $recipe->name() ); ?></a>
+								<a href="<?php echo esc_url( get_edit_post_link( $recipe->parent_post_id() ) ); ?>" target="_blank"><span class="dashicons dashicons-edit"></span></a> <a href="<?php echo esc_url( get_permalink( $recipe->parent_post_id() ) ); ?>" target="_blank"><span class="dashicons dashicons-visibility"></span></a> <?php echo get_the_title( $recipe->parent_post_id() ); ?>
 								<?php else : ?>
-								<?php echo esc_html( $recipe->name() . ' (' . __( 'no parent post found', 'wp-recipe-maker' ) . ')' ); ?>
+								<?php esc_html_e( 'no parent post found', 'wp-recipe-maker' ); ?>
 								<?php endif; // Parent Post ID. ?>
 							</td>
 						</tr>
@@ -115,3 +118,8 @@
 		<?php endforeach; // Each importer. ?>
 	<?php endif; // Recipes to import. ?>
 </div>
+
+<?php
+$menu = WPRM_Modal::get_modal_menu();
+require_once( WPRM_DIR . 'templates/admin/modal/modal.php' );
+?>
