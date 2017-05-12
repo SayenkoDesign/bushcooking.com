@@ -21,7 +21,6 @@ $stylesheet_app = new StyleSheet('bush_app_css', StyleSheet::getThemeURL() . '/s
 add_action('wp_enqueue_scripts', function () {
     wp_deregister_script('jquery');
 });
-$script_adsense = new Script('adsense', '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js');
 $script_jquery = new Script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js');
 $script_slickjs = new Script('slick', '//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js', ['jquery']);
 $script_fancybox = new Script('fancybox', Script::getThemeURL() . '/bower_components/fancybox/dist/jquery.fancybox.js');
@@ -30,7 +29,6 @@ $script_app = new Script('bush_app_js', Script::getThemeURL() . '/js/app.min.js'
     'foundation',
     'fancybox',
     'slick',
-    'adsense'
 ], time());
 
 // menus

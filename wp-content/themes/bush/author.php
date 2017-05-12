@@ -3,23 +3,24 @@ get_header();
 global $app;
 
 $content = [];
-$author_id = get_the_author_meta('ID');
-$acf_user = 'user_'.$author;
-$author = [
+$current_author = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
+$author_id = $current_author->ID;
+$acf_user = 'user_'.$author_id;
+$author_meta = [
     'id' => $author_id,
-    'website' => get_the_author_meta('url'),
-    'google' => get_the_author_meta('googleplus'),
-    'twitter' => get_the_author_meta('twitter'),
-    'facebook' => get_the_author_meta('facebook'),
-    'linkedin' => get_the_author_meta('linkedin'),
-    'pinterest' => get_the_author_meta('pinterest'),
-    'instagram' => get_the_author_meta('instagram'),
+    'website' => get_the_author_meta('url', $author_id),
+    'google' => get_the_author_meta('googleplus', $author_id),
+    'twitter' => get_the_author_meta('twitter', $author_id),
+    'facebook' => get_the_author_meta('facebook', $author_id),
+    'linkedin' => get_the_author_meta('linkedin', $author_id),
+    'pinterest' => get_the_author_meta('pinterest', $author_id),
+    'instagram' => get_the_author_meta('instagram', $author_id),
     'overview' => get_field('overview', $acf_user),
     'bio' => get_field('bio', $acf_user),
     'bio_teaser' => get_field('bio_teaser', $acf_user),
-    'name' => get_the_author_meta('first_name') . ' ' . get_the_author_meta('last_name'),
-    'first_name' => get_the_author_meta('first_name'),
-    'last_name' => get_the_author_meta('last_name'),
+    'name' => get_the_author_meta('first_name', $author_id) . ' ' . get_the_author_meta('last_name', $author_id),
+    'first_name' => get_the_author_meta('first_name', $author_id),
+    'last_name' => get_the_author_meta('last_name', $author_id),
 ];
 $args = [
     'post_type' => 'recipes' ,
@@ -82,6 +83,6 @@ $post = get_post(131);
 setup_postdata($post);
 echo $app->render('pages/author.html.twig', [
     'content' => $content,
-    'author' => $author,
+    'author' => $author_meta,
 ]);
 get_footer();
