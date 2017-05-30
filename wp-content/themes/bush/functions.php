@@ -49,6 +49,8 @@ $recipes = new PostType(
     ['title', 'author', 'comments', 'thumbnail'],
     true
 );
+$recipes->setMenuIcon('dashicons-carrot');
+$recipes->register();
 
 // add taxonomies
 $Difficulty = new Taxonomy('difficulty', 'recipes');

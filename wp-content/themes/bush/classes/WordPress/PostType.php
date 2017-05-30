@@ -239,7 +239,6 @@ class PostType
             'not_found'          => __('No ' . $plural_name . ' found.'),
             'not_found_in_trash' => __('No ' . $plural_name . ' found in Trash.'),
         ];
-        $this->register();
     }
 
     public function register()
@@ -253,6 +252,7 @@ class PostType
             'hierarchical' => $this->hierarchical,
             'supports' => $this->supports,
             'map_meta_cap' => $this->map_meta_cap,
+            'menu_icon' => $this->menu_icon,
         ];
         add_action('init', function() use($args) {
             register_post_type($this->name, $args);
