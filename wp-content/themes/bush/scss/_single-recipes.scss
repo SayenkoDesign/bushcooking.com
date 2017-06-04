@@ -54,11 +54,15 @@
   }
   .row h5 {
     font-size: rem-calc(20px);
+    font-family: $body-font-family;
+    font-weight: normal;
   }
 }
 #directions {
   h5 {
     font-size: rem-calc(20px);
+    font-family: $body-font-family;
+    font-weight: normal;
   }
   ol {
     margin-top: 1rem;
