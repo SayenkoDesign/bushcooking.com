@@ -4,6 +4,7 @@
   "private": "true",
   "dependencies": {
     "foundation": "zurb/bower-foundation",
-    "fancybox": "^3.0.47"
+    "fancybox": "^3.0.47",
+    "sticky-kit": "^1.1.2"
   }
 }

@@ -1,6 +1,6 @@
 <table id="details">
     <tr>
-        <th>Country:</th>
+        <th>Recipe Origin</th>
         <td>
             {% for term in countries %}
                 <a href="{{ term.link }}">{{ term.term }}</a>
@@ -10,7 +10,7 @@
         </td>
     </tr>
     <tr>
-        <th>Rating:</th>
+        <th>Rating</th>
         <td>
             <div class="rating">
                 {% if rating %}
@@ -32,7 +32,7 @@
         </td>
     </tr>
     <tr>
-        <th>Servings:</th>
+        <th>Servings</th>
         <td itemprop="recipeYield">{{ the_field('servings') }}</td>
     </tr>
     <tr>
