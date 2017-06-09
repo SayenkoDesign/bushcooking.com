@@ -110,6 +110,11 @@
             </div>
         </div>
     </div>
+    <div id="mobile-sponsored-ad" class="hide-for-medium">
+        <div class="row columns">
+            {{ do_shortcode('[sponsored_ad]') }}
+        </div>
+    </div>
     {% include 'partials/related.html.twig' %}
     {{ comments_template() }}
 {% endblock %}

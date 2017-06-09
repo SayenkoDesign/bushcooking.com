@@ -71,4 +71,9 @@ jQuery(function() {
     jQuery('#recipe-instructions .switch-input').on('change', function(){
         jQuery(this).parent('div').parent('div').next('div').children('.switch-text').toggleClass('strike');
     });
+
+    jQuery("#sponsored-ad").stick_in_parent({
+        offset_top: 64,
+        recalc_every: 1
+    });
 });

@@ -4762,80 +4762,84 @@ h1, h2, h3, h4 {
     margin-top: 1rem; }
   /* line 55, ../scss/_single-recipes.scss */
   #recipe-instructions .row h5 {
-    font-size: 1.42857rem; }
+    font-size: 1.42857rem;
+    font-family: "Raleway", sans-serif;
+    font-weight: normal; }
 
-/* line 60, ../scss/_single-recipes.scss */
+/* line 62, ../scss/_single-recipes.scss */
 #directions h5 {
-  font-size: 1.42857rem; }
-/* line 63, ../scss/_single-recipes.scss */
+  font-size: 1.42857rem;
+  font-family: "Raleway", sans-serif;
+  font-weight: normal; }
+/* line 67, ../scss/_single-recipes.scss */
 #directions ol {
   margin-top: 1rem;
   margin-left: 3rem;
   counter-reset: customlistcounter;
   list-style: none; }
-/* line 69, ../scss/_single-recipes.scss */
+/* line 73, ../scss/_single-recipes.scss */
 #directions li {
   font-size: 1.5rem;
   position: relative; }
-  /* line 72, ../scss/_single-recipes.scss */
+  /* line 76, ../scss/_single-recipes.scss */
   #directions li:not(.skip) {
     counter-increment: customlistcounter; }
-    /* line 74, ../scss/_single-recipes.scss */
+    /* line 78, ../scss/_single-recipes.scss */
     #directions li:not(.skip):before {
       position: absolute;
       content: counter(customlistcounter) ".";
       left: -1.5rem;
       top: -0.5rem; }
-  /* line 81, ../scss/_single-recipes.scss */
+  /* line 85, ../scss/_single-recipes.scss */
   #directions li.skip {
     margin-bottom: 1rem;
     margin-left: -40px; }
-/* line 86, ../scss/_single-recipes.scss */
+/* line 90, ../scss/_single-recipes.scss */
 #directions .content {
   position: relative;
   top: -0.2rem;
   font-size: 1rem;
   margin-bottom: 2rem; }
 
-/* line 94, ../scss/_single-recipes.scss */
+/* line 98, ../scss/_single-recipes.scss */
 #share {
   margin-bottom: 1rem; }
 
-/* line 98, ../scss/_single-recipes.scss */
+/* line 102, ../scss/_single-recipes.scss */
 #side {
   background-color: #FFF;
   padding: 1.71429rem;
   border: 1px solid #fcdedc; }
-  /* line 102, ../scss/_single-recipes.scss */
+  /* line 106, ../scss/_single-recipes.scss */
   #side #author {
     margin-bottom: 2rem; }
-    /* line 104, ../scss/_single-recipes.scss */
+    /* line 108, ../scss/_single-recipes.scss */
     #side #author img {
       border-radius: 100%; }
-    /* line 107, ../scss/_single-recipes.scss */
+    /* line 111, ../scss/_single-recipes.scss */
     #side #author h4 {
       float: right; }
-  /* line 111, ../scss/_single-recipes.scss */
+  /* line 115, ../scss/_single-recipes.scss */
   #side #details, #side #share {
     clear: both;
     width: 100%;
     border: 0 solid transparent; }
-    /* line 115, ../scss/_single-recipes.scss */
+    /* line 119, ../scss/_single-recipes.scss */
     #side #details tr, #side #details tbody, #side #details th, #side #details td, #side #share tr, #side #share tbody, #side #share th, #side #share td {
       border: 0 solid transparent; }
-    /* line 116, ../scss/_single-recipes.scss */
+    /* line 120, ../scss/_single-recipes.scss */
     #side #details tr, #side #share tr {
       background-color: transparent; }
-    /* line 119, ../scss/_single-recipes.scss */
+    /* line 123, ../scss/_single-recipes.scss */
     #side #details th, #side #share th {
       font-weight: normal;
       text-align: left;
       padding-left: 0; }
-    /* line 124, ../scss/_single-recipes.scss */
+    /* line 128, ../scss/_single-recipes.scss */
     #side #details td, #side #share td {
       text-align: right;
       padding-right: 0; }
-  /* line 129, ../scss/_single-recipes.scss */
+  /* line 133, ../scss/_single-recipes.scss */
   #side #share .stButton .stLarge {
     border-radius: 100%;
     width: 30px;
@@ -4845,25 +4849,25 @@ h1, h2, h3, h4 {
     font-size: 1rem;
     background-image: url("../images/social-icons.png") !important;
     color: transparent; }
-  /* line 139, ../scss/_single-recipes.scss */
+  /* line 143, ../scss/_single-recipes.scss */
   #side .st_pinterest_large .stLarge {
     background-position: 0 !important; }
-  /* line 140, ../scss/_single-recipes.scss */
+  /* line 144, ../scss/_single-recipes.scss */
   #side .st_facebook_large .stLarge {
     background-position: -35px !important; }
-  /* line 141, ../scss/_single-recipes.scss */
+  /* line 145, ../scss/_single-recipes.scss */
   #side .st_stumbleupon_large .stLarge {
     background-position: -69px !important; }
-  /* line 142, ../scss/_single-recipes.scss */
+  /* line 146, ../scss/_single-recipes.scss */
   #side .st_twitter_large .stLarge {
     background-position: -103px !important; }
-  /* line 143, ../scss/_single-recipes.scss */
+  /* line 147, ../scss/_single-recipes.scss */
   #side .st_googleplus_large .stLarge {
     background-position: -138px !important; }
-  /* line 144, ../scss/_single-recipes.scss */
+  /* line 148, ../scss/_single-recipes.scss */
   #side .st_print_large .stLarge {
     background-position: -175px !important; }
-  /* line 145, ../scss/_single-recipes.scss */
+  /* line 149, ../scss/_single-recipes.scss */
   #side .st_email_large .stLarge {
     background-position: -209px !important; }
 

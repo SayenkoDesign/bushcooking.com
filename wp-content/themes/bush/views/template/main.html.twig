@@ -5,18 +5,22 @@
     <div id="content" class="content" role="main">
         {% block title %}
         {% endblock %}
-        <div class="row" {% if content_attr is defined %}{{ content_attr|raw }}{% endif %}>
-            <div class="small-12 {% if has_sidebar %}medium-7 large-8{% endif %} columns">
+        <div class="row" {% if content_attr is defined %}{{ content_attr|raw }}{% endif %} data-equalizer data-equalize-on="medium">
+            <div class="small-12 {% if has_sidebar %}medium-7 large-8{% endif %} columns" data-equalizer-watch>
                 {% block content %}
                 {% endblock %}
             </div>
             {% if has_sidebar %}
-                <div class="small-12 medium-5 large-4 columns large-collapse">
+                <div class="small-12 medium-5 large-4 columns large-collapse" data-equalizer-watch>
                     <div id="side">
                         {% block sidebar %}
                         {% endblock %}
                     </div>
-                    {% include "partials/sponsored-ad.html.twig" %}
+                    <div id="sponsored-ad" class="hide-for-small show-for-large">
+                        <div class="row columns">
+                            {{ do_shortcode('[sponsored_ad]') }}
+                        </div>
+                    </div>
                 </div>
             {% endif %}
         </div>
