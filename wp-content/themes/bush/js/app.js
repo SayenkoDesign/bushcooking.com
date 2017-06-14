@@ -4,7 +4,6 @@
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-73280214-1', 'auto');
-ga('send', 'pageview');
 
 jQuery(function() {
     $('#primary-nav').attr({
