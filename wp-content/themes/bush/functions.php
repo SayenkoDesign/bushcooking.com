@@ -253,6 +253,12 @@ add_filter('user_contactmethods', function ($profile_fields) {
     return $profile_fields;
 });
 
+add_action('pre_get_posts', function ($query){
+    if ($query->is_author){
+        $query->set('post_type', ['recipes']);
+    }
+});
+
 // remove taxonomy boxes
 add_action( 'admin_menu', function (){
     remove_meta_box('food_categorydiv', 'recipes', 'side');

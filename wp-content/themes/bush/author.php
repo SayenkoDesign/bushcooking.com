@@ -22,15 +22,9 @@ $author_meta = [
     'first_name' => get_the_author_meta('first_name', $author_id),
     'last_name' => get_the_author_meta('last_name', $author_id),
 ];
-$args = [
-    'post_type' => 'recipes' ,
-    'author' => get_queried_object_id(),
-    'posts_per_page' => 12,
-    'paged' => $paged
-];
-$custom_posts = new WP_Query( $args );
-while ($custom_posts->have_posts()) {
-    $custom_posts->the_post();
+
+while (have_posts()) {
+    the_post();
     switch(get_post_type()) {
         case 'recipes':
             $comments = get_comments([
