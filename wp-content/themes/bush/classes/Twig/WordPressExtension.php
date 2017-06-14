@@ -123,6 +123,11 @@ class WordPressExtension extends \Twig_Extension
             return get_the_title();
         }, $html_safe);
 
+        // the_excerpt
+        $funcs[] = new Twig_SimpleFunction('the_excerpt', function() {
+            return get_the_excerpt();
+        }, $html_safe);
+
         // the_content
         $funcs[] = new Twig_SimpleFunction('the_content', function() {
             return the_content();
