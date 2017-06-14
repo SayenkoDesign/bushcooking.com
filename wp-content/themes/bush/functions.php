@@ -86,22 +86,6 @@ if( function_exists('acf_add_options_page') ) {
     ));
 }
 
-// tabbed short code
-remove_filter( 'the_content', 'wpautop' );
-add_filter( 'the_content', 'wpautop' , 99);
-add_filter( 'the_content', 'shortcode_unautop',100 );
-
-add_shortcode( 'bush_tabbed_titles', function ( $atts, $content = '' ) {
-    $remove_br_right = str_replace('<br />[', '[', $content);
-    $remove_br_left = str_replace(']<br />', ']', $remove_br_right);
-    $remove_p_right = str_replace('</p>[', '[', $remove_br_left);
-    $filtered_content = str_replace(']<p>', ']', $remove_p_right);
-    $inner_content = do_shortcode($filtered_content);
-    return <<<HTML
-<ul class="tabs" data-tabs>$inner_content</ul>
-HTML;
-});
-
 add_shortcode( 'bush_tabbed_title', function ( $atts, $content = '' ) {
     static $tabbed_title_counter = 0;
     $tabbed_title_counter++;
