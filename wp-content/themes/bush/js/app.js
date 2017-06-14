@@ -71,8 +71,11 @@ jQuery(function() {
         jQuery(this).parent('div').parent('div').next('div').children('.switch-text').toggleClass('strike');
     });
 
-    jQuery("#sponsored-ad").stick_in_parent({
-        offset_top: 64,
-        recalc_every: 1
-    });
+    var sponsored_ad = jQuery("#sponsored-ad");
+    if(!sponsored_ad.find('iframe').length){
+        sponsored_ad.stick_in_parent({
+            offset_top: 64,
+            recalc_every: 1
+        });
+    }
 });
