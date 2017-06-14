@@ -5,8 +5,8 @@
     <div id="content" class="content" role="main">
         {% block title %}
         {% endblock %}
-        <div class="row" {% if content_attr is defined %}{{ content_attr|raw }}{% endif %} data-equalizer data-equalize-on="medium">
-            <div class="small-12 {% if has_sidebar %}medium-7 large-8{% endif %} columns" data-equalizer-watch>
+        <div class="row" {% if content_attr is defined %}{{ content_attr|raw }}{% endif %} {% if has_sidebar %}data-equalizer data-equalize-on="medium"{% endif %}>
+            <div class="small-12 {% if has_sidebar %}medium-7 large-8{% endif %} columns" {% if has_sidebar %}data-equalizer-watch{% endif %}>
                 {% block content %}
                 {% endblock %}
             </div>
