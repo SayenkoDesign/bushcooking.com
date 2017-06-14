@@ -5,19 +5,19 @@
     </div>
 {% endblock %}
 {% block content %}
-    {% if the_content() %}
+    {% if content %}
         {% if the_post_thumbnail() %}
             <div class="row">
                 <div class="medium-6 large-4 columns">
                     {{ the_post_thumbnail() }}
                 </div>
                 <div class="medium-6 large-8 columns">
-                    {{ do_shortcode(the_content()) | raw }}
+                    {{ content | raw }}
                 </div>
             </div>
         {% else %}
             <div class="row column">
-                {{ do_shortcode(the_content()) | raw }}
+                {{ content | raw }}
             </div>
         {% endif %}
     {% else %}
