@@ -1,0 +1,15 @@
+.sponsored-ad {
+    margin: 2rem 0;
+    padding: 6px;
+    background-color: #fff;
+    border: 1px solid #fcdedc;
+}
+.sponsored-ad.ad {
+    text-align: center;
+}
+.sponsored-ad.default-ad p {
+    margin: 0;
+}
+.sponsored-ad.default-ad p > br {
+    display: none;
+}
