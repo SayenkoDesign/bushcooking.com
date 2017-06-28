@@ -1,6 +1,6 @@
 <div id="signup">
     <div class="row column">
-        <h4 class="text-center">GET OUTDOOR COOKING RECIPIES & EXPERT TECHINQUES</h4>
+        <h4 class="text-center">KEEP UP TO DATE WITH BUSH COOKING RECIPES, TECHNIQUES AND ADVENTURES</h4>
         
 		<form class="signup" action="{{ blog_info('url') }}/thank-you-newsletter/" method="post" enctype="application/x-www-form-urlencoded">	
 			<input id="email" name="email" type="email" placeholder="Sign Up for Our Newsletter" value="" required>
@@ -40,11 +40,11 @@
                 <li><a href="{{ the_field("twitter", "option") }}" target="_blank"><i class="fa fa-twitter"></i></a></li>
                 <li><a href="{{ the_field("google_plus", "option") }}" target="_blank"><i class="fa fa-google-plus"></i></a></li>
             </ul>
-            <p><a href="{{ the_field("advertise_with_us_page", "option") }}">Advertise with Us</a></p>
+            <p><a href="{{ the_field("contact_us_page", "option") }}">Contact Us</a></p>
             <img src="{{ stylesheet_directory_uri }}/images/advertise-with-us-bottom.png" alt="">
         </div>
         <div class="columns end" id="blog-categories">
-            <h4>BLOG CATEGORIES</h4>
+            <h4>TECHNIQUE CATEGORIES</h4>
             {{
                 wp_nav_menu({
                     'theme_location' : 'categories',
