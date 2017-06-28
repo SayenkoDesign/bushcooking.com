@@ -1,4 +1,5 @@
 {% if has_sidebar is not defined %}{% set has_sidebar = false %}{% endif %}
+{% if has_first_sidebar is not defined %}{% set has_first_sidebar = false %}{% endif %}
 {% block pre_content %}
 {% endblock %}
 <div id="primary" class="content-area">
@@ -6,12 +7,25 @@
         {% block title %}
         {% endblock %}
         <div class="row" {% if content_attr is defined %}{{ content_attr|raw }}{% endif %} {% if has_sidebar %}data-equalizer data-equalize-on="medium"{% endif %}>
-            <div class="small-12 {% if has_sidebar %}medium-7 large-8{% endif %} columns" {% if has_sidebar %}data-equalizer-watch{% endif %}>
+            {% if has_first_sidebar %}
+                <div class="small-12 medium-5 large-4 columns large-collapse hide-for-medium" style="margin-bottom:16px;">
+                    <div id="side">
+                        {% block first_sidebar %}
+                        {% endblock %}
+                    </div>
+                    <div id="sponsored-ad" class="hide-for-small show-for-large">
+                        <div class="row columns">
+                            {{ do_shortcode('[sponsored_ad]') }}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="small-12 {% if has_sidebar or has_first_sidebar%}medium-7 large-8{% endif %} columns medium-order-1" {% if has_sidebar %}data-equalizer-watch{% endif %}>
                 {% block content %}
                 {% endblock %}
             </div>
-            {% if has_sidebar %}
-                <div class="small-12 medium-5 large-4 columns large-collapse" data-equalizer-watch>
+            {% if has_sidebar or has_first_sidebar%}
+                <div class="small-12 medium-5 large-4 columns large-collapse {% if has_first_sidebar %}hide-for-small-only{% endif %}" data-equalizer-watch>
                     <div id="side">
                         {% block sidebar %}
                         {% endblock %}

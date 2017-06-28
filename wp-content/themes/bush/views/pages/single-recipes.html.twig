@@ -1,5 +1,5 @@
 {% extends 'template/main.html.twig' %}
-{% set has_sidebar = true %}
+{% set has_first_sidebar = true %}
 {% set content_attr = 'itemscope itemtype="http://schema.org/Recipe"' %}
 {% block content %}
     {% if nutrition.cals or nutrition.fat or nutrition.carbs or nutrition.protein or nutrition.cholesterol or nutrition.sodium %}
@@ -118,7 +118,8 @@
     {% include 'partials/related.html.twig' %}
     {{ comments_template() }}
 {% endblock %}
-{% block sidebar %}
+{% block first_sidebar %}
+    {% block sidebar %}
     <div class="hide" itemprop="author" itemscope itemtype="http://schema.org/Person">
         <span class="hide" itemprop="name">{{ author.name }}</span>
         <span class="hide" itemprop="familyName">{{ author.last_name }}</span>
@@ -128,4 +129,5 @@
     {% include "partials/sidebar-recipe-details.html.twig" %}
     {% include "partials/sidebar-custom-content.html.twig" %}
     {% include 'partials/sharethis.html.twig' %}
+    {% endblock %}
 {% endblock %}
