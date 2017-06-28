@@ -4762,13 +4762,13 @@ h1, h2, h3, h4 {
     margin-top: 1rem; }
   /* line 55, ../scss/_single-recipes.scss */
   #recipe-instructions .row h5 {
-    font-size: 1.42857rem;
+    font-size: 1.28571rem;
     font-family: "Raleway", sans-serif;
     font-weight: normal; }
 
 /* line 62, ../scss/_single-recipes.scss */
 #directions h5 {
-  font-size: 1.42857rem;
+  font-size: 1.28571rem;
   font-family: "Raleway", sans-serif;
   font-weight: normal; }
 /* line 67, ../scss/_single-recipes.scss */
