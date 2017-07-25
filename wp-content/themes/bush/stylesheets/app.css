@@ -5280,19 +5280,22 @@ h1, h2, h3, h4 {
 #author-social a.instagram .fa-circle, #author-lightbox-social a.instagram .fa-circle {
   color: #405F85; }
 /* line 46, ../scss/_author.scss */
+#author-social a.youtube .fa-circle, #author-lightbox-social a.youtube .fa-circle {
+  color: #cc181e; }
+/* line 49, ../scss/_author.scss */
 #author-social a .fa, #author-lightbox-social a .fa {
   color: #FFF; }
-/* line 49, ../scss/_author.scss */
+/* line 52, ../scss/_author.scss */
 #author-social a .fa-2x, #author-lightbox-social a .fa-2x {
   font-size: 1.14286rem; }
-/* line 52, ../scss/_author.scss */
+/* line 55, ../scss/_author.scss */
 #author-social a .fa-stack-2x, #author-lightbox-social a .fa-stack-2x {
   font-size: 2.57143rem; }
-/* line 55, ../scss/_author.scss */
+/* line 58, ../scss/_author.scss */
 #author-social a .fa-stack-1x, #author-lightbox-social a .fa-stack-1x {
   position: relative;
   top: 0.14286rem; }
-/* line 60, ../scss/_author.scss */
+/* line 63, ../scss/_author.scss */
 #author-social a:hover .fa-circle, #author-lightbox-social a:hover .fa-circle {
   opacity: 0.8; }
 

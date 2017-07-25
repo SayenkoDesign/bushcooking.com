@@ -15,6 +15,7 @@ $author_meta = [
     'linkedin' => get_the_author_meta('linkedin', $author_id),
     'pinterest' => get_the_author_meta('pinterest', $author_id),
     'instagram' => get_the_author_meta('instagram', $author_id),
+    'youtube' => get_the_author_meta('youtube', $author_id),
     'overview' => get_field('overview', $acf_user),
     'bio' => get_field('bio', $acf_user),
     'bio_teaser' => get_field('bio_teaser', $acf_user),

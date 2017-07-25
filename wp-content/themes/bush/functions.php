@@ -249,6 +249,7 @@ add_filter('user_contactmethods', function ($profile_fields) {
     $profile_fields['instagram'] = 'Instagram';
     $profile_fields['twitter'] = 'Twitter';
     $profile_fields['facebook'] = 'Facebook';
+    $profile_fields['youtube'] = 'youtube';
 
     return $profile_fields;
 });
