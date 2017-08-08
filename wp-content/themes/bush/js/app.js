@@ -56,7 +56,7 @@ jQuery(function() {
     });
 
     jQuery(window).scroll(function (event) {
-        var scroll = $(window).scrollTop();
+        var scroll = jQuery(window).scrollTop();
         var sticky_container = jQuery('#top-bar-container');
         if(scroll > 0) {
             sticky_container.addClass('shrink');
@@ -71,7 +71,7 @@ jQuery(function() {
         jQuery(this).parent('div').parent('div').next('div').children('.switch-text').toggleClass('strike');
     });
 
-    var sponsored_ad = jQuery("#sponsored-ad");
+    var sponsored_ad = jQuery(".hide-for-small-only #sponsored-ad");
     if(!sponsored_ad.find('iframe').length){
         sponsored_ad.stick_in_parent({
             offset_top: 64,
