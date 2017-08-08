@@ -304,7 +304,7 @@ acf_add_local_field_group(array (
             ),
             'taxonomy' => array (
             ),
-            'allow_null' => 0,
+            'allow_null' => 1,
             'multiple' => 0,
             'return_format' => 'id',
             'ui' => 1,
@@ -359,7 +359,7 @@ if($targeted_country_codes) {
                 0 => 'sponsored_ads',
             ),
             'taxonomy' => array(),
-            'allow_null' => 0,
+            'allow_null' => 1,
             'multiple' => 0,
             'return_format' => 'id',
             'ui' => 1,
