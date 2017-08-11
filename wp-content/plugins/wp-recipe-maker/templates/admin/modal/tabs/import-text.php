@@ -70,6 +70,11 @@
 			<?php esc_html_e( 'Highlight this part of the recipe:', 'wp-recipe-maker' ); ?> <strong><?php esc_html_e( 'Notes', 'wp-recipe-maker' ); ?></strong>
 		</div>
 	</div>
+	<div id="import-text-step-waiting" class="import-text-step">
+		<div class="import-text-description">
+			<?php esc_html_e( 'Please wait for text import to finish.', 'wp-recipe-maker' ); ?>
+		</div>
+	</div>
 	<div id="import-text-step-finished" class="import-text-step">
 		<div class="import-text-description">
 			<?php esc_html_e( 'Finished the text import.', 'wp-recipe-maker' ); ?>

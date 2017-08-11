@@ -58,7 +58,7 @@
 							$label = isset( $tab_options['label'] ) ? $tab_options['label'] : '';
 							$callback = isset( $tab_options['callback'] ) ? $tab_options['callback'] : '';
 							$init = isset( $tab_options['init'] ) ? $tab_options['init'] : '';
-							$button = isset( $tab_options['button'] ) ? $tab_options['button'] : __( 'Insert', 'wp-recipe-maker' );
+							$button = isset( $tab_options['button'] ) ? $tab_options['button'] : __( 'Insert & Close', 'wp-recipe-maker' );
 
 							echo '<a href="#" class="wprm-menu-item' . esc_attr( $tab_class ) . '" data-tab="' . esc_attr( $tab_uid ) . '" data-callback="' . esc_attr( $callback ) . '" data-init="' . esc_attr( $init ) . '" data-button="' . esc_attr( $button ) . '">' . esc_html( $label ) . '</a>';
 						}
@@ -94,7 +94,8 @@
 				<div class="wprm-frame-toolbar">
 					<div class="wprm-toolbar">
 						<div class="wprm-toolbar-primary search-form">
-							<button type="button" class="button wprm-button button-primary button-large wprm-button-action"><?php esc_html_e( 'Insert', 'wp-recipe-maker' ); ?></button>
+							<button type="button" class="button wprm-button button-primary button-large wprm-button-action"><?php esc_html_e( 'Insert & Close', 'wp-recipe-maker' ); ?></button>
+							<button type="button" class="button wprm-button button-primary button-large wprm-button-action-save"><?php esc_html_e( 'Save', 'wp-recipe-maker' ); ?></button>
 						</div>
 					</div>
 				</div>

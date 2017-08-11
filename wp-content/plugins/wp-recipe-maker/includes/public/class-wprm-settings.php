@@ -38,7 +38,7 @@ class WPRM_Settings {
 		// Appearance.
 		'recipe_image_use_featured' => false,
 		'recipe_author_display_default' => 'disabled',
-		'show_nutrition_label' => false,
+		'show_nutrition_label' => 'disabled',
 		'template_font_size' => '',
 		'template_font_header' => '',
 		'template_font_regular' => '',
@@ -82,6 +82,7 @@ class WPRM_Settings {
 		add_action( 'admin_post_wprm_settings_appearance', array( __CLASS__, 'form_save_settings_appearance' ) );
 		add_action( 'admin_post_wprm_settings_labels', array( __CLASS__, 'form_save_settings_labels' ) );
 		add_action( 'admin_post_wprm_settings_features', array( __CLASS__, 'form_save_settings_features' ) );
+		add_action( 'admin_post_wprm_settings_import', array( __CLASS__, 'form_save_settings_import' ) );
 		add_action( 'admin_post_wprm_settings_advanced', array( __CLASS__, 'form_save_settings_advanced' ) );
 
 		add_action( 'wprm_settings_page', array( __CLASS__, 'settings_page' ) );
@@ -121,6 +122,8 @@ class WPRM_Settings {
 			require_once( WPRM_DIR . 'templates/admin/settings/labels.php' );
 		} elseif ( 'features' === $sub ) {
 			require_once( WPRM_DIR . 'templates/admin/settings/features.php' );
+		} elseif ( 'import' === $sub ) {
+			require_once( WPRM_DIR . 'templates/admin/settings/import.php' );
 		} elseif ( 'advanced' === $sub ) {
 			require_once( WPRM_DIR . 'templates/admin/settings/advanced.php' );
 		}
@@ -195,7 +198,7 @@ class WPRM_Settings {
 	 * @since    1.2.0
 	 */
 	private static function load_settings() {
-		self::$settings = get_option( 'wprm_settings', array() );
+		self::$settings = apply_filters( 'wprm_settings', get_option( 'wprm_settings', array() ) );
 	}
 
 	/**
@@ -224,7 +227,7 @@ class WPRM_Settings {
 		if ( isset( $_POST['wprm_settings'] ) && wp_verify_nonce( sanitize_key( $_POST['wprm_settings'] ), 'wprm_settings' ) ) { // Input var okay.
 			$recipe_image_use_featured = isset( $_POST['recipe_image_use_featured'] ) && sanitize_key( $_POST['recipe_image_use_featured'] ) ? true : false; // Input var okay.
 			$recipe_author_display_default = isset( $_POST['recipe_author_display_default'] ) ? sanitize_text_field( wp_unslash( $_POST['recipe_author_display_default'] ) ) : ''; // Input var okay.
-			$show_nutrition_label = isset( $_POST['show_nutrition_label'] ) && sanitize_key( $_POST['show_nutrition_label'] ) ? true : false; // Input var okay.
+			$show_nutrition_label = isset( $_POST['show_nutrition_label'] ) ? sanitize_text_field( wp_unslash( $_POST['show_nutrition_label'] ) ) : ''; // Input var okay.
 
 			$template_font_size = isset( $_POST['template_font_size'] ) ? sanitize_text_field( wp_unslash( $_POST['template_font_size'] ) ) : ''; // Input var okay.
 			$template_font_header = isset( $_POST['template_font_header'] ) ? sanitize_text_field( wp_unslash( $_POST['template_font_header'] ) ) : ''; // Input var okay.
@@ -253,10 +256,12 @@ class WPRM_Settings {
 			$settings = array();
 
 			$settings['recipe_image_use_featured'] = $recipe_image_use_featured;
-			$settings['show_nutrition_label'] = $show_nutrition_label;
 
 			if ( in_array( $recipe_author_display_default, array( 'disabled', 'post_author', 'custom' ) ) ) {
 				$settings['recipe_author_display_default'] = $recipe_author_display_default;
+			}
+			if ( in_array( $show_nutrition_label, array( 'disabled', 'left', 'center', 'right' ) ) ) {
+				$settings['show_nutrition_label'] = $show_nutrition_label;
 			}
 
 			$settings['template_font_size'] = $template_font_size;
@@ -335,6 +340,31 @@ class WPRM_Settings {
 			self::update_settings( $settings );
 		}
 		wp_safe_redirect( admin_url( 'admin.php?page=wprm_settings&sub=features' ) );
+		exit();
+	}
+
+	/**
+	 * Save the import settings.
+	 *
+	 * @since    1.20.0
+	 */
+	public static function form_save_settings_import() {
+		if ( isset( $_POST['wprm_settings'] ) && wp_verify_nonce( sanitize_key( $_POST['wprm_settings'] ), 'wprm_settings' ) ) { // Input var okay.
+			$import_range_keyword = isset( $_POST['import_range_keyword'] ) ? sanitize_text_field( wp_unslash( $_POST['import_range_keyword'] ) ) : ''; // Input var okay.
+			$import_units = isset( $_POST['import_units'] ) ? wp_kses_post( wp_unslash( $_POST['import_units'] ) ) : ''; // Input var okay.
+			$import_notes_identifier = isset( $_POST['import_notes_identifier'] ) ? sanitize_key( wp_unslash( $_POST['import_notes_identifier'] ) ) : ''; // Input var okay.
+			$import_notes_remove_identifier = isset( $_POST['import_notes_remove_identifier'] ) && sanitize_key( $_POST['import_notes_remove_identifier'] ) ? true : false; // Input var okay.
+
+			$settings = array();
+
+			$settings['import_range_keyword'] = $import_range_keyword;
+			$settings['import_units'] = preg_split( '/[\r\n]+/', $import_units );
+			$settings['import_notes_identifier'] = $import_notes_identifier;
+			$settings['import_notes_remove_identifier'] = $import_notes_remove_identifier;
+
+			self::update_settings( $settings );
+		}
+		wp_safe_redirect( admin_url( 'admin.php?page=wprm_settings&sub=import' ) );
 		exit();
 	}
 

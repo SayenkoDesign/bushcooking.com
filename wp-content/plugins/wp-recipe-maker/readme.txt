@@ -3,7 +3,7 @@ Contributors: BrechtVds
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QG7KZMGFU325Y
 Tags: recipe, recipes, ingredients, food, cooking, seo, schema.org, json-ld
 Requires at least: 4.4
-Tested up to: 4.7.4
+Tested up to: 4.8
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -96,6 +96,28 @@ Yes! We pride ourselves on offering awesome support and almost always answer sup
 4. Example Pasta Pesto recipe with the Tastefully Simple (EasyRecipe like) template.
 
 == Changelog ==
+
+= 1.20.0 =
+* Feature: Intermediate save when creating or editing recipes
+* Feature: Settings to personalize the ingredient text import
+* Improvement: Abbreviations in ingredient text import
+* Improvement: Immediately update parent post when importing
+* Improvement: Try to fix serialize issues when getting ingredients or instructions
+* Improvement: Prevent styling differences in instructions
+* Fix: EasyRecipe recipes stuck in to import list
+* Fix: Remove leftover debug code
+
+= 1.19.1 =
+* Fix: PHP Notice when saving recipes
+
+= 1.19.0 =
+* Feature: Sub- and superscript in summary and instructions
+* Feature: Allow for basic HTML in ingredients
+* Feature: Setting to align nutrition label left, center or right
+* Improvement: Streamlined import process using AJAX
+* Fix: Ingredients not importing when going too fast in the text import
+* Fix: Prevent wpautop from breaking our icons
+* Fix: Prevent compatibilty bugs when saving posts
 
 = 1.18.0 =
 * Feature: Add custom styling to the recipe print page
@@ -291,6 +313,15 @@ Yes! We pride ourselves on offering awesome support and almost always answer sup
 * Feature: Fallback recipe when the plugin is disabled
 
 == Upgrade notice ==
+
+= 1.20.0 =
+Update for a few great tweaks
+
+= 1.19.1 =
+Update to get rid of a PHP notice
+
+= 1.19.0 =
+Update to ensure WordPress 4.8 compatibility
 
 = 1.18.0 =
 Update to easily customize the recipe print page

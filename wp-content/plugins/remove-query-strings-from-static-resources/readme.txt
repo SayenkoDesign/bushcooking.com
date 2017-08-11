@@ -1,5 +1,5 @@
-=== Remove Query Strings From Static Resources ===
-Contributors: speedupmywebsite
+﻿=== Remove Query Strings From Static Resources ===
+Contributors: speedupmywebsite, yourwpexpert
 Donate link: https://www.speedupmywebsite.com/
 Tags: remove, query, strings, static, resources, pingdom, gtmetrix, yslow, pagespeed, speed, optimize, performance, cache
 Requires at least: 3.0.1
@@ -11,11 +11,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Remove query strings from static resources like CSS & JS files.
 
 == Description ==
+
+= Features =
 This plugin will remove query strings from static resources like CSS & JS files inside the HTML `<head>` element to improve your speed scores in services like Pingdom, GTmetrix, PageSpeed and YSlow.
 
-= Looking For WordPress Speed Optimization? = 
-
-Want to speed up your WordPress site, get better rankings in Google, improve your conversions and bring more visitors to your website? Then check out [Speed Up My Website](https://www.speedupmywebsite.com/).
+Resources with a "?" or "&" in the URL are not cached by some proxy caching servers, and moving the query string and encode the parameters into the URL will increase your WordPress site performance significant.
 
 = Disclaimer =
 
@@ -24,6 +24,10 @@ This plugin will ONLY remove query strings from resources located inside the HTM
 = Looking For Support? =
 
 The plugin author does not provide active support on the wordpress.org forum. Support and requests for custom configurations to the plugin are available at [Speed Up My Website](https://www.speedupmywebsite.com/).
+
+= Looking For WordPress Speed Optimization? = 
+
+Want to speed up your WordPress site, to get better rankings in Google, improve your conversions and bring more visitors to your website? Then check out [Speed Up My Website](https://www.speedupmywebsite.com/).
 
 = Reference tests using the latest WordPress version =
 
@@ -64,9 +68,6 @@ There are 3 different ways to install Remove Query Strings From Static Resources
 2. Unzip the zip file, which will extract the "remove-query-strings-from-static-resources" directory to your computer
 3. Upload the "remove-query-strings-from-static-resources directory" to the /wp-content/plugins/ directory in your FTP
 4. Activate the plugin in the Plugin dashboard
-
-== Frequently Asked Questions ==
-Please visit [Speed Up My Website](https://www.speedupmywebsite.com/) if you have any questions or issues with this plugin.
 
 == Changelog ==
 

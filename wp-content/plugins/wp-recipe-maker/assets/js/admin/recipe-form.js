@@ -4,29 +4,69 @@ wprm_admin.cook_time_set = false;
 wprm_admin.total_time_set = false;
 
 wprm_admin.editing_recipe = 0;
+wprm_admin.editing_recipe_type = 'insert';
+wprm_admin.editing_recipe_fields = false;
+wprm_admin.editing_recipe_ingredients = {};
+wprm_admin.editing_recipe_instructions = {};
+
 wprm_admin.set_recipe = function(args) {
 	var recipe_id = args.recipe_id ? args.recipe_id : 0;
+	var clone_recipe_id = args.clone_recipe_id ? args.clone_recipe_id : 0;
 
 	wprm_admin.editing_recipe = recipe_id;
+	wprm_admin.editing_recipe_type = 0 === recipe_id ? 'insert' : 'update';
+	wprm_admin.editing_recipe_fields = false;
+	wprm_admin.editing_recipe_ingredients = {};
+	wprm_admin.editing_recipe_instructions = {};
+
 	wprm_admin.clear_recipe_fields();
 	if(typeof wprmp_admin !== 'undefined') {
 		wprmp_admin.clear_recipe_fields();
 	}
 
-	if (recipe_id == 0) {
-		var button = jQuery('.wprm-button-action');
+	if ('insert' === wprm_admin.editing_recipe_type) {
+		var button = jQuery('.wprm-button-action'),
+			button_save = jQuery('.wprm-button-action-save');
 
 		jQuery('.wprm-router.active').find('.wprm-menu-item').each(function() {
 			jQuery(this).data('button', wprm_modal.text.action_button_insert);
 		});
 		button.text(wprm_modal.text.action_button_insert);
+		button_save.show();
+
+		if(clone_recipe_id) {
+			var data = {
+				action: 'wprm_get_recipe',
+				security: wprm_modal.nonce,
+				recipe_id: clone_recipe_id
+			};
+
+			wprm_admin.start_loader(button);
+			wprm_admin.start_loader(button_save);
+
+			jQuery.post(wprm_modal.ajax_url, data, function(out) {
+				wprm_admin.stop_loader(button);
+				wprm_admin.stop_loader(button_save);
+
+				if (out.success) {
+					wprm_admin.editing_recipe_fields = out.data.recipe;
+
+					wprm_admin.set_recipe_fields(out.data.recipe);
+					if(typeof wprmp_admin !== 'undefined') {
+						wprmp_admin.set_recipe_fields(out.data.recipe);
+					}
+				}
+			}, 'json');
+		}
 	} else {
-		var button = jQuery('.wprm-button-action');
+		var button = jQuery('.wprm-button-action'),
+			button_save = jQuery('.wprm-button-action-save');
 
 		jQuery('.wprm-router.active').find('.wprm-menu-item').each(function() {
 			jQuery(this).data('button', wprm_modal.text.action_button_update);
 		});
 		button.text(wprm_modal.text.action_button_update);
+		button_save.show();
 
 		wprm_admin.disable_menu();
 
@@ -37,11 +77,15 @@ wprm_admin.set_recipe = function(args) {
 		};
 
 		wprm_admin.start_loader(button);
+		wprm_admin.start_loader(button_save);
 
 		jQuery.post(wprm_modal.ajax_url, data, function(out) {
 			wprm_admin.stop_loader(button);
+			wprm_admin.stop_loader(button_save);
 
 			if (out.success) {
+				wprm_admin.editing_recipe_fields = out.data.recipe;
+
 				wprm_admin.set_recipe_fields(out.data.recipe);
 				if(typeof wprmp_admin !== 'undefined') {
 					wprmp_admin.set_recipe_fields(out.data.recipe);
@@ -80,6 +124,7 @@ wprm_admin.clear_recipe_fields = function() {
 		wprm_admin.rich_editor.resetContent(''); // Recipe summary
 		jQuery('#wprm-recipe-author-display').val('disabled').change();
 		jQuery('#wprm-recipe-author-name').val('');
+		jQuery('#wprm-recipe-author-link').val('');
 		jQuery('#wprm-recipe-servings').val('');
 		jQuery('#wprm-recipe-servings-unit').val('');
 		jQuery('#wprm-recipe-calories').val('');
@@ -128,6 +173,7 @@ wprm_admin.set_recipe_fields = function(recipe) {
 
 		jQuery('#wprm-recipe-author-display').val(recipe.author_display).change();
 		jQuery('#wprm-recipe-author-name').val(recipe.author_name);
+		jQuery('#wprm-recipe-author-link').val(recipe.author_link);
 
 		var servings = parseInt(recipe.servings) > 0 ? parseInt(recipe.servings) : '',
 				calories = recipe.nutrition.calories ? parseFloat(recipe.nutrition.calories) : '',
@@ -180,7 +226,8 @@ wprm_admin.set_recipe_ingredient_fields = function(ingredients) {
 
 		for (j = 0, m = group.ingredients.length; j < m; j++) {
 			var ingredient = group.ingredients[j];
-			wprm_admin.add_ingredient(ingredient.amount, ingredient.unit, ingredient.name, ingredient.notes);
+			var uid = wprm_admin.add_ingredient(ingredient.amount, ingredient.unit, ingredient.name, ingredient.notes);
+			wprm_admin.editing_recipe_ingredients[uid] = ingredient;
 		}
 	}
 };
@@ -201,7 +248,8 @@ wprm_admin.set_recipe_instruction_fields = function(instructions) {
 
 		for (j = 0, m = group.instructions.length; j < m; j++) {
 			var instruction = group.instructions[j];
-			wprm_admin.add_instruction(instruction.text, instruction.image);
+			var uid = wprm_admin.add_instruction(instruction.text, instruction.image);
+			wprm_admin.editing_recipe_instructions[uid] = instruction;
 		}
 	}
 };
@@ -286,6 +334,15 @@ wprm_admin.add_ingredient = function(amount, unit, name, notes) {
 		clone.find('.wprm-recipe-ingredient-unit').val(unit);
 		clone.find('.wprm-recipe-ingredient-name').val(name);
 		clone.find('.wprm-recipe-ingredient-notes').val(notes);
+
+		while(true) {
+			var uid = Math.floor(Math.random() * 99999);
+			if(!wprm_admin.editing_recipe_ingredients.hasOwnProperty(uid)) {
+				clone.data('uid', uid);
+				wprm_admin.editing_recipe_ingredients[uid] = {};
+				return uid;
+			}
+		}
 };
 
 wprm_admin.add_ingredient_group = function(name) {
@@ -328,6 +385,15 @@ wprm_admin.add_instruction = function(text, image_id) {
 						}
 				}, 'json');
 		}
+
+		while(true) {
+			var uid = Math.floor(Math.random() * 99999);
+			if(!wprm_admin.editing_recipe_instructions.hasOwnProperty(uid)) {
+				clone.data('uid', uid);
+				wprm_admin.editing_recipe_instructions[uid] = {};
+				return uid;
+			}
+		}
 };
 
 wprm_admin.add_instruction_group = function(name) {
@@ -346,6 +412,7 @@ wprm_admin.insert_update_recipe = function(button) {
 			summary: jQuery('#wprm-recipe-summary').val(),
 			author_display: jQuery('#wprm-recipe-author-display').val(),
 			author_name: jQuery('#wprm-recipe-author-name').val(),
+			author_link: jQuery('#wprm-recipe-author-link').val(),
 			servings: jQuery('#wprm-recipe-servings').val(),
 			servings_unit: jQuery('#wprm-recipe-servings-unit').val(),
 			prep_time: jQuery('#wprm-recipe-prep-time').val(),
@@ -417,13 +484,20 @@ wprm_admin.insert_update_recipe = function(button) {
 			recipe: recipe
 	};
 
+	jQuery('.wprm-button-action-save').prop('disabled', true);
 	wprm_admin.start_loader(button);
 
 	jQuery.post(wprm_modal.ajax_url, data, function(out) {
 			wprm_admin.stop_loader(button);
+			jQuery('.wprm-button-action-save').prop('disabled', false);
 
 			if (out.success) {
-					if (wprm_admin.editing_recipe === 0) {
+				if (wprm_admin.editing_recipe === 0) {
+					wprm_admin.editing_recipe = out.data.id;
+				}
+
+				if(!button.hasClass('wprm-button-action-save')) {
+					if ('insert' === wprm_admin.editing_recipe_type) {
 							wprm_admin.add_text_to_editor('[wprm-recipe id="' + out.data.id + '"]');
 					} else if(wprm_admin.active_editor_id) {
 							// Refresh content in editor to reload recipe preview
@@ -438,6 +512,7 @@ wprm_admin.insert_update_recipe = function(button) {
 					}
 
 					wprm_admin.close_modal();
+				}
 			}
 	}, 'json');
 };
@@ -459,12 +534,37 @@ wprm_admin.get_ingredients = function() {
 				ingredients: []
 			};
 		} else {
-			ingredient_group.ingredients.push({
-				amount: row.find('.wprm-recipe-ingredient-amount').val(),
-				unit: row.find('.wprm-recipe-ingredient-unit').val(),
-				name: row.find('.wprm-recipe-ingredient-name').val(),
-				notes: row.find('.wprm-recipe-ingredient-notes').val()
-			});
+			var uid = row.data('uid'),
+				ingredient = {};
+
+			// Get original values.
+			if(wprm_admin.editing_recipe_ingredients.hasOwnProperty(uid)) {
+				ingredient = wprm_admin.editing_recipe_ingredients[uid];
+			}
+
+			// Update ingredients.
+			ingredient['amount'] = row.find('.wprm-recipe-ingredient-amount').val();
+			ingredient['unit'] = row.find('.wprm-recipe-ingredient-unit').val();
+			ingredient['name'] = row.find('.wprm-recipe-ingredient-name').val();
+			ingredient['notes'] = row.find('.wprm-recipe-ingredient-notes').val();
+
+			// Unit Conversion.
+			var converted = jQuery('#wprm-ingredient-conversion-' + uid);
+
+			if (converted.length > 0) {
+				var amount = converted.find('.wprmuc-system-2-amount').val(),
+					unit = converted.find('.wprmuc-system-2-unit').val();
+
+				ingredient['converted'] = {
+					2: {
+						amount: amount,
+						unit: unit,
+					}
+				};
+			}
+			
+			// Add ingredient to group.
+			ingredient_group.ingredients.push(ingredient);
 		}
 	});
 
@@ -497,8 +597,10 @@ jQuery(document).ready(function($) {
 
 			if(author_display == 'custom' || (author_display == 'default' && default_display == 'custom')) {
 				jQuery('#wprm-recipe-author-name-container').show();
+				jQuery('#wprm-recipe-author-link-container').show();
 			} else {
 				jQuery('#wprm-recipe-author-name-container').hide();
+				jQuery('#wprm-recipe-author-link-container').hide();
 			}
 		});
 		jQuery('#wprm-recipe-author-display').change();
@@ -573,5 +675,10 @@ jQuery(document).ready(function($) {
 				revert: true,
 				cursor: 'move',
 				handle: '.wprm-recipe-ingredients-instructions-sort',
+		});
+
+		// Save recipe button.
+		jQuery('.wprm-button-action-save').on('click', function() {
+			wprm_admin.insert_update_recipe(jQuery(this));
 		});
 });

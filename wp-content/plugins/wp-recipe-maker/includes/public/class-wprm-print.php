@@ -75,15 +75,30 @@ class WPRM_Print {
 			if ( WPRM_Addons::is_active( 'premium' ) ) {
 				$scripts .= '<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>';
 				$scripts .= '<script src="' . WPRMP_URL . 'assets/js/public/servings-changer.js"></script>';
+
+				if ( WPRM_Addons::is_active( 'unit-conversion' ) ) {
+					$scripts .= '<script src="' . WPRMPUC_URL . 'assets/js/public/unit-conversion.js"></script>';
+
+					// Localize ingredients.
+					$ingredients = $recipe->ingredients_without_groups();
+
+					foreach ( (array) $ingredients as $key => $value ) {
+						if ( ! is_scalar( $value ) ) continue;
+						$ingredients[$key] = html_entity_decode( (string) $value, ENT_QUOTES, 'UTF-8');
+					}
+					$scripts .= '<script>var wprmpuc_ingredients = ' . wp_json_encode( $ingredients ) . ';</script>';
+				} else {
+					$scripts .= '<script>wprm.set_print_system = function(system) {};</script>';
+				}
 			} else {
-				$scripts .= '<script>wprm = {}; wprm.set_print_servings = function(servings) {};</script>';
+				$scripts .= '<script>wprm = {}; wprm.set_print_servings = function(servings) {}; wprm.set_print_system = function(system) {};</script>';
 			}
 
 			// Fix for IE.
 			header( 'HTTP/1.1 200 OK' );
 
 			$charset = get_bloginfo( 'charset' );
-			$print_html = '<html><head><meta http-equiv="Content-Type" content="text/html; charset=' . $charset . '" /><meta name="robots" content="noindex">' . $styles . $scripts . '</head><body class="wprm-print">';
+			$print_html = '<html><head><meta http-equiv="Content-Type" content="text/html; charset=' . $charset . '" /><meta name="robots" content="noindex">' . $styles . $scripts . '</head><body class="wprm-print" data-recipe="' . esc_attr( $recipe_id ) . '">';
 			$print_html .= WPRM_Template_Manager::get_template( $recipe, 'print' );
 			$print_html .= '</body></html>';
 			echo $print_html;

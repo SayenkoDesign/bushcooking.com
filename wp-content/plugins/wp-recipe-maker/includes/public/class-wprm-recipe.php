@@ -66,6 +66,7 @@ class WPRM_Recipe {
 
 		$recipe['author_display'] = $this->author_display( true );
 		$recipe['author_name'] = $this->custom_author_name();
+		$recipe['author_link'] = $this->custom_author_link();
 		$recipe['servings'] = $this->servings();
 		$recipe['servings_unit'] = $this->servings_unit();
 		$recipe['prep_time'] = $this->prep_time();
@@ -115,6 +116,16 @@ class WPRM_Recipe {
 	}
 
 	/**
+	 * Callback for regex to fix serialize issues.
+	 *
+	 * @since    1.20.0
+	 * @param	 mixed $match Regex match.
+	 */
+	public function regex_replace_serialize( $match ) {
+		return ( $match[1] == strlen( $match[2] ) ) ? $match[0] : 's:' . strlen( $match[2] ) . ':"' . $match[2] . '";';
+	}
+
+	/**
 	 * Get the recipe author.
 	 *
 	 * @since    1.0.0
@@ -124,7 +135,14 @@ class WPRM_Recipe {
 			case 'post_author':
 				return $this->post_author_name();
 			case 'custom':
-				return $this->custom_author_name();
+				$link = $this->custom_author_link();
+				$name = $this->custom_author_name();
+
+				if ( $link && $name && WPRM_Addons::is_active( 'premium' ) ) {
+					return '<a href="' . esc_attr( $link ) . '" target="_blank">' . $name . '</a>';
+				} else {
+					return $name;
+				}
 			default:
 				return '';
 		}
@@ -167,6 +185,15 @@ class WPRM_Recipe {
 	 */
 	public function custom_author_name() {
 		return $this->meta( 'wprm_author_name', '' );
+	}
+
+	/**
+	 * Get the recipe custom author link.
+	 *
+	 * @since    1.20.0
+	 */
+	public function custom_author_link() {
+		return $this->meta( 'wprm_author_link', '' );
 	}
 
 	/**
@@ -282,7 +309,14 @@ class WPRM_Recipe {
 	 * @since    1.0.0
 	 */
 	public function nutrition() {
-		return maybe_unserialize( $this->meta( 'wprm_nutrition', array() ) );
+		$serialized = $this->meta( 'wprm_nutrition', array() );
+		$nutrition = @maybe_unserialize( $serialized );
+
+		if ( false === $nutrition ) {
+			$nutrition = unserialize( preg_replace_callback( '!s:(\d+):"(.*?)";!', array( $this, 'regex_replace_serialize' ), $serialized ) );
+		}
+
+		return $nutrition;
 	}
 
 	/**
@@ -448,7 +482,14 @@ class WPRM_Recipe {
 	 * @since    1.0.0
 	 */
 	public function ingredients() {
-		return maybe_unserialize( $this->meta( 'wprm_ingredients', array() ) );
+		$serialized = $this->meta( 'wprm_ingredients', array() );
+		$ingredients = @maybe_unserialize( $serialized );
+
+		if ( false === $ingredients ) {
+			$ingredients = unserialize( preg_replace_callback( '!s:(\d+):"(.*?)";!', array( $this, 'regex_replace_serialize' ), $serialized ) );
+		}
+
+		return $ingredients;
 	}
 
 	/**
@@ -482,7 +523,14 @@ class WPRM_Recipe {
 	 * @since    1.0.0
 	 */
 	public function instructions() {
-		return maybe_unserialize( $this->meta( 'wprm_instructions', array() ) );
+		$serialized = $this->meta( 'wprm_instructions', array() );
+		$instructions = @maybe_unserialize( $serialized );
+
+		if ( false === $instructions ) {
+			$instructions = unserialize( preg_replace_callback( '!s:(\d+):"(.*?)";!', array( $this, 'regex_replace_serialize' ), $serialized ) );
+		}
+
+		return $instructions;
 	}
 
 	/**

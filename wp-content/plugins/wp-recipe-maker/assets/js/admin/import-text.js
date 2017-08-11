@@ -3,6 +3,7 @@ var wprm_admin = wprm_admin || {};
 wprm_admin.text_import_step = '';
 wprm_admin.text_import_highlighter;
 wprm_admin.text_import = {};
+wprm_admin.text_import_waiting = false;
 
 wprm_admin.start_text_import = function() {
     jQuery('.wprm-button-import-text-reset').removeAttr('disabled');
@@ -18,6 +19,7 @@ wprm_admin.btn_text_import_reset = function() {
     wprm_admin.btn_text_import_clear(true);
     jQuery('#import-text-highlight-sandbox').text('');
     wprm_admin.text_import = {};
+    wprm_admin.text_import_waiting = false;
     
     jQuery('.wprm-button-import-text-reset').attr('disabled', 'disabled');
     jQuery('.wprm-button-import-text-clear').attr('disabled', 'disabled');
@@ -114,7 +116,9 @@ wprm_admin.btn_text_import_next = function() {
             ingredients: ingredients
         };
 
+        wprm_admin.text_import_waiting = true;
         jQuery.post(wprm_modal.ajax_url, data, function(out) {
+            wprm_admin.text_import_waiting = false;
             if (out.success) {
                 wprm_admin.text_import.ingredients = out.data.ingredients;
             }
@@ -177,16 +181,37 @@ wprm_admin.btn_text_import_next = function() {
         wprm_admin.text_import.notes = wprm_admin.get_highlighted_text();
 
         jQuery('#import-text-highlight-sandbox').hide();
+        jQuery('.wprm-button-import-text-reset').attr('disabled', 'disabled');
         jQuery('.wprm-button-import-text-clear').attr('disabled', 'disabled');
         jQuery('.wprm-button-import-text-next').attr('disabled', 'disabled');
-
-        wprm_admin.import_recipe();
-        wprm_admin.text_import_step = 'finished';
+        
+        if(wprm_admin.text_import_waiting) {
+            wprm_admin.text_import_step = 'waiting';
+            wprm_admin.text_import_waiting_check();
+        } else {
+            jQuery('.wprm-button-import-text-reset').removeAttr('disabled');
+            wprm_admin.import_recipe();
+            wprm_admin.text_import_step = 'finished';
+        }
+    } else if(wprm_admin.text_import_step == 'waiting') {
+        if(!wprm_admin.text_import_waiting) {
+            jQuery('.wprm-button-import-text-reset').removeAttr('disabled');
+            wprm_admin.import_recipe();
+            wprm_admin.text_import_step = 'finished';
+        }
     }
 
     jQuery('.import-text-step').hide();
     jQuery('#import-text-step-' + wprm_admin.text_import_step).show();
     wprm_admin.text_import_highlighter.removeHighlights();
+};
+
+wprm_admin.text_import_waiting_check = function() {
+    if(wprm_admin.text_import_waiting) {
+        setTimeout(wprm_admin.text_import_waiting_check, 200);
+    } else {
+        wprm_admin.btn_text_import_next();
+    }
 };
 
 wprm_admin.get_highlighted_text = function() {

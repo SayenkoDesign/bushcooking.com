@@ -254,13 +254,12 @@ class WPRM_Template_Helper {
 	 * Display the nutrition label.
 	 *
 	 * @since    1.10.0
-	 * @param    int   $recipe_id Recipe ID of the label we want to display.
-	 * @param    mixed $align     Optional alignment for the nutrition label.
+	 * @param    int $recipe_id Recipe ID of the label we want to display.
 	 */
-	public static function nutrition_label( $recipe_id = 0, $align = 'left' ) {
+	public static function nutrition_label( $recipe_id = 0 ) {
 		$label = '';
-		if ( WPRM_Settings::get( 'show_nutrition_label' ) ) {
-			$label = '[wprm-nutrition-label id="' . $recipe_id . '" align="' . $align . '"]';
+		if ( 'disabled' !== WPRM_Settings::get( 'show_nutrition_label' ) ) {
+			$label = '[wprm-nutrition-label id="' . $recipe_id . '" align="' . WPRM_Settings::get( 'show_nutrition_label' ) . '"]';
 		}
 		return $label;
 	}
@@ -338,5 +337,48 @@ class WPRM_Template_Helper {
 		}
 
 		return wp_get_attachment_image( $instruction['image'], $size );
+	}
+
+	/**
+	 * Output the Unit Conversion switcher.
+	 *
+	 * @param    mixed $recipe Recipe to output the unit conversion switch for.
+	 * @since    1.20.0
+	 */
+	public static function unit_conversion( $recipe ) {
+		$output = '';
+
+		if ( WPRM_Addons::is_active( 'unit-conversion' ) && WPRM_Settings::get( 'unit_conversion_enabled' ) ) {
+			$ingredients = $recipe->ingredients_without_groups();
+			$unit_systems = array(
+				1 => true, // Default unit system.
+			);
+
+			// Check if there are values for any other unit system.
+			foreach ( $ingredients as $ingredient ) {
+				if ( isset( $ingredient['converted'] ) ) {
+					foreach ( $ingredient['converted'] as $system => $values ) {
+						if ( $values['amount'] || $values['unit'] ) {
+							$unit_systems[ $system ] = true;
+						}
+					}
+				}
+			}
+
+			if ( count( $unit_systems ) > 1 ) {
+				$unit_systems_output = array();
+				foreach ( $unit_systems as $unit_system => $value ) {
+					$active = 1 === $unit_system ? ' wprmpuc-active' : '';
+					$unit_systems_output[] = '<a href="#" class="wprm-unit-conversion' . esc_attr( $active ) . '" data-system="' . esc_attr( $unit_system ) . '" data-recipe="' . esc_attr( $recipe->id() ) . '">' . WPRM_Settings::get( 'unit_conversion_system_' . $unit_system ) . '</a>';
+				}
+
+				$output = '<div class="wprm-unit-conversion-container">' . implode( ' - ', $unit_systems_output ) . '</div>';
+
+				wp_localize_script( 'wprmpuc-unit-conversion', 'wprmpuc_recipe_' . $recipe->id(), array(
+					'ingredients' => $ingredients,
+				));
+			}
+		}
+		return $output;
 	}
 }

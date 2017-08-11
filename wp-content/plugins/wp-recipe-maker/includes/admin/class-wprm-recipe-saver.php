@@ -27,6 +27,7 @@ class WPRM_Recipe_Saver {
 	public static function init() {
 		add_action( 'wp_ajax_wprm_save_recipe', array( __CLASS__, 'ajax_save_recipe' ) );
 		add_action( 'save_post', array( __CLASS__, 'update_post' ), 10, 2 );
+		add_action( 'admin_init', array( __CLASS__, 'update_recipes_check' ) );
 
 		add_filter( 'wp_insert_post_data', array( __CLASS__, 'post_type_switcher_fix' ), 20, 2 );
 	}
@@ -122,6 +123,7 @@ class WPRM_Recipe_Saver {
 		// Meta Fields.
 		update_post_meta( $id, 'wprm_author_display', $recipe['author_display'] );
 		update_post_meta( $id, 'wprm_author_name', $recipe['author_name'] );
+		update_post_meta( $id, 'wprm_author_link', $recipe['author_link'] );
 		update_post_meta( $id, 'wprm_servings', $recipe['servings'] );
 		update_post_meta( $id, 'wprm_servings_unit', $recipe['servings_unit'] );
 		update_post_meta( $id, 'wprm_prep_time', $recipe['prep_time'] );
@@ -160,17 +162,52 @@ class WPRM_Recipe_Saver {
 
 		$recipe_ids = WPRM_Recipe_Manager::get_recipe_ids_from_content( $post->post_content );
 
-		// Prevent issue with automatically created redirections.
 		if ( count( $recipe_ids ) > 0 ) {
-			// Redirection plugin.
-			if ( isset( $_POST['redirection_slug'] ) ) { // Input var okay.
-				$_POST['redirection_slug'] = '/';
+			// Immediately update when importing, otherwise do on next load to prevent issues with other plugins.
+			if ( isset( $_POST['importer_uid'] ) ) { // Input var okay.
+				self::update_recipes_in_post( $post->ID, $recipe_ids );
+			} else {
+				$post_recipes_to_update = get_option( 'wprm_post_recipes_to_update', array() );
+				$post_recipes_to_update[ $post->ID ] = $recipe_ids;
+				update_option( 'wprm_post_recipes_to_update', $post_recipes_to_update );
 			}
-
-			// Yoast SEO Premium plugin.
-			add_filter( 'wpseo_premium_post_redirect_slug_change', '__return_true' );
 		}
+	}
 
+	/**
+	 * Check if post being saved contains recipes we need to update.
+	 *
+	 * @since    1.19.0
+	 */
+	public static function update_recipes_check() {
+		if ( ! isset( $_POST['action'] ) ) {
+			$post_recipes_to_update = get_option( 'wprm_post_recipes_to_update', array() );
+
+			if ( ! empty( $post_recipes_to_update ) ) {
+				// Get first post to update the recipes for.
+				$recipe_ids = reset( $post_recipes_to_update );
+				$post_id = key( $post_recipes_to_update );
+
+				self::update_recipes_in_post( $post_id, $recipe_ids );
+
+				// Update remaing post/recipes to update.
+				unset( $post_recipes_to_update[ $post_id ] );
+				update_option( 'wprm_post_recipes_to_update', $post_recipes_to_update );
+			}
+		}
+	}
+
+	/**
+	 * Update recipes with post data.
+	 *
+	 * @since    1.20.0
+	 * @param	 mixed $post_id    Post to use the data from.
+	 * @param	 array $recipe_ids Recipes to update.
+	 */
+	public static function update_recipes_in_post( $post_id, $recipe_ids ) {
+		$post = get_post( $post_id );
+
+		// Update recipes.
 		foreach ( $recipe_ids as $recipe_id ) {
 			$recipe = array(
 				'ID'          	=> $recipe_id,
@@ -181,7 +218,7 @@ class WPRM_Recipe_Saver {
 			);
 			wp_update_post( $recipe );
 
-			update_post_meta( $recipe_id, 'wprm_parent_post_id', $post->ID );
+			update_post_meta( $recipe_id, 'wprm_parent_post_id', $post_id );
 		}
 	}
 

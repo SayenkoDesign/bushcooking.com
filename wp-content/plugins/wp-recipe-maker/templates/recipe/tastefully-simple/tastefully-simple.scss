@@ -4,6 +4,10 @@
 	border: 1px dashed #666;
 	padding: 10px;
 
+	p, li {
+		font: 12px Verdana, Arial, Geneva, sans-serif;
+	}
+
 	div,
 	li,
 	ol,
@@ -133,6 +137,10 @@
 			line-height: inherit;
 			background: 0 0;
 		}
+	}
+
+	.wprm-unit-conversion-container {
+		margin-top: 10px;
 	}
 
 	.wprm-recipe-instructions {

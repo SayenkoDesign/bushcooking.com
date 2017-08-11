@@ -53,14 +53,25 @@
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php esc_html_e( 'Nutrition Label', 'wp-recipe-maker' ); ?>
+					<label for="show_nutrition_label"><?php esc_html_e( 'Nutrition Label', 'wp-recipe-maker' ); ?></label>
 				</th>
 				<td>
-					<label for="show_nutrition_label">
-						<?php $checked = WPRM_Settings::get( 'show_nutrition_label' ) ? ' checked="checked"' : ''; ?>
-						<input name="show_nutrition_label" type="checkbox" id="show_nutrition_label"<?php echo esc_html( $checked ); ?> />
-						<?php esc_html_e( 'Display in recipe template', 'wp-recipe-maker' ); ?>
-					</label>
+					<select id="show_nutrition_label" name="show_nutrition_label">
+						<?php
+						$options = array(
+							'disabled' => __( "Don't show", 'wp-recipe-maker' ),
+							'left' => __( 'Show - Aligned Left', 'wp-recipe-maker' ),
+							'center' => __( 'Show - Aligned Center', 'wp-recipe-maker' ),
+							'right' => __( 'Show - Aligned Right', 'wp-recipe-maker' ),
+						);
+
+						$setting = WPRM_Settings::get( 'show_nutrition_label' );
+						foreach ( $options as $option => $label ) {
+							$selected = $setting === $option ? ' selected="selected"' : '';
+							echo '<option value="' . esc_attr( $option ) . '"' . esc_attr( $selected ) . '>' . esc_html( $label ) . '</option>';
+						}
+						?>
+					</select>
 					<p class="description">
 						<?php if ( ! WPRM_Addons::is_active( 'premium' ) ) : ?>
 						<?php esc_html_e( 'Only available in', 'wp-recipe-maker' ); ?> <a href="https://bootstrapped.ventures/wp-recipe-maker/get-the-plugin/" target="_blank">WP Recipe Maker Premium</a>.

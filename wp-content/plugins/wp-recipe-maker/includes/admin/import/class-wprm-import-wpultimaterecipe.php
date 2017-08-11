@@ -147,6 +147,7 @@ class WPRM_Import_Wpultimaterecipe extends WPRM_Import {
 
 		// If the import type is not set, redirect back.
 		if ( ! in_array( $import_type, array( 'convert', 'hide' ), true ) ) {
+			return new WP_Error( 'import_type', 'You need to select an import type.' );
 			wp_safe_redirect( add_query_arg( array( 'from' => $this->get_uid(), 'error' => rawurlencode( 'You need to select an import type.' ) ), admin_url( 'admin.php?page=wprm_import' ) ) );
 			exit();
 		}
@@ -302,6 +303,7 @@ class WPRM_Import_Wpultimaterecipe extends WPRM_Import {
 
 		// If the import type is not set, redirect back.
 		if ( ! in_array( $import_type, array( 'convert', 'hide' ), true ) ) {
+			return new WP_Error( 'import_type', 'You need to select an import type.' );
 			wp_safe_redirect( add_query_arg( array( 'from' => $this->get_uid(), 'error' => rawurlencode( 'You need to select an import type.' ) ), admin_url( 'admin.php?page=wprm_import' ) ) );
 			exit();
 		}

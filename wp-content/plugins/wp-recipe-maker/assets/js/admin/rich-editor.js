@@ -16,7 +16,7 @@ wprm_admin.init_rich_editor = function() {
 					},
 					imageDragging: false,
 					toolbar: {
-							buttons: ['bold', 'italic', 'underline']
+							buttons: ['bold', 'italic', 'underline', 'subscript', 'superscript']
 					},
 					extensions: {}
 				};
@@ -102,7 +102,6 @@ wprm_admin.rich_editor_timer = MediumEditor.Extension.extend({
 
 // Source: medium-editor.js
 MediumEditor.prototype.createLink = function (opts) {
-	console.log(opts);
 	var currentEditor = MediumEditor.selection.getSelectionElement(this.options.contentWindow),
 		customEvent = {},
 		targetUrl;

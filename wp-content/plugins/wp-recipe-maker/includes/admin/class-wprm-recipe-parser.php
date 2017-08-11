@@ -25,6 +25,8 @@ class WPRM_Recipe_Parser {
 	 * @since    1.7.0
 	 */
 	public static function init() {
+		add_filter( 'wprm_settings_defaults', array( __CLASS__, 'import_settings_defaults' ) );
+
 		add_action( 'wp_ajax_wprm_parse_ingredients', array( __CLASS__, 'ajax_parse_ingredients' ) );
 	}
 
@@ -91,28 +93,31 @@ class WPRM_Recipe_Parser {
 		foreach ( $unicode_map as $unicode => $normal ) {
 			$unicode_regex .= '\x{' . $unicode . '}';
 		}
-		$amount_regex = '/^\s*([\d' . $unicode_regex . '][\s\/\-\d.,' . $unicode_regex . ']*)(.*)/u';
+
+		$range_keyword = WPRM_Settings::get( 'import_range_keyword' );
+		$amount_regex = '/^\s*([\d' . $unicode_regex . ']([\s\/\-\d.,' . $unicode_regex . ']|' . $range_keyword . ')*)(.*)/u';
 
 		preg_match( $amount_regex, $raw, $match );
 		if ( isset( $match[0] ) ) {
 			$amount = trim( $match[1] );
-			$raw = trim( $match[2] );
+			$raw = trim( $match[3] );
 		}
 
 		// Units.
 		$unit = '';
 
-		$possible_units = self::parse_ingredient_units();
+		$possible_units = WPRM_Settings::get( 'import_units' );
 
 		// Can't use array_map because of parameter.
 		foreach ( $possible_units as $index => $value ) {
 			$possible_units[ $index ] = preg_quote( $value, '/' );
+			$possible_units[ $index ] .= '\.?'; // With or without dot to cover abbreviations.
 		}
 
-		$pattern = '/^(\b' . implode( '\b|\b', $possible_units ) . '\b)/ui';
+		$pattern = '/^(\b' . implode( '\s|\b', $possible_units ) . '\s)/ui';
 		preg_match( $pattern, $raw, $match );
 		if ( isset( $match[0] ) ) {
-			$unit = $match[0];
+			$unit = trim( $match[0] );
 			$raw = trim( preg_replace( $pattern, '', $raw, 1 ) );
 		}
 
@@ -120,14 +125,18 @@ class WPRM_Recipe_Parser {
 		$notes_start = array();
 
 		// Check for comma.
-		if ( strpos( $raw, ',' ) ) {
-			$notes_start[] = strpos( $raw, ',' );
+		if ( in_array( WPRM_Settings::get( 'import_notes_identifier' ), array( 'comma', 'both' ), true ) ) {
+			if ( strpos( $raw, ',' ) ) {
+				$notes_start[] = strpos( $raw, ',' );
+			}
 		}
 
 		// Check for ().
-		preg_match( '/\((.*?)\)/i', $raw, $match );
-		if ( ! empty( $match ) ) {
-			$notes_start[] = strpos( $raw, '(' );
+		if ( in_array( WPRM_Settings::get( 'import_notes_identifier' ), array( 'parentheses', 'both' ), true ) ) {
+			preg_match( '/\((.*?)\)/i', $raw, $match );
+			if ( ! empty( $match ) ) {
+				$notes_start[] = strpos( $raw, '(' );
+			}
 		}
 
 		// Take out notes.
@@ -136,6 +145,15 @@ class WPRM_Recipe_Parser {
 
 			$notes = trim( substr( $raw, $start ) );
 			$raw = trim( substr( $raw, 0, $start ) );
+
+			if ( WPRM_Settings::get( 'import_notes_remove_identifier' ) ) {
+				$type = substr( $notes, 0, 1 );
+				$notes = substr( $notes, 1 );
+
+				if ( '(' === $type ) {
+					$notes = preg_replace( '/\)/', '', $notes, 1);
+				}
+			}
 
 			// Make sure the name is not empty.
 			if ( ! $raw ) {
@@ -156,11 +174,27 @@ class WPRM_Recipe_Parser {
 		}
 
 		return array(
-			'amount' => $amount,
-			'unit' => $unit,
-			'name' => $name,
-			'notes' => $notes,
+			'amount' => trim( $amount ),
+			'unit' => trim( $unit ),
+			'name' => trim( $name ),
+			'notes' => trim( $notes ),
 		);
+	}
+
+	/**
+	 * Add import settings defaults.
+	 *
+	 * @since    1.20.0
+	 * @param	 array $defaults Settings defaults.
+	 */
+	public static function import_settings_defaults( $defaults ) {
+		$defaults = array_merge( $defaults, array(
+			'import_range_keyword' => __( 'to', 'wp-recipe-maker' ),
+			'import_units' => self::parse_ingredient_units(),
+			'import_notes_identifier' => 'both',
+			'import_notes_remove_identifier' => true,
+		) );
+		return $defaults;
 	}
 
 	/**
@@ -262,7 +296,7 @@ class WPRM_Recipe_Parser {
 			__( 'pieces', 'wp-recipe-maker' ),
 			__( 'piece', 'wp-recipe-maker' ),
 			__( 'pinches', 'wp-recipe-maker' ),
-			__( 'pinche', 'wp-recipe-maker' ),
+			__( 'pinch', 'wp-recipe-maker' ),
 		);
 
 		$units = apply_filters( 'wprm_parse_ingredient_units', $units );

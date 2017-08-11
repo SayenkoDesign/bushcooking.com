@@ -61,6 +61,12 @@
 		<label for="wprm-recipe-author-name"><?php esc_html_e( 'Custom Author Name', 'wp-recipe-maker' ); ?></label>
 		<input type="text" id="wprm-recipe-author-name" placeholder="<?php esc_attr_e( 'Author Name', 'wp-recipe-maker' ); ?>" />
 	</div>
+	<?php if ( WPRM_Addons::is_active( 'premium' ) ) : ?>
+	<div class="wprm-recipe-form-container" id="wprm-recipe-author-link-container">
+		<label for="wprm-recipe-author-link"><?php esc_html_e( 'Custom Author Link', 'wp-recipe-maker' ); ?></label>
+		<input type="text" id="wprm-recipe-author-link" placeholder="https://bootstrapped.ventures" />
+	</div>
+	<?php endif; // Author Link. ?>
 	<div class="wprm-recipe-form-container">
 		<label for="wprm-recipe-servings"><?php esc_html_e( 'Servings', 'wp-recipe-maker' ); ?></label>
 		<input type="number" min="0" id="wprm-recipe-servings" placeholder="4" /> <input type="text" id="wprm-recipe-servings-unit" placeholder="<?php esc_attr_e( 'people', 'wp-recipe-maker' ); ?>" />

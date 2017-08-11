@@ -120,6 +120,13 @@ jQuery(document).ready(function($) {
 
 				// Change main title
 				jQuery('.wprm-frame-title').find('h1').text(menu_item.text());
+
+				// // Show save button for recipes
+				// if ('recipe' == menu_target) {
+				// 	jQuery('.wprm-button-action-save').show();
+				// } else {
+				// 	jQuery('.wprm-button-action-save').hide();
+				// }
 		});
 
 		// Modal Menu on Mobile
@@ -140,8 +147,15 @@ jQuery(document).ready(function($) {
 				// Hide action button if no callback is set
 				if (menu_item.data('callback')) {
 						jQuery('.wprm-button-action').text(tab_button).show();
+
+						if('wprm-menu-recipe' == menu_item.parents('.wprm-router').attr('id')) {
+							jQuery('.wprm-button-action-save').show();
+						} else {
+							jQuery('.wprm-button-action-save').hide();
+						}
 				} else {
 						jQuery('.wprm-button-action').hide();
+						jQuery('.wprm-button-action-save').hide();
 				}
 
 				// Show correct tab

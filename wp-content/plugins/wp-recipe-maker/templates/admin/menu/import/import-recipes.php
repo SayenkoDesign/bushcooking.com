@@ -21,7 +21,7 @@
 		esc_html_e( 'Something went wrong.', 'wp-recipe-maker' );
 	else :
 	?>
-	<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+	<form method="post" action="<?php echo esc_url( admin_url( 'admin.php?page=wprm_importing' ) ); ?>">
 		<input type="hidden" name="action" value="wprm_import_recipes">
 		<input type="hidden" name="importer" value="<?php echo esc_attr( $importer->get_uid() ); ?>">
 		<?php wp_nonce_field( 'wprm_import_recipes', 'wprm_import_recipes', false ); ?>

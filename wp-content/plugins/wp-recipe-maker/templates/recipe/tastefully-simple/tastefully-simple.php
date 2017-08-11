@@ -123,6 +123,7 @@
 			</ul>
 		</div>
 	 <?php endforeach; // Ingredient groups. ?>
+	 <?php echo WPRM_Template_Helper::unit_conversion( $recipe ); ?>
 	</div>
 	<?php endif; // Ingredients. ?>
 	<?php

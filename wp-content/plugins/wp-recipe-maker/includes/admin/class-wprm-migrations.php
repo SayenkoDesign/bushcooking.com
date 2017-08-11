@@ -52,6 +52,9 @@ class WPRM_Migrations {
 		if ( version_compare( $migrated_to_version, '1.10.0' ) < 0 ) {
 			require_once( WPRM_DIR . 'includes/admin/migrations/wprm-1-10-0-wpurp.php' );
 		}
+		if ( version_compare( $migrated_to_version, '1.19.0' ) < 0 ) {
+			require_once( WPRM_DIR . 'includes/admin/migrations/wprm-1-19-0-nutrition-label.php' );
+		}
 
 		if ( '0.0.0' === $migrated_to_version ) {
 			self::$notices = array();

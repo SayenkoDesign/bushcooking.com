@@ -39,6 +39,8 @@ class WPRM_Import_Manager {
 		add_action( 'admin_menu', array( __CLASS__, 'add_submenu_page' ), 16 );
 		add_action( 'admin_post_wprm_import_recipes', array( __CLASS__, 'form_import_recipes' ) );
 		add_action( 'admin_post_wprm_check_imported_recipes', array( __CLASS__, 'form_check_imported_recipes' ) );
+
+		add_action( 'wp_ajax_wprm_import_recipes', array( __CLASS__, 'ajax_import_recipes' ) );
 	}
 
 	/**
@@ -50,6 +52,7 @@ class WPRM_Import_Manager {
 		add_submenu_page( 'wprecipemaker', __( 'Import Recipes', 'wp-recipe-maker' ), __( 'Import Recipes', 'wp-recipe-maker' ), WPRM_Settings::get( 'features_import_access' ), 'wprm_import_overview', array( __CLASS__, 'overview_page_template' ) );
 		add_submenu_page( null, __( 'Import Recipes', 'wp-recipe-maker' ), __( 'Import Recipes', 'wp-recipe-maker' ), WPRM_Settings::get( 'features_import_access' ), 'wprm_import', array( __CLASS__, 'import_page_template' ) );
 		add_submenu_page( null, __( 'Search Recipes', 'wp-recipe-maker' ), __( 'Search Recipes', 'wp-recipe-maker' ), WPRM_Settings::get( 'features_import_access' ), 'wprm_import_search', array( __CLASS__, 'import_search_page_template' ) );
+		add_submenu_page( null, __( 'Importing Recipes', 'wp-recipe-maker' ), __( 'Importing Recipes', 'wp-recipe-maker' ), WPRM_Settings::get( 'features_import_access' ), 'wprm_importing', array( __CLASS__, 'importing_recipes' ) );
 	}
 
 	/**
@@ -91,11 +94,79 @@ class WPRM_Import_Manager {
 	}
 
 	/**
+	 * Get the template for the importing page.
+	 *
+	 * @since    1.18.0
+	 */
+	public static function importing_recipes() {
+		if ( isset( $_POST['wprm_import_recipes'] ) && wp_verify_nonce( sanitize_key( $_POST['wprm_import_recipes'] ), 'wprm_import_recipes' ) ) { // Input var okay.
+			$importer_uid = isset( $_POST['importer'] ) ? sanitize_title( wp_unslash( $_POST['importer'] ) ) : ''; // Input var okay.
+			$recipes = isset( $_POST['recipes'] ) ? array_map( 'sanitize_text_field', wp_unslash( $_POST['recipes'] ) ) : array(); // Input var okay.
+
+			$importer = self::get_importer( $importer_uid );
+
+			if ( $importer && count( $recipes ) > 0 ) {
+				wp_localize_script( 'wprm-import', 'wprm_import', array(
+					'importer_uid' => $importer_uid,
+					'post_data' => $_POST,
+					'recipes' => $recipes,
+				));
+
+				require_once( WPRM_DIR . 'templates/admin/menu/import/importing.php' );
+			} else {
+				esc_html_e( 'Something went wrong.', 'wp-recipe-maker' );
+			}
+		} else {
+			esc_html_e( 'Something went wrong.', 'wp-recipe-maker' );
+		}
+	}
+
+	/**
+	 * Parse ingredients submitted through AJAX.
+	 *
+	 * @since    1.7.0
+	 */
+	public static function ajax_import_recipes() {
+		if ( check_ajax_referer( 'wprm', 'security', false ) ) {
+			$importer_uid = isset( $_POST['importer_uid'] ) ? sanitize_title( wp_unslash( $_POST['importer_uid'] ) ) : ''; // Input var okay.
+			$post_data = isset( $_POST['post_data'] ) ? wp_unslash( $_POST['post_data'] ) : array(); // Input var okay.
+			$recipes = isset( $_POST['recipes'] ) ? array_map( 'sanitize_text_field', wp_unslash( $_POST['recipes'] ) ) : array(); // Input var okay.
+
+			$importer = self::get_importer( $importer_uid );
+
+			$recipes_left = array();
+			$recipes_imported = array();
+
+			if ( $importer && count( $recipes ) > 0 ) {
+				$recipes_left = $recipes;
+				$recipes_imported = array_splice( $recipes_left, 0, 3 );
+
+				$result = self::import_recipes( $importer, $recipes_imported, $post_data ); // Input var okay.
+
+				if ( is_wp_error( $result ) ) {
+					wp_send_json_error( array(
+						'redirect' => add_query_arg( array( 'from' => $importer_uid, 'error' => rawurlencode( $result->get_error_message() ) ), admin_url( 'admin.php?page=wprm_import' ) ),
+					) );
+				}
+			}
+
+			wp_send_json_success( array(
+				'post_data' => $post_data,
+				'recipes_left' => $recipes_left,
+				'recipes_imported' => $recipes_imported,
+			) );
+		}
+
+		wp_die();
+	}
+
+	/**
 	 * Import the recipes selected in the import form.
 	 *
 	 * @since    1.0.0
 	 */
 	public static function form_import_recipes() {
+		die();
 		if ( isset( $_POST['wprm_import_recipes'] ) && wp_verify_nonce( sanitize_key( $_POST['wprm_import_recipes'] ), 'wprm_import_recipes' ) ) { // Input var okay.
 			$importer_uid = isset( $_POST['importer'] ) ? sanitize_title( wp_unslash( $_POST['importer'] ) ) : ''; // Input var okay.
 			$recipes = isset( $_POST['recipes'] ) ? array_map( 'sanitize_text_field', wp_unslash( $_POST['recipes'] ) ) : array(); // Input var okay.
@@ -147,6 +218,10 @@ class WPRM_Import_Manager {
 		foreach ( $recipes as $import_recipe_id ) {
 			$imported_recipe = $importer->get_recipe( $import_recipe_id, $post_data );
 
+			if ( is_wp_error( $imported_recipe ) ) {
+				return $imported_recipe;
+			}
+
 			if ( $imported_recipe ) {
 				$imported_recipe['import_source'] = $importer->get_uid();
 
@@ -162,7 +237,11 @@ class WPRM_Import_Manager {
 					$recipe_id = WPRM_Recipe_Saver::create_recipe( $recipe );
 				}
 
-				$importer->replace_recipe( $import_recipe_id, $recipe_id, $post_data );
+				$result = $importer->replace_recipe( $import_recipe_id, $recipe_id, $post_data );
+
+				if ( is_wp_error( $result ) ) {
+					return $result;
+				}
 			}
 		}
 	}

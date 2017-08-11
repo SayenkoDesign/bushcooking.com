@@ -116,7 +116,7 @@ class WPRM_Import_Easyrecipe extends WPRM_Import {
 			$finished = true;
 		}
 
-		$found_recipes = get_option( 'wprm_import_easyrecipe_recipes', array() );
+		$found_recipes = 0 === $page ? array() : get_option( 'wprm_import_easyrecipe_recipes', array() );
 		$found_recipes = array_merge( $found_recipes, $recipes );
 
 		update_option( 'wprm_import_easyrecipe_recipes', $found_recipes, false );

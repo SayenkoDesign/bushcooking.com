@@ -100,7 +100,7 @@
 								<input type="checkbox" name="recipes[]" value="<?php echo esc_attr( $recipe->id() ); ?>" />
 							</td>
 							<td>
-								<a href="#" class="wprm-manage-recipes-actions-edit" data-id="<?php echo esc_attr( $recipe->id() ); ?>"><span class="dashicons dashicons-edit"></span></a> <?php echo esc_html( $recipe->name() ); ?>
+								<a href="#" class="wprm-import-recipes-actions-edit" data-id="<?php echo esc_attr( $recipe->id() ); ?>"><span class="dashicons dashicons-edit"></span></a> <?php echo esc_html( $recipe->name() ); ?>
 							</td>
 							<td>
 								<?php if ( $recipe->parent_post_id() > 0 ) : ?>

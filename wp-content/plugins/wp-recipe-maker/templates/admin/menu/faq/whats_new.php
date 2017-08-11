@@ -11,6 +11,29 @@
 
 ?>
 
+<h3>2017-07-02 | WP Recipe Maker 1.20.0</h3>
+<ul>
+	<li>Feature: Intermediate save when creating or editing recipes</li>
+	<li>Feature: Settings to personalize the ingredient text import</li>
+	<li>Improvement: Abbreviations in ingredient text import</li>
+	<li>Improvement: Immediately update parent post when importing</li>
+	<li>Improvement: Try to fix serialize issues when getting ingredients or instructions</li>
+	<li>Improvement: Prevent styling differences in instructions</li>
+	<li>Fix: EasyRecipe recipes stuck in to import list</li>
+	<li>Fix: Remove leftover debug code</li>
+</ul>
+
+<h3>2017-06-07 | WP Recipe Maker 1.19.0</h3>
+<ul>
+	<li>Feature: Sub- and superscript in summary and instructions</li>
+	<li>Feature: Allow for basic HTML in ingredients</li>
+	<li>Feature: Setting to align nutrition label left, center or right</li>
+	<li>Improvement: Streamlined import process using AJAX</li>
+	<li>Fix: Ingredients not importing when going too fast in the text import</li>
+	<li>Fix: Prevent wpautop from breaking our icons</li>
+	<li>Fix: Prevent compatibilty bugs when saving posts</li>
+</ul>
+
 <h3>2017-05-11 | WP Recipe Maker 1.18.0</h3>
 <ul>
 	<li>Feature: Add custom styling to the recipe print page</li>

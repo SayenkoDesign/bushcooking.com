@@ -32,6 +32,7 @@ class WPRM_Recipe_Sanitizer {
 		$sanitized_recipe['name'] = isset( $recipe['name'] ) ? sanitize_text_field( $recipe['name'] ) : '';
 		$sanitized_recipe['summary'] = isset( $recipe['summary'] ) ? wp_kses_post( $recipe['summary'] ) : '';
 		$sanitized_recipe['author_name'] = isset( $recipe['author_name'] ) ? sanitize_text_field( $recipe['author_name'] ) : '';
+		$sanitized_recipe['author_link'] = isset( $recipe['author_link'] ) ? sanitize_text_field( $recipe['author_link'] ) : '';
 		$sanitized_recipe['servings_unit'] = isset( $recipe['servings_unit'] ) ? sanitize_text_field( $recipe['servings_unit'] ) : '';
 		$sanitized_recipe['notes'] = isset( $recipe['notes'] ) ? wp_kses_post( $recipe['notes'] ) : '';
 
@@ -64,7 +65,7 @@ class WPRM_Recipe_Sanitizer {
 			foreach ( $recipe['ingredients'] as $ingredient_group ) {
 				$sanitized_group = array(
 					'ingredients' => array(),
-					'name' => isset( $ingredient_group['name'] ) ? sanitize_text_field( $ingredient_group['name'] ) : '',
+					'name' => isset( $ingredient_group['name'] ) ? wp_kses_post( $ingredient_group['name'] ) : '',
 				);
 
 				if ( isset( $ingredient_group['ingredients'] ) ) {
@@ -74,10 +75,10 @@ class WPRM_Recipe_Sanitizer {
 						}
 
 						$sanitized_ingredient = array(
-							'amount' => isset( $ingredient['amount'] ) ? sanitize_text_field( $ingredient['amount'] ) : '',
-							'unit' => isset( $ingredient['unit'] ) ? sanitize_text_field( $ingredient['unit'] ) : '',
-							'name' => isset( $ingredient['name'] ) ? sanitize_text_field( $ingredient['name'] ) : '',
-							'notes' => isset( $ingredient['notes'] ) ? sanitize_text_field( $ingredient['notes'] ) : '',
+							'amount' => isset( $ingredient['amount'] ) ? wp_kses_post( $ingredient['amount'] ) : '',
+							'unit' => isset( $ingredient['unit'] ) ? wp_kses_post( $ingredient['unit'] ) : '',
+							'name' => isset( $ingredient['name'] ) ? wp_kses_post( $ingredient['name'] ) : '',
+							'notes' => isset( $ingredient['notes'] ) ? wp_kses_post( $ingredient['notes'] ) : '',
 						);
 
 						// Custom ingredient link.
@@ -86,6 +87,18 @@ class WPRM_Recipe_Sanitizer {
 								'url' => isset( $ingredient['link']['url'] ) ? sanitize_text_field( $ingredient['link']['url'] ) : '',
 								'nofollow' => isset( $ingredient['link']['nofollow'] ) ? sanitize_text_field( $ingredient['link']['nofollow'] ) : 'default',
 							);
+						}
+
+						// Unit Conversion.
+						if ( isset( $ingredient['converted'] ) ) {
+							$sanitized_ingredient['converted'] = array();
+
+							foreach ( $ingredient['converted'] as $system => $conversion ) {
+								$sanitized_ingredient['converted'][ $system ] = array(
+									'amount' => wp_kses_post( $conversion['amount'] ),
+									'unit' => wp_kses_post( $conversion['unit'] ),
+								);
+							}
 						}
 
 						// Get ingredient ID from name.
@@ -126,7 +139,7 @@ class WPRM_Recipe_Sanitizer {
 			foreach ( $recipe['instructions'] as $instruction_group ) {
 				$sanitized_group = array(
 					'instructions' => array(),
-					'name' => isset( $instruction_group['name'] ) ? sanitize_text_field( $instruction_group['name'] ) : '',
+					'name' => isset( $instruction_group['name'] ) ? wp_kses_post( $instruction_group['name'] ) : '',
 				);
 
 				if ( isset( $instruction_group['instructions'] ) ) {
