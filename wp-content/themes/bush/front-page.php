@@ -25,10 +25,10 @@ while ( $query->have_posts() ) {
 
     $prep_hours = get_field('prep_time_hours');
     $prep_minutes = get_field('prep_time_minutes');
-    $prep_total_minutes = $prep_hours * 60 + $prep_minutes;
+    $prep_total_minutes = $prep_hours && $prep_minutes ? $prep_hours * 60 + $prep_minutes : null;
     $cook_hours = get_field('cook_time_hours');
     $cook_minutes = get_field('cook_time_minutes');
-    $cook_total_minutes = $cook_hours * 60 + $cook_minutes;
+    $cook_total_minutes = $cook_hours && $cook_minutes ? $cook_hours * 60 + $cook_minutes : null;
     $total = $prep_total_minutes + $cook_total_minutes;
     $total_hours = floor($total / 60);
     $total_minutes = ($total % 60);
