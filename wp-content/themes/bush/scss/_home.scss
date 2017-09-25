@@ -16,3 +16,13 @@
     clear: both;
   }
 }
+
+#home-content {
+  margin-bottom: rem-calc(30px);
+  h1 {
+    color: $primary-3;
+  }
+  p:last-of-type {
+    margin: 0;
+  }
+}

@@ -5137,6 +5137,16 @@ h1, h2, h3, h4 {
   .home #content .row.teasers div:nth-child(2n+1) {
     clear: both; } }
 
+/* line 20, ../scss/_home.scss */
+#home-content {
+  margin-bottom: 2.14286rem; }
+  /* line 22, ../scss/_home.scss */
+  #home-content h1 {
+    color: #F15B24; }
+  /* line 25, ../scss/_home.scss */
+  #home-content p:last-of-type {
+    margin: 0; }
+
 /* line 1, ../scss/_comments.scss */
 .fa-star, .fa-star-o, .fa-star-half, .fa-star-half-o {
   color: #F15B24; }

@@ -73,6 +73,7 @@ jQuery(function() {
 
     var sponsored_ad = jQuery(".hide-for-small-only #sponsored-ad");
     if(!sponsored_ad.find('iframe').length){
+        console.log("should be sticky");
         sponsored_ad.stick_in_parent({
             offset_top: 64,
             recalc_every: 1
