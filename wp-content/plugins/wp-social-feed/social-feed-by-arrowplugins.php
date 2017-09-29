@@ -5,7 +5,7 @@ Plugin URI: https://wordpress.org/plugins/wp-social-feed
 Description: Add Responsive Social Feed (Facebook, Twitter, Instagram, VK & RSS FEED) into your WordPress site.
 Author: Arrow Plugins
 Author URI: https://www.arrowplugins.com
-Version: 1.1.3
+Version: 1.1.4
 License: GplV2
 Copyright: 2017 Arrow Plugins
 */
@@ -15,6 +15,8 @@ include_once('includes/sfbap1-post-type.php');
 include_once('includes/sfbap1-custom-columns.php');
 include_once('includes/sfbap1-post-meta-boxes.php');
 include_once('includes/sfbap1-save-post.php');
+
+
 include_once('includes/sfbap1-shortcode.php');
 include_once('includes/sfbap1-enqueue-scripts.php');
 

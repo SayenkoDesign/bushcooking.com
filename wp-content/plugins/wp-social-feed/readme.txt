@@ -3,7 +3,7 @@ Contributors: arrowplugins,mutiullah
 Tags: Social Feed, Facebook Feed, Instagram Feed, Pinterest Feed, Social Media videos, videos, facebook albums, albums, photos facebook, photo, facebook feed, facebook posts, hastags, social plugin, social networking, networking, custom feed, custom facebook feed, facebook plugin, facebook group, facebook groups, events, facebook events, facebook page events, facebook group events, facebook page, facebook pages, twitter, twitter plugin, twitter hashtag, twitter #, twitter @, twitter search, vine, vine videos, vine gallery, vine plugin, vine seo, instagram, instagram plugin, feed me social, social plugin, feed, feeds, shortcode, facebook wall, slickremix, plugin, pages, posts, images, page, post, image, youtube, youtube feed, youtube channel, youtube video, youtube videos, videos, youtube embed, embed, video iframe, admin, comments, widgets, seo, wordpress, pinterest, pinterest boards, pinterest feeds, pinterest photos, pinterest widget, pinterest widgets, instagram popup, Facebook videos, facebook reviews, twitter videos
 Requires at least: 3.6.0
 Tested up to: 4.8
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -156,6 +156,10 @@ A. To show your Social Feed in your Post/Page, copy the provided shortcode from 
 A. To show Social Feed in your Widget Area, go into your Widgets and find the Text Widget, drag the Text Widget into your Sidebar area and paste the provided shortcode from your Social Feed settings page.
 
 == Changelog ==
+
+= 1.1.4 =
+
+* Some bugs fixed
 
 = 1.1.3 =
 
