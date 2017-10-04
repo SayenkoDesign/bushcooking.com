@@ -207,6 +207,9 @@ class WPRM_Recipe_Saver {
 	public static function update_recipes_in_post( $post_id, $recipe_ids ) {
 		$post = get_post( $post_id );
 
+		$categories = get_the_terms( $post, 'category' );
+		$cat_ids = is_wp_error( $categories ) ? array() : wp_list_pluck( $categories, 'term_id' );
+
 		// Update recipes.
 		foreach ( $recipe_ids as $recipe_id ) {
 			$recipe = array(
@@ -219,6 +222,11 @@ class WPRM_Recipe_Saver {
 			wp_update_post( $recipe );
 
 			update_post_meta( $recipe_id, 'wprm_parent_post_id', $post_id );
+
+			// Optionally associate categories with recipes.
+			if ( is_object_in_taxonomy( WPRM_POST_TYPE, 'category' ) ) {
+				wp_set_post_categories( $recipe_id, $cat_ids );
+			}
 		}
 	}
 

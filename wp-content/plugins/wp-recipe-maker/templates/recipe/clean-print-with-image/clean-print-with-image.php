@@ -12,6 +12,7 @@
 // @codingStandardsIgnoreStart
 ?>
 <div class="wprm-recipe wprm-recipe-clean-print-with-image">
+	<div class="wprm-recipe-print"><span class="wprm-recipe-details-icon"><?php include( WPRM_DIR . 'assets/icons/printer.svg' ); ?></span> <?php echo WPRM_Template_Helper::label( 'print_button' ); ?></div>
 	<div class="wprm-recipe-image"><?php echo WPRM_Template_Helper::recipe_image( $recipe, 'thumbnail' ); ?></div>
 	<h2 class="wprm-recipe-name"><?php echo $recipe->name(); ?></h2>
 	<div class="wprm-recipe-summary">
@@ -104,6 +105,7 @@
 		</div>
 	 <?php endforeach; // Ingredient groups. ?>
 	</div>
+	<?php echo WPRM_Template_Helper::unit_conversion( $recipe ); ?>
 	<?php endif; // Ingredients. ?>
 	<?php
 	$instructions = $recipe->instructions();

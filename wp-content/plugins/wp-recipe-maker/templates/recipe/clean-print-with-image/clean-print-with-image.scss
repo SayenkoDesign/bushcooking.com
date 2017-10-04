@@ -1,3 +1,17 @@
+.rtl .wprm-recipe-clean-print-with-image {
+	.wprm-recipe-image {
+		float: right;
+		margin: 0 0 15px 15px;
+	}
+
+	ol,
+	ul {
+		li {
+			margin: 0 32px 0 0;
+		}
+	}
+}
+
 .wprm-recipe-clean-print-with-image {
 	font-size: 0.9em;
 
@@ -78,12 +92,5 @@
 		p:last-of-type {
 			margin-bottom: 0;
 		}
-	}
-}
-
-.wprm-print {
-	.wprm-recipe-clean-print-with-image {
-		max-width: 750px;
-		margin: 0 auto;
 	}
 }

@@ -148,6 +148,76 @@
 					</p>
 				</td>
 			</tr>
+			<tr>
+				<th scope="row">
+					<label for="template_ingredient_list_style"><?php esc_html_e( 'Ingredient List Style', 'wp-recipe-maker' ); ?></label>
+				</th>
+				<td>
+					<select id="template_ingredient_list_style" name="template_ingredient_list_style">
+						<?php
+						$premium_only = WPRM_Addons::is_active( 'premium' ) ? '' : ' (' . __( 'WP Recipe Maker Premium only', 'wp-recipe-maker' ) . ')';
+
+						$options = array(
+							'none' => __( 'None', 'wp-recipe-maker' ),
+							'checkbox' => __( 'Checkbox', 'wp-recipe-maker' ) . $premium_only,
+							'circle' => __( 'Circle', 'wp-recipe-maker' ),
+							'disc' => __( 'Disc', 'wp-recipe-maker' ),
+							'square' => __( 'Square', 'wp-recipe-maker' ),
+							'decimal' => __( 'Decimal', 'wp-recipe-maker' ),
+							'decimal-leading-zero' => __( 'Decimal with leading zero', 'wp-recipe-maker' ),
+							'lower-roman' => __( 'Lower Roman', 'wp-recipe-maker' ),
+							'upper-roman' => __( 'Upper Roman', 'wp-recipe-maker' ),
+							'lower-latin' => __( 'Lower Latin', 'wp-recipe-maker' ),
+							'upper-latin' => __( 'Upper Latin', 'wp-recipe-maker' ),
+							'lower-greek' => __( 'Lower Greek', 'wp-recipe-maker' ),
+							'armenian' => __( 'Armenian', 'wp-recipe-maker' ),
+							'georgian' => __( 'Georgian', 'wp-recipe-maker' ),
+						);
+
+						$setting = WPRM_Settings::get( 'template_ingredient_list_style' );
+						foreach ( $options as $option => $label ) {
+							$selected = $setting === $option ? ' selected="selected"' : '';
+							echo '<option value="' . esc_attr( $option ) . '"' . esc_attr( $selected ) . '>' . esc_html( $label ) . '</option>';
+						}
+						?>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<label for="template_instruction_list_style"><?php esc_html_e( 'Instruction List Style', 'wp-recipe-maker' ); ?></label>
+				</th>
+				<td>
+					<select id="template_instruction_list_style" name="template_instruction_list_style">
+						<?php
+						$premium_only = WPRM_Addons::is_active( 'premium' ) ? '' : ' (' . __( 'WP Recipe Maker Premium only', 'wp-recipe-maker' ) . ')';
+
+						$options = array(
+							'none' => __( 'None', 'wp-recipe-maker' ),
+							'checkbox' => __( 'Checkbox', 'wp-recipe-maker' ) . $premium_only,
+							'circle' => __( 'Circle', 'wp-recipe-maker' ),
+							'disc' => __( 'Disc', 'wp-recipe-maker' ),
+							'square' => __( 'Square', 'wp-recipe-maker' ),
+							'decimal' => __( 'Decimal', 'wp-recipe-maker' ),
+							'decimal-leading-zero' => __( 'Decimal with leading zero', 'wp-recipe-maker' ),
+							'lower-roman' => __( 'Lower Roman', 'wp-recipe-maker' ),
+							'upper-roman' => __( 'Upper Roman', 'wp-recipe-maker' ),
+							'lower-latin' => __( 'Lower Latin', 'wp-recipe-maker' ),
+							'upper-latin' => __( 'Upper Latin', 'wp-recipe-maker' ),
+							'lower-greek' => __( 'Lower Greek', 'wp-recipe-maker' ),
+							'armenian' => __( 'Armenian', 'wp-recipe-maker' ),
+							'georgian' => __( 'Georgian', 'wp-recipe-maker' ),
+						);
+
+						$setting = WPRM_Settings::get( 'template_instruction_list_style' );
+						foreach ( $options as $option => $label ) {
+							$selected = $setting === $option ? ' selected="selected"' : '';
+							echo '<option value="' . esc_attr( $option ) . '"' . esc_attr( $selected ) . '>' . esc_html( $label ) . '</option>';
+						}
+						?>
+					</select>
+				</td>
+			</tr>
 		</tbody>
 	</table>
 <?php if ( WPRM_Settings::get( 'features_custom_style' ) ) : ?>

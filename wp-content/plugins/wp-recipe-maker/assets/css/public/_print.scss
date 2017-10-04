@@ -1,0 +1,13 @@
+// main: public.scss
+
+.wprm-print {
+	.wprm-recipe {
+		max-width: 750px;
+		margin: 0 auto;
+    }
+    
+    .wprm-recipe-print,
+    .wprm-unit-conversion-container {
+		display: none;
+    }
+}

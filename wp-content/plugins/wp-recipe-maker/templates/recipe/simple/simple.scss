@@ -1,3 +1,17 @@
+.rtl .wprm-recipe-simple {
+	.wprm-recipe-image-container {
+		float: left;
+		margin: 0 10px 10px 0;
+	}
+
+	ol,
+	ul {
+		li {
+			margin: 0 32px 0 0;
+		}
+	}
+}
+
 .wprm-recipe-simple {
 	border-top: 1px solid #aaaaaa;
 	background-color: #fafafa;
@@ -128,18 +142,9 @@
 	}
 }
 
-.wprm-print {
-	.wprm-recipe-simple {
-		max-width: 750px;
-		margin: 0 auto;
-	}
-
-	.wprm-recipe-print {
-		display: none;
-	}
-}
 @media only screen and (max-width: 640px) {
-	.wprm-recipe-simple {
+	.wprm-recipe-simple,
+	.rtl .wprm-recipe-simple {
 		.wprm-recipe-image-container {
 			float: none;
 		}

@@ -55,9 +55,10 @@ class WPRM_Template_Manager {
 	 * Output custom CSS from the options.
 	 *
 	 * @since    1.10.0
+	 * @param	 mixed $type Type of recipe to output the custom CSS for.
 	 */
-	public static function custom_css() {
-		$selector = ' html body .wprm-recipe-container';
+	public static function custom_css( $type = 'recipe' ) {
+		$selector = 'print' === $type ? ' html body.wprm-print' : ' html body .wprm-recipe-container';
 
 		$output = '<style type="text/css">';
 
@@ -87,17 +88,35 @@ class WPRM_Template_Manager {
 		$output .= $selector . ' svg path { fill: ' . WPRM_Settings::get( 'template_color_icon' ) . '; }';
 		$output .= $selector . ' svg rect { fill: ' . WPRM_Settings::get( 'template_color_icon' ) . '; }';
 		$output .= $selector . ' svg polygon { stroke: ' . WPRM_Settings::get( 'template_color_icon' ) . '; }';
+		$output .= $selector . ' .wprm-rating-star-full svg polygon { fill: ' . WPRM_Settings::get( 'template_color_icon' ) . '; }';
 		$output .= $selector . ' .wprm-recipe .wprm-color-accent { background-color: ' . WPRM_Settings::get( 'template_color_accent' ) . '; }';
 		$output .= $selector . ' .wprm-recipe .wprm-color-accent { color: ' . WPRM_Settings::get( 'template_color_accent_text' ) . '; }';
 		$output .= $selector . ' .wprm-recipe .wprm-color-accent2 { background-color: ' . WPRM_Settings::get( 'template_color_accent2' ) . '; }';
 		$output .= $selector . ' .wprm-recipe .wprm-color-accent2 { color: ' . WPRM_Settings::get( 'template_color_accent2_text' ) . '; }';
 
+		// List style.
+		if ( 'checkbox' === WPRM_Settings::get( 'template_ingredient_list_style' ) ) {
+			$output .= $selector . ' li.wprm-recipe-ingredient { list-style-type: none; }';
+		} else {
+			$output .= $selector . ' li.wprm-recipe-ingredient { list-style-type: ' . WPRM_Settings::get( 'template_ingredient_list_style' ) . '; }';
+		}
+		if ( 'checkbox' === WPRM_Settings::get( 'template_instruction_list_style' ) ) {
+			$output .= $selector . ' li.wprm-recipe-instruction { list-style-type: none; }';
+		} else {
+			$output .= $selector . ' li.wprm-recipe-instruction { list-style-type: ' . WPRM_Settings::get( 'template_instruction_list_style' ) . '; }';
+		}
+
 		// Comment ratings.
 		$output .= ' .wprm-comment-rating svg path, .comment-form-wprm-rating svg path { fill: ' . WPRM_Settings::get( 'template_color_comment_rating' ) . '; }';
 		$output .= ' .wprm-comment-rating svg polygon, .comment-form-wprm-rating svg polygon { stroke: ' . WPRM_Settings::get( 'template_color_comment_rating' ) . '; }';
 
+		// Allow add-ons to hook in.
+		$output = apply_filters( 'wprm_custom_css', $output, $type, $selector );
+
 		// Custom recipe CSS.
-		$output .= WPRM_Settings::get( 'recipe_css' );
+		if ( 'print' !== $type ) {
+			$output .= WPRM_Settings::get( 'recipe_css' );
+		}
 
 		$output .= '</style>';
 

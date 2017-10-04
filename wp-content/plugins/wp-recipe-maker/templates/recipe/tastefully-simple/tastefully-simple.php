@@ -16,11 +16,7 @@
 	<meta itemprop="datePublished" content="<?php echo $recipe->date(); ?>" />
 	<meta itemprop="image" content="<?php echo $recipe->image_url( 'full' ); ?>" />
 	<div class="wprm-recipe-image-container">
-		<?php
-		if ( $recipe->has_rating() ) {
-			echo $recipe->rating_stars( true );
-		}
-		?>
+		<?php echo $recipe->rating_stars( true ); ?>
 		<div class="wprm-recipe-image"><?php echo WPRM_Template_Helper::recipe_image( $recipe, 'thumbnail' ); ?></div>
 		<div class="wprm-recipe-buttons">
 			<span class="wprm-recipe-print wprm-color-accent"><?php echo WPRM_Template_Helper::label( 'print_button' ); ?></span>

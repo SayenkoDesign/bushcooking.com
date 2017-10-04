@@ -36,17 +36,7 @@ class WPRM_Comment_Rating {
 		add_action( 'comment_post', array( __CLASS__, 'save_comment_rating' ) );
 		add_action( 'edit_comment', array( __CLASS__, 'save_admin_comment_rating' ) );
 
-		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue' ) );
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_admin' ) );
-	}
-
-	/**
-	 * Enqueue stylesheets and scripts.
-	 *
-	 * @since    1.1.0
-	 */
-	public static function enqueue() {
-		wp_enqueue_script( 'wprm-comment-rating', WPRM_URL . 'assets/js/public/comment-rating.js', array( 'jquery' ), WPRM_VERSION, true );
 	}
 
 	/**
@@ -55,8 +45,14 @@ class WPRM_Comment_Rating {
 	 * @since    1.1.0
 	 */
 	public static function enqueue_admin() {
-		wp_enqueue_script( 'wprm-comment-rating', WPRM_URL . 'assets/js/public/comment-rating.js', array( 'jquery' ), WPRM_VERSION, true );
 		wp_enqueue_style( 'wprm-comments', WPRM_URL . 'assets/css/admin/comments.min.css', array(), WPRM_VERSION, 'all' );
+		wp_enqueue_script( 'wprm-comment-rating', WPRM_URL . 'assets/js/public/comment-rating.js', array( 'jquery' ), WPRM_VERSION, true );
+
+		wp_localize_script( 'wprm-comment-rating', 'wprm_public', array(
+			'settings' => array(
+				'features_comment_ratings' => WPRM_Settings::get( 'features_comment_ratings' ),
+			),
+		));
 	}
 
 	/**
@@ -73,7 +69,8 @@ class WPRM_Comment_Rating {
 			$rating_html = '';
 			if ( $rating ) {
 				ob_start();
-				require( WPRM_DIR . 'templates/public/comment-rating.php' );
+				$template = apply_filters( 'wprm_template_comment_rating', WPRM_DIR . 'templates/public/comment-rating.php' );
+				require( $template );
 				$rating_html = ob_get_contents();
 				ob_end_clean();
 			}
@@ -102,7 +99,8 @@ class WPRM_Comment_Rating {
 	 */
 	public static function add_rating_field_to_comments() {
 		$rating = 0;
-		require( WPRM_DIR . 'templates/public/comment-rating-form.php' );
+		$template = apply_filters( 'wprm_template_comment_rating_form', WPRM_DIR . 'templates/public/comment-rating-form.php' );
+		require( $template );
 	}
 
 	/**
@@ -123,7 +121,8 @@ class WPRM_Comment_Rating {
 	public static function add_rating_field_to_admin_comments_form( $comment ) {
 		$rating = intval( get_comment_meta( $comment->comment_ID, 'wprm-comment-rating', true ) );
 		wp_nonce_field( 'wprm-comment-rating-nonce', 'wprm-comment-rating-nonce', false );
-		require( WPRM_DIR . 'templates/public/comment-rating-form.php' );
+		$template = apply_filters( 'wprm_template_comment_rating_form', WPRM_DIR . 'templates/public/comment-rating-form.php' );
+		require( $template );
 	}
 
 	/**

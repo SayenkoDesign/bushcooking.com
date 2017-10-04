@@ -11,6 +11,59 @@
 
 ?>
 
+<h3>2017-09-01 | WP Recipe Maker 1.23.0</h3>
+<ul>
+	<li>Feature: Import WP Tasty Recipes</li>
+	<li>Improvement: Better handling of shortcodes in JSON-LD metadata</li>
+	<li>Fix: Problem with double recipes in categories</li>
+	<li>Fix: Jetpack Contact Form compatibility problem on manage page</li>
+</ul>
+
+<h3>2017-08-24 | WP Recipe Maker Premium 1.6.0</h3>
+<ul>
+	<li>Feature: User Ratings</li>
+	<li>Feature: Use checkboxes for ingredients and instructions</li>
+	<li>Improvement: Combined public JS files</li>
+	<li>Improvement: Inline license key activation</li>
+</ul>
+
+<h3>2017-08-24 | WP Recipe Maker 1.22.0</h3>
+<ul>
+	<li>Feature: RTL support for recipe templates and print</li>
+	<li>Improvement: Print and unit conversion functionality when using the print templates</li>
+	<li>Improvement: Combined public JS files</li>
+	<li>Improvement: Apply appearance settings to print template as well</li>
+	<li>Improvement: Recipe rating saved as post meta</li>
+	<li>Improvement: Migrate WP Ultimate Recipe Premium user ratings</li>
+	<li>Fix: Heading style dropdown in Recipe Notes</li>
+</ul>
+
+<h3>2017-08-21 | WP Recipe Maker 1.21.0</h3>
+<ul>
+	<li>Feature: change ingredients and instructions list style from settings page</li>
+	<li>Feature: Rename terms on the manage page</li>
+	<li>Feature: Associate same categories as parent post with recipes</li>
+	<li>Improvement: Correctly apply font size setting to Tastefully Simple template</li>
+	<li>Improvement: Ability to override the comment rating templates</li>
+	<li>Fix: Prevent Firefox list style position issue</li>
+	<li>Fix: Make sure Premium version loads with all directory names</li>
+	<li>Fix: Prevent empty nutrition label from showing up</li>
+</ul>
+
+<h3>2017-07-06 | WP Recipe Maker Premium - Advanced Nutrition 1.1.0</h3>
+<ul>
+	<li>Feature: Adjust nutrition values per ingredient before calculating</li>
+	<li>Feature: Save and recall custom nutrition ingredients</li>
+	<li>Feature: Remember previously matched ingredients</li>
+</ul>
+
+<h3>2017-07-03 | WP Recipe Maker Premium 1.5.0</h3>
+<ul>
+	<li>Feature: Custom Author Links</li>
+	<li>Feature: Clone Recipe</li>
+	<li>Fix: Servings changer bug with some fractions</li>
+</ul>
+
 <h3>2017-07-02 | WP Recipe Maker 1.20.0</h3>
 <ul>
 	<li>Feature: Intermediate save when creating or editing recipes</li>

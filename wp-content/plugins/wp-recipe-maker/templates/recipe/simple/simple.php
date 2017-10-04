@@ -18,11 +18,7 @@
 	<div class="wprm-recipe-image-container">
 		<div class="wprm-recipe-image"><?php echo WPRM_Template_Helper::recipe_image( $recipe, 'thumbnail' ); ?></div>
 		<div class="wprm-recipe-buttons">
-			<?php
-			if ( $recipe->has_rating() ) {
-				echo $recipe->rating_stars( true );
-			}
-			?>
+			<?php echo $recipe->rating_stars( true ); ?>
 			<span class="wprm-recipe-print"><span class="wprm-recipe-details-icon"><?php include( WPRM_DIR . 'assets/icons/printer.svg' ); ?></span> <?php echo WPRM_Template_Helper::label( 'print_button' ); ?></span>
 		</div>
 	</div>

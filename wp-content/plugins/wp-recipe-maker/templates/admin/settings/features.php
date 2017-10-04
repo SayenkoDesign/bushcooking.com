@@ -104,6 +104,21 @@
 					</p>
 				</td>
 			</tr>
+			<tr>
+				<th scope="row">
+					<?php esc_html_e( 'User Ratings', 'wp-recipe-maker' ); ?>
+				</th>
+				<td>
+					<label for="features_user_ratings">
+						<?php $checked = WPRM_Settings::get( 'features_user_ratings' ) ? ' checked="checked"' : ''; ?>
+						<input name="features_user_ratings" type="checkbox" id="features_user_ratings"<?php echo esc_html( $checked ); ?> />
+						<?php esc_html_e( 'Visitors can rate your recipes without commenting', 'wp-recipe-maker' ); ?>
+					</label>
+					<p class="description">
+						<a href="http://bootstrapped.ventures/wp-recipe-maker/user-ratings/" target="_blank"><?php esc_html_e( 'Learn more', 'wp-recipe-maker' ); ?></a>
+					</p>
+				</td>
+			</tr>
 		</tbody>
 	</table>
 	<?php submit_button( __( 'Save Changes', 'wp-recipe-maker' ) ); ?>

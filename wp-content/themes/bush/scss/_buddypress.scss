@@ -1,0 +1,221 @@
+// hide h1
+.bp-user h1.text-center {
+  display: none;
+}
+// profile main tabs
+#buddypress #object-nav {
+  border-bottom: 1px solid $primary-3;
+}
+#buddypress #object-nav ul li a {
+  padding: 1rem 2rem;
+}
+#buddypress #object-nav ul li.current a, #buddypress #object-nav ul li.selected a {
+  background-color: $primary-3;
+  color: $white;
+}
+#buddypress div.item-list-tabs ul li a {
+  position: relative;
+  span {
+    text-align: center;
+    min-width: 24px;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    color: $primary-3;
+    border-color: $primary-3;
+    background-color: $white !important;
+    &.no-count {
+      //display: none;
+    }
+  }
+}
+#user-activity, #user-xprofile, #user-notifications, #user-messages,
+#user-friends, #user-groups, #user-settings, #user-media,
+#home, #members, #invite, #media, #admin {
+  text-align: center;
+  &::before {
+    font-size: 4rem;
+    font-family: FontAwesome;
+    display: block;
+  }
+}
+#user-activity::before {
+  content: "\f0ca";
+}
+#user-xprofile::before {
+  content: "\f007";
+}
+#user-notifications::before {
+  content: "\f0f3";
+}
+#user-messages::before {
+  content: "\f075";
+}
+#user-friends::before, #members::before {
+  content: "\f007";
+}
+#user-groups::before {
+  content: "\f0c0";
+}
+#user-settings::before, #admin::before {
+  content: "\f013";
+}
+#user-media::before, #media::before {
+  content: "\f030";
+}
+#home::before {
+  content: "\f015";
+}
+#invite::before {
+  content: "\f1d8";
+}
+// seconday tabs
+#buddypress #item-body ul li.current a, #buddypress #item-body ul li.selected a,
+#buddypress div.activity-type-tabs ul li.current a, #buddypress div.activity-type-tabs ul li.selected a,
+#buddypress #groups-directory-form ul li.current a, #buddypress #groups-directory-form ul li.selected a,
+#buddypress #create-group-form ul li.current a, #buddypress #create-group-form ul li.selected a {
+  background-color: transparent;
+  color: $primary-3;
+  border-bottom: 2px solid $primary-3;
+}
+// avatar {
+.wp-user-avatar {
+  border-radius: 100%;
+}
+
+// show select box
+#activity-filter-select, #members-order-select, #groups-order-select {
+  min-width: 250px;
+  label {
+    float: left;
+    position: relative;
+    top: rem-calc(7px);
+  }
+  select {
+    float: right;
+  }
+}
+
+// upload box
+.bp-avatar-nav ul.avatar-nav-items li.current {
+  border: none;
+}
+.bp-avatar-nav ul {
+  border: none;
+}
+#drag-drop-area, #buddypress .drag-drop #drag-drop-area {
+  border-color: $primary-3;
+}
+.bp-uploader-window {
+  height: rem-calc(200px);
+}
+
+// messages form
+#send_message_form ul.acfb-holder li,
+#search-groups-form ul.acfb-holder li {
+  float: none;
+}
+#search-message-form, #search-groups-form {
+  input {
+    margin: 0;
+    width: 100%;
+  }
+}
+
+// settings form
+#settings-form {
+  #email {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+// field visibility
+.wppb_bdp_visibility_settings {
+  text-align: right;
+  .wppb-visibility-toggle-link {
+    color: $primary-3;
+  }
+  .field-visibility-text {
+    display: inline-block;
+    width: rem-calc(112px);
+  }
+}
+
+// all buddypress buttons
+#buddypress .comment-reply-link, #buddypress .generic-button a, #buddypress .standard-form button,
+#buddypress a.button, #buddypress input[type=button], #buddypress input[type=reset],
+#buddypress input[type=submit], #buddypress ul.button-nav li a, a.bp-title-button,
+#buddypress #create-group-form ul li.current a.bp-avatar-nav-item {
+  text-align: center;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  border-radius: 0;
+  padding: 0.85rem 1rem;
+  font-size: 0.9rem;
+  background-color: $primary-3;
+  color: $white;
+  &:hover {
+    background-color: scale_color($primary-3, $lightness: -15%);
+    color: $white;
+    border: 1px solid transparent;
+  }
+}
+
+// activity page
+#buddypress {
+  #activity-all, #activity-favorites, #activity-mentions, #groups-all {
+    span {
+      display: none;
+    }
+  }
+}
+#buddypress .activity-meta a.bp-primary-action,
+#buddypress .activity-meta a.bp-secondary-action {
+  background-color: transparent;
+  border: none;
+  color: $primary-3;
+}
+
+#buddypress .activity-meta a.bp-primary-action.acomment-reply span {
+  text-align: center;
+  display: inline-block;
+  width: 16px;
+  font-size: 12px;
+  line-height:16px;
+  background-color: $primary-3;
+  color: $white;
+  border-radius: 100%;
+  display: none;
+}
+#buddypress .activity-meta {
+  .fav::before, .unfav::before {
+    font-family: FontAwesome;
+    display: inline-block;
+    margin-right: 4px;
+    font-size: 16px;
+  }
+  .fav::before {
+    //content: "\f006";
+  }
+  .unfav::before {
+    //content: "\f005";
+  }
+}
+
+// hide rss link
+#buddypress .feed {
+  display: none;
+}
+
+// media sub namv
+#buddypress #rtmedia-nav-item-all-li span,
+#buddypress #rtmedia-nav-item-albums-li span,
+#buddypress #rtmedia-nav-item-photo-group-1-li,
+#buddypress #rtmedia-nav-item-video-group-1-li,
+#buddypress #rtmedia-nav-item-music-group-1-li span {
+  display: none;
+}

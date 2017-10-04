@@ -6,7 +6,11 @@
 
     p, li {
 		font-size: 1em;
-	}
+    }
+    
+    li {
+        list-style-position: outside;
+    }
 
     li:before {
         display: none;

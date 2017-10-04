@@ -53,7 +53,7 @@
 						$options = array(
 							'comma' => __( 'Everything after the first comma', 'wp-recipe-maker' ),
 							'parentheses' => __( 'Everything inside parentheses', 'wp-recipe-maker' ),
-							'both' => __( 'Comma or parentheses, whichover comes first', 'wp-recipe-maker' ),
+							'both' => __( 'Comma or parentheses, whichever comes first', 'wp-recipe-maker' ),
 							'none' => __( 'Do not import to ingredient notes', 'wp-recipe-maker' ),
 						);
 

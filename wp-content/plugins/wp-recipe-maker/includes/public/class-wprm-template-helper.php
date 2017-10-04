@@ -217,27 +217,44 @@ class WPRM_Template_Helper {
 	 * @param    boolean $show_details Wether to display the rating details.
 	 */
 	public static function rating_stars( $rating, $show_details = false ) {
+		$user_ratings = WPRM_Addons::is_active( 'premium' ) && WPRM_Settings::get( 'features_user_ratings' );
 		$rating_value = ceil( $rating['average'] );
 
-		$output = '<div class="wprm-recipe-rating">';
+		// Only output when there is an actual rating or users can rate.
+		if ( ! $user_ratings && ! $rating_value ) {
+			return '';
+		}
+
+		if ( $user_ratings && WPRMP_User_Rating::is_user_allowed_to_vote() ) {
+			$class = ' wprm-user-rating wprm-user-rating-allowed';
+			$data = ' data-average="' . $rating['average'] . '" data-count="' . $rating['count'] . '" data-total="' . $rating['total'] . '" data-user="' . $rating['user'] . '"';
+		} elseif ( $user_ratings ) {
+			$class = ' wprm-user-rating';
+			$data = '';
+		} else {
+			$class = '';
+			$data = '';
+		}
+
+		$output = '<div class="wprm-recipe-rating' . $class . '"' . $data . '>';
 		for ( $i = 1; $i <= 5; $i++ ) {
-			$output .= '<span class="wprm-rating-star">';
-			if ( $i <= $rating_value ) {
-				ob_start();
-				include( WPRM_DIR . 'assets/icons/star-full.svg' );
-				$output .= ob_get_contents();
-				ob_end_clean();
-			} else {
-				ob_start();
-				include( WPRM_DIR . 'assets/icons/star-empty.svg' );
-				$output .= ob_get_contents();
-				ob_end_clean();
-			}
+			$class = $i <= $rating_value ? 'wprm-rating-star-full' : 'wprm-rating-star-empty';
+			$output .= '<span class="wprm-rating-star wprm-rating-star-' . $i . ' ' . $class . '" data-rating="' . $i . '">';
+
+			ob_start();
+			include( WPRM_DIR . 'assets/icons/star-empty.svg' );
+			$output .= ob_get_contents();
+			ob_end_clean();
+
 			$output .= '</span>';
 		}
 
 		if ( $show_details ) {
-			$output .= '<div class="wprm-recipe-rating-details" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"><span itemprop="ratingValue">' . $rating['average'] . '</span> ' . __( 'from', 'wp-recipe-maker' ) . ' <span itemprop="ratingCount">' . $rating['count'] . '</span> ' . _n( 'vote', 'votes', $rating['count'], 'wp-recipe-maker' ) . '</div>';
+			if ( $rating['count'] > 0 ) {
+				$output .= '<div class="wprm-recipe-rating-details" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"><span class="wprm-recipe-rating-average" itemprop="ratingValue">' . $rating['average'] . '</span> ' . __( 'from', 'wp-recipe-maker' ) . ' <span class="wprm-recipe-rating-count" itemprop="ratingCount">' . $rating['count'] . '</span> ' . _n( 'vote', 'votes', $rating['count'], 'wp-recipe-maker' ) . '</div>';
+			} else {
+				$output .= '<div class="wprm-recipe-rating-details"><span class="wprm-recipe-rating-average">' . $rating['average'] . '</span> ' . __( 'from', 'wp-recipe-maker' ) . ' <span class="wprm-recipe-rating-count">' . $rating['count'] . '</span> ' . _n( 'vote', 'votes', $rating['count'], 'wp-recipe-maker' ) . '</div>';
+			}
 		} else {
 			$output .= '<div class="wprm-recipe-rating-details-meta" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">';
 			$output .= '<meta itemprop="ratingValue" content="' . $rating['average'] . '">';

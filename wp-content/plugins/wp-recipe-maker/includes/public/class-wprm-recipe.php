@@ -116,6 +116,22 @@ class WPRM_Recipe {
 	}
 
 	/**
+	 * Try to unserialize as best as possible.
+	 *
+	 * @since    1.22.0
+	 * @param	 mixed $maybe_serialized Potentially serialized data.
+	 */
+	public function unserialize( $maybe_serialized ) {
+		$unserialized = @maybe_unserialize( $maybe_serialized );
+
+		if ( false === $unserialized ) {
+			$unserialized = unserialize( preg_replace_callback( '!s:(\d+):"(.*?)";!', array( $this, 'regex_replace_serialize' ), $maybe_serialized ) );
+		}
+
+		return $unserialized;
+	}
+
+	/**
 	 * Callback for regex to fix serialize issues.
 	 *
 	 * @since    1.20.0
@@ -309,14 +325,7 @@ class WPRM_Recipe {
 	 * @since    1.0.0
 	 */
 	public function nutrition() {
-		$serialized = $this->meta( 'wprm_nutrition', array() );
-		$nutrition = @maybe_unserialize( $serialized );
-
-		if ( false === $nutrition ) {
-			$nutrition = unserialize( preg_replace_callback( '!s:(\d+):"(.*?)";!', array( $this, 'regex_replace_serialize' ), $serialized ) );
-		}
-
-		return $nutrition;
+		return self::unserialize( $this->meta( 'wprm_nutrition', array() ) );
 	}
 
 	/**
@@ -335,25 +344,16 @@ class WPRM_Recipe {
 	 * @since    1.1.0
 	 */
 	public function rating() {
-		$rating = array(
-			'count' => 0,
-			'total' => 0,
-			'average' => 0,
-		);
+		$rating = self::unserialize( $this->meta( 'wprm_rating', array() ) );
 
-		// TODO cache the recipe rating.
-		$comments = get_approved_comments( $this->parent_post_id() );
+		// Recalculate if rating has not been set yet.
+		// if ( empty( $rating ) ) {
+			$rating = WPRM_Rating::update_recipe_rating( $this->id() );
+		// }
 
-		foreach ( $comments as $comment ) {
-			$comment_rating = intval( get_comment_meta( $comment->comment_ID, 'wprm-comment-rating', true ) );
-			if ( $comment_rating ) {
-				$rating['count']++;
-				$rating['total'] += $comment_rating;
-			}
-		}
-
-		if ( $rating['count'] > 0 ) {
-			 $rating['average'] = ceil( $rating['total'] / $rating['count'] * 100 ) / 100;
+		// Attach current user rating.
+		if ( WPRM_Addons::is_active( 'premium' ) ) {
+			$rating['user'] = WPRMP_User_Rating::get_user_rating_for( $this->id() );
 		}
 
 		return $rating;
@@ -482,14 +482,7 @@ class WPRM_Recipe {
 	 * @since    1.0.0
 	 */
 	public function ingredients() {
-		$serialized = $this->meta( 'wprm_ingredients', array() );
-		$ingredients = @maybe_unserialize( $serialized );
-
-		if ( false === $ingredients ) {
-			$ingredients = unserialize( preg_replace_callback( '!s:(\d+):"(.*?)";!', array( $this, 'regex_replace_serialize' ), $serialized ) );
-		}
-
-		return $ingredients;
+		return self::unserialize( $this->meta( 'wprm_ingredients', array() ) );
 	}
 
 	/**
@@ -523,14 +516,7 @@ class WPRM_Recipe {
 	 * @since    1.0.0
 	 */
 	public function instructions() {
-		$serialized = $this->meta( 'wprm_instructions', array() );
-		$instructions = @maybe_unserialize( $serialized );
-
-		if ( false === $instructions ) {
-			$instructions = unserialize( preg_replace_callback( '!s:(\d+):"(.*?)";!', array( $this, 'regex_replace_serialize' ), $serialized ) );
-		}
-
-		return $instructions;
+		return self::unserialize( $this->meta( 'wprm_instructions', array() ) );
 	}
 
 	/**

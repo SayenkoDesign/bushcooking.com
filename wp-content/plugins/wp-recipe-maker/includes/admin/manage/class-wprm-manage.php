@@ -32,6 +32,7 @@ class WPRM_Manage {
 
 		add_action( 'wp_ajax_wprm_manage_datatable', array( __CLASS__, 'ajax_manage_datatable' ) );
 		add_action( 'wp_ajax_wprm_update_term_metadata', array( __CLASS__, 'ajax_update_term_metadata' ) );
+		add_action( 'wp_ajax_wprm_rename_term', array( __CLASS__, 'ajax_rename_term' ) );
 		add_action( 'wp_ajax_wprm_delete_or_merge_term', array( __CLASS__, 'ajax_delete_or_merge_term' ) );
 		add_action( 'wp_ajax_wprm_delete_terms', array( __CLASS__, 'ajax_delete_terms' ) );
 		add_action( 'wp_ajax_wprm_delete_recipe', array( __CLASS__, 'ajax_delete_recipe' ) );
@@ -82,6 +83,46 @@ class WPRM_Manage {
 				}
 
 				update_term_meta( $term_id, 'wprmp_' . $field, $value );
+			}
+		}
+
+		wp_die();
+	}
+
+	/**
+	 * Rename terms through AJAX.
+	 *
+	 * @since    1.21.0
+	 */
+	public static function ajax_rename_term() {
+		if ( check_ajax_referer( 'wprm', 'security', false ) ) {
+			$term_id = isset( $_POST['term_id'] ) ? intval( $_POST['term_id'] ) : 0; // Input var okay.
+			$taxonomy = isset( $_POST['taxonomy'] ) ? sanitize_key( wp_unslash( $_POST['taxonomy'] ) ) : ''; // Input var okay.
+			$new_name = isset( $_POST['new_name'] ) ? sanitize_text_field( wp_unslash( $_POST['new_name'] ) ) : ''; // Input var okay.
+
+			// This ensures were only chaning our own taxonomies.
+			$taxonomy = 'wprm_' . $taxonomy;
+
+			if ( $term_id ) {
+				$term = get_term( $term_id, $taxonomy );
+
+				// Check if this is one of our taxonomies.
+				if ( $term && ! is_wp_error( $term ) ) {
+					$term_update = wp_update_term(
+						$term_id,
+						$taxonomy,
+						array(
+							'name' => $new_name,
+							'slug' => sanitize_title( $new_name ),
+						)
+					);
+
+					$term = get_term( $term_id, $taxonomy );
+
+					if ( ! is_wp_error( $term_update ) ) {
+						self::rename_recipe_ingredients( $term );
+					}
+				}
 			}
 		}
 
@@ -158,6 +199,50 @@ class WPRM_Manage {
 		}
 
 		wp_die();
+	}
+
+	/**
+	 * Rename ingredients for all recipes using them.
+	 *
+	 * @since    1.21.0
+	 * @param    int $term Ingredient term to rename.
+	 */
+	public static function rename_recipe_ingredients( $term ) {
+		$args = array(
+			'post_type' => WPRM_POST_TYPE,
+			'post_status' => 'any',
+			'nopaging' => true,
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'wprm_ingredient',
+					'field' => 'id',
+					'terms' => $term->term_id,
+				),
+			)
+		);
+
+		$query = new WP_Query( $args );
+		$posts = $query->posts;
+		foreach ( $posts as $post ) {
+			$recipe = WPRM_Recipe_Manager::get_recipe( $post );
+
+			$new_ingredients = array();
+			foreach ( $recipe->ingredients() as $ingredient_group ) {
+				$new_ingredient_group = $ingredient_group;
+				$new_ingredient_group['ingredients'] = array();
+
+				foreach ( $ingredient_group['ingredients'] as $ingredient ) {
+					if ( intval( $ingredient['id'] ) === $term->term_id ) {
+						$ingredient['name'] = $term->name;
+					}
+					$new_ingredient_group['ingredients'][] = $ingredient;
+				}
+
+				$new_ingredients[] = $new_ingredient_group;
+			}
+
+			update_post_meta( $recipe->id(), 'wprm_ingredients', $new_ingredients );
+		}
 	}
 
 	/**

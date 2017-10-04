@@ -5309,6 +5309,228 @@ h1, h2, h3, h4 {
 #author-social a:hover .fa-circle, #author-lightbox-social a:hover .fa-circle {
   opacity: 0.8; }
 
+/* line 2, ../scss/_buddypress.scss */
+.bp-user h1.text-center {
+  display: none; }
+
+/* line 6, ../scss/_buddypress.scss */
+#buddypress #object-nav {
+  border-bottom: 1px solid #F15B24; }
+
+/* line 9, ../scss/_buddypress.scss */
+#buddypress #object-nav ul li a {
+  padding: 1rem 2rem; }
+
+/* line 12, ../scss/_buddypress.scss */
+#buddypress #object-nav ul li.current a, #buddypress #object-nav ul li.selected a {
+  background-color: #F15B24;
+  color: #FFF; }
+
+/* line 16, ../scss/_buddypress.scss */
+#buddypress div.item-list-tabs ul li a {
+  position: relative; }
+  /* line 18, ../scss/_buddypress.scss */
+  #buddypress div.item-list-tabs ul li a span {
+    text-align: center;
+    min-width: 24px;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    color: #F15B24;
+    border-color: #F15B24;
+    background-color: #FFF !important; }
+
+/* line 32, ../scss/_buddypress.scss */
+#user-activity, #user-xprofile, #user-notifications, #user-messages,
+#user-friends, #user-groups, #user-settings, #user-media,
+#home, #members, #invite, #media, #admin {
+  text-align: center; }
+  /* line 36, ../scss/_buddypress.scss */
+  #user-activity::before, #user-xprofile::before, #user-notifications::before, #user-messages::before,
+  #user-friends::before, #user-groups::before, #user-settings::before, #user-media::before,
+  #home::before, #members::before, #invite::before, #media::before, #admin::before {
+    font-size: 4rem;
+    font-family: FontAwesome;
+    display: block; }
+
+/* line 42, ../scss/_buddypress.scss */
+#user-activity::before {
+  content: "\f0ca"; }
+
+/* line 45, ../scss/_buddypress.scss */
+#user-xprofile::before {
+  content: "\f007"; }
+
+/* line 48, ../scss/_buddypress.scss */
+#user-notifications::before {
+  content: "\f0f3"; }
+
+/* line 51, ../scss/_buddypress.scss */
+#user-messages::before {
+  content: "\f075"; }
+
+/* line 54, ../scss/_buddypress.scss */
+#user-friends::before, #members::before {
+  content: "\f007"; }
+
+/* line 57, ../scss/_buddypress.scss */
+#user-groups::before {
+  content: "\f0c0"; }
+
+/* line 60, ../scss/_buddypress.scss */
+#user-settings::before, #admin::before {
+  content: "\f013"; }
+
+/* line 63, ../scss/_buddypress.scss */
+#user-media::before, #media::before {
+  content: "\f030"; }
+
+/* line 66, ../scss/_buddypress.scss */
+#home::before {
+  content: "\f015"; }
+
+/* line 69, ../scss/_buddypress.scss */
+#invite::before {
+  content: "\f1d8"; }
+
+/* line 73, ../scss/_buddypress.scss */
+#buddypress #item-body ul li.current a, #buddypress #item-body ul li.selected a,
+#buddypress div.activity-type-tabs ul li.current a, #buddypress div.activity-type-tabs ul li.selected a,
+#buddypress #groups-directory-form ul li.current a, #buddypress #groups-directory-form ul li.selected a,
+#buddypress #create-group-form ul li.current a, #buddypress #create-group-form ul li.selected a {
+  background-color: transparent;
+  color: #F15B24;
+  border-bottom: 2px solid #F15B24; }
+
+/* line 82, ../scss/_buddypress.scss */
+.wp-user-avatar {
+  border-radius: 100%; }
+
+/* line 87, ../scss/_buddypress.scss */
+#activity-filter-select, #members-order-select, #groups-order-select {
+  min-width: 250px; }
+  /* line 89, ../scss/_buddypress.scss */
+  #activity-filter-select label, #members-order-select label, #groups-order-select label {
+    float: left;
+    position: relative;
+    top: 0.5rem; }
+  /* line 94, ../scss/_buddypress.scss */
+  #activity-filter-select select, #members-order-select select, #groups-order-select select {
+    float: right; }
+
+/* line 100, ../scss/_buddypress.scss */
+.bp-avatar-nav ul.avatar-nav-items li.current {
+  border: none; }
+
+/* line 103, ../scss/_buddypress.scss */
+.bp-avatar-nav ul {
+  border: none; }
+
+/* line 106, ../scss/_buddypress.scss */
+#drag-drop-area, #buddypress .drag-drop #drag-drop-area {
+  border-color: #F15B24; }
+
+/* line 109, ../scss/_buddypress.scss */
+.bp-uploader-window {
+  height: 14.28571rem; }
+
+/* line 114, ../scss/_buddypress.scss */
+#send_message_form ul.acfb-holder li,
+#search-groups-form ul.acfb-holder li {
+  float: none; }
+
+/* line 119, ../scss/_buddypress.scss */
+#search-message-form input, #search-groups-form input {
+  margin: 0;
+  width: 100%; }
+
+/* line 127, ../scss/_buddypress.scss */
+#settings-form #email {
+  width: 100%;
+  max-width: 100%; }
+
+/* line 134, ../scss/_buddypress.scss */
+.wppb_bdp_visibility_settings {
+  text-align: right; }
+  /* line 136, ../scss/_buddypress.scss */
+  .wppb_bdp_visibility_settings .wppb-visibility-toggle-link {
+    color: #F15B24; }
+  /* line 139, ../scss/_buddypress.scss */
+  .wppb_bdp_visibility_settings .field-visibility-text {
+    display: inline-block;
+    width: 8rem; }
+
+/* line 146, ../scss/_buddypress.scss */
+#buddypress .comment-reply-link, #buddypress .generic-button a, #buddypress .standard-form button,
+#buddypress a.button,
+#buddypress .form-submit a.submit,
+.form-submit #buddypress a.submit, #buddypress input[type=button], #buddypress input[type=reset],
+#buddypress input[type=submit], #buddypress ul.button-nav li a, a.bp-title-button,
+#buddypress #create-group-form ul li.current a.bp-avatar-nav-item {
+  text-align: center;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  border-radius: 0;
+  padding: 0.85rem 1rem;
+  font-size: 0.9rem;
+  background-color: #F15B24;
+  color: #FFF; }
+  /* line 161, ../scss/_buddypress.scss */
+  #buddypress .comment-reply-link:hover, #buddypress .generic-button a:hover, #buddypress .standard-form button:hover,
+  #buddypress a.button:hover,
+  #buddypress .form-submit a.submit:hover,
+  .form-submit #buddypress a.submit:hover, #buddypress input[type=button]:hover, #buddypress input[type=reset]:hover,
+  #buddypress input[type=submit]:hover, #buddypress ul.button-nav li a:hover, a.bp-title-button:hover,
+  #buddypress #create-group-form ul li.current a.bp-avatar-nav-item:hover {
+    background-color: #dd460e;
+    color: #FFF;
+    border: 1px solid transparent; }
+
+/* line 171, ../scss/_buddypress.scss */
+#buddypress #activity-all span, #buddypress #activity-favorites span, #buddypress #activity-mentions span, #buddypress #groups-all span {
+  display: none; }
+
+/* line 176, ../scss/_buddypress.scss */
+#buddypress .activity-meta a.bp-primary-action,
+#buddypress .activity-meta a.bp-secondary-action {
+  background-color: transparent;
+  border: none;
+  color: #F15B24; }
+
+/* line 183, ../scss/_buddypress.scss */
+#buddypress .activity-meta a.bp-primary-action.acomment-reply span {
+  text-align: center;
+  display: inline-block;
+  width: 16px;
+  font-size: 12px;
+  line-height: 16px;
+  background-color: #F15B24;
+  color: #FFF;
+  border-radius: 100%;
+  display: none; }
+
+/* line 195, ../scss/_buddypress.scss */
+#buddypress .activity-meta .fav::before, #buddypress .activity-meta .unfav::before {
+  font-family: FontAwesome;
+  display: inline-block;
+  margin-right: 4px;
+  font-size: 16px; }
+
+/* line 210, ../scss/_buddypress.scss */
+#buddypress .feed {
+  display: none; }
+
+/* line 215, ../scss/_buddypress.scss */
+#buddypress #rtmedia-nav-item-all-li span,
+#buddypress #rtmedia-nav-item-albums-li span,
+#buddypress #rtmedia-nav-item-photo-group-1-li,
+#buddypress #rtmedia-nav-item-video-group-1-li,
+#buddypress #rtmedia-nav-item-music-group-1-li span {
+  display: none; }
+
 @media print {
   /* line 2, ../scss/_print.scss */
   .print-only {
@@ -5420,16 +5642,16 @@ h1, h2, h3, h4 {
   src: url("../fonts/Besom-free-font 2.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
-/* line 29, ../scss/app.scss */
+/* line 30, ../scss/app.scss */
 .row .columns.collapse {
   padding: 0; }
 
-/* line 33, ../scss/app.scss */
+/* line 34, ../scss/app.scss */
 .alignright {
   float: right;
   padding: 1rem; }
 
-/* line 39, ../scss/app.scss */
+/* line 40, ../scss/app.scss */
 .social-links .fa {
   border-radius: 100%;
   width: 30px;
@@ -5439,92 +5661,92 @@ h1, h2, h3, h4 {
   font-size: 1rem;
   background-image: url("../images/social-icons.png");
   color: transparent; }
-/* line 50, ../scss/app.scss */
+/* line 51, ../scss/app.scss */
 .social-links .fa-instagram, .social-links .fa-instagram:hover {
   background-position: 30px; }
-/* line 51, ../scss/app.scss */
+/* line 52, ../scss/app.scss */
 .social-links .fa-pinterest, .social-links .fa-pinterest:hover {
   background-position: 0; }
-/* line 52, ../scss/app.scss */
+/* line 53, ../scss/app.scss */
 .social-links .fa-facebook, .social-links .fa-facebook:hover {
   background-position: -36px; }
-/* line 53, ../scss/app.scss */
+/* line 54, ../scss/app.scss */
 .social-links .fa-twitter, .social-links .fa-twitter:hover {
   background-position: -107px; }
-/* line 54, ../scss/app.scss */
+/* line 55, ../scss/app.scss */
 .social-links .fa-google-plus, .social-links .fa-google-plus:hover {
   background-position: -143px; }
-/* line 55, ../scss/app.scss */
+/* line 56, ../scss/app.scss */
 .social-links .fa.all-recipes {
   background-image: url("../images/AllRecipes.png");
   background-repeat: no-repeat; }
 
-/* line 61, ../scss/app.scss */
+/* line 62, ../scss/app.scss */
 .dropdown-pane {
   background-color: #FFF;
   border: none; }
 
-/* line 71, ../scss/app.scss */
+/* line 72, ../scss/app.scss */
 .fa-star {
   color: #F15B24; }
 
-/* line 75, ../scss/app.scss */
+/* line 76, ../scss/app.scss */
 #content {
   padding-top: 80px;
   padding-bottom: 80px; }
 
-/* line 80, ../scss/app.scss */
+/* line 81, ../scss/app.scss */
 .tabs {
   border: none;
   display: inline-block; }
 
-/* line 84, ../scss/app.scss */
+/* line 85, ../scss/app.scss */
 .tabs + br, .tabs-content > br {
   display: none; }
 
-/* line 87, ../scss/app.scss */
+/* line 88, ../scss/app.scss */
 .tabs-title > a {
   font-family: "Amatic SC", cursive;
   font-size: 20px;
   border: 1px solid #CCC;
   border-right: none; }
 
-/* line 93, ../scss/app.scss */
+/* line 94, ../scss/app.scss */
 .tabs-title:last-of-type > a {
   border-right: 1px solid #CCC; }
 
-/* line 96, ../scss/app.scss */
+/* line 97, ../scss/app.scss */
 .tabs-title > a:focus, .tabs-title > a[aria-selected="true"], .tabs-title > a:hover {
   color: #F15B24; }
 
-/* line 100, ../scss/app.scss */
+/* line 101, ../scss/app.scss */
 .attachment-post-thumbnail {
   margin-bottom: 2rem; }
   @media screen and (min-width: 43.75em) {
-    /* line 100, ../scss/app.scss */
+    /* line 101, ../scss/app.scss */
     .attachment-post-thumbnail {
       margin-bottom: 0; } }
 
 /** code another developer placed in the compiled css file instead of in sass. **/
-/* line 108, ../scss/app.scss */
+/* line 109, ../scss/app.scss */
 #gform_3 div {
   display: inline-block !important;
   clear: none !important;
   width: auto !important; }
 
-/* line 113, ../scss/app.scss */
+/* line 114, ../scss/app.scss */
 #gform_3 label, #input_3_2, .gfield_description {
   display: none !important; }
 
-/* line 117, ../scss/app.scss */
+/* line 118, ../scss/app.scss */
 #gform_3 #field_3_1 div {
   width: 100% !important; }
 
-/* line 122, ../scss/app.scss */
+/* line 123, ../scss/app.scss */
 #primary .wprm-recipe-container .wprm-recipe {
   background-color: transparent;
   border: none; }
 
-/* line 126, ../scss/app.scss */
+/* line 127, ../scss/app.scss */
 .wprm-recipe-details-container br, .wprm-recipe-ingredient br, .wprm-recipe-details-icon br {
   display: none; }

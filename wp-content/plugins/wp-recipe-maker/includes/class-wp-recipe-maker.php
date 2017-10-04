@@ -31,8 +31,8 @@ class WP_Recipe_Maker {
 	 * @since    1.0.0
 	 */
 	private function define_constants() {
-		define( 'WPRM_VERSION', '1.20.0' );
-		define( 'WPRM_PREMIUM_VERSION_REQUIRED', '1.3.0' );
+		define( 'WPRM_VERSION', '1.23.1' );
+		define( 'WPRM_PREMIUM_VERSION_REQUIRED', '1.6.0' );
 		define( 'WPRM_POST_TYPE', 'wprm_recipe' );
 		define( 'WPRM_DIR', plugin_dir_path( dirname( __FILE__ ) ) );
 		define( 'WPRM_URL', plugin_dir_url( dirname( __FILE__ ) ) );
@@ -46,8 +46,17 @@ class WP_Recipe_Maker {
 	public function __construct() {
 		$this->define_constants();
 		$this->load_dependencies();
-		do_action( 'wprm_init' );
+		add_action( 'plugins_loaded', array( $this, 'wprm_init' ), 1 );
 		add_action( 'admin_notices', array( $this, 'admin_notice_required_version' ) );
+	}
+
+	/**
+	 * Init WPRM for Premium add-ons.
+	 *
+	 * @since    1.21.0
+	 */
+	public function wprm_init() {
+		do_action( 'wprm_init' );
 	}
 
 	/**
@@ -65,6 +74,7 @@ class WP_Recipe_Maker {
 		// Public.
 		require_once( WPRM_DIR . 'includes/public/class-wprm-addons.php' );
 		require_once( WPRM_DIR . 'includes/public/class-wprm-api.php' );
+		require_once( WPRM_DIR . 'includes/public/class-wprm-assets.php' );
 
 		if ( WPRM_Settings::get( 'features_comment_ratings' ) ) {
 			require_once( WPRM_DIR . 'includes/public/class-wprm-comment-rating.php' );
@@ -74,6 +84,7 @@ class WP_Recipe_Maker {
 		require_once( WPRM_DIR . 'includes/public/class-wprm-metadata.php' );
 		require_once( WPRM_DIR . 'includes/public/class-wprm-post-type.php' );
 		require_once( WPRM_DIR . 'includes/public/class-wprm-print.php' );
+		require_once( WPRM_DIR . 'includes/public/class-wprm-rating.php' );
 		require_once( WPRM_DIR . 'includes/public/class-wprm-recipe-manager.php' );
 		require_once( WPRM_DIR . 'includes/public/class-wprm-recipe.php' );
 		require_once( WPRM_DIR . 'includes/public/class-wprm-shortcode.php' );

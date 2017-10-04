@@ -44,6 +44,8 @@ class WPRM_Settings {
 		'template_font_regular' => '',
 		'template_recipe_image' => '',
 		'template_instruction_image' => '',
+		'template_ingredient_list_style' => 'disc',
+		'template_instruction_list_style' => 'decimal',
 		'template_color_border' => '#aaaaaa',
 		'template_color_background' => '#ffffff',
 		'template_color_text' => '#333333',
@@ -66,6 +68,7 @@ class WPRM_Settings {
 		'features_custom_style' => true,
 		// Features Premium.
 		'features_adjustable_servings' => true,
+		'features_user_ratings' => true,
 		// Advanced.
 		'recipe_css' => '',
 		'print_css' => '',
@@ -234,6 +237,8 @@ class WPRM_Settings {
 			$template_font_regular = isset( $_POST['template_font_regular'] ) ? sanitize_text_field( wp_unslash( $_POST['template_font_regular'] ) ) : ''; // Input var okay.
 			$template_recipe_image = isset( $_POST['template_recipe_image'] ) ? sanitize_text_field( wp_unslash( $_POST['template_recipe_image'] ) ) : ''; // Input var okay.
 			$template_instruction_image = isset( $_POST['template_instruction_image'] ) ? sanitize_text_field( wp_unslash( $_POST['template_instruction_image'] ) ) : ''; // Input var okay.
+			$template_ingredient_list_style = isset( $_POST['template_ingredient_list_style'] ) ? sanitize_key( $_POST['template_ingredient_list_style'] ) : ''; // Input var okay.
+			$template_instruction_list_style = isset( $_POST['template_instruction_list_style'] ) ? sanitize_key( $_POST['template_instruction_list_style'] ) : ''; // Input var okay.
 
 			$template_color_border = isset( $_POST['template_color_border'] ) ? sanitize_text_field( wp_unslash( $_POST['template_color_border'] ) ) : ''; // Input var okay.
 			$template_color_background = isset( $_POST['template_color_background'] ) ? sanitize_text_field( wp_unslash( $_POST['template_color_background'] ) ) : ''; // Input var okay.
@@ -269,6 +274,8 @@ class WPRM_Settings {
 			$settings['template_font_regular'] = $template_font_regular;
 			$settings['template_recipe_image'] = $template_recipe_image;
 			$settings['template_instruction_image'] = $template_instruction_image;
+			if ( $template_ingredient_list_style ) { $settings['template_ingredient_list_style'] = $template_ingredient_list_style; }
+			if ( $template_instruction_list_style ) { $settings['template_instruction_list_style'] = $template_instruction_list_style; }
 
 			if ( $template_color_border ) { $settings['template_color_border'] = $template_color_border; }
 			if ( $template_color_background ) { $settings['template_color_background'] = $template_color_background; }
@@ -328,6 +335,7 @@ class WPRM_Settings {
 			$features_comment_ratings = isset( $_POST['features_comment_ratings'] ) && sanitize_key( $_POST['features_comment_ratings'] ) ? true : false; // Input var okay.
 			$features_custom_style = isset( $_POST['features_custom_style'] ) && sanitize_key( $_POST['features_custom_style'] ) ? true : false; // Input var okay.
 			$features_adjustable_servings = isset( $_POST['features_adjustable_servings'] ) && sanitize_key( $_POST['features_adjustable_servings'] ) ? true : false; // Input var okay.
+			$features_user_ratings = isset( $_POST['features_user_ratings'] ) && sanitize_key( $_POST['features_user_ratings'] ) ? true : false; // Input var okay.
 
 			$settings = array();
 
@@ -336,6 +344,7 @@ class WPRM_Settings {
 			$settings['features_comment_ratings'] = $features_comment_ratings;
 			$settings['features_custom_style'] = $features_custom_style;
 			$settings['features_adjustable_servings'] = $features_adjustable_servings;
+			$settings['features_user_ratings'] = $features_user_ratings;
 
 			self::update_settings( $settings );
 		}

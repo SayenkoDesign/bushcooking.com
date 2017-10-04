@@ -15,10 +15,8 @@
 	<?php do_action( 'wprm_modal_notice' ); ?>
 	<div class="wprm-easyrecipe-warning" style="display: none;">
 		<strong>Warning!</strong>
-		<p>It looks this page already has an EasyRecipe recipe in it. Unfortunately their code is breaking things and preventing our plugin (and others) from working correctly.</p>
-		<p>WP Recipe Maker should work correctly if you remove the EasyRecipe recipe first and update the page before using our plugin.</p>
-		<p>We also have an <a href="http://bootstrapped.ventures/wp-recipe-maker/import-from-easyrecipe/" target="_blank">EasyRecipe import feature</a> if you'd like to migrate those recipes!</p>
-		<p>This problem does not occur for new posts or posts without recipes. If you're getting this warning in those cases, please <a href="http://bootstrapped.ventures/wp-recipe-maker/support/" target="_blank">contact us</a>!</p>
+		<p>We're detecting a compatibility problem, potentially breaking some of our functionality. You could try disabling all other plugins for a second to see if you can find the conflict.</p>
+		<p>Please <a href="http://bootstrapped.ventures/wp-recipe-maker/support/" target="_blank">contact us</a> for more help!</p>
 	</div>
 	<div class="wprm-recipe-form-container wprm-recipe-image-container">
 		<label for="wprm-recipe-image-id"><?php esc_html_e( 'Image', 'wp-recipe-maker' ); ?></label>

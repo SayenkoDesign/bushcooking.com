@@ -34,6 +34,26 @@ An overview of WP Recipe Maker features:
 *   **Full text search** for your recipes
 *   Access your recipes through the WordPress **REST API**
 *   Built-in **SEO check** for your recipe metadata
+*   Compatible with **RTL** languages
+*   **Import your recipes** from other plugins (see below)
+
+= WP Recipe Maker Premium =
+
+Looking for some more advanced functionality? We also have the [WP Recipe Maker Premium](http://bootstrapped.ventures/wp-recipe-maker/) add-on available with the following features:
+
+*   Use **ingredient links** for linking to products or other recipes
+*   **Adjustable servings** make it easy for your visitors
+*   Display all nutrition data in a **nutrition label**
+*   **User Ratings** allow visitors to vote without commenting
+*   Add a mobile-friendly **kitchen timer** to your recipes
+*   More **Premium templates** for a unique recipe template
+*   Create custom **recipe taxonomies** like price level, difficulty, ...
+*   Use **checkboxes** for your ingredients and instructions
+
+Even more add-ons can add the following functionality:
+
+*   Integration with a **Nutrition API** for automatic nutrition facts
+*   **Unit Conversion** to reach an international audience with a different unit system
 
 = Import Options =
 
@@ -46,22 +66,8 @@ Currently using another recipe plugin? No problem! You can easily migrate all yo
 *   ZipList and Zip Recipes
 *   Yummly
 *   Yumprint Recipe Card
+*   Tasty Recipes
 *   (More coming soon!)
-
-= WP Recipe Maker Premium =
-
-Looking for some more advanced functionality? We also have the [WP Recipe Maker Premium](http://bootstrapped.ventures/wp-recipe-maker/) add-on available with the following features:
-
-*   Use **ingredient links** for linking to products or other recipes
-*   **Adjustable servings** make it easy for your visitors
-*   Display all nutrition data in a **nutrition label**
-*   Add a mobile-friendly **kitchen timer** to your recipes
-*   More **Premium templates** for a unique recipe template
-*   Create custom **recipe taxonomies** like price level, difficulty, ...
-
-Even more add-ons can add the following functionality:
-
-*   Integration with a **Nutrition API** for automatic nutrition facts
 
 This plugin is in active development. Feel free to contact us with any feature requests or ideas.
 
@@ -96,6 +102,35 @@ Yes! We pride ourselves on offering awesome support and almost always answer sup
 4. Example Pasta Pesto recipe with the Tastefully Simple (EasyRecipe like) template.
 
 == Changelog ==
+
+= 1.23.1 =
+* Fix: Make sure recipe rating is updated
+* Fix: Inline rating metadata when there are no votes yet
+
+= 1.23.0 =
+* Feature: Import WP Tasty Recipes
+* Improvement: Better handling of shortcodes in JSON-LD metadata
+* Fix: Problem with double recipes in categories
+* Fix: Jetpack Contact Form compatibility problem on manage page
+
+= 1.22.0 =
+* Feature: RTL support for recipe templates and print
+* Improvement: Print and unit conversion functionality when using the print templates
+* Improvement: Combined public JS files
+* Improvement: Apply appearance settings to print template as well
+* Improvement: Recipe rating saved as post meta
+* Improvement: Migrate WP Ultimate Recipe Premium user ratings
+* Fix: Heading style dropdown in Recipe Notes
+
+= 1.21.0 =
+* Feature: change ingredients and instructions list style from settings page
+* Feature: Rename terms on the manage page
+* Feature: Associate same categories as parent post with recipes
+* Improvement: Correctly apply font size setting to Tastefully Simple template
+* Improvement: Ability to override the comment rating templates
+* Fix: Prevent Firefox list style position issue
+* Fix: Make sure Premium version loads with all directory names
+* Fix: Prevent empty nutrition label from showing up
 
 = 1.20.0 =
 * Feature: Intermediate save when creating or editing recipes
@@ -313,6 +348,18 @@ Yes! We pride ourselves on offering awesome support and almost always answer sup
 * Feature: Fallback recipe when the plugin is disabled
 
 == Upgrade notice ==
+
+= 1.23.1 =
+Update if you're experiencing issues with the recipe ratings
+
+= 1.23.0 =
+Update to prevent a Jetpack compatibility problem
+
+= 1.22.0 =
+Update required if you want to use the latest version of WP Recipe Maker Premium
+
+= 1.21.0 =
+Update for the latest version of this recipe plugin
 
 = 1.20.0 =
 Update for a few great tweaks

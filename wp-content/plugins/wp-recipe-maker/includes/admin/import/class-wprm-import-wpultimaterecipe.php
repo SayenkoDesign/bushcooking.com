@@ -308,6 +308,13 @@ class WPRM_Import_Wpultimaterecipe extends WPRM_Import {
 			exit();
 		}
 
+		// Migrate user ratings.
+		$user_ratings = get_post_meta( $id, 'recipe_user_ratings' );
+
+		foreach ( $user_ratings as $user_rating ) {
+			add_post_meta( $wprm_id, 'wprm_user_ratings', $user_rating );
+		}
+
 		// If import type is "hide" we count on the fallback shortcode.
 		if ( 'convert' === $import_type ) {
 			$post = get_post( $id );

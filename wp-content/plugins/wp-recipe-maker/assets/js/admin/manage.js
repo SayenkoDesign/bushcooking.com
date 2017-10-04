@@ -1,5 +1,19 @@
 var wprm_admin = wprm_admin || {};
 
+wprm_admin.rename_term = function(term_id, taxonomy, new_name) {
+	var data = {
+			action: 'wprm_rename_term',
+			security: wprm_manage.nonce,
+			term_id: term_id,
+			taxonomy: taxonomy,
+			new_name: new_name
+	};
+
+	jQuery.post(wprm_manage.ajax_url, data, function() {
+		jQuery('.wprm-manage-datatable').DataTable().ajax.reload(null, false);
+	});
+};
+
 wprm_admin.update_term_metadata = function(term_id, field, value) {
 	var data = {
 			action: 'wprm_update_term_metadata',
@@ -124,7 +138,7 @@ jQuery(document).ready(function($) {
 
 			// Add tooltips.
 			jQuery('.wprm-manage-ingredients-actions').tooltipster({
-				content: '<div class="wprm-manage-ingredients-actions-tooltip"><div class="tooltip-header">&nbsp;</div><a href="#" class="wprm-manage-ingredients-actions-link">Edit Ingredient Link</a><a href="#" class="wprm-manage-ingredients-actions-merge">Merge into Another Ingredient</a><a href="#" class="wprm-manage-ingredients-actions-delete">Delete Ingredient</a></div>',
+				content: '<div class="wprm-manage-ingredients-actions-tooltip"><div class="tooltip-header">&nbsp;</div><a href="#" class="wprm-manage-ingredients-actions-rename">Rename Ingredient</a><a href="#" class="wprm-manage-ingredients-actions-link">Edit Ingredient Link</a><a href="#" class="wprm-manage-ingredients-actions-merge">Merge into Another Ingredient</a><a href="#" class="wprm-manage-ingredients-actions-delete">Delete Ingredient</a></div>',
 				contentAsHTML: true,
 				functionBefore: function() {
 					var instances = jQuery.tooltipster.instances();
@@ -161,7 +175,7 @@ jQuery(document).ready(function($) {
 			});
 
 			jQuery('.wprm-manage-taxonomies-actions').tooltipster({
-				content: '<div class="wprm-manage-taxonomies-actions-tooltip"><div class="tooltip-header">&nbsp;</div><a href="#" class="wprm-manage-taxonomies-actions-merge">Merge into Another Term</a><a href="#" class="wprm-manage-taxonomies-actions-delete">Delete Term</a></div>',
+				content: '<div class="wprm-manage-taxonomies-actions-tooltip"><div class="tooltip-header">&nbsp;</div><a href="#" class="wprm-manage-taxonomies-actions-rename">Rename Term</a><a href="#" class="wprm-manage-taxonomies-actions-merge">Merge into Another Term</a><a href="#" class="wprm-manage-taxonomies-actions-delete">Delete Term</a></div>',
 				contentAsHTML: true,
 				functionBefore: function() {
 					var instances = jQuery.tooltipster.instances();
@@ -247,6 +261,18 @@ jQuery(document).ready(function($) {
 		wprm_admin.update_term_metadata(id, 'ingredient_link_nofollow', nofollow);
 	});
 
+	jQuery(document).on('click', '.wprm-manage-ingredients-actions-rename', function(e) {
+		e.preventDefault();
+
+		var id = jQuery(this).data('id'),
+			name = jQuery('#wprm-manage-ingredients-name-' + id).text();
+		
+		var new_name = prompt('What do you want to rename "' + name + '" to?', name).trim();
+		if(new_name) {
+			wprm_admin.rename_term(id, 'ingredient', new_name);
+		}
+	});
+
 	jQuery(document).on('click', '.wprm-manage-ingredients-actions-link', function(e) {
 		e.preventDefault();
 
@@ -268,6 +294,19 @@ jQuery(document).ready(function($) {
 		var new_term = parseInt(prompt('What is the ID of the ingredient that you want to merge "' + name + '" into?', ''));
 		if(new_term) {
 			wprm_admin.delete_or_merge_term(id, 'ingredient', new_term);
+		}
+	});
+
+	jQuery(document).on('click', '.wprm-manage-taxonomies-actions-rename', function(e) {
+		e.preventDefault();
+
+		var id = jQuery(this).data('id'),
+			name = jQuery('#wprm-manage-taxonomies-name-' + id).text(),
+			taxonomy = jQuery('.wprm-manage-taxonomies').data('taxonomy');
+		
+		var new_name = prompt('What do you want to rename "' + name + '" to?', name).trim();
+		if(new_name) {
+			wprm_admin.rename_term(id, taxonomy, new_name);
 		}
 	});
 
@@ -339,3 +378,10 @@ jQuery(document).ready(function($) {
 		}
 	});
 });
+
+// Prevent Jetpack compatibility problem.
+var grunionEditorView = grunionEditorView || {
+	labels : {
+		tinymce_label: ''
+	}
+};

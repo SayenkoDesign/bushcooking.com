@@ -1,3 +1,58 @@
+.rtl .wprm-recipe-container .wprm-recipe-tastefully-simple,
+.rtl .wprm-print .wprm-recipe-tastefully-simple {
+	.wprm-recipe-image-container {
+		float: left;
+		text-align: left;
+
+		.wprm-recipe-image {
+			margin-left: 0;
+			margin-right: 10px;
+		}
+	}
+
+	.wprm-recipe-time-container {
+		float: right;
+	}
+
+	.wprm-clear-left {
+		clear: right;
+	}
+
+	.wprm-recipe-time-container {
+		border-left: none;
+		border-right: 1px solid #ccc;
+
+		&:first-child {
+			border-right: none;
+		}
+	}
+
+	.wprm-recipe-ingredients {
+		li {
+			margin-left: 0;
+			margin-right: 10px;
+		}
+	}
+
+	.wprm-recipe-instructions {
+		li {
+			margin-left: 0;
+			margin-right: 30px;
+		}
+	}
+
+	.wprm-recipe-notes-container {
+		ul li {
+			margin-left: 0;
+			margin-right: 10px;
+		}
+		ol li {
+			margin-left: 0;
+			margin-right: 30px;
+		}
+	}
+}
+
 .wprm-recipe-container .wprm-recipe-tastefully-simple,
 .wprm-print .wprm-recipe-tastefully-simple {
 	font: 12px Verdana, Arial, Geneva, sans-serif;
@@ -5,7 +60,7 @@
 	padding: 10px;
 
 	p, li {
-		font: 12px Verdana, Arial, Geneva, sans-serif;
+		font: 1em Verdana, Arial, Geneva, sans-serif;
 	}
 
 	div,
@@ -45,7 +100,7 @@
 			margin-bottom: 5px;
 
 			.wprm-recipe-rating-details {
-				font: 10px "Trebuchet MS",Arial,Helvetica,sans-serif;
+				font: 0.8em "Trebuchet MS",Arial,Helvetica,sans-serif;
 			}
 		}
 
@@ -69,7 +124,7 @@
 	}
 
 	.wprm-recipe-name {
-		font: 150% Verdana, Geneva, sans-serif;
+		font: 1.5em Verdana, Geneva, sans-serif;
 		margin-bottom: 15px;
 	}
 
@@ -99,7 +154,7 @@
 		}
 
 		.wprm-recipe-time {
-			font-size: 10px;
+			font-size: 0.8em;
 			font-weight: normal;
 		}
 	}
@@ -132,7 +187,7 @@
 
 	.wprm-recipe-ingredients {
 		li {
-			list-style: disc inside;
+			list-style-position: inside;
 			margin-left: 10px;
 			line-height: inherit;
 			background: 0 0;
@@ -145,7 +200,6 @@
 
 	.wprm-recipe-instructions {
 		li {
-			list-style: decimal;
 			margin-left: 30px;
 			line-height: inherit;
 			background: 0 0;
@@ -163,17 +217,10 @@
 		}
 	}
 }
-.wprm-print {
-	.wprm-recipe-tastefully-simple {
-		max-width: 750px;
-		margin: 0 auto;
-	}
-	.wprm-recipe-print {
-		display: none;
-	}
-}
+
 @media only screen and (max-width: 480px) {
-	.wprm-recipe-container .wprm-recipe-tastefully-simple {
+	.wprm-recipe-container .wprm-recipe-tastefully-simple,
+	.rtl .wprm-recipe-container .wprm-recipe-tastefully-simple {
 		.wprm-recipe-image-container {
 			float: none;
 			width: 100%;
@@ -183,6 +230,7 @@
 
 			.wprm-recipe-image {
 				margin-left: 0;
+				margin-right: 0;
 			}
 		}
 		.wprm-recipe-times-container {

@@ -7,6 +7,7 @@ $comments = get_comments([
 $content = [];
 foreach($comments as $comment){
 	$content[] = $app->render('partials/comment.html.twig', [
+	        'user_link' => bp_core_get_user_domain($comment->user_id),
 			'comment' => $comment,
 			'rating' => get_comment_meta($comment->comment_ID, 'rating', true)
 	]);

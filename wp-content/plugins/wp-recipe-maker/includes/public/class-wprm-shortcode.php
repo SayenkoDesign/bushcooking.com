@@ -34,18 +34,11 @@ class WPRM_Shortcode {
 
 		add_filter( 'content_edit_pre', array( __CLASS__, 'replace_wpultimaterecipe_shortcode' ) );
 		add_filter( 'content_edit_pre', array( __CLASS__, 'replace_bigoven_shortcode' ) );
+		add_filter( 'content_edit_pre', array( __CLASS__, 'replace_tasty_shortcode' ) );
+
+		add_filter( 'the_content', array( __CLASS__, 'replace_tasty_shortcode' ) );
 
 		add_action( 'init', array( __CLASS__, 'fallback_shortcodes' ), 11 );
-		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue' ) );
-	}
-
-	/**
-	 * Enqueue stylesheets and scripts.
-	 *
-	 * @since    1.1.0
-	 */
-	public static function enqueue() {
-		wp_enqueue_style( 'wprm-public', WPRM_URL . 'assets/css/public/public.min.css', array(), WPRM_VERSION, 'all' );
 	}
 
 	/**
@@ -56,6 +49,10 @@ class WPRM_Shortcode {
 	public static function fallback_shortcodes() {
 		if ( ! shortcode_exists( 'seo_recipe' ) ) {
 			add_shortcode( 'seo_recipe', array( __CLASS__, 'recipe_shortcode' ) );
+		}
+
+		if ( ! shortcode_exists( 'tasty-recipe' ) ) {
+			add_shortcode( 'tasty-recipe', array( __CLASS__, 'recipe_shortcode' ) );
 		}
 
 		if ( ! shortcode_exists( 'ultimate-recipe' ) ) {
@@ -80,6 +77,23 @@ class WPRM_Shortcode {
 	 */
 	public static function replace_wpultimaterecipe_shortcode( $content ) {
 		preg_match_all( "/\[ultimate-recipe\s.*?id='?\"?(\d+).*?]/im", $content, $matches );
+		foreach ( $matches[0] as $key => $match ) {
+			if ( WPRM_POST_TYPE === get_post_type( $matches[1][ $key ] ) ) {
+				$content = str_replace( $match, '[wprm-recipe id="' . $matches[1][ $key ] . '"]', $content );
+			}
+		}
+
+		return $content;
+	}
+
+	/**
+	 * Replace BigOven shortcode with ours.
+	 *
+	 * @since    1.23.0
+	 * @param	 mixed $content Content we want to filter before it gets passed along.
+	 */
+	public static function replace_tasty_shortcode( $content ) {
+		preg_match_all( "/\[tasty-recipe\s.*?id='?\"?(\d+).*?]/im", $content, $matches );
 		foreach ( $matches[0] as $key => $match ) {
 			if ( WPRM_POST_TYPE === get_post_type( $matches[1][ $key ] ) ) {
 				$content = str_replace( $match, '[wprm-recipe id="' . $matches[1][ $key ] . '"]', $content );

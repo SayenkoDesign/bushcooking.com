@@ -29,24 +29,7 @@ class WPRM_Print {
 		add_action( 'wp_ajax_wprm_print_recipe', array( __CLASS__, 'ajax_print_recipe' ) );
 		add_action( 'wp_ajax_nopriv_wprm_print_recipe', array( __CLASS__, 'ajax_print_recipe' ) );
 
-		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue' ) );
-
 		add_filter( 'wprm_get_template', array( __CLASS__, 'print_credit' ), 10, 3 );
-	}
-
-	/**
-	 * Enqueue stylesheets and scripts.
-	 *
-	 * @since    1.0.0
-	 */
-	public static function enqueue() {
-		wp_enqueue_script( 'wprm-print', WPRM_URL . 'assets/js/public/print.js', array( 'jquery' ), WPRM_VERSION, true );
-
-		wp_localize_script( 'wprm-print', 'wprm_public', array(
-			'home_url' => home_url( '/' ),
-			'ajax_url' => admin_url( 'admin-ajax.php' ),
-			'nonce' => wp_create_nonce( 'wprm' ),
-		));
 	}
 
 	/**
@@ -63,17 +46,28 @@ class WPRM_Print {
 			$styles = WPRM_Template_Manager::get_template_styles( $recipe, 'print' );
 			$styles .= '<style>body { position: relative; padding-bottom: 30px; } #wprm-print-footer { position: absolute; bottom: 0; left: 0; right: 0; text-align: center; font-size: 0.8em; }</style>';
 
-			if ( WPRM_Settings::get( 'print_css' ) ) {
-				$styles .= '<style>' . WPRM_Settings::get( 'print_css' ) . '</style>';
-			}
-
+			$styles .= '<link rel="stylesheet" type="text/css" href="' . WPRM_URL . 'assets/css/public/public.min.css"/>';
 			if ( WPRM_Addons::is_active( 'premium' ) ) {
 				$styles .= '<link rel="stylesheet" type="text/css" href="' . WPRMP_URL . 'assets/css/public/public.min.css"/>';
 			}
 
+			// Custom Style.
+			ob_start();
+			WPRM_Template_Manager::custom_css( 'print' );
+			$custom_css = ob_get_contents();
+			ob_end_clean();
+
+			$styles .= $custom_css;
+
+			if ( WPRM_Settings::get( 'print_css' ) ) {
+				$styles .= '<style>' . WPRM_Settings::get( 'print_css' ) . '</style>';
+			}
+
+
 			$scripts = '';
 			if ( WPRM_Addons::is_active( 'premium' ) ) {
 				$scripts .= '<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>';
+				$scripts .= '<script>var wprmp_public = { settings : { features_adjustable_servings : true } };</script>';
 				$scripts .= '<script src="' . WPRMP_URL . 'assets/js/public/servings-changer.js"></script>';
 
 				if ( WPRM_Addons::is_active( 'unit-conversion' ) ) {
@@ -98,7 +92,11 @@ class WPRM_Print {
 			header( 'HTTP/1.1 200 OK' );
 
 			$charset = get_bloginfo( 'charset' );
-			$print_html = '<html><head><meta http-equiv="Content-Type" content="text/html; charset=' . $charset . '" /><meta name="robots" content="noindex">' . $styles . $scripts . '</head><body class="wprm-print" data-recipe="' . esc_attr( $recipe_id ) . '">';
+
+			$dir = is_rtl() ? 'rtl' : 'ltr';
+			$rtl_class = is_rtl() ? ' rtl' : '';
+
+			$print_html = '<html dir="' . $dir . '"><head><meta http-equiv="Content-Type" content="text/html; charset=' . $charset . '" /><meta name="robots" content="noindex">' . $styles . $scripts . '</head><body class="wprm-print' . $rtl_class . '" data-recipe="' . esc_attr( $recipe_id ) . '">';
 			$print_html .= WPRM_Template_Manager::get_template( $recipe, 'print' );
 			$print_html .= '</body></html>';
 			echo $print_html;

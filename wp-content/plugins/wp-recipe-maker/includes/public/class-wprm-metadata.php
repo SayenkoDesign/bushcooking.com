@@ -51,7 +51,7 @@ class WPRM_Metadata {
 				$sanitized[ $key ] = self::sanitize_metadata( $value );
 			}
 		} else {
-			$sanitized = strip_shortcodes( wp_strip_all_tags( $metadata ) );
+			$sanitized = strip_shortcodes( wp_strip_all_tags( do_shortcode( $metadata ) ) );
 		}
 		return $sanitized;
 	}
