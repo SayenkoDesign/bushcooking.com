@@ -4883,11 +4883,8 @@ h1, h2, h3, h4 {
 
 /* line 15, ../scss/_single-post.scss */
 #post-featured-image {
-  background-color: #FFF;
-  border: 1px solid #fcdedc;
-  padding: 6px;
   margin-bottom: 2rem; }
-  /* line 20, ../scss/_single-post.scss */
+  /* line 17, ../scss/_single-post.scss */
   #post-featured-image img {
     width: 100%;
     max-width: 300px; }
@@ -4895,49 +4892,46 @@ h1, h2, h3, h4 {
     /* line 15, ../scss/_single-post.scss */
     #post-featured-image {
       float: left;
-      margin: 0 2rem 1rem 0;
-      background-color: #FFF;
-      border: 1px solid #fcdedc;
-      padding: 6px; } }
+      margin: 0 2rem 1rem 0; } }
 
-/* line 32, ../scss/_single-post.scss */
+/* line 26, ../scss/_single-post.scss */
 #categories {
   margin-bottom: 1rem; }
-  /* line 34, ../scss/_single-post.scss */
+  /* line 28, ../scss/_single-post.scss */
   #categories a {
     padding-left: 0;
     padding-right: 0; }
-    /* line 37, ../scss/_single-post.scss */
+    /* line 31, ../scss/_single-post.scss */
     #categories a i {
       vertical-align: top; }
-    /* line 40, ../scss/_single-post.scss */
+    /* line 34, ../scss/_single-post.scss */
     #categories a span {
       color: #773D1A; }
 
-/* line 46, ../scss/_single-post.scss */
+/* line 40, ../scss/_single-post.scss */
 #search-post input[type=search], #search-post input[type=text] {
   font-size: 14px;
   -moz-appearance: textfield;
   -webkit-appearance: textfield;
   appearance: textfield; }
-  /* line 51, ../scss/_single-post.scss */
+  /* line 45, ../scss/_single-post.scss */
   #search-post input[type=search]::-webkit-input-placeholder, #search-post input[type=text]::-webkit-input-placeholder {
     color: #F15B24; }
-  /* line 54, ../scss/_single-post.scss */
+  /* line 48, ../scss/_single-post.scss */
   #search-post input[type=search]:-moz-placeholder, #search-post input[type=text]:-moz-placeholder {
     /* FF 4-18 */
     color: #F15B24;
     opacity: 1; }
-  /* line 59, ../scss/_single-post.scss */
+  /* line 53, ../scss/_single-post.scss */
   #search-post input[type=search]::-moz-placeholder, #search-post input[type=text]::-moz-placeholder {
     /* FF 19+ */
     color: #F15B24;
     opacity: 1; }
-  /* line 64, ../scss/_single-post.scss */
+  /* line 58, ../scss/_single-post.scss */
   #search-post input[type=search]:-ms-input-placeholder, #search-post input[type=text]:-ms-input-placeholder {
     /* IE 10+ */
     color: #F15B24; }
-/* line 69, ../scss/_single-post.scss */
+/* line 63, ../scss/_single-post.scss */
 #search-post button {
   margin-left: 4px;
   font-size: 14px; }
@@ -5750,3 +5744,13 @@ h1, h2, h3, h4 {
 /* line 127, ../scss/app.scss */
 .wprm-recipe-details-container br, .wprm-recipe-ingredient br, .wprm-recipe-details-icon br {
   display: none; }
+
+/* line 132, ../scss/app.scss */
+#primary #content .large-8.columns iframe, #primary #content .large-8.columns img {
+  background-color: #FFF;
+  border: 1px solid #fcdedc;
+  padding: 6px; }
+/* line 137, ../scss/app.scss */
+#primary #content .large-8.columns #recipe-related img {
+  padding: 0;
+  border: none; }
